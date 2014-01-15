@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CCPhysicsNode.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CCPhysicsNode</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+            
+			
+			<NodeRef refid="93"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsNode/setDebugDraw:</TokenIdentifier>
+			<Abstract type="html">Should the node draw a debug overlay of the joints and collision shapes?
+Defaults to NO</Abstract>
+			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) BOOL debugDraw</Declaration>
+			
+			
+			<Anchor>//api/name/debugDraw</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsNode/debugDraw</TokenIdentifier>
+			<Abstract type="html">Should the node draw a debug overlay of the joints and collision shapes?
+Defaults to NO</Abstract>
+			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) BOOL debugDraw</Declaration>
+			
+			
+			<Anchor>//api/name/debugDraw</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsNode/debugDraw</TokenIdentifier>
+			<Abstract type="html">Should the node draw a debug overlay of the joints and collision shapes?
+Defaults to NO</Abstract>
+			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) BOOL debugDraw</Declaration>
+			
+			
+			<Anchor>//api/name/debugDraw</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsNode/setGravity:</TokenIdentifier>
+			<Abstract type="html">Gravity applied to the dynamic bodies in the world.
+Defaults to CGPointZero.</Abstract>
+			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CGPoint gravity</Declaration>
+			
+			
+			<Anchor>//api/name/gravity</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsNode/gravity</TokenIdentifier>
+			<Abstract type="html">Gravity applied to the dynamic bodies in the world.
+Defaults to CGPointZero.</Abstract>
+			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CGPoint gravity</Declaration>
+			
+			
+			<Anchor>//api/name/gravity</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsNode/gravity</TokenIdentifier>
+			<Abstract type="html">Gravity applied to the dynamic bodies in the world.
+Defaults to CGPointZero.</Abstract>
+			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CGPoint gravity</Declaration>
+			
+			
+			<Anchor>//api/name/gravity</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsNode/setSleepTimeThreshold:</TokenIdentifier>
+			<Abstract type="html">Physics bodies fall asleep when a group of them move slowly for longer than the threshold.
+Sleeping bodies use minimal CPU resources and wake automatically when a collision happens.
+Defaults to 0.5 seconds.</Abstract>
+			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CCTime sleepTimeThreshold</Declaration>
+			
+			
+			<Anchor>//api/name/sleepTimeThreshold</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsNode/sleepTimeThreshold</TokenIdentifier>
+			<Abstract type="html">Physics bodies fall asleep when a group of them move slowly for longer than the threshold.
+Sleeping bodies use minimal CPU resources and wake automatically when a collision happens.
+Defaults to 0.5 seconds.</Abstract>
+			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CCTime sleepTimeThreshold</Declaration>
+			
+			
+			<Anchor>//api/name/sleepTimeThreshold</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsNode/sleepTimeThreshold</TokenIdentifier>
+			<Abstract type="html">Physics bodies fall asleep when a group of them move slowly for longer than the threshold.
+Sleeping bodies use minimal CPU resources and wake automatically when a collision happens.
+Defaults to 0.5 seconds.</Abstract>
+			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CCTime sleepTimeThreshold</Declaration>
+			
+			
+			<Anchor>//api/name/sleepTimeThreshold</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsNode/setCollisionDelegate:</TokenIdentifier>
+			<Abstract type="html">The delegate that is called when two physics bodies collide.</Abstract>
+			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) NSObject&lt;CCPhysicsCollisionDelegate&gt; *collisionDelegate</Declaration>
+			
+			
+			<Anchor>//api/name/collisionDelegate</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsNode/collisionDelegate</TokenIdentifier>
+			<Abstract type="html">The delegate that is called when two physics bodies collide.</Abstract>
+			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) NSObject&lt;CCPhysicsCollisionDelegate&gt; *collisionDelegate</Declaration>
+			
+			
+			<Anchor>//api/name/collisionDelegate</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsNode/collisionDelegate</TokenIdentifier>
+			<Abstract type="html">The delegate that is called when two physics bodies collide.</Abstract>
+			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) NSObject&lt;CCPhysicsCollisionDelegate&gt; *collisionDelegate</Declaration>
+			
+			
+			<Anchor>//api/name/collisionDelegate</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsNode/pointQueryAt:within:block:</TokenIdentifier>
+			<Abstract type="html">Find all CCPhysicsShapes within a certain distance of a point.
+The block is called once for each shape found.</Abstract>
+			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			
+			<Declaration>- (void)pointQueryAt:(CGPoint)point within:(CGFloat)radius block:(BOOL ( ^ ) ( CCPhysicsShape *shape , CGPoint nearest , CGFloat distance ))block</Declaration>
+			
+			
+			<Anchor>//api/name/pointQueryAt:within:block:</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsNode/rayQueryFirstFrom:to:block:</TokenIdentifier>
+			<Abstract type="html">Shoot a ray from &apos;start&apos; to &apos;end&apos; and find all of the CCPhysicsShapes that it would hit.
+The block is called once for each shape found.</Abstract>
+			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			
+			<Declaration>- (void)rayQueryFirstFrom:(CGPoint)start to:(CGPoint)end block:(BOOL ( ^ ) ( CCPhysicsShape *shape , CGPoint point , CGPoint normal , CGFloat distance ))block</Declaration>
+			
+			
+			<Anchor>//api/name/rayQueryFirstFrom:to:block:</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsNode/rectQuery:block:</TokenIdentifier>
+			<Abstract type="html">Find all CCPhysicsShapes whose bounding boxes overlap the given CGRect.
+The block is called once for each shape found.</Abstract>
+			<DeclaredIn>CCPhysicsNode.h</DeclaredIn>
+			
+			<Declaration>- (void)rectQuery:(CGRect)rect block:(BOOL ( ^ ) ( CCPhysicsShape *shape ))block</Declaration>
+			
+			
+			<Anchor>//api/name/rectQuery:block:</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsNode/setSpace:</TokenIdentifier>
+			<Abstract type="html">Access to the underlying Objective-Chipmunk object.</Abstract>
+			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) ChipmunkSpace *space</Declaration>
+			
+			
+			<Anchor>//api/name/space</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsNode/space</TokenIdentifier>
+			<Abstract type="html">Access to the underlying Objective-Chipmunk object.</Abstract>
+			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) ChipmunkSpace *space</Declaration>
+			
+			
+			<Anchor>//api/name/space</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsNode/space</TokenIdentifier>
+			<Abstract type="html">Access to the underlying Objective-Chipmunk object.</Abstract>
+			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) ChipmunkSpace *space</Declaration>
+			
+			
+			<Anchor>//api/name/space</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsNode/internString:</TokenIdentifier>
+			<Abstract type="html">Intern and copy a string to ensure it can be checked by reference
+Used for collision type identifiers by CCPhysics.
+nil and @&quot;default&quot; both return the value nil.</Abstract>
+			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
+			
+			<Declaration>- (NSString *)internString:(NSString *)string</Declaration>
+			
+			
+			<Anchor>//api/name/internString:</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsNode/indexForCategory:</TokenIdentifier>
+			<Abstract type="html">Retain and track a category identifier and return its index.
+Up to 32 categories can be tracked for a space.</Abstract>
+			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
+			
+			<Declaration>- (NSUInteger)indexForCategory:(NSString *)category</Declaration>
+			
+			
+			<Anchor>//api/name/indexForCategory:</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsNode/bitmaskForCategories:</TokenIdentifier>
+			<Abstract type="html">Convert an array of NSStrings for collision category identifiers into a category bitmask.
+The categories are retained and assigned indexes.
+Up to 32 categories can be tracked for a space.</Abstract>
+			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
+			
+			<Declaration>- (cpBitmask)bitmaskForCategories:(NSArray *)categories</Declaration>
+			
+			
+			<Anchor>//api/name/bitmaskForCategories:</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsNode/categoriesForBitmask:</TokenIdentifier>
+			<Abstract type="html">Convert a cpBitmask value to an array of collision category strings.
+Ignores any bits that don&apos;t have a collision category assigned in the physics node.</Abstract>
+			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
+			
+			<Declaration>- (NSArray *)categoriesForBitmask:(cpBitmask)categories</Declaration>
+			
+			
+			<Anchor>//api/name/categoriesForBitmask:</Anchor>
+            <NodeRef refid="93"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CCTexturePVR.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CCTexturePVR</TokenIdentifier>
+			<Abstract type="html">CCTexturePVR</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+            
+			
+			<NodeRef refid="110"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexturePVR/setName:</TokenIdentifier>
+			<Abstract type="html">texture id name</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) GLuint name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexturePVR/name</TokenIdentifier>
+			<Abstract type="html">texture id name</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) GLuint name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCTexturePVR/name</TokenIdentifier>
+			<Abstract type="html">texture id name</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) GLuint name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexturePVR/setWidth:</TokenIdentifier>
+			<Abstract type="html">texture width</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) uint32_t width</Declaration>
+			
+			
+			<Anchor>//api/name/width</Anchor>
+            <NodeRef refid="110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexturePVR/width</TokenIdentifier>
+			<Abstract type="html">texture width</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) uint32_t width</Declaration>
+			
+			
+			<Anchor>//api/name/width</Anchor>
+            <NodeRef refid="110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCTexturePVR/width</TokenIdentifier>
+			<Abstract type="html">texture width</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) uint32_t width</Declaration>
+			
+			
+			<Anchor>//api/name/width</Anchor>
+            <NodeRef refid="110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexturePVR/setHeight:</TokenIdentifier>
+			<Abstract type="html">texture height</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) uint32_t height</Declaration>
+			
+			
+			<Anchor>//api/name/height</Anchor>
+            <NodeRef refid="110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexturePVR/height</TokenIdentifier>
+			<Abstract type="html">texture height</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) uint32_t height</Declaration>
+			
+			
+			<Anchor>//api/name/height</Anchor>
+            <NodeRef refid="110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCTexturePVR/height</TokenIdentifier>
+			<Abstract type="html">texture height</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) uint32_t height</Declaration>
+			
+			
+			<Anchor>//api/name/height</Anchor>
+            <NodeRef refid="110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexturePVR/setHasAlpha:</TokenIdentifier>
+			<Abstract type="html">whether or not the texture has alpha</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL hasAlpha</Declaration>
+			
+			
+			<Anchor>//api/name/hasAlpha</Anchor>
+            <NodeRef refid="110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexturePVR/hasAlpha</TokenIdentifier>
+			<Abstract type="html">whether or not the texture has alpha</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL hasAlpha</Declaration>
+			
+			
+			<Anchor>//api/name/hasAlpha</Anchor>
+            <NodeRef refid="110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCTexturePVR/hasAlpha</TokenIdentifier>
+			<Abstract type="html">whether or not the texture has alpha</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL hasAlpha</Declaration>
+			
+			
+			<Anchor>//api/name/hasAlpha</Anchor>
+            <NodeRef refid="110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexturePVR/setHasPremultipliedAlpha:</TokenIdentifier>
+			<Abstract type="html">whether or not the texture has premultiplied alpha</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL hasPremultipliedAlpha</Declaration>
+			
+			
+			<Anchor>//api/name/hasPremultipliedAlpha</Anchor>
+            <NodeRef refid="110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexturePVR/hasPremultipliedAlpha</TokenIdentifier>
+			<Abstract type="html">whether or not the texture has premultiplied alpha</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL hasPremultipliedAlpha</Declaration>
+			
+			
+			<Anchor>//api/name/hasPremultipliedAlpha</Anchor>
+            <NodeRef refid="110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCTexturePVR/hasPremultipliedAlpha</TokenIdentifier>
+			<Abstract type="html">whether or not the texture has premultiplied alpha</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL hasPremultipliedAlpha</Declaration>
+			
+			
+			<Anchor>//api/name/hasPremultipliedAlpha</Anchor>
+            <NodeRef refid="110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexturePVR/setForcePremultipliedAlpha:</TokenIdentifier>
+			<Abstract type="html">whether or not the texture should use hasPremultipliedAlpha instead of global default</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL forcePremultipliedAlpha</Declaration>
+			
+			
+			<Anchor>//api/name/forcePremultipliedAlpha</Anchor>
+            <NodeRef refid="110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexturePVR/forcePremultipliedAlpha</TokenIdentifier>
+			<Abstract type="html">whether or not the texture should use hasPremultipliedAlpha instead of global default</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL forcePremultipliedAlpha</Declaration>
+			
+			
+			<Anchor>//api/name/forcePremultipliedAlpha</Anchor>
+            <NodeRef refid="110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCTexturePVR/forcePremultipliedAlpha</TokenIdentifier>
+			<Abstract type="html">whether or not the texture should use hasPremultipliedAlpha instead of global default</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL forcePremultipliedAlpha</Declaration>
+			
+			
+			<Anchor>//api/name/forcePremultipliedAlpha</Anchor>
+            <NodeRef refid="110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexturePVR/setNumberOfMipmaps:</TokenIdentifier>
+			<Abstract type="html">how many mipmaps the texture has. 1 means one level (level 0</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSUInteger numberOfMipmaps</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfMipmaps</Anchor>
+            <NodeRef refid="110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexturePVR/numberOfMipmaps</TokenIdentifier>
+			<Abstract type="html">how many mipmaps the texture has. 1 means one level (level 0</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSUInteger numberOfMipmaps</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfMipmaps</Anchor>
+            <NodeRef refid="110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCTexturePVR/numberOfMipmaps</TokenIdentifier>
+			<Abstract type="html">how many mipmaps the texture has. 1 means one level (level 0</Abstract>
+			<DeclaredIn>CCTexturePVR.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSUInteger numberOfMipmaps</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfMipmaps</Anchor>
+            <NodeRef refid="110"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

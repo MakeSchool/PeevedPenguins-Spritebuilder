@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CCNodeRGBA.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CCNodeRGBA</TokenIdentifier>
+			<Abstract type="html">CCNodeRGBA is a subclass of CCNode that implements the CCRGBAProtocol protocol.</Abstract>
+			<DeclaredIn>CCNode.h</DeclaredIn>
+            
+			
+			<NodeRef refid="85"/>
+		</Token>
+		
+		
+        
+	</File>
+</Tokens>

@@ -1,0 +1,1059 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>CCParticleBatchNode Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 961)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">Cocos2d </a></h1>
+				<a id="developerHome" href="../index.html">Cocos2d-iPhone.org</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">CCParticleBatchNode Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/blendFunc">&nbsp;&nbsp;&nbsp;&nbsp;blendFunc</option>
+	
+	<option value="//api/name/textureAtlas">&nbsp;&nbsp;&nbsp;&nbsp;textureAtlas</option>
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/batchNodeWithFile:">&nbsp;&nbsp;&nbsp;&nbsp;+ batchNodeWithFile:</option>
+	
+	<option value="//api/name/batchNodeWithFile:capacity:">&nbsp;&nbsp;&nbsp;&nbsp;+ batchNodeWithFile:capacity:</option>
+	
+	<option value="//api/name/batchNodeWithTexture:">&nbsp;&nbsp;&nbsp;&nbsp;+ batchNodeWithTexture:</option>
+	
+	<option value="//api/name/batchNodeWithTexture:capacity:">&nbsp;&nbsp;&nbsp;&nbsp;+ batchNodeWithTexture:capacity:</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/addChild:z:tag:">&nbsp;&nbsp;&nbsp;&nbsp;- addChild:z:tag:</option>
+	
+	<option value="//api/name/disableParticle:">&nbsp;&nbsp;&nbsp;&nbsp;- disableParticle:</option>
+	
+	<option value="//api/name/initWithFile:capacity:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithFile:capacity:</option>
+	
+	<option value="//api/name/initWithTexture:capacity:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithTexture:capacity:</option>
+	
+	<option value="//api/name/insertChild:inAtlasAtIndex:">&nbsp;&nbsp;&nbsp;&nbsp;- insertChild:inAtlasAtIndex:</option>
+	
+	<option value="//api/name/removeChild:cleanup:">&nbsp;&nbsp;&nbsp;&nbsp;- removeChild:cleanup:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Accessing Particle Attributes">Accessing Particle Attributes</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Creating a CCParticleBatchNode Object">Creating a CCParticleBatchNode Object</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Initializing a CCParticleBatchNode Object">Initializing a CCParticleBatchNode Object</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Hierarchy Management Methods">Hierarchy Management Methods</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/blendFunc">blendFunc</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/textureAtlas">textureAtlas</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/batchNodeWithFile:">batchNodeWithFile:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/batchNodeWithFile:capacity:">batchNodeWithFile:capacity:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/batchNodeWithTexture:">batchNodeWithTexture:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/batchNodeWithTexture:capacity:">batchNodeWithTexture:capacity:</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addChild:z:tag:">addChild:z:tag:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/disableParticle:">disableParticle:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithFile:capacity:">initWithFile:capacity:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithTexture:capacity:">initWithTexture:capacity:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/insertChild:inAtlasAtIndex:">insertChild:inAtlasAtIndex:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeChild:cleanup:">removeChild:cleanup:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="CCParticleBatchNode Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">CCParticleBatchNode Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value"><a href="../Classes/CCNode.html">CCNode</a> : <a href="../Classes/CCResponder.html">CCResponder</a> : NSObject</td>
+</tr><tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">CCTextureProtocol</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">CCParticleBatchNode.h</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>CCParticleBatchNode offers improved performance by operating in the same manner as <a href="../Classes/CCSpriteBatchNode.html">CCSpriteBatchNode</a> by rendering all particles systems as a batch (1 OpenGL Call).</p>
+
+<h3>Limitations</h3>
+
+<ul>
+<li>Currently only <a href="../Classes/CCParticleSystemQuad.html">CCParticleSystemQuad</a> is supported.</li>
+<li>All particle systems need to be drawn with the same parameters, blend function, aliasing and texture.</li>
+</ul>
+
+
+<h3>Notes</h3>
+
+<ul>
+<li>Initialize the ParticleBatchNode with the texture and enough capacity for all the required particle systems.</li>
+<li>Initialize all particle systems and add them as child to the CCParticleBatchNode.</li>
+<li>Default capacity is 500.</li>
+</ul>
+
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						<a title="Accessing Particle Attributes" name="task_Accessing Particle Attributes"></a>
+						<h3 class="subsubtitle task-title">Accessing Particle Attributes</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/textureAtlas">&nbsp;&nbsp;textureAtlas</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/blendFunc">&nbsp;&nbsp;blendFunc</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Creating a CCParticleBatchNode Object" name="task_Creating a CCParticleBatchNode Object"></a>
+						<h3 class="subsubtitle task-title">Creating a CCParticleBatchNode Object</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/batchNodeWithTexture:">+&nbsp;batchNodeWithTexture:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/batchNodeWithFile:">+&nbsp;batchNodeWithFile:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/batchNodeWithTexture:capacity:">+&nbsp;batchNodeWithTexture:capacity:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/batchNodeWithFile:capacity:">+&nbsp;batchNodeWithFile:capacity:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Initializing a CCParticleBatchNode Object" name="task_Initializing a CCParticleBatchNode Object"></a>
+						<h3 class="subsubtitle task-title">Initializing a CCParticleBatchNode Object</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithTexture:capacity:">&ndash;&nbsp;initWithTexture:capacity:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithFile:capacity:">&ndash;&nbsp;initWithFile:capacity:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Hierarchy Management Methods" name="task_Hierarchy Management Methods"></a>
+						<h3 class="subsubtitle task-title">Hierarchy Management Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addChild:z:tag:">&ndash;&nbsp;addChild:z:tag:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/insertChild:inAtlasAtIndex:">&ndash;&nbsp;insertChild:inAtlasAtIndex:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeChild:cleanup:">&ndash;&nbsp;removeChild:cleanup:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/disableParticle:">&ndash;&nbsp;disableParticle:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/blendFunc" title="blendFunc"></a>
+	<h3 class="subsubtitle method-title">blendFunc</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Blend method.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) ccBlendFunc blendFunc</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCParticleBatchNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/textureAtlas" title="textureAtlas"></a>
+	<h3 class="subsubtitle method-title">textureAtlas</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Particle system texture.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) CCTextureAtlas *textureAtlas</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCParticleBatchNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/batchNodeWithFile:" title="batchNodeWithFile:"></a>
+	<h3 class="subsubtitle method-title">batchNodeWithFile:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Creates and returns a particle batch node object from the specified image file value.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (id)batchNodeWithFile:(NSString *)<em>imageFile</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>imageFile</em></dt>
+			<dd><p>Image file path.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The CCParticleBatchNode Object.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCParticleBatchNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/batchNodeWithFile:capacity:" title="batchNodeWithFile:capacity:"></a>
+	<h3 class="subsubtitle method-title">batchNodeWithFile:capacity:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Creates and returns a particle batch node object from the specified texture and capacity values.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (id)batchNodeWithFile:(NSString *)<em>fileImage</em> capacity:(NSUInteger)<em>capacity</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fileImage</em></dt>
+			<dd><p>Image file path.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>capacity</em></dt>
+			<dd><p>Initial capacity.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The CCParticleBatchNode Object.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCParticleBatchNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/batchNodeWithTexture:" title="batchNodeWithTexture:"></a>
+	<h3 class="subsubtitle method-title">batchNodeWithTexture:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Creates and returns a particle batch node object from the specified texture value.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (id)batchNodeWithTexture:(CCTexture *)<em>tex</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>tex</em></dt>
+			<dd><p>Texture.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The CCParticleBatchNode Object.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCParticleBatchNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/batchNodeWithTexture:capacity:" title="batchNodeWithTexture:capacity:"></a>
+	<h3 class="subsubtitle method-title">batchNodeWithTexture:capacity:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Creates and returns a particle batch node object from the specified texture and capacity values.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (id)batchNodeWithTexture:(CCTexture *)<em>tex</em> capacity:(NSUInteger)<em>capacity</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>tex</em></dt>
+			<dd><p>Texture.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>capacity</em></dt>
+			<dd><p>Initial capacity.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The CCParticleBatchNode Object.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCParticleBatchNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/addChild:z:tag:" title="addChild:z:tag:"></a>
+	<h3 class="subsubtitle method-title">addChild:z:tag:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Add a particle system to the particle system batch node.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addChild:(CCParticleSystem *)<em>child</em> z:(NSInteger)<em>z</em> tag:(NSInteger)<em>aTag</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>child</em></dt>
+			<dd><p>Particle System.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>z</em></dt>
+			<dd><p>Z Order.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>aTag</em></dt>
+			<dd><p>Tag.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCParticleBatchNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/disableParticle:" title="disableParticle:"></a>
+	<h3 class="subsubtitle method-title">disableParticle:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Disables a particle system.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)disableParticle:(NSUInteger)<em>particleIndex</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>particleIndex</em></dt>
+			<dd><p>Particle system Index.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCParticleBatchNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithFile:capacity:" title="initWithFile:capacity:"></a>
+	<h3 class="subsubtitle method-title">initWithFile:capacity:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes and returns a particle batch node object from the specified texture and capacity values.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithFile:(NSString *)<em>fileImage</em> capacity:(NSUInteger)<em>capacity</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>fileImage</em></dt>
+			<dd><p>Image file path.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>capacity</em></dt>
+			<dd><p>Initial capacity.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>An initialized CCParticleBatchNode Object.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCParticleBatchNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithTexture:capacity:" title="initWithTexture:capacity:"></a>
+	<h3 class="subsubtitle method-title">initWithTexture:capacity:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes and returns a particle batch node object from the specified texture and capacity values.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithTexture:(CCTexture *)<em>tex</em> capacity:(NSUInteger)<em>capacity</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>tex</em></dt>
+			<dd><p>Texture.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>capacity</em></dt>
+			<dd><p>Initial capacity.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>An initialized CCParticleBatchNode Object.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCParticleBatchNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/insertChild:inAtlasAtIndex:" title="insertChild:inAtlasAtIndex:"></a>
+	<h3 class="subsubtitle method-title">insertChild:inAtlasAtIndex:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Inserts a particle system to the batch node.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)insertChild:(CCParticleSystem *)<em>pSystem</em> inAtlasAtIndex:(NSUInteger)<em>index</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>pSystem</em></dt>
+			<dd><p>Particle System.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>index</em></dt>
+			<dd><p>Index Position.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCParticleBatchNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeChild:cleanup:" title="removeChild:cleanup:"></a>
+	<h3 class="subsubtitle method-title">removeChild:cleanup:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Remove the specified particle system from the batch node.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeChild:(CCParticleSystem *)<em>pSystem</em> cleanup:(BOOL)<em>doCleanUp</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>pSystem</em></dt>
+			<dd><p>Particle System.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>doCleanUp</em></dt>
+			<dd><p>Perform cleanup.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCParticleBatchNode.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+                    
+                    
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Cocos2d-iPhone.org. All rights reserved. (Last updated: 2013-12-06)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

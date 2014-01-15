@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CCPhysicsJoint.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CCPhysicsJoint</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>CCPhysicsJoint.h</DeclaredIn>
+            
+			
+			<NodeRef refid="92"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCPhysicsJoint/connectedPivotJointWithBodyA:bodyB:anchorA:</TokenIdentifier>
+			<Abstract type="html">Connect a pivot joint between the two bodies.
+The pivot point is specified in the coordinates of the node that bodyA is attached to.</Abstract>
+			<DeclaredIn>CCPhysicsJoint.h</DeclaredIn>
+			
+			<Declaration>+ (CCPhysicsJoint *)connectedPivotJointWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA</Declaration>
+			
+			
+			<Anchor>//api/name/connectedPivotJointWithBodyA:bodyB:anchorA:</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCPhysicsJoint/connectedDistanceJointWithBodyA:bodyB:anchorA:anchorB:</TokenIdentifier>
+			<Abstract type="html">Connect a joint between the two bodies that keeps the distance of the two anchor points constant.
+The anchor points are specified in the coordinates of the node that the bodies are attached to.
+The distance is calculated when the joint becomes active.</Abstract>
+			<DeclaredIn>CCPhysicsJoint.h</DeclaredIn>
+			
+			<Declaration>+ (CCPhysicsJoint *)connectedDistanceJointWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA anchorB:(CGPoint)anchorB</Declaration>
+			
+			
+			<Anchor>//api/name/connectedDistanceJointWithBodyA:bodyB:anchorA:anchorB:</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCPhysicsJoint/connectedDistanceJointWithBodyA:bodyB:anchorA:anchorB:minDistance:maxDistance:</TokenIdentifier>
+			<Abstract type="html">Connect a joint between the two bodies that keeps the distance of the two anchor points within a range.
+The anchor points are specified in the coordinates of the node that the bodies are attached to.</Abstract>
+			<DeclaredIn>CCPhysicsJoint.h</DeclaredIn>
+			
+			<Declaration>+ (CCPhysicsJoint *)connectedDistanceJointWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA anchorB:(CGPoint)anchorB minDistance:(CGFloat)min maxDistance:(CGFloat)max</Declaration>
+			
+			
+			<Anchor>//api/name/connectedDistanceJointWithBodyA:bodyB:anchorA:anchorB:minDistance:maxDistance:</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCPhysicsJoint/connectedSpringJointWithBodyA:bodyB:anchorA:anchorB:restLength:stiffness:damping:</TokenIdentifier>
+			<Abstract type="html">Connect a spring between the two bodies at the specified anchor points.
+The anchor points are specified in the coordinates of the node that the bodies are attached to.</Abstract>
+			<DeclaredIn>CCPhysicsJoint.h</DeclaredIn>
+			
+			<Declaration>+ (CCPhysicsJoint *)connectedSpringJointWithBodyA:(CCPhysicsBody *)bodyA bodyB:(CCPhysicsBody *)bodyB anchorA:(CGPoint)anchorA anchorB:(CGPoint)anchorB restLength:(CGFloat)restLength stiffness:(CGFloat)stiffness damping:(CGFloat)damping</Declaration>
+			
+			
+			<Anchor>//api/name/connectedSpringJointWithBodyA:bodyB:anchorA:anchorB:restLength:stiffness:damping:</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsJoint/setBodyA:</TokenIdentifier>
+			<Abstract type="html">The first body this joint is attached to.</Abstract>
+			<DeclaredIn>CCPhysicsJoint.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) CCPhysicsBody *bodyA</Declaration>
+			
+			
+			<Anchor>//api/name/bodyA</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsJoint/bodyA</TokenIdentifier>
+			<Abstract type="html">The first body this joint is attached to.</Abstract>
+			<DeclaredIn>CCPhysicsJoint.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) CCPhysicsBody *bodyA</Declaration>
+			
+			
+			<Anchor>//api/name/bodyA</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsJoint/bodyA</TokenIdentifier>
+			<Abstract type="html">The first body this joint is attached to.</Abstract>
+			<DeclaredIn>CCPhysicsJoint.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) CCPhysicsBody *bodyA</Declaration>
+			
+			
+			<Anchor>//api/name/bodyA</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsJoint/setBodyB:</TokenIdentifier>
+			<Abstract type="html">The second body this joint is attached to.</Abstract>
+			<DeclaredIn>CCPhysicsJoint.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) CCPhysicsBody *bodyB</Declaration>
+			
+			
+			<Anchor>//api/name/bodyB</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsJoint/bodyB</TokenIdentifier>
+			<Abstract type="html">The second body this joint is attached to.</Abstract>
+			<DeclaredIn>CCPhysicsJoint.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) CCPhysicsBody *bodyB</Declaration>
+			
+			
+			<Anchor>//api/name/bodyB</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsJoint/bodyB</TokenIdentifier>
+			<Abstract type="html">The second body this joint is attached to.</Abstract>
+			<DeclaredIn>CCPhysicsJoint.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) CCPhysicsBody *bodyB</Declaration>
+			
+			
+			<Anchor>//api/name/bodyB</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsJoint/setMaxForce:</TokenIdentifier>
+			<Abstract type="html">The maximum force this joint is allowed to use.
+Defaults to INFINITY.</Abstract>
+			<DeclaredIn>CCPhysicsJoint.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CGFloat maxForce</Declaration>
+			
+			
+			<Anchor>//api/name/maxForce</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsJoint/maxForce</TokenIdentifier>
+			<Abstract type="html">The maximum force this joint is allowed to use.
+Defaults to INFINITY.</Abstract>
+			<DeclaredIn>CCPhysicsJoint.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CGFloat maxForce</Declaration>
+			
+			
+			<Anchor>//api/name/maxForce</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsJoint/maxForce</TokenIdentifier>
+			<Abstract type="html">The maximum force this joint is allowed to use.
+Defaults to INFINITY.</Abstract>
+			<DeclaredIn>CCPhysicsJoint.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CGFloat maxForce</Declaration>
+			
+			
+			<Anchor>//api/name/maxForce</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsJoint/setCollideBodies:</TokenIdentifier>
+			<Abstract type="html">Whether not the connected bodies are allowed to collide with one another.
+Defaults to YES.</Abstract>
+			<DeclaredIn>CCPhysicsJoint.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) BOOL collideBodies</Declaration>
+			
+			
+			<Anchor>//api/name/collideBodies</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsJoint/collideBodies</TokenIdentifier>
+			<Abstract type="html">Whether not the connected bodies are allowed to collide with one another.
+Defaults to YES.</Abstract>
+			<DeclaredIn>CCPhysicsJoint.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) BOOL collideBodies</Declaration>
+			
+			
+			<Anchor>//api/name/collideBodies</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsJoint/collideBodies</TokenIdentifier>
+			<Abstract type="html">Whether not the connected bodies are allowed to collide with one another.
+Defaults to YES.</Abstract>
+			<DeclaredIn>CCPhysicsJoint.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) BOOL collideBodies</Declaration>
+			
+			
+			<Anchor>//api/name/collideBodies</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsJoint/setImpulse:</TokenIdentifier>
+			<Abstract type="html">Depending on the joint, either the magnitude of the linear or angular impulse that this joint applied on the previous fixed time step.</Abstract>
+			<DeclaredIn>CCPhysicsJoint.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGFloat impulse</Declaration>
+			
+			
+			<Anchor>//api/name/impulse</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsJoint/impulse</TokenIdentifier>
+			<Abstract type="html">Depending on the joint, either the magnitude of the linear or angular impulse that this joint applied on the previous fixed time step.</Abstract>
+			<DeclaredIn>CCPhysicsJoint.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGFloat impulse</Declaration>
+			
+			
+			<Anchor>//api/name/impulse</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsJoint/impulse</TokenIdentifier>
+			<Abstract type="html">Depending on the joint, either the magnitude of the linear or angular impulse that this joint applied on the previous fixed time step.</Abstract>
+			<DeclaredIn>CCPhysicsJoint.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CGFloat impulse</Declaration>
+			
+			
+			<Anchor>//api/name/impulse</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsJoint/invalidate</TokenIdentifier>
+			<Abstract type="html">Disable the joint and remove it from the simulation.</Abstract>
+			<DeclaredIn>CCPhysicsJoint.h</DeclaredIn>
+			
+			<Declaration>- (void)invalidate</Declaration>
+			
+			
+			<Anchor>//api/name/invalidate</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsJoint/setConstraint:</TokenIdentifier>
+			<Abstract type="html">Access to the underlying Objective-Chipmunk object.</Abstract>
+			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) ChipmunkConstraint *constraint</Declaration>
+			
+			
+			<Anchor>//api/name/constraint</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsJoint/constraint</TokenIdentifier>
+			<Abstract type="html">Access to the underlying Objective-Chipmunk object.</Abstract>
+			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) ChipmunkConstraint *constraint</Declaration>
+			
+			
+			<Anchor>//api/name/constraint</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsJoint/constraint</TokenIdentifier>
+			<Abstract type="html">Access to the underlying Objective-Chipmunk object.</Abstract>
+			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) ChipmunkConstraint *constraint</Declaration>
+			
+			
+			<Anchor>//api/name/constraint</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsJoint/setIsRunning:</TokenIdentifier>
+			<Abstract type="html">Returns YES if the body is currently added to a physicsNode.</Abstract>
+			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL isRunning</Declaration>
+			
+			
+			<Anchor>//api/name/isRunning</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsJoint/isRunning</TokenIdentifier>
+			<Abstract type="html">Returns YES if the body is currently added to a physicsNode.</Abstract>
+			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL isRunning</Declaration>
+			
+			
+			<Anchor>//api/name/isRunning</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCPhysicsJoint/isRunning</TokenIdentifier>
+			<Abstract type="html">Returns YES if the body is currently added to a physicsNode.</Abstract>
+			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) BOOL isRunning</Declaration>
+			
+			
+			<Anchor>//api/name/isRunning</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsJoint/tryAddToPhysicsNode:</TokenIdentifier>
+			<Abstract type="html">Add the joint to the physics node, but only if both connected bodies are running.</Abstract>
+			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
+			
+			<Declaration>- (void)tryAddToPhysicsNode:(CCPhysicsNode *)physicsNode</Declaration>
+			
+			
+			<Anchor>//api/name/tryAddToPhysicsNode:</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsJoint/tryRemoveFromPhysicsNode:</TokenIdentifier>
+			<Abstract type="html">Remove the joint from the physics node, but only if the joint is added;</Abstract>
+			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
+			
+			<Declaration>- (void)tryRemoveFromPhysicsNode:(CCPhysicsNode *)physicsNode</Declaration>
+			
+			
+			<Anchor>//api/name/tryRemoveFromPhysicsNode:</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCPhysicsJoint/willAddToPhysicsNode:</TokenIdentifier>
+			<Abstract type="html">Used for deferring collision type setup until there is access to the physics node.</Abstract>
+			<DeclaredIn>CCPhysics+ObjectiveChipmunk.h</DeclaredIn>
+			
+			<Declaration>- (void)willAddToPhysicsNode:(CCPhysicsNode *)physics</Declaration>
+			
+			
+			<Anchor>//api/name/willAddToPhysicsNode:</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/CCMouseButton.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/CCMouseButton</TokenIdentifier>
+			<Abstract type="html">Defines the various mouse buttons</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+            
+			
+			<NodeRef refid="123"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/CCMouseButtonLeft</TokenIdentifier>
+            <Abstract type="html">Defines left mouse button, in mouse events on OSX</Abstract>
+            <Declaration>CCMouseButtonLeft</Declaration>
+            
+            <DeclaredIn>CCResponderManager.h</DeclaredIn>
+            
+            <NodeRef refid="123"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/CCMouseButtonRight</TokenIdentifier>
+            <Abstract type="html">Defines right mouse button, in mouse events on OSX</Abstract>
+            <Declaration>CCMouseButtonRight</Declaration>
+            
+            <DeclaredIn>CCResponderManager.h</DeclaredIn>
+            
+            <NodeRef refid="123"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/CCMouseButtonOther</TokenIdentifier>
+            <Abstract type="html">Defines other (middle) mouse button, in mouse events on OSX</Abstract>
+            <Declaration>CCMouseButtonOther</Declaration>
+            
+            <DeclaredIn>CCResponderManager.h</DeclaredIn>
+            
+            <NodeRef refid="123"/>
+        </Token>
+        
+	</File>
+</Tokens>

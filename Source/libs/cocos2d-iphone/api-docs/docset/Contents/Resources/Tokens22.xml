@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CCActionEaseElasticIn.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CCActionEaseElasticIn</TokenIdentifier>
+			<Abstract type="html">Ease Elastic In action.
+Starts the action with an elastic effect
+Note:
+This action doesn&apos;t use a bijective function. Actions like Sequence might have an unexpected result when used with this action.</Abstract>
+			<DeclaredIn>CCActionEase.h</DeclaredIn>
+            
+			
+			<NodeRef refid="22"/>
+		</Token>
+		
+		
+        
+	</File>
+</Tokens>

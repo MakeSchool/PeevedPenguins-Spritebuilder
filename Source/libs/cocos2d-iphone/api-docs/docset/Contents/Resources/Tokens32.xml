@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CCActionFiniteTime.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CCActionFiniteTime</TokenIdentifier>
+			<Abstract type="html">Base class for actions that have a finite time duration.
+Possible actions:
+- An action with a duration of 0 seconds
+- An action with a duration of 35.5 seconds</Abstract>
+			<DeclaredIn>CCAction.h</DeclaredIn>
+            
+			
+			<NodeRef refid="32"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionFiniteTime/setDuration:</TokenIdentifier>
+			<Abstract type="html">Duration of the action in seconds</Abstract>
+			<DeclaredIn>CCAction.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) CCTime duration</Declaration>
+			
+			
+			<Anchor>//api/name/duration</Anchor>
+            <NodeRef refid="32"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionFiniteTime/duration</TokenIdentifier>
+			<Abstract type="html">Duration of the action in seconds</Abstract>
+			<DeclaredIn>CCAction.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) CCTime duration</Declaration>
+			
+			
+			<Anchor>//api/name/duration</Anchor>
+            <NodeRef refid="32"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCActionFiniteTime/duration</TokenIdentifier>
+			<Abstract type="html">Duration of the action in seconds</Abstract>
+			<DeclaredIn>CCAction.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) CCTime duration</Declaration>
+			
+			
+			<Anchor>//api/name/duration</Anchor>
+            <NodeRef refid="32"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionFiniteTime/reverse</TokenIdentifier>
+			<Abstract type="html">Returns a reversed action.</Abstract>
+			<DeclaredIn>CCAction.h</DeclaredIn>
+			
+			<Declaration>- (CCActionFiniteTime *)reverse</Declaration>
+			
+			<ReturnValue><Abstract type="html">New reverse action</Abstract></ReturnValue>
+			<Anchor>//api/name/reverse</Anchor>
+            <NodeRef refid="32"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

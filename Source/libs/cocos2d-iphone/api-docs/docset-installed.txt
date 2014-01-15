@@ -1,0 +1,4 @@
+Documentation set was installed to Xcode!
+
+Path: /Users/Lidholt/Library/Developer/Shared/Documentation/DocSets/org.cocos2d.Cocos2d.docset
+Time: 2013-12-07 00:33:15 +0000

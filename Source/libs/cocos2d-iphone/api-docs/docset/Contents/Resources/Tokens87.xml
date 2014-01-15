@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CCParticleBatchNode.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CCParticleBatchNode</TokenIdentifier>
+			<Abstract type="html">CCParticleBatchNode offers improved performance by operating in the same manner as CCSpriteBatchNode by rendering all particles systems as a batch (1 OpenGL Call).</Abstract>
+			<DeclaredIn>CCParticleBatchNode.h</DeclaredIn>
+            
+			
+			<NodeRef refid="87"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCParticleBatchNode/setTextureAtlas:</TokenIdentifier>
+			<Abstract type="html">Particle system texture.</Abstract>
+			<DeclaredIn>CCParticleBatchNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) CCTextureAtlas *textureAtlas</Declaration>
+			
+			
+			<Anchor>//api/name/textureAtlas</Anchor>
+            <NodeRef refid="87"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCParticleBatchNode/textureAtlas</TokenIdentifier>
+			<Abstract type="html">Particle system texture.</Abstract>
+			<DeclaredIn>CCParticleBatchNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) CCTextureAtlas *textureAtlas</Declaration>
+			
+			
+			<Anchor>//api/name/textureAtlas</Anchor>
+            <NodeRef refid="87"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCParticleBatchNode/textureAtlas</TokenIdentifier>
+			<Abstract type="html">Particle system texture.</Abstract>
+			<DeclaredIn>CCParticleBatchNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) CCTextureAtlas *textureAtlas</Declaration>
+			
+			
+			<Anchor>//api/name/textureAtlas</Anchor>
+            <NodeRef refid="87"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCParticleBatchNode/setBlendFunc:</TokenIdentifier>
+			<Abstract type="html">Blend method.</Abstract>
+			<DeclaredIn>CCParticleBatchNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) ccBlendFunc blendFunc</Declaration>
+			
+			
+			<Anchor>//api/name/blendFunc</Anchor>
+            <NodeRef refid="87"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCParticleBatchNode/blendFunc</TokenIdentifier>
+			<Abstract type="html">Blend method.</Abstract>
+			<DeclaredIn>CCParticleBatchNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) ccBlendFunc blendFunc</Declaration>
+			
+			
+			<Anchor>//api/name/blendFunc</Anchor>
+            <NodeRef refid="87"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCParticleBatchNode/blendFunc</TokenIdentifier>
+			<Abstract type="html">Blend method.</Abstract>
+			<DeclaredIn>CCParticleBatchNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) ccBlendFunc blendFunc</Declaration>
+			
+			
+			<Anchor>//api/name/blendFunc</Anchor>
+            <NodeRef refid="87"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCParticleBatchNode/batchNodeWithTexture:</TokenIdentifier>
+			<Abstract type="html">Creates and returns a particle batch node object from the specified texture value.</Abstract>
+			<DeclaredIn>CCParticleBatchNode.h</DeclaredIn>
+			
+			<Declaration>+ (id)batchNodeWithTexture:(CCTexture *)tex</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>tex</Name>
+					<Abstract type="html">Texture.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CCParticleBatchNode Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/batchNodeWithTexture:</Anchor>
+            <NodeRef refid="87"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCParticleBatchNode/batchNodeWithFile:</TokenIdentifier>
+			<Abstract type="html">Creates and returns a particle batch node object from the specified image file value.</Abstract>
+			<DeclaredIn>CCParticleBatchNode.h</DeclaredIn>
+			
+			<Declaration>+ (id)batchNodeWithFile:(NSString *)imageFile</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>imageFile</Name>
+					<Abstract type="html">Image file path.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CCParticleBatchNode Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/batchNodeWithFile:</Anchor>
+            <NodeRef refid="87"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCParticleBatchNode/batchNodeWithTexture:capacity:</TokenIdentifier>
+			<Abstract type="html">Creates and returns a particle batch node object from the specified texture and capacity values.</Abstract>
+			<DeclaredIn>CCParticleBatchNode.h</DeclaredIn>
+			
+			<Declaration>+ (id)batchNodeWithTexture:(CCTexture *)tex capacity:(NSUInteger)capacity</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>tex</Name>
+					<Abstract type="html">Texture.</Abstract>
+				</Parameter><Parameter>
+					<Name>capacity</Name>
+					<Abstract type="html">Initial capacity.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CCParticleBatchNode Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/batchNodeWithTexture:capacity:</Anchor>
+            <NodeRef refid="87"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCParticleBatchNode/batchNodeWithFile:capacity:</TokenIdentifier>
+			<Abstract type="html">Creates and returns a particle batch node object from the specified texture and capacity values.</Abstract>
+			<DeclaredIn>CCParticleBatchNode.h</DeclaredIn>
+			
+			<Declaration>+ (id)batchNodeWithFile:(NSString *)fileImage capacity:(NSUInteger)capacity</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>fileImage</Name>
+					<Abstract type="html">Image file path.</Abstract>
+				</Parameter><Parameter>
+					<Name>capacity</Name>
+					<Abstract type="html">Initial capacity.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CCParticleBatchNode Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/batchNodeWithFile:capacity:</Anchor>
+            <NodeRef refid="87"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCParticleBatchNode/initWithTexture:capacity:</TokenIdentifier>
+			<Abstract type="html">Initializes and returns a particle batch node object from the specified texture and capacity values.</Abstract>
+			<DeclaredIn>CCParticleBatchNode.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithTexture:(CCTexture *)tex capacity:(NSUInteger)capacity</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>tex</Name>
+					<Abstract type="html">Texture.</Abstract>
+				</Parameter><Parameter>
+					<Name>capacity</Name>
+					<Abstract type="html">Initial capacity.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized CCParticleBatchNode Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithTexture:capacity:</Anchor>
+            <NodeRef refid="87"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCParticleBatchNode/initWithFile:capacity:</TokenIdentifier>
+			<Abstract type="html">Initializes and returns a particle batch node object from the specified texture and capacity values.</Abstract>
+			<DeclaredIn>CCParticleBatchNode.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithFile:(NSString *)fileImage capacity:(NSUInteger)capacity</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>fileImage</Name>
+					<Abstract type="html">Image file path.</Abstract>
+				</Parameter><Parameter>
+					<Name>capacity</Name>
+					<Abstract type="html">Initial capacity.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized CCParticleBatchNode Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithFile:capacity:</Anchor>
+            <NodeRef refid="87"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCParticleBatchNode/addChild:z:tag:</TokenIdentifier>
+			<Abstract type="html">Add a particle system to the particle system batch node.</Abstract>
+			<DeclaredIn>CCParticleBatchNode.h</DeclaredIn>
+			
+			<Declaration>- (void)addChild:(CCParticleSystem *)child z:(NSInteger)z tag:(NSInteger)aTag</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>child</Name>
+					<Abstract type="html">Particle System.</Abstract>
+				</Parameter><Parameter>
+					<Name>z</Name>
+					<Abstract type="html">Z Order.</Abstract>
+				</Parameter><Parameter>
+					<Name>aTag</Name>
+					<Abstract type="html">Tag.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addChild:z:tag:</Anchor>
+            <NodeRef refid="87"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCParticleBatchNode/insertChild:inAtlasAtIndex:</TokenIdentifier>
+			<Abstract type="html">Inserts a particle system to the batch node.</Abstract>
+			<DeclaredIn>CCParticleBatchNode.h</DeclaredIn>
+			
+			<Declaration>- (void)insertChild:(CCParticleSystem *)pSystem inAtlasAtIndex:(NSUInteger)index</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>pSystem</Name>
+					<Abstract type="html">Particle System.</Abstract>
+				</Parameter><Parameter>
+					<Name>index</Name>
+					<Abstract type="html">Index Position.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/insertChild:inAtlasAtIndex:</Anchor>
+            <NodeRef refid="87"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCParticleBatchNode/removeChild:cleanup:</TokenIdentifier>
+			<Abstract type="html">Remove the specified particle system from the batch node.</Abstract>
+			<DeclaredIn>CCParticleBatchNode.h</DeclaredIn>
+			
+			<Declaration>- (void)removeChild:(CCParticleSystem *)pSystem cleanup:(BOOL)doCleanUp</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>pSystem</Name>
+					<Abstract type="html">Particle System.</Abstract>
+				</Parameter><Parameter>
+					<Name>doCleanUp</Name>
+					<Abstract type="html">Perform cleanup.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeChild:cleanup:</Anchor>
+            <NodeRef refid="87"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCParticleBatchNode/disableParticle:</TokenIdentifier>
+			<Abstract type="html">Disables a particle system.</Abstract>
+			<DeclaredIn>CCParticleBatchNode.h</DeclaredIn>
+			
+			<Declaration>- (void)disableParticle:(NSUInteger)particleIndex</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>particleIndex</Name>
+					<Abstract type="html">Particle system Index.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/disableParticle:</Anchor>
+            <NodeRef refid="87"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

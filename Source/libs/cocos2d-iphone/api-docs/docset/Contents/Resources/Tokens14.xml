@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CCActionEaseBackIn.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CCActionEaseBackIn</TokenIdentifier>
+			<Abstract type="html">Ease back in action.
+Starts the action with a reversed acceleration
+Note:
+This action doesn&apos;t use a bijective function. Actions like Sequence might have an unexpected result when used with this action.</Abstract>
+			<DeclaredIn>CCActionEase.h</DeclaredIn>
+            
+			
+			<NodeRef refid="14"/>
+		</Token>
+		
+		
+        
+	</File>
+</Tokens>

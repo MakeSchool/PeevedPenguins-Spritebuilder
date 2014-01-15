@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CCActionAnimate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CCActionAnimate</TokenIdentifier>
+			<Abstract type="html">Animates a sprite given the name of an Animation.</Abstract>
+			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionAnimate/setAnimation:</TokenIdentifier>
+			<Abstract type="html">Animation used for the sprite</Abstract>
+			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+			
+			<Declaration>@property (readwrite, nonatomic, strong) CCAnimation *animation</Declaration>
+			
+			
+			<Anchor>//api/name/animation</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionAnimate/animation</TokenIdentifier>
+			<Abstract type="html">Animation used for the sprite</Abstract>
+			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+			
+			<Declaration>@property (readwrite, nonatomic, strong) CCAnimation *animation</Declaration>
+			
+			
+			<Anchor>//api/name/animation</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCActionAnimate/animation</TokenIdentifier>
+			<Abstract type="html">Animation used for the sprite</Abstract>
+			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+			
+			<Declaration>@property (readwrite, nonatomic, strong) CCAnimation *animation</Declaration>
+			
+			
+			<Anchor>//api/name/animation</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCActionAnimate/actionWithAnimation:</TokenIdentifier>
+			<Abstract type="html">Creates the action with an Animation.
+Will restore the original frame when the animation is over</Abstract>
+			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+			
+			<Declaration>+ (id)actionWithAnimation:(CCAnimation *)animation</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>animation</Name>
+					<Abstract type="html">Animation to run</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">New animation action</Abstract></ReturnValue>
+			<Anchor>//api/name/actionWithAnimation:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionAnimate/initWithAnimation:</TokenIdentifier>
+			<Abstract type="html">Initializes the action with an Animation.
+Will restore the original frame when the animation is over</Abstract>
+			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithAnimation:(CCAnimation *)animation</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>animation</Name>
+					<Abstract type="html">Animation to run</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">New animation action</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithAnimation:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

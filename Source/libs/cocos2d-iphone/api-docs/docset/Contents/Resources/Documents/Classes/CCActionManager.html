@@ -1,0 +1,906 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>CCActionManager Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 961)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">Cocos2d </a></h1>
+				<a id="developerHome" href="../index.html">Cocos2d-iPhone.org</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">CCActionManager Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/addAction:target:paused:">&nbsp;&nbsp;&nbsp;&nbsp;- addAction:target:paused:</option>
+	
+	<option value="//api/name/getActionByTag:target:">&nbsp;&nbsp;&nbsp;&nbsp;- getActionByTag:target:</option>
+	
+	<option value="//api/name/numberOfRunningActionsInTarget:">&nbsp;&nbsp;&nbsp;&nbsp;- numberOfRunningActionsInTarget:</option>
+	
+	<option value="//api/name/pauseAllRunningActions">&nbsp;&nbsp;&nbsp;&nbsp;- pauseAllRunningActions</option>
+	
+	<option value="//api/name/pauseTarget:">&nbsp;&nbsp;&nbsp;&nbsp;- pauseTarget:</option>
+	
+	<option value="//api/name/removeAction:">&nbsp;&nbsp;&nbsp;&nbsp;- removeAction:</option>
+	
+	<option value="//api/name/removeActionByTag:target:">&nbsp;&nbsp;&nbsp;&nbsp;- removeActionByTag:target:</option>
+	
+	<option value="//api/name/removeAllActions">&nbsp;&nbsp;&nbsp;&nbsp;- removeAllActions</option>
+	
+	<option value="//api/name/removeAllActionsFromTarget:">&nbsp;&nbsp;&nbsp;&nbsp;- removeAllActionsFromTarget:</option>
+	
+	<option value="//api/name/resumeTarget:">&nbsp;&nbsp;&nbsp;&nbsp;- resumeTarget:</option>
+	
+	<option value="//api/name/resumeTargets:">&nbsp;&nbsp;&nbsp;&nbsp;- resumeTargets:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+</ul></li>
+
+
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addAction:target:paused:">addAction:target:paused:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/getActionByTag:target:">getActionByTag:target:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/numberOfRunningActionsInTarget:">numberOfRunningActionsInTarget:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pauseAllRunningActions">pauseAllRunningActions</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pauseTarget:">pauseTarget:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeAction:">removeAction:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeActionByTag:target:">removeActionByTag:target:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeAllActions">removeAllActions</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeAllActionsFromTarget:">removeAllActionsFromTarget:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resumeTarget:">resumeTarget:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/resumeTargets:">resumeTargets:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="CCActionManager Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">CCActionManager Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">CCSchedulerTarget</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">CCActionManager.h</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>CCActionManager the object that manages all the actions.
+Normally you won&rsquo;t need to use this API directly. 99% of the cases you will use the <a href="../Classes/CCNode.html">CCNode</a> interface, which uses this object.
+But there are some cases where you might need to use this API directly:
+Examples:
+    - When you want to run an action where the target is different from a <a href="../Classes/CCNode.html">CCNode</a>.
+    - When you want to pause / resume the actions</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addAction:target:paused:">&ndash;&nbsp;addAction:target:paused:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeAllActions">&ndash;&nbsp;removeAllActions</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeAllActionsFromTarget:">&ndash;&nbsp;removeAllActionsFromTarget:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeAction:">&ndash;&nbsp;removeAction:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeActionByTag:target:">&ndash;&nbsp;removeActionByTag:target:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/getActionByTag:target:">&ndash;&nbsp;getActionByTag:target:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/numberOfRunningActionsInTarget:">&ndash;&nbsp;numberOfRunningActionsInTarget:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pauseTarget:">&ndash;&nbsp;pauseTarget:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/resumeTarget:">&ndash;&nbsp;resumeTarget:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pauseAllRunningActions">&ndash;&nbsp;pauseAllRunningActions</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/resumeTargets:">&ndash;&nbsp;resumeTargets:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/addAction:target:paused:" title="addAction:target:paused:"></a>
+	<h3 class="subsubtitle method-title">addAction:target:paused:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Adds an action to a target
+If the target is already present, then the action will be added to the existing target.
+If the target is not present, a new instance of this target will be created either paused or paused, and the action will be added to the newly created target.
+When the target is paused, the queued actions won&rsquo;t be &lsquo;ticked&rsquo;.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addAction:(CCAction *)<em>action</em> target:(id)<em>target</em> paused:(BOOL)<em>paused</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>action</em></dt>
+			<dd><p>The action to add</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>target</em></dt>
+			<dd><p>The target to add the action to</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>paused</em></dt>
+			<dd><p>Defines if action will start paused</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCActionManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/getActionByTag:target:" title="getActionByTag:target:"></a>
+	<h3 class="subsubtitle method-title">getActionByTag:target:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Gets an action given its tag an a target.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (CCAction *)getActionByTag:(NSInteger)<em>tag</em> target:(id)<em>target</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>tag</em></dt>
+			<dd><p>Tag of the action to retrieve</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>target</em></dt>
+			<dd><p>Target to retrieve action from</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The Action the with the given tag.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCActionManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/numberOfRunningActionsInTarget:" title="numberOfRunningActionsInTarget:"></a>
+	<h3 class="subsubtitle method-title">numberOfRunningActionsInTarget:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns the numbers of actions that are running in a certain target.
+Composable actions are counted as 1 action.
+Example:
+- If you are running 1 Sequence of 7 actions, it will return 1.
+- If you are running 7 Sequences of 2 actions, it will return 7.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSUInteger)numberOfRunningActionsInTarget:(id)<em>target</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>target</em></dt>
+			<dd><p>Target to return number of running action from</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Number of running action</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCActionManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/pauseAllRunningActions" title="pauseAllRunningActions"></a>
+	<h3 class="subsubtitle method-title">pauseAllRunningActions</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Pauses all running actions, returning a list of targets whose actions were paused.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (NSSet *)pauseAllRunningActions</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>Set of targets which were paused</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCActionManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/pauseTarget:" title="pauseTarget:"></a>
+	<h3 class="subsubtitle method-title">pauseTarget:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Pauses the target: all running actions and newly added actions will be paused.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)pauseTarget:(id)<em>target</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>target</em></dt>
+			<dd><p>Target to pause all actions on</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCActionManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeAction:" title="removeAction:"></a>
+	<h3 class="subsubtitle method-title">removeAction:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Removes an action given an action reference.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeAction:(CCAction *)<em>action</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>action</em></dt>
+			<dd><p>Action to remove</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCActionManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeActionByTag:target:" title="removeActionByTag:target:"></a>
+	<h3 class="subsubtitle method-title">removeActionByTag:target:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Removes an action given its tag and the target.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeActionByTag:(NSInteger)<em>tag</em> target:(id)<em>target</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>tag</em></dt>
+			<dd><p>Tag of the action to remove</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>target</em></dt>
+			<dd><p>Target top remove action from</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCActionManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeAllActions" title="removeAllActions"></a>
+	<h3 class="subsubtitle method-title">removeAllActions</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Removes all actions from all the targets.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeAllActions</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCActionManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeAllActionsFromTarget:" title="removeAllActionsFromTarget:"></a>
+	<h3 class="subsubtitle method-title">removeAllActionsFromTarget:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Removes all actions from a certain target.
+All the actions that belongs to the target will be removed.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeAllActionsFromTarget:(id)<em>target</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>target</em></dt>
+			<dd><p>The target to remove action from</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCActionManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/resumeTarget:" title="resumeTarget:"></a>
+	<h3 class="subsubtitle method-title">resumeTarget:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Resumes the target. All queued actions will be resumed.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)resumeTarget:(id)<em>target</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>target</em></dt>
+			<dd><p>Target to resume all action on</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCActionManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/resumeTargets:" title="resumeTargets:"></a>
+	<h3 class="subsubtitle method-title">resumeTargets:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Resume a set of targets (convenience function to reverse a <a href="#//api/name/pauseAllRunningActions">pauseAllRunningActions</a> call)</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)resumeTargets:(NSSet *)<em>targetsToResume</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>targetsToResume</em></dt>
+			<dd><p>Set of target to resume</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCActionManager.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+                    
+                    
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Cocos2d-iPhone.org. All rights reserved. (Last updated: 2013-12-06)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

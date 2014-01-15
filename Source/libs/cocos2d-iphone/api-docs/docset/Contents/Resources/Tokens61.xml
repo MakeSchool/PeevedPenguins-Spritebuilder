@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CCActionTintTo.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CCActionTintTo</TokenIdentifier>
+			<Abstract type="html">Tints a CCNode that implements the CCNodeRGB protocol from current tint to a custom one.
+Note:
+This action doesn&apos;t support &quot;reverse&quot;</Abstract>
+			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+            
+			
+			<NodeRef refid="61"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCActionTintTo/actionWithDuration:red:green:blue:</TokenIdentifier>
+			<Abstract type="html">Creates a tint to action</Abstract>
+			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+			
+			<Declaration>+ (id)actionWithDuration:(CCTime)duration red:(GLubyte)red green:(GLubyte)green blue:(GLubyte)blue</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>duration</Name>
+					<Abstract type="html">Action duration</Abstract>
+				</Parameter><Parameter>
+					<Name>red</Name>
+					<Abstract type="html">Red color to tint to</Abstract>
+				</Parameter><Parameter>
+					<Name>green</Name>
+					<Abstract type="html">Green color to tint to</Abstract>
+				</Parameter><Parameter>
+					<Name>blue</Name>
+					<Abstract type="html">Blue color to tint to</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">New tint to action</Abstract></ReturnValue>
+			<Anchor>//api/name/actionWithDuration:red:green:blue:</Anchor>
+            <NodeRef refid="61"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionTintTo/initWithDuration:red:green:blue:</TokenIdentifier>
+			<Abstract type="html">Initalizes a tint to action</Abstract>
+			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithDuration:(CCTime)duration red:(GLubyte)red green:(GLubyte)green blue:(GLubyte)blue</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>duration</Name>
+					<Abstract type="html">Action duration</Abstract>
+				</Parameter><Parameter>
+					<Name>red</Name>
+					<Abstract type="html">Red color to tint to</Abstract>
+				</Parameter><Parameter>
+					<Name>green</Name>
+					<Abstract type="html">Green color to tint to</Abstract>
+				</Parameter><Parameter>
+					<Name>blue</Name>
+					<Abstract type="html">Blue color to tint to</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">New tint to action</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithDuration:red:green:blue:</Anchor>
+            <NodeRef refid="61"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

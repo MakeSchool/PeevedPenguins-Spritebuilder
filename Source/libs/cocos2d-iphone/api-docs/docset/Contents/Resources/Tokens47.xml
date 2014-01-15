@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CCActionRepeat.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CCActionRepeat</TokenIdentifier>
+			<Abstract type="html">Repeats an action a number of times.
+To repeat an action forever use the CCRepeatForever action.</Abstract>
+			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+            
+			
+			<NodeRef refid="47"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionRepeat/setInnerAction:</TokenIdentifier>
+			<Abstract type="html">Inner action</Abstract>
+			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite, strong) CCActionFiniteTime *innerAction</Declaration>
+			
+			
+			<Anchor>//api/name/innerAction</Anchor>
+            <NodeRef refid="47"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionRepeat/innerAction</TokenIdentifier>
+			<Abstract type="html">Inner action</Abstract>
+			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite, strong) CCActionFiniteTime *innerAction</Declaration>
+			
+			
+			<Anchor>//api/name/innerAction</Anchor>
+            <NodeRef refid="47"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCActionRepeat/innerAction</TokenIdentifier>
+			<Abstract type="html">Inner action</Abstract>
+			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite, strong) CCActionFiniteTime *innerAction</Declaration>
+			
+			
+			<Anchor>//api/name/innerAction</Anchor>
+            <NodeRef refid="47"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCActionRepeat/actionWithAction:times:</TokenIdentifier>
+			<Abstract type="html">Creates a CCRepeat action.
+Times is an unsigned integer between 1 and MAX_UINT.</Abstract>
+			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+			
+			<Declaration>+ (id)actionWithAction:(CCActionFiniteTime *)action times:(NSUInteger)times</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>action</Name>
+					<Abstract type="html">Action to repeat</Abstract>
+				</Parameter><Parameter>
+					<Name>times</Name>
+					<Abstract type="html">Number of times to repeat action</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">New action repeat</Abstract></ReturnValue>
+			<Anchor>//api/name/actionWithAction:times:</Anchor>
+            <NodeRef refid="47"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionRepeat/initWithAction:times:</TokenIdentifier>
+			<Abstract type="html">Initializes a CCRepeat action.
+Times is an unsigned integer between 1 and MAX_UINT.</Abstract>
+			<DeclaredIn>CCActionInterval.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithAction:(CCActionFiniteTime *)action times:(NSUInteger)times</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>action</Name>
+					<Abstract type="html">Action to repeat</Abstract>
+				</Parameter><Parameter>
+					<Name>times</Name>
+					<Abstract type="html">Number of times to repeat action</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">New action repeat</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithAction:times:</Anchor>
+            <NodeRef refid="47"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

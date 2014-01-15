@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CCAnimation.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CCAnimation</TokenIdentifier>
+			<Abstract type="html">A CCAnimation object is used to perform animations on a CCSprite object.
+The CCAnimation object primarily contains a collection of CCAnimationFrame objects to define the animation.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+            
+			
+			<NodeRef refid="64"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAnimation/setTotalDelayUnits:</TokenIdentifier>
+			<Abstract type="html">Total Delay units.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) float totalDelayUnits</Declaration>
+			
+			
+			<Anchor>//api/name/totalDelayUnits</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAnimation/totalDelayUnits</TokenIdentifier>
+			<Abstract type="html">Total Delay units.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) float totalDelayUnits</Declaration>
+			
+			
+			<Anchor>//api/name/totalDelayUnits</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCAnimation/totalDelayUnits</TokenIdentifier>
+			<Abstract type="html">Total Delay units.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) float totalDelayUnits</Declaration>
+			
+			
+			<Anchor>//api/name/totalDelayUnits</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAnimation/setDelayPerUnit:</TokenIdentifier>
+			<Abstract type="html">Delay in seconds of the per frame delay unit.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) float delayPerUnit</Declaration>
+			
+			
+			<Anchor>//api/name/delayPerUnit</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAnimation/delayPerUnit</TokenIdentifier>
+			<Abstract type="html">Delay in seconds of the per frame delay unit.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) float delayPerUnit</Declaration>
+			
+			
+			<Anchor>//api/name/delayPerUnit</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCAnimation/delayPerUnit</TokenIdentifier>
+			<Abstract type="html">Delay in seconds of the per frame delay unit.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) float delayPerUnit</Declaration>
+			
+			
+			<Anchor>//api/name/delayPerUnit</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAnimation/setDuration:</TokenIdentifier>
+			<Abstract type="html">Duration in seconds of the whole animation.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) float duration</Declaration>
+			
+			
+			<Anchor>//api/name/duration</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAnimation/duration</TokenIdentifier>
+			<Abstract type="html">Duration in seconds of the whole animation.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) float duration</Declaration>
+			
+			
+			<Anchor>//api/name/duration</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCAnimation/duration</TokenIdentifier>
+			<Abstract type="html">Duration in seconds of the whole animation.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) float duration</Declaration>
+			
+			
+			<Anchor>//api/name/duration</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAnimation/setFrames:</TokenIdentifier>
+			<Abstract type="html">Array of CCAnimationFrames</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite, strong) NSMutableArray *frames</Declaration>
+			
+			
+			<Anchor>//api/name/frames</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAnimation/frames</TokenIdentifier>
+			<Abstract type="html">Array of CCAnimationFrames</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite, strong) NSMutableArray *frames</Declaration>
+			
+			
+			<Anchor>//api/name/frames</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCAnimation/frames</TokenIdentifier>
+			<Abstract type="html">Array of CCAnimationFrames</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite, strong) NSMutableArray *frames</Declaration>
+			
+			
+			<Anchor>//api/name/frames</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAnimation/setRestoreOriginalFrame:</TokenIdentifier>
+			<Abstract type="html">True to restore original frame when animation complete.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) BOOL restoreOriginalFrame</Declaration>
+			
+			
+			<Anchor>//api/name/restoreOriginalFrame</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAnimation/restoreOriginalFrame</TokenIdentifier>
+			<Abstract type="html">True to restore original frame when animation complete.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) BOOL restoreOriginalFrame</Declaration>
+			
+			
+			<Anchor>//api/name/restoreOriginalFrame</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCAnimation/restoreOriginalFrame</TokenIdentifier>
+			<Abstract type="html">True to restore original frame when animation complete.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) BOOL restoreOriginalFrame</Declaration>
+			
+			
+			<Anchor>//api/name/restoreOriginalFrame</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAnimation/setLoops:</TokenIdentifier>
+			<Abstract type="html">Number of times to loop animation.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) NSUInteger loops</Declaration>
+			
+			
+			<Anchor>//api/name/loops</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAnimation/loops</TokenIdentifier>
+			<Abstract type="html">Number of times to loop animation.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) NSUInteger loops</Declaration>
+			
+			
+			<Anchor>//api/name/loops</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCAnimation/loops</TokenIdentifier>
+			<Abstract type="html">Number of times to loop animation.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) NSUInteger loops</Declaration>
+			
+			
+			<Anchor>//api/name/loops</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCAnimation/animation</TokenIdentifier>
+			<Abstract type="html">Creates and returns an animation object.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>+ (id)animation</Declaration>
+			
+			<ReturnValue><Abstract type="html">The CCAnimation Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/animation</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCAnimation/animationWithSpriteFrames:</TokenIdentifier>
+			<Abstract type="html">Creates and returns an animation object using the specified CCSpriteFrame array value.
+Default per frame delay of 1 second.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>+ (id)animationWithSpriteFrames:(NSArray *)arrayOfSpriteFrameNames</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>arrayOfSpriteFrameNames</Name>
+					<Abstract type="html">CCSpriteFrame array.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CCAnimation Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/animationWithSpriteFrames:</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCAnimation/animationWithSpriteFrames:delay:</TokenIdentifier>
+			<Abstract type="html">Creates and returns an animation object using the specified CCSpriteFrame array and per frame dealy values.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>+ (id)animationWithSpriteFrames:(NSArray *)arrayOfSpriteFrameNames delay:(float)delay</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>arrayOfSpriteFrameNames</Name>
+					<Abstract type="html">CCSpriteFrame array.</Abstract>
+				</Parameter><Parameter>
+					<Name>delay</Name>
+					<Abstract type="html">Per frame delay (in seconds).</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CCAnimation Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/animationWithSpriteFrames:delay:</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCAnimation/animationWithAnimationFrames:delayPerUnit:loops:</TokenIdentifier>
+			<Abstract type="html">Creates and returns an animation object using the specified CCSpriteFrame array, per frame delay and times to repeat animation values.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>+ (id)animationWithAnimationFrames:(NSArray *)arrayOfAnimationFrames delayPerUnit:(float)delayPerUnit loops:(NSUInteger)loops</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>arrayOfAnimationFrames</Name>
+					<Abstract type="html">CCSpriteFrame array.</Abstract>
+				</Parameter><Parameter>
+					<Name>delayPerUnit</Name>
+					<Abstract type="html">Per frame delay (in seconds).</Abstract>
+				</Parameter><Parameter>
+					<Name>loops</Name>
+					<Abstract type="html">Number of times to repeat animation.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CCAnimation Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/animationWithAnimationFrames:delayPerUnit:loops:</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAnimation/initWithSpriteFrames:</TokenIdentifier>
+			<Abstract type="html">Initializes and returns an animation object.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithSpriteFrames:(NSArray *)arrayOfSpriteFrameNames</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>arrayOfSpriteFrameNames</Name>
+					<Abstract type="html">CCSpriteFrame array.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized CCAnimation Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithSpriteFrames:</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAnimation/initWithSpriteFrames:delay:</TokenIdentifier>
+			<Abstract type="html">Initializes and returns an animation object using the specified CCSpriteFrame array and per frame dealy values.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithSpriteFrames:(NSArray *)arrayOfSpriteFrameNames delay:(float)delay</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>arrayOfSpriteFrameNames</Name>
+					<Abstract type="html">CCSpriteFrame array.</Abstract>
+				</Parameter><Parameter>
+					<Name>delay</Name>
+					<Abstract type="html">Per frame delay (in seconds).</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized CCAnimation Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithSpriteFrames:delay:</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAnimation/initWithAnimationFrames:delayPerUnit:loops:</TokenIdentifier>
+			<Abstract type="html">Initializes and returns an animation object using the specified CCSpriteFrame array, per frame delay and times to repeat animation values.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithAnimationFrames:(NSArray *)arrayOfAnimationFrames delayPerUnit:(float)delayPerUnit loops:(NSUInteger)loops</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>arrayOfAnimationFrames</Name>
+					<Abstract type="html">CCSpriteFrame array.</Abstract>
+				</Parameter><Parameter>
+					<Name>delayPerUnit</Name>
+					<Abstract type="html">Per frame delay (in seconds).</Abstract>
+				</Parameter><Parameter>
+					<Name>loops</Name>
+					<Abstract type="html">Number of times to repeat animation.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized CCAnimation Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithAnimationFrames:delayPerUnit:loops:</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAnimation/addSpriteFrame:</TokenIdentifier>
+			<Abstract type="html">Add the specified sprite frame to the animation object.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>- (void)addSpriteFrame:(CCSpriteFrame *)frame</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>frame</Name>
+					<Abstract type="html">CCSpriteFrame object.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addSpriteFrame:</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAnimation/addSpriteFrameWithFilename:</TokenIdentifier>
+			<Abstract type="html">Creates and adds a CCSpriteFrame to the animation object from the specified image file.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>- (void)addSpriteFrameWithFilename:(NSString *)filename</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>filename</Name>
+					<Abstract type="html">Image file resource.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addSpriteFrameWithFilename:</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAnimation/addSpriteFrameWithTexture:rect:</TokenIdentifier>
+			<Abstract type="html">Creates and adds a CCSpriteFrame to the animation object from the specified the texture and rectangle values.</Abstract>
+			<DeclaredIn>CCAnimation.h</DeclaredIn>
+			
+			<Declaration>- (void)addSpriteFrameWithTexture:(CCTexture *)texture rect:(CGRect)rect</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>texture</Name>
+					<Abstract type="html">Texture object.</Abstract>
+				</Parameter><Parameter>
+					<Name>rect</Name>
+					<Abstract type="html">Rectangle to use.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addSpriteFrameWithTexture:rect:</Anchor>
+            <NodeRef refid="64"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

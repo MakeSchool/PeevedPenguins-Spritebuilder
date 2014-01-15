@@ -1,0 +1,1069 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>CCPhysicsShape Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 961)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">Cocos2d </a></h1>
+				<a id="developerHome" href="../index.html">Cocos2d-iPhone.org</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">CCPhysicsShape Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/body">&nbsp;&nbsp;&nbsp;&nbsp;body</option>
+	
+	<option value="//api/name/collisionCategories">&nbsp;&nbsp;&nbsp;&nbsp;collisionCategories</option>
+	
+	<option value="//api/name/collisionGroup">&nbsp;&nbsp;&nbsp;&nbsp;collisionGroup</option>
+	
+	<option value="//api/name/collisionMask">&nbsp;&nbsp;&nbsp;&nbsp;collisionMask</option>
+	
+	<option value="//api/name/collisionType">&nbsp;&nbsp;&nbsp;&nbsp;collisionType</option>
+	
+	<option value="//api/name/elasticity">&nbsp;&nbsp;&nbsp;&nbsp;elasticity</option>
+	
+	<option value="//api/name/friction">&nbsp;&nbsp;&nbsp;&nbsp;friction</option>
+	
+	<option value="//api/name/mass">&nbsp;&nbsp;&nbsp;&nbsp;mass</option>
+	
+	<option value="//api/name/next">&nbsp;&nbsp;&nbsp;&nbsp;next</option>
+	
+	<option value="//api/name/node">&nbsp;&nbsp;&nbsp;&nbsp;node</option>
+	
+	<option value="//api/name/sensor">&nbsp;&nbsp;&nbsp;&nbsp;sensor</option>
+	
+	<option value="//api/name/shape">&nbsp;&nbsp;&nbsp;&nbsp;shape</option>
+	
+	<option value="//api/name/surfaceVelocity">&nbsp;&nbsp;&nbsp;&nbsp;surfaceVelocity</option>
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/circleShapeWithRadius:center:">&nbsp;&nbsp;&nbsp;&nbsp;+ circleShapeWithRadius:center:</option>
+	
+	<option value="//api/name/pillShapeFrom:to:cornerRadius:">&nbsp;&nbsp;&nbsp;&nbsp;+ pillShapeFrom:to:cornerRadius:</option>
+	
+	<option value="//api/name/polygonShapeWithPoints:count:cornerRadius:">&nbsp;&nbsp;&nbsp;&nbsp;+ polygonShapeWithPoints:count:cornerRadius:</option>
+	
+	<option value="//api/name/rectShape:cornerRadius:">&nbsp;&nbsp;&nbsp;&nbsp;+ rectShape:cornerRadius:</option>
+	
+	
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_ObjectiveChipmunk Methods">ObjectiveChipmunk Methods</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/body">body</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/collisionCategories">collisionCategories</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/collisionGroup">collisionGroup</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/collisionMask">collisionMask</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/collisionType">collisionType</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/elasticity">elasticity</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/friction">friction</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mass">mass</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/next">next</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/node">node</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sensor">sensor</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/shape">shape</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/surfaceVelocity">surfaceVelocity</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/circleShapeWithRadius:center:">circleShapeWithRadius:center:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/pillShapeFrom:to:cornerRadius:">pillShapeFrom:to:cornerRadius:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/polygonShapeWithPoints:count:cornerRadius:">polygonShapeWithPoints:count:cornerRadius:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rectShape:cornerRadius:">rectShape:cornerRadius:</a></span></li>
+	
+</ul></li>
+
+
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="CCPhysicsShape Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">CCPhysicsShape Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">CCPhysicsShape.h</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/circleShapeWithRadius:center:">+&nbsp;circleShapeWithRadius:center:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rectShape:cornerRadius:">+&nbsp;rectShape:cornerRadius:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/pillShapeFrom:to:cornerRadius:">+&nbsp;pillShapeFrom:to:cornerRadius:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/polygonShapeWithPoints:count:cornerRadius:">+&nbsp;polygonShapeWithPoints:count:cornerRadius:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mass">&nbsp;&nbsp;mass</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/friction">&nbsp;&nbsp;friction</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/elasticity">&nbsp;&nbsp;elasticity</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/surfaceVelocity">&nbsp;&nbsp;surfaceVelocity</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sensor">&nbsp;&nbsp;sensor</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/collisionGroup">&nbsp;&nbsp;collisionGroup</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/collisionType">&nbsp;&nbsp;collisionType</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/collisionCategories">&nbsp;&nbsp;collisionCategories</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/collisionMask">&nbsp;&nbsp;collisionMask</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/node">&nbsp;&nbsp;node</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="ObjectiveChipmunk Methods" name="task_ObjectiveChipmunk Methods"></a>
+						<h3 class="subsubtitle task-title">ObjectiveChipmunk Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/shape">&nbsp;&nbsp;shape</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/next">&nbsp;&nbsp;next</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/body">&nbsp;&nbsp;body</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/body" title="body"></a>
+	<h3 class="subsubtitle method-title">body</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Body this <a href="#//api/name/shape">shape</a> is attached to.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) CCPhysicsBody *body</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCPhysics+ObjectiveChipmunk.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/collisionCategories" title="collisionCategories"></a>
+	<h3 class="subsubtitle method-title">collisionCategories</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>An array of NSStrings of category names of which this <a href="#//api/name/shape">shape</a> is a member of.
+Up to 32 categories can be used in a single scene.
+The default value is nil, which means the <a href="#//api/name/shape">shape</a> exists in all categories.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSArray *collisionCategories</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCPhysicsShape.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/collisionGroup" title="collisionGroup"></a>
+	<h3 class="subsubtitle method-title">collisionGroup</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>If two shapes share the same group identifier, then they don&rsquo;t collide.
+Defaults to nil.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) id collisionGroup</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCPhysicsShape.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/collisionMask" title="collisionMask"></a>
+	<h3 class="subsubtitle method-title">collisionMask</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>An array of NSStrings of category names this <a href="#//api/name/shape">shape</a> will collide with.
+The default value is nil, which means the <a href="#//api/name/shape">shape</a> collides with all categories.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSArray *collisionMask</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCPhysicsShape.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/collisionType" title="collisionType"></a>
+	<h3 class="subsubtitle method-title">collisionType</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>A string that identifies which collision pair delegate method should be called when this <a href="#//api/name/shape">shape</a> collides.
+Defaults to @&ldquo;default&rdquo;.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, copy) NSString *collisionType</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCPhysicsShape.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/elasticity" title="elasticity"></a>
+	<h3 class="subsubtitle method-title">elasticity</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Surface <a href="#//api/name/friction">friction</a> of the <a href="#//api/name/shape">shape</a>.
+When two objects collide, their elaticity is multiplied together.
+The calculated value can be ovrriden in a CCCollisionPairDelegate pre-solve method.
+Defaults to 0.2.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGFloat elasticity</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCPhysicsShape.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/friction" title="friction"></a>
+	<h3 class="subsubtitle method-title">friction</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Surface friction of the <a href="#//api/name/shape">shape</a>.
+When two objects collide, their friction is multiplied together.
+The calculated value can be overriden in a CCCollisionPairDelegate pre-solve method.
+Defaults to 0.7.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGFloat friction</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCPhysicsShape.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mass" title="mass"></a>
+	<h3 class="subsubtitle method-title">mass</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Mass of this individual <a href="#//api/name/shape">shape</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGFloat mass</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCPhysicsShape.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/next" title="next"></a>
+	<h3 class="subsubtitle method-title">next</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Next <a href="#//api/name/shape">shape</a> in the linked list.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) CCPhysicsShape *next</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCPhysics+ObjectiveChipmunk.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/node" title="node"></a>
+	<h3 class="subsubtitle method-title">node</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>The <a href="../Classes/CCNode.html">CCNode</a> this <a href="#//api/name/shape">shape</a> is attached to.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) CCNode *node</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCPhysicsShape.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sensor" title="sensor"></a>
+	<h3 class="subsubtitle method-title">sensor</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sensors call collision delegate methods, but don&rsquo;t cause collisions between bodies.
+Defaults to NO.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL sensor</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCPhysicsShape.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/shape" title="shape"></a>
+	<h3 class="subsubtitle method-title">shape</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Access to the underlying Objective-Chipmunk object.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) ChipmunkShape *shape</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCPhysics+ObjectiveChipmunk.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/surfaceVelocity" title="surfaceVelocity"></a>
+	<h3 class="subsubtitle method-title">surfaceVelocity</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Velocity of the surface of the <a href="#//api/name/shape">shape</a> relative to its normal velocity.
+This is useful for modeling conveyor belts or the feet of a player character.
+The calculated surface velocity of two colliding shapes by default only affects their <a href="#//api/name/friction">friction</a>.
+The calculated value can be overriden in a CCCollisionPairDelegate pre-solve method.
+Defaults to CGPointZero.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) CGPoint surfaceVelocity</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCPhysicsShape.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/circleShapeWithRadius:center:" title="circleShapeWithRadius:center:"></a>
+	<h3 class="subsubtitle method-title">circleShapeWithRadius:center:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create a circular <a href="#//api/name/shape">shape</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (CCPhysicsShape *)circleShapeWithRadius:(CGFloat)<em>radius</em> center:(CGPoint)<em>center</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCPhysicsShape.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/pillShapeFrom:to:cornerRadius:" title="pillShapeFrom:to:cornerRadius:"></a>
+	<h3 class="subsubtitle method-title">pillShapeFrom:to:cornerRadius:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create a pill <a href="#//api/name/shape">shape</a> with rounded corners that stretches from &lsquo;start&rsquo; to &lsquo;end&rsquo;.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (CCPhysicsShape *)pillShapeFrom:(CGPoint)<em>from</em> to:(CGPoint)<em>to</em> cornerRadius:(CGFloat)<em>cornerRadius</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCPhysicsShape.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/polygonShapeWithPoints:count:cornerRadius:" title="polygonShapeWithPoints:count:cornerRadius:"></a>
+	<h3 class="subsubtitle method-title">polygonShapeWithPoints:count:cornerRadius:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create a convex polygon <a href="#//api/name/shape">shape</a> with rounded corners.
+If the points do not form a convex polygon, then a convex hull will be created for them automatically.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (CCPhysicsShape *)polygonShapeWithPoints:(CGPoint *)<em>points</em> count:(NSUInteger)<em>count</em> cornerRadius:(CGFloat)<em>cornerRadius</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCPhysicsShape.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rectShape:cornerRadius:" title="rectShape:cornerRadius:"></a>
+	<h3 class="subsubtitle method-title">rectShape:cornerRadius:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Create a box <a href="#//api/name/shape">shape</a> with rounded corners.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (CCPhysicsShape *)rectShape:(CGRect)<em>rect</em> cornerRadius:(CGFloat)<em>cornerRadius</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCPhysicsShape.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+                    
+                    
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Cocos2d-iPhone.org. All rights reserved. (Last updated: 2013-12-06)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

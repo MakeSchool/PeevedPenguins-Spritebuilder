@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CCLabelAtlas.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CCLabelAtlas</TokenIdentifier>
+			<Abstract type="html">CCLabelAtlas is the original alternative to CCLabel offering improved performance.</Abstract>
+			<DeclaredIn>CCLabelAtlas.h</DeclaredIn>
+            
+			
+			<NodeRef refid="74"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCLabelAtlas/labelWithString:charMapFile:itemWidth:itemHeight:startCharMap:</TokenIdentifier>
+			<Abstract type="html">Creates and returns a label object using the specified text, character map bitmap file, element width, element height and the starting character index values.</Abstract>
+			<DeclaredIn>CCLabelAtlas.h</DeclaredIn>
+			
+			<Declaration>+ (id)labelWithString:(NSString *)string charMapFile:(NSString *)charmapfile itemWidth:(NSUInteger)w itemHeight:(NSUInteger)h startCharMap:(NSUInteger)firstElement</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>string</Name>
+					<Abstract type="html">Label text.</Abstract>
+				</Parameter><Parameter>
+					<Name>charmapfile</Name>
+					<Abstract type="html">Character map bitmap file.</Abstract>
+				</Parameter><Parameter>
+					<Name>w</Name>
+					<Abstract type="html">element width in points.</Abstract>
+				</Parameter><Parameter>
+					<Name>h</Name>
+					<Abstract type="html">element height in points.</Abstract>
+				</Parameter><Parameter>
+					<Name>firstElement</Name>
+					<Abstract type="html">Starting character index.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CCLabelAtlas Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/labelWithString:charMapFile:itemWidth:itemHeight:startCharMap:</Anchor>
+            <NodeRef refid="74"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCLabelAtlas/labelWithString:fntFile:</TokenIdentifier>
+			<Abstract type="html">Creates and returns a label object using the specified text and font configuration file values.</Abstract>
+			<DeclaredIn>CCLabelAtlas.h</DeclaredIn>
+			
+			<Declaration>+ (id)labelWithString:(NSString *)string fntFile:(NSString *)fontFile</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>string</Name>
+					<Abstract type="html">Label text.</Abstract>
+				</Parameter><Parameter>
+					<Name>fontFile</Name>
+					<Abstract type="html">Label font configuration file.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CCLabelAtlas Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/labelWithString:fntFile:</Anchor>
+            <NodeRef refid="74"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelAtlas/initWithString:charMapFile:itemWidth:itemHeight:startCharMap:</TokenIdentifier>
+			<Abstract type="html">Initializes and returns a label object using the specified text, character map bitmap file, element width, element height and the starting character index values.</Abstract>
+			<DeclaredIn>CCLabelAtlas.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithString:(NSString *)string charMapFile:(NSString *)charmapfile itemWidth:(NSUInteger)w itemHeight:(NSUInteger)h startCharMap:(NSUInteger)firstElement</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>string</Name>
+					<Abstract type="html">Label text.</Abstract>
+				</Parameter><Parameter>
+					<Name>charmapfile</Name>
+					<Abstract type="html">Character map bitmap file (the Atlas).</Abstract>
+				</Parameter><Parameter>
+					<Name>w</Name>
+					<Abstract type="html">element width in points.</Abstract>
+				</Parameter><Parameter>
+					<Name>h</Name>
+					<Abstract type="html">element height in points.</Abstract>
+				</Parameter><Parameter>
+					<Name>firstElement</Name>
+					<Abstract type="html">Starting character of the atlas.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized CCLabelAtlas Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithString:charMapFile:itemWidth:itemHeight:startCharMap:</Anchor>
+            <NodeRef refid="74"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelAtlas/initWithString:texture:itemWidth:itemHeight:startCharMap:</TokenIdentifier>
+			<Abstract type="html">Initializes and returns a label object using the specified text, texure, element width, element height and the starting character index values.</Abstract>
+			<DeclaredIn>CCLabelAtlas.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithString:(NSString *)theString texture:(CCTexture *)texture itemWidth:(NSUInteger)w itemHeight:(NSUInteger)h startCharMap:(NSUInteger)c</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theString</Name>
+					<Abstract type="html">Label text.</Abstract>
+				</Parameter><Parameter>
+					<Name>texture</Name>
+					<Abstract type="html">The texture to use.</Abstract>
+				</Parameter><Parameter>
+					<Name>w</Name>
+					<Abstract type="html">Element width in points.</Abstract>
+				</Parameter><Parameter>
+					<Name>h</Name>
+					<Abstract type="html">Element height in points.</Abstract>
+				</Parameter><Parameter>
+					<Name>c</Name>
+					<Abstract type="html">Index of character.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized CCLabelAtlas Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithString:texture:itemWidth:itemHeight:startCharMap:</Anchor>
+            <NodeRef refid="74"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCLabelAtlas/initWithString:fntFile:</TokenIdentifier>
+			<Abstract type="html">Initializes and returns a label object using the specified text and font configuration file values.</Abstract>
+			<DeclaredIn>CCLabelAtlas.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithString:(NSString *)string fntFile:(NSString *)fontFile</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>string</Name>
+					<Abstract type="html">Label text.</Abstract>
+				</Parameter><Parameter>
+					<Name>fontFile</Name>
+					<Abstract type="html">Label font configuration file.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An initialized CCLabelAtlas Object.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithString:fntFile:</Anchor>
+            <NodeRef refid="74"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

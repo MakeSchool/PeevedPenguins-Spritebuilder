@@ -1,0 +1,957 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>CCTextureCache Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 961)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">Cocos2d </a></h1>
+				<a id="developerHome" href="../index.html">Cocos2d-iPhone.org</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">CCTextureCache Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/purgeSharedTextureCache">&nbsp;&nbsp;&nbsp;&nbsp;+ purgeSharedTextureCache</option>
+	
+	<option value="//api/name/sharedTextureCache">&nbsp;&nbsp;&nbsp;&nbsp;+ sharedTextureCache</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/addCGImage:forKey:">&nbsp;&nbsp;&nbsp;&nbsp;- addCGImage:forKey:</option>
+	
+	<option value="//api/name/addImage:">&nbsp;&nbsp;&nbsp;&nbsp;- addImage:</option>
+	
+	<option value="//api/name/addImageAsync:target:selector:">&nbsp;&nbsp;&nbsp;&nbsp;- addImageAsync:target:selector:</option>
+	
+	<option value="//api/name/addImageAsync:withBlock:">&nbsp;&nbsp;&nbsp;&nbsp;- addImageAsync:withBlock:</option>
+	
+	<option value="//api/name/addPVRImage:">&nbsp;&nbsp;&nbsp;&nbsp;- addPVRImage:</option>
+	
+	<option value="//api/name/dumpCachedTextureInfo">&nbsp;&nbsp;&nbsp;&nbsp;- dumpCachedTextureInfo</option>
+	
+	<option value="//api/name/removeAllTextures">&nbsp;&nbsp;&nbsp;&nbsp;- removeAllTextures</option>
+	
+	<option value="//api/name/removeTexture:">&nbsp;&nbsp;&nbsp;&nbsp;- removeTexture:</option>
+	
+	<option value="//api/name/removeTextureForKey:">&nbsp;&nbsp;&nbsp;&nbsp;- removeTextureForKey:</option>
+	
+	<option value="//api/name/removeUnusedTextures">&nbsp;&nbsp;&nbsp;&nbsp;- removeUnusedTextures</option>
+	
+	<option value="//api/name/textureForKey:">&nbsp;&nbsp;&nbsp;&nbsp;- textureForKey:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_PVRSupport Methods">PVRSupport Methods</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Debug Methods">Debug Methods</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/purgeSharedTextureCache">purgeSharedTextureCache</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sharedTextureCache">sharedTextureCache</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addCGImage:forKey:">addCGImage:forKey:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addImage:">addImage:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addImageAsync:target:selector:">addImageAsync:target:selector:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addImageAsync:withBlock:">addImageAsync:withBlock:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addPVRImage:">addPVRImage:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/dumpCachedTextureInfo">dumpCachedTextureInfo</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeAllTextures">removeAllTextures</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeTexture:">removeTexture:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeTextureForKey:">removeTextureForKey:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeUnusedTextures">removeUnusedTextures</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/textureForKey:">textureForKey:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="CCTextureCache Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">CCTextureCache Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">CCTextureCache.h</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Singleton that handles the loading of textures
+Once the texture is loaded, the next time it will return
+a reference of the previously loaded texture reducing GPU &amp; CPU memory</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sharedTextureCache">+&nbsp;sharedTextureCache</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/purgeSharedTextureCache">+&nbsp;purgeSharedTextureCache</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addImage:">&ndash;&nbsp;addImage:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addImageAsync:target:selector:">&ndash;&nbsp;addImageAsync:target:selector:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addImageAsync:withBlock:">&ndash;&nbsp;addImageAsync:withBlock:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addCGImage:forKey:">&ndash;&nbsp;addCGImage:forKey:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/textureForKey:">&ndash;&nbsp;textureForKey:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeAllTextures">&ndash;&nbsp;removeAllTextures</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeUnusedTextures">&ndash;&nbsp;removeUnusedTextures</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeTexture:">&ndash;&nbsp;removeTexture:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeTextureForKey:">&ndash;&nbsp;removeTextureForKey:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="PVRSupport Methods" name="task_PVRSupport Methods"></a>
+						<h3 class="subsubtitle task-title">PVRSupport Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addPVRImage:">&ndash;&nbsp;addPVRImage:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Debug Methods" name="task_Debug Methods"></a>
+						<h3 class="subsubtitle task-title">Debug Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/dumpCachedTextureInfo">&ndash;&nbsp;dumpCachedTextureInfo</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/purgeSharedTextureCache" title="purgeSharedTextureCache"></a>
+	<h3 class="subsubtitle method-title">purgeSharedTextureCache</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>purges the cache. It releases the retained instance.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)purgeSharedTextureCache</code></div>
+
+    
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>v0.99.0</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCTextureCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sharedTextureCache" title="sharedTextureCache"></a>
+	<h3 class="subsubtitle method-title">sharedTextureCache</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Retruns ths shared instance of the cache</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (CCTextureCache *)sharedTextureCache</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCTextureCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/addCGImage:forKey:" title="addCGImage:forKey:"></a>
+	<h3 class="subsubtitle method-title">addCGImage:forKey:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a Texture2D object given an CGImageRef image
+If the image was not previously loaded, it will create a new CCTexture2D object and it will return it.
+Otherwise it will return a reference of a previously loaded image
+The &ldquo;key&rdquo; parameter will be used as the &ldquo;key&rdquo; for the cache.
+If &ldquo;key&rdquo; is nil, then a new texture will be created each time.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (CCTexture *)addCGImage:(CGImageRef)<em>image</em> forKey:(NSString *)<em>key</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>v0.8</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCTextureCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/addImage:" title="addImage:"></a>
+	<h3 class="subsubtitle method-title">addImage:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a Texture2D object given an file image
+If the file image was not previously loaded, it will create a new CCTexture2D
+object and it will return it. It will use the filename as a key.
+Otherwise it will return a reference of a previously loaded image.
+Supported image extensions: .png, .bmp, .tiff, .jpeg, .pvr, .gif</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (CCTexture *)addImage:(NSString *)<em>fileimage</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCTextureCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/addImageAsync:target:selector:" title="addImageAsync:target:selector:"></a>
+	<h3 class="subsubtitle method-title">addImageAsync:target:selector:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Asynchronously, load a texture2d from a file.
+If the file image was previously loaded, it will use it.
+Otherwise it will load a texture in a new thread, and when the image is loaded, the callback will be called with the Texture2D as a parameter.
+The callback will be called in the cocos2d thread, so it is safe to create any cocos2d object from the callback.
+Supported image extensions: .png, .bmp, .tiff, .jpeg, .pvr, .gif</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addImageAsync:(NSString *)<em>filename</em> target:(id)<em>target</em> selector:(SEL)<em>selector</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>v0.8</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCTextureCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/addImageAsync:withBlock:" title="addImageAsync:withBlock:"></a>
+	<h3 class="subsubtitle method-title">addImageAsync:withBlock:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Asynchronously, load a texture2d from a file.
+If the file image was previously loaded, it will use it.
+Otherwise it will load a texture in a new thread, and when the image is loaded, the block will be called.
+The callback will be called in the cocos2d thread, so it is safe to create any cocos2d object from the callback.
+Supported image extensions: .png, .bmp, .tiff, .jpeg, .pvr, .gif</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addImageAsync:(NSString *)<em>filename</em> withBlock:(void ( ^ ) ( CCTexture *tex ))<em>block</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>v2.0</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCTextureCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/addPVRImage:" title="addPVRImage:"></a>
+	<h3 class="subsubtitle method-title">addPVRImage:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a Texture2D object given an PVR filename.
+If the file image was not previously loaded, it will create a new CCTexture2D
+object and it will return it. Otherwise it will return a reference of a previously loaded image</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (CCTexture *)addPVRImage:(NSString *)<em>filename</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCTextureCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/dumpCachedTextureInfo" title="dumpCachedTextureInfo"></a>
+	<h3 class="subsubtitle method-title">dumpCachedTextureInfo</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Output to CCLOG the current contents of this CCTextureCache
+This will attempt to calculate the size of each texture, and the total texture memory in use</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)dumpCachedTextureInfo</code></div>
+
+    
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>v1.0</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCTextureCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeAllTextures" title="removeAllTextures"></a>
+	<h3 class="subsubtitle method-title">removeAllTextures</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Purges the dictionary of loaded textures.
+Call this method if you receive the &ldquo;Memory Warning&rdquo;
+In the short term: it will free some resources preventing your app from being killed
+In the medium term: it will allocate more resources
+In the long term: it will be the same</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeAllTextures</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCTextureCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeTexture:" title="removeTexture:"></a>
+	<h3 class="subsubtitle method-title">removeTexture:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Deletes a texture from the cache given a texture</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeTexture:(CCTexture *)<em>tex</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCTextureCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeTextureForKey:" title="removeTextureForKey:"></a>
+	<h3 class="subsubtitle method-title">removeTextureForKey:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Deletes a texture from the cache given a its key name</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeTextureForKey:(NSString *)<em>textureKeyName</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>v0.99.4</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCTextureCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeUnusedTextures" title="removeUnusedTextures"></a>
+	<h3 class="subsubtitle method-title">removeUnusedTextures</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Removes unused textures
+Textures that have a retain count of 1 will be deleted
+It is convenient to call this method after when starting a new Scene</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeUnusedTextures</code></div>
+
+    
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>v0.8</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCTextureCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/textureForKey:" title="textureForKey:"></a>
+	<h3 class="subsubtitle method-title">textureForKey:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns an already created texture. Returns nil if the texture doesn&rsquo;t exist.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (CCTexture *)textureForKey:(NSString *)<em>key</em></code></div>
+
+    
+	
+	
+	
+	
+	
+	<div class="method-subsection availability">
+		<h4 class="method-subtitle parameter-title">Availability</h4>
+		<p>v0.99.5</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCTextureCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+                    
+                    
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Cocos2d-iPhone.org. All rights reserved. (Last updated: 2013-12-06)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

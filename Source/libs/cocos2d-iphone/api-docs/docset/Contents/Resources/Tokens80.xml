@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CCNavigationController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CCNavigationController</TokenIdentifier>
+			<Abstract type="html">The fixed screen mode will setup the working area to be 568 x 384 points. Depending on the device, the outer edges may be cropped. The safe area, that will be displayed on all sorts of devices, is 480 x 320 points and placed in the center of the working area.</Abstract>
+			<DeclaredIn>CCAppDelegate.h</DeclaredIn>
+            
+			
+			<NodeRef refid="80"/>
+		</Token>
+		
+		
+        
+	</File>
+</Tokens>

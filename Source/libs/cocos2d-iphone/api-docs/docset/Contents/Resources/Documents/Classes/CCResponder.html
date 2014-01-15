@@ -1,0 +1,1357 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>CCResponder Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 961)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">Cocos2d </a></h1>
+				<a id="developerHome" href="../index.html">Cocos2d-iPhone.org</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">CCResponder Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/claimsUserInteraction">&nbsp;&nbsp;&nbsp;&nbsp;claimsUserInteraction</option>
+	
+	<option value="//api/name/exclusiveTouch">&nbsp;&nbsp;&nbsp;&nbsp;exclusiveTouch</option>
+	
+	<option value="//api/name/multipleTouchEnabled">&nbsp;&nbsp;&nbsp;&nbsp;multipleTouchEnabled</option>
+	
+	<option value="//api/name/userInteractionEnabled">&nbsp;&nbsp;&nbsp;&nbsp;userInteractionEnabled</option>
+	
+	
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/init">&nbsp;&nbsp;&nbsp;&nbsp;- init</option>
+	
+	<option value="//api/name/mouseDown:">&nbsp;&nbsp;&nbsp;&nbsp;- mouseDown:</option>
+	
+	<option value="//api/name/mouseDragged:">&nbsp;&nbsp;&nbsp;&nbsp;- mouseDragged:</option>
+	
+	<option value="//api/name/mouseUp:">&nbsp;&nbsp;&nbsp;&nbsp;- mouseUp:</option>
+	
+	<option value="//api/name/otherMouseDown:">&nbsp;&nbsp;&nbsp;&nbsp;- otherMouseDown:</option>
+	
+	<option value="//api/name/otherMouseDragged:">&nbsp;&nbsp;&nbsp;&nbsp;- otherMouseDragged:</option>
+	
+	<option value="//api/name/otherMouseUp:">&nbsp;&nbsp;&nbsp;&nbsp;- otherMouseUp:</option>
+	
+	<option value="//api/name/rightMouseDown:">&nbsp;&nbsp;&nbsp;&nbsp;- rightMouseDown:</option>
+	
+	<option value="//api/name/rightMouseDragged:">&nbsp;&nbsp;&nbsp;&nbsp;- rightMouseDragged:</option>
+	
+	<option value="//api/name/rightMouseUp:">&nbsp;&nbsp;&nbsp;&nbsp;- rightMouseUp:</option>
+	
+	<option value="//api/name/scrollWheel:">&nbsp;&nbsp;&nbsp;&nbsp;- scrollWheel:</option>
+	
+	<option value="//api/name/touchesBegan:withEvent:">&nbsp;&nbsp;&nbsp;&nbsp;- touchesBegan:withEvent:</option>
+	
+	<option value="//api/name/touchesCancelled:withEvent:">&nbsp;&nbsp;&nbsp;&nbsp;- touchesCancelled:withEvent:</option>
+	
+	<option value="//api/name/touchesEnded:withEvent:">&nbsp;&nbsp;&nbsp;&nbsp;- touchesEnded:withEvent:</option>
+	
+	<option value="//api/name/touchesMoved:withEvent:">&nbsp;&nbsp;&nbsp;&nbsp;- touchesMoved:withEvent:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Initialize">Initialize</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Touch handling">Touch handling</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Mouse handling">Mouse handling</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/claimsUserInteraction">claimsUserInteraction</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/exclusiveTouch">exclusiveTouch</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/multipleTouchEnabled">multipleTouchEnabled</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/userInteractionEnabled">userInteractionEnabled</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/init">init</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mouseDown:">mouseDown:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mouseDragged:">mouseDragged:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/mouseUp:">mouseUp:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/otherMouseDown:">otherMouseDown:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/otherMouseDragged:">otherMouseDragged:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/otherMouseUp:">otherMouseUp:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rightMouseDown:">rightMouseDown:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rightMouseDragged:">rightMouseDragged:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/rightMouseUp:">rightMouseUp:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/scrollWheel:">scrollWheel:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/touchesBegan:withEvent:">touchesBegan:withEvent:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/touchesCancelled:withEvent:">touchesCancelled:withEvent:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/touchesEnded:withEvent:">touchesEnded:withEvent:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/touchesMoved:withEvent:">touchesMoved:withEvent:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="CCResponder Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">CCResponder Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">CCResponderProtocol</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">CCResponder.h</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>CCResponder is the base class for all nodes.
+It exposes the touch and mouse interface to any node, which enables user interaction</p>
+
+<p>To make a responder react to user interaction, the touchesXXX / mouseXXX event must be overridden.
+If this is not the case, the event will be passed on to the next responder.
+To force the events to be passed to next responder, call the super as last step, before returning from the event</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/userInteractionEnabled">&nbsp;&nbsp;userInteractionEnabled</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/multipleTouchEnabled">&nbsp;&nbsp;multipleTouchEnabled</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/claimsUserInteraction">&nbsp;&nbsp;claimsUserInteraction</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/exclusiveTouch">&nbsp;&nbsp;exclusiveTouch</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Initialize" name="task_Initialize"></a>
+						<h3 class="subsubtitle task-title">Initialize</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/init">&ndash;&nbsp;init</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Touch handling" name="task_Touch handling"></a>
+						<h3 class="subsubtitle task-title">Touch handling</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/touchesBegan:withEvent:">&ndash;&nbsp;touchesBegan:withEvent:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/touchesMoved:withEvent:">&ndash;&nbsp;touchesMoved:withEvent:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/touchesEnded:withEvent:">&ndash;&nbsp;touchesEnded:withEvent:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/touchesCancelled:withEvent:">&ndash;&nbsp;touchesCancelled:withEvent:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Mouse handling" name="task_Mouse handling"></a>
+						<h3 class="subsubtitle task-title">Mouse handling</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mouseDown:">&ndash;&nbsp;mouseDown:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mouseDragged:">&ndash;&nbsp;mouseDragged:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/mouseUp:">&ndash;&nbsp;mouseUp:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rightMouseDown:">&ndash;&nbsp;rightMouseDown:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rightMouseDragged:">&ndash;&nbsp;rightMouseDragged:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/rightMouseUp:">&ndash;&nbsp;rightMouseUp:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/otherMouseDown:">&ndash;&nbsp;otherMouseDown:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/otherMouseDragged:">&ndash;&nbsp;otherMouseDragged:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/otherMouseUp:">&ndash;&nbsp;otherMouseUp:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/scrollWheel:">&ndash;&nbsp;scrollWheel:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/claimsUserInteraction" title="claimsUserInteraction"></a>
+	<h3 class="subsubtitle method-title">claimsUserInteraction</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Locks the touch to the node if touch moved outside
+If a node claims user interaction, the touch will continue to be sent to the node, no matter where the touch is moved
+If the node does not claim user interaction, a touch will be cancelled, if moved outside the nodes detection area
+If the node does not claim user interaction, and a touch is moved from outside the nodes detection area, to inside, a touchesBegan will be generated</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) BOOL claimsUserInteraction</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCResponder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/exclusiveTouch" title="exclusiveTouch"></a>
+	<h3 class="subsubtitle method-title">exclusiveTouch</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>All other touches will be cancelled / ignored, if a node with exclusive touch, is active
+Only one exclusive touch can be active at a time.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, getter=isExclusiveTouch) BOOL exclusiveTouch</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCResponder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/multipleTouchEnabled" title="multipleTouchEnabled"></a>
+	<h3 class="subsubtitle method-title">multipleTouchEnabled</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Enables multiple touches inside a single node</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, getter=isMultipleTouchEnabled) BOOL multipleTouchEnabled</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCResponder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/userInteractionEnabled" title="userInteractionEnabled"></a>
+	<h3 class="subsubtitle method-title">userInteractionEnabled</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Enables user interaction on a node</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, getter=isUserInteractionEnabled) BOOL userInteractionEnabled</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCResponder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/init" title="init"></a>
+	<h3 class="subsubtitle method-title">init</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initialzes a new CCResponder</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)init</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>CCResponder instance</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCResponder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mouseDown:" title="mouseDown:"></a>
+	<h3 class="subsubtitle method-title">mouseDown:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when left mouse button is pressed inside a node accepting user interaction</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mouseDown:(NSEvent *)<em>theEvent</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>theEvent</em></dt>
+			<dd><p>The event created</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCResponder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mouseDragged:" title="mouseDragged:"></a>
+	<h3 class="subsubtitle method-title">mouseDragged:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when left mouse button is dragged for a node accepting user interaction</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mouseDragged:(NSEvent *)<em>theEvent</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>theEvent</em></dt>
+			<dd><p>The event created</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCResponder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/mouseUp:" title="mouseUp:"></a>
+	<h3 class="subsubtitle method-title">mouseUp:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when left mouse button is released for a node accepting user interaction</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)mouseUp:(NSEvent *)<em>theEvent</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>theEvent</em></dt>
+			<dd><p>The event created</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCResponder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/otherMouseDown:" title="otherMouseDown:"></a>
+	<h3 class="subsubtitle method-title">otherMouseDown:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when middle mouse button is pressed inside a node accepting user interaction</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)otherMouseDown:(NSEvent *)<em>theEvent</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>theEvent</em></dt>
+			<dd><p>The event created</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCResponder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/otherMouseDragged:" title="otherMouseDragged:"></a>
+	<h3 class="subsubtitle method-title">otherMouseDragged:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when middle mouse button is dragged for a node accepting user interaction</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)otherMouseDragged:(NSEvent *)<em>theEvent</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>theEvent</em></dt>
+			<dd><p>The event created</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCResponder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/otherMouseUp:" title="otherMouseUp:"></a>
+	<h3 class="subsubtitle method-title">otherMouseUp:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when middle mouse button is released for a node accepting user interaction</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)otherMouseUp:(NSEvent *)<em>theEvent</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>theEvent</em></dt>
+			<dd><p>The event created</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCResponder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rightMouseDown:" title="rightMouseDown:"></a>
+	<h3 class="subsubtitle method-title">rightMouseDown:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when right mouse button is pressed inside a node accepting user interaction</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)rightMouseDown:(NSEvent *)<em>theEvent</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>theEvent</em></dt>
+			<dd><p>The event created</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCResponder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rightMouseDragged:" title="rightMouseDragged:"></a>
+	<h3 class="subsubtitle method-title">rightMouseDragged:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when right mouse button is dragged for a node accepting user interaction</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)rightMouseDragged:(NSEvent *)<em>theEvent</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>theEvent</em></dt>
+			<dd><p>The event created</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCResponder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/rightMouseUp:" title="rightMouseUp:"></a>
+	<h3 class="subsubtitle method-title">rightMouseUp:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when right mouse button is released for a node accepting user interaction</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)rightMouseUp:(NSEvent *)<em>theEvent</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>theEvent</em></dt>
+			<dd><p>The event created</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCResponder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/scrollWheel:" title="scrollWheel:"></a>
+	<h3 class="subsubtitle method-title">scrollWheel:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called when scroll wheel is activated inside a node accepting user interaction</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)scrollWheel:(NSEvent *)<em>theEvent</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>theEvent</em></dt>
+			<dd><p>The event created</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCResponder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/touchesBegan:withEvent:" title="touchesBegan:withEvent:"></a>
+	<h3 class="subsubtitle method-title">touchesBegan:withEvent:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called then one or more touches began
+If touches are dragged inside nodes which does not claim user interaction, start will be called
+If node has exclusive touch, all other ongoing touches will be canceled</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)touchesBegan:(NSSet *)<em>touches</em> withEvent:(UIEvent *)<em>event</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>touches</em></dt>
+			<dd><p>Contains a set of the touches</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>event</em></dt>
+			<dd><p>Current event information</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCResponder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/touchesCancelled:withEvent:" title="touchesCancelled:withEvent:"></a>
+	<h3 class="subsubtitle method-title">touchesCancelled:withEvent:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called then one or more touches were cancelled
+If touches are dragged outside nodes which does not claim user interaction, cancel will be called
+If another node with exclusive touch is activated, cancel will be called for all ongoing touches</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)touchesCancelled:(NSSet *)<em>touches</em> withEvent:(UIEvent *)<em>event</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>touches</em></dt>
+			<dd><p>Contains a set of the touches</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>event</em></dt>
+			<dd><p>Current event information</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCResponder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/touchesEnded:withEvent:" title="touchesEnded:withEvent:"></a>
+	<h3 class="subsubtitle method-title">touchesEnded:withEvent:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called then one or more touches ended</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)touchesEnded:(NSSet *)<em>touches</em> withEvent:(UIEvent *)<em>event</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>touches</em></dt>
+			<dd><p>Contains a set of the touches</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>event</em></dt>
+			<dd><p>Current event information</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCResponder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/touchesMoved:withEvent:" title="touchesMoved:withEvent:"></a>
+	<h3 class="subsubtitle method-title">touchesMoved:withEvent:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Called then one or more touches are moved</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)touchesMoved:(NSSet *)<em>touches</em> withEvent:(UIEvent *)<em>event</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>touches</em></dt>
+			<dd><p>Contains a set of the touches</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>event</em></dt>
+			<dd><p>Current event information</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCResponder.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+                    
+                    
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Cocos2d-iPhone.org. All rights reserved. (Last updated: 2013-12-06)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

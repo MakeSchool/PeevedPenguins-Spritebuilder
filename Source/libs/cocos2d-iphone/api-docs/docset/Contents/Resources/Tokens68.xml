@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CCAtlasNode.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CCAtlasNode</TokenIdentifier>
+			<Abstract type="html">CCAtlasNode is a subclass of CCNode that implements the CCRGBAProtocol and
+CCTextureProtocol protocol</Abstract>
+			<DeclaredIn>CCAtlasNode.h</DeclaredIn>
+            
+			
+			<NodeRef refid="68"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAtlasNode/setTextureAtlas:</TokenIdentifier>
+			<Abstract type="html">conforms to CCTextureProtocol protocol</Abstract>
+			<DeclaredIn>CCAtlasNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite, strong) CCTextureAtlas *textureAtlas</Declaration>
+			
+			
+			<Anchor>//api/name/textureAtlas</Anchor>
+            <NodeRef refid="68"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAtlasNode/textureAtlas</TokenIdentifier>
+			<Abstract type="html">conforms to CCTextureProtocol protocol</Abstract>
+			<DeclaredIn>CCAtlasNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite, strong) CCTextureAtlas *textureAtlas</Declaration>
+			
+			
+			<Anchor>//api/name/textureAtlas</Anchor>
+            <NodeRef refid="68"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCAtlasNode/textureAtlas</TokenIdentifier>
+			<Abstract type="html">conforms to CCTextureProtocol protocol</Abstract>
+			<DeclaredIn>CCAtlasNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite, strong) CCTextureAtlas *textureAtlas</Declaration>
+			
+			
+			<Anchor>//api/name/textureAtlas</Anchor>
+            <NodeRef refid="68"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAtlasNode/setBlendFunc:</TokenIdentifier>
+			<Abstract type="html">conforms to CCTextureProtocol protocol</Abstract>
+			<DeclaredIn>CCAtlasNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) ccBlendFunc blendFunc</Declaration>
+			
+			
+			<Anchor>//api/name/blendFunc</Anchor>
+            <NodeRef refid="68"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAtlasNode/blendFunc</TokenIdentifier>
+			<Abstract type="html">conforms to CCTextureProtocol protocol</Abstract>
+			<DeclaredIn>CCAtlasNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) ccBlendFunc blendFunc</Declaration>
+			
+			
+			<Anchor>//api/name/blendFunc</Anchor>
+            <NodeRef refid="68"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCAtlasNode/blendFunc</TokenIdentifier>
+			<Abstract type="html">conforms to CCTextureProtocol protocol</Abstract>
+			<DeclaredIn>CCAtlasNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) ccBlendFunc blendFunc</Declaration>
+			
+			
+			<Anchor>//api/name/blendFunc</Anchor>
+            <NodeRef refid="68"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAtlasNode/setColor:</TokenIdentifier>
+			<Abstract type="html">conforms to CCRGBAProtocol protocol</Abstract>
+			<DeclaredIn>CCAtlasNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) ccColor3B color</Declaration>
+			
+			
+			<Anchor>//api/name/color</Anchor>
+            <NodeRef refid="68"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAtlasNode/color</TokenIdentifier>
+			<Abstract type="html">conforms to CCRGBAProtocol protocol</Abstract>
+			<DeclaredIn>CCAtlasNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) ccColor3B color</Declaration>
+			
+			
+			<Anchor>//api/name/color</Anchor>
+            <NodeRef refid="68"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCAtlasNode/color</TokenIdentifier>
+			<Abstract type="html">conforms to CCRGBAProtocol protocol</Abstract>
+			<DeclaredIn>CCAtlasNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) ccColor3B color</Declaration>
+			
+			
+			<Anchor>//api/name/color</Anchor>
+            <NodeRef refid="68"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAtlasNode/setQuadsToDraw:</TokenIdentifier>
+			<Abstract type="html">how many quads to draw</Abstract>
+			<DeclaredIn>CCAtlasNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) NSUInteger quadsToDraw</Declaration>
+			
+			
+			<Anchor>//api/name/quadsToDraw</Anchor>
+            <NodeRef refid="68"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAtlasNode/quadsToDraw</TokenIdentifier>
+			<Abstract type="html">how many quads to draw</Abstract>
+			<DeclaredIn>CCAtlasNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) NSUInteger quadsToDraw</Declaration>
+			
+			
+			<Anchor>//api/name/quadsToDraw</Anchor>
+            <NodeRef refid="68"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCAtlasNode/quadsToDraw</TokenIdentifier>
+			<Abstract type="html">how many quads to draw</Abstract>
+			<DeclaredIn>CCAtlasNode.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) NSUInteger quadsToDraw</Declaration>
+			
+			
+			<Anchor>//api/name/quadsToDraw</Anchor>
+            <NodeRef refid="68"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCAtlasNode/atlasWithTileFile:tileWidth:tileHeight:itemsToRender:</TokenIdentifier>
+			<Abstract type="html">creates a CCAtlasNode with an Atlas file the width and height of each item measured in points and the quantity of items to render</Abstract>
+			<DeclaredIn>CCAtlasNode.h</DeclaredIn>
+			
+			<Declaration>+ (id)atlasWithTileFile:(NSString *)tile tileWidth:(NSUInteger)w tileHeight:(NSUInteger)h itemsToRender:(NSUInteger)c</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>tile</Name>
+					<Abstract type="html">Tile filename.</Abstract>
+				</Parameter><Parameter>
+					<Name>w</Name>
+					<Abstract type="html">Width of tile node.</Abstract>
+				</Parameter><Parameter>
+					<Name>h</Name>
+					<Abstract type="html">Height of tile node.</Abstract>
+				</Parameter><Parameter>
+					<Name>c</Name>
+					<Abstract type="html">Number of tiles to render.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A newly initialized CCAtlasNode.</Abstract></ReturnValue>
+			<Anchor>//api/name/atlasWithTileFile:tileWidth:tileHeight:itemsToRender:</Anchor>
+            <NodeRef refid="68"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAtlasNode/initWithTileFile:tileWidth:tileHeight:itemsToRender:</TokenIdentifier>
+			<Abstract type="html">initializes an CCAtlasNode  with an Atlas file the width and height of each item measured in points and the quantity of items to render</Abstract>
+			<DeclaredIn>CCAtlasNode.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithTileFile:(NSString *)tile tileWidth:(NSUInteger)w tileHeight:(NSUInteger)h itemsToRender:(NSUInteger)c</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>tile</Name>
+					<Abstract type="html">Tile filename.</Abstract>
+				</Parameter><Parameter>
+					<Name>w</Name>
+					<Abstract type="html">Width of tile node.</Abstract>
+				</Parameter><Parameter>
+					<Name>h</Name>
+					<Abstract type="html">Height of tile node.</Abstract>
+				</Parameter><Parameter>
+					<Name>c</Name>
+					<Abstract type="html">Number of tiles to render.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A newly initialized CCAtlasNode.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithTileFile:tileWidth:tileHeight:itemsToRender:</Anchor>
+            <NodeRef refid="68"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAtlasNode/initWithTexture:tileWidth:tileHeight:itemsToRender:</TokenIdentifier>
+			<Abstract type="html">initializes an CCAtlasNode  with a texture the width and height of each item measured in points and the quantity of items to render</Abstract>
+			<DeclaredIn>CCAtlasNode.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithTexture:(CCTexture *)texture tileWidth:(NSUInteger)w tileHeight:(NSUInteger)h itemsToRender:(NSUInteger)c</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>texture</Name>
+					<Abstract type="html">Texture.</Abstract>
+				</Parameter><Parameter>
+					<Name>w</Name>
+					<Abstract type="html">Width of tile node.</Abstract>
+				</Parameter><Parameter>
+					<Name>h</Name>
+					<Abstract type="html">Height of tile node.</Abstract>
+				</Parameter><Parameter>
+					<Name>c</Name>
+					<Abstract type="html">Number of tiles to render.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A newly initialized CCAtlasNode.</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithTexture:tileWidth:tileHeight:itemsToRender:</Anchor>
+            <NodeRef refid="68"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCAtlasNode/updateAtlasValues</TokenIdentifier>
+			<Abstract type="html">updates the Atlas (indexed vertex array).
+Shall be overridden in subclasses</Abstract>
+			<DeclaredIn>CCAtlasNode.h</DeclaredIn>
+			
+			<Declaration>- (void)updateAtlasValues</Declaration>
+			
+			
+			<Anchor>//api/name/updateAtlasValues</Anchor>
+            <NodeRef refid="68"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

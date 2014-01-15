@@ -1,0 +1,1074 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>CCSpriteFrameCache Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 961)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">Cocos2d </a></h1>
+				<a id="developerHome" href="../index.html">Cocos2d-iPhone.org</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">CCSpriteFrameCache Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/purgeSharedSpriteFrameCache">&nbsp;&nbsp;&nbsp;&nbsp;+ purgeSharedSpriteFrameCache</option>
+	
+	<option value="//api/name/sharedSpriteFrameCache">&nbsp;&nbsp;&nbsp;&nbsp;+ sharedSpriteFrameCache</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/addSpriteFrame:name:">&nbsp;&nbsp;&nbsp;&nbsp;- addSpriteFrame:name:</option>
+	
+	<option value="//api/name/addSpriteFramesWithFile:">&nbsp;&nbsp;&nbsp;&nbsp;- addSpriteFramesWithFile:</option>
+	
+	<option value="//api/name/addSpriteFramesWithFile:texture:">&nbsp;&nbsp;&nbsp;&nbsp;- addSpriteFramesWithFile:texture:</option>
+	
+	<option value="//api/name/addSpriteFramesWithFile:textureFilename:">&nbsp;&nbsp;&nbsp;&nbsp;- addSpriteFramesWithFile:textureFilename:</option>
+	
+	<option value="//api/name/loadSpriteFrameLookupDictionaryFromFile:">&nbsp;&nbsp;&nbsp;&nbsp;- loadSpriteFrameLookupDictionaryFromFile:</option>
+	
+	<option value="//api/name/registerSpriteFramesFile:">&nbsp;&nbsp;&nbsp;&nbsp;- registerSpriteFramesFile:</option>
+	
+	<option value="//api/name/removeSpriteFrameByName:">&nbsp;&nbsp;&nbsp;&nbsp;- removeSpriteFrameByName:</option>
+	
+	<option value="//api/name/removeSpriteFrames">&nbsp;&nbsp;&nbsp;&nbsp;- removeSpriteFrames</option>
+	
+	<option value="//api/name/removeSpriteFramesFromFile:">&nbsp;&nbsp;&nbsp;&nbsp;- removeSpriteFramesFromFile:</option>
+	
+	<option value="//api/name/removeSpriteFramesFromTexture:">&nbsp;&nbsp;&nbsp;&nbsp;- removeSpriteFramesFromTexture:</option>
+	
+	<option value="//api/name/removeUnusedSpriteFrames">&nbsp;&nbsp;&nbsp;&nbsp;- removeUnusedSpriteFrames</option>
+	
+	<option value="//api/name/spriteFrameByName:">&nbsp;&nbsp;&nbsp;&nbsp;- spriteFrameByName:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Sprite Frame Cache Addition">Sprite Frame Cache Addition</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Sprite Frame Cache Removal">Sprite Frame Cache Removal</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Sprite Frame Cache Access">Sprite Frame Cache Access</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/purgeSharedSpriteFrameCache">purgeSharedSpriteFrameCache</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/sharedSpriteFrameCache">sharedSpriteFrameCache</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addSpriteFrame:name:">addSpriteFrame:name:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addSpriteFramesWithFile:">addSpriteFramesWithFile:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addSpriteFramesWithFile:texture:">addSpriteFramesWithFile:texture:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addSpriteFramesWithFile:textureFilename:">addSpriteFramesWithFile:textureFilename:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/loadSpriteFrameLookupDictionaryFromFile:">loadSpriteFrameLookupDictionaryFromFile:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/registerSpriteFramesFile:">registerSpriteFramesFile:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeSpriteFrameByName:">removeSpriteFrameByName:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeSpriteFrames">removeSpriteFrames</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeSpriteFramesFromFile:">removeSpriteFramesFromFile:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeSpriteFramesFromTexture:">removeSpriteFramesFromTexture:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/removeUnusedSpriteFrames">removeUnusedSpriteFrames</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/spriteFrameByName:">spriteFrameByName:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="CCSpriteFrameCache Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">CCSpriteFrameCache Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">CCSpriteFrameCache.h</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Singleton that manages the loading and caching of sprite frames.</p>
+
+<h3>Supported editors (Non exhaustive)</h3>
+
+<ul>
+<li>Texture Packer <a href="http://www.codeandweb.com/texturepacker">http://www.codeandweb.com/texturepacker</a></li>
+<li>zwoptex <a href="http://www.zwopple.com/zwoptex/">http://www.zwopple.com/zwoptex/</a></li>
+</ul>
+
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						
+						<h3 class="subsubtitle task-title">Other Methods</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/sharedSpriteFrameCache">+&nbsp;sharedSpriteFrameCache</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/purgeSharedSpriteFrameCache">+&nbsp;purgeSharedSpriteFrameCache</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Sprite Frame Cache Addition" name="task_Sprite Frame Cache Addition"></a>
+						<h3 class="subsubtitle task-title">Sprite Frame Cache Addition</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addSpriteFramesWithFile:">&ndash;&nbsp;addSpriteFramesWithFile:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addSpriteFramesWithFile:textureFilename:">&ndash;&nbsp;addSpriteFramesWithFile:textureFilename:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addSpriteFramesWithFile:texture:">&ndash;&nbsp;addSpriteFramesWithFile:texture:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addSpriteFrame:name:">&ndash;&nbsp;addSpriteFrame:name:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/registerSpriteFramesFile:">&ndash;&nbsp;registerSpriteFramesFile:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/loadSpriteFrameLookupDictionaryFromFile:">&ndash;&nbsp;loadSpriteFrameLookupDictionaryFromFile:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Sprite Frame Cache Removal" name="task_Sprite Frame Cache Removal"></a>
+						<h3 class="subsubtitle task-title">Sprite Frame Cache Removal</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeSpriteFrames">&ndash;&nbsp;removeSpriteFrames</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeUnusedSpriteFrames">&ndash;&nbsp;removeUnusedSpriteFrames</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeSpriteFrameByName:">&ndash;&nbsp;removeSpriteFrameByName:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeSpriteFramesFromFile:">&ndash;&nbsp;removeSpriteFramesFromFile:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/removeSpriteFramesFromTexture:">&ndash;&nbsp;removeSpriteFramesFromTexture:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Sprite Frame Cache Access" name="task_Sprite Frame Cache Access"></a>
+						<h3 class="subsubtitle task-title">Sprite Frame Cache Access</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/spriteFrameByName:">&ndash;&nbsp;spriteFrameByName:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/purgeSharedSpriteFrameCache" title="purgeSharedSpriteFrameCache"></a>
+	<h3 class="subsubtitle method-title">purgeSharedSpriteFrameCache</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Purges the cache. It releases everything.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (void)purgeSharedSpriteFrameCache</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCSpriteFrameCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/sharedSpriteFrameCache" title="sharedSpriteFrameCache"></a>
+	<h3 class="subsubtitle method-title">sharedSpriteFrameCache</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Sprite frame cache shared instance.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (CCSpriteFrameCache *)sharedSpriteFrameCache</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCSpriteFrameCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/addSpriteFrame:name:" title="addSpriteFrame:name:"></a>
+	<h3 class="subsubtitle method-title">addSpriteFrame:name:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Add a sprite frame to the cache with the specified sprite frame and name.  If name already exists, sprite frame will be overwritten.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addSpriteFrame:(CCSpriteFrame *)<em>frame</em> name:(NSString *)<em>frameName</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>frame</em></dt>
+			<dd><p>Sprite frame to use.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>frameName</em></dt>
+			<dd><p>Frame name to use.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCSpriteFrameCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/addSpriteFramesWithFile:" title="addSpriteFramesWithFile:"></a>
+	<h3 class="subsubtitle method-title">addSpriteFramesWithFile:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Add Sprite frames to the cache from the specified plist.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addSpriteFramesWithFile:(NSString *)<em>plist</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>plist</em></dt>
+			<dd><p>plist description</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCSpriteFrameCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/addSpriteFramesWithFile:texture:" title="addSpriteFramesWithFile:texture:"></a>
+	<h3 class="subsubtitle method-title">addSpriteFramesWithFile:texture:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Add sprite frames to the cache from the specified plist and texture.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addSpriteFramesWithFile:(NSString *)<em>plist</em> texture:(CCTexture *)<em>texture</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>plist</em></dt>
+			<dd><p>Plist file to use.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>texture</em></dt>
+			<dd><p>Texture to associate.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCSpriteFrameCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/addSpriteFramesWithFile:textureFilename:" title="addSpriteFramesWithFile:textureFilename:"></a>
+	<h3 class="subsubtitle method-title">addSpriteFramesWithFile:textureFilename:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Add sprite frames to the cache from the specified plist and texture file.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addSpriteFramesWithFile:(NSString *)<em>plist</em> textureFilename:(NSString *)<em>filename</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>plist</em></dt>
+			<dd><p>Plist file to use.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>filename</em></dt>
+			<dd><p>Texture file to associate.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCSpriteFrameCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/loadSpriteFrameLookupDictionaryFromFile:" title="loadSpriteFrameLookupDictionaryFromFile:"></a>
+	<h3 class="subsubtitle method-title">loadSpriteFrameLookupDictionaryFromFile:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Loads a sprite sheet lookup file and registers all the referenced sprite sheets with the sprite frame cache.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)loadSpriteFrameLookupDictionaryFromFile:(NSString *)<em>filename</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>filename</em></dt>
+			<dd><p>Sprite sheet lookup file</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCSpriteFrameCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/registerSpriteFramesFile:" title="registerSpriteFramesFile:"></a>
+	<h3 class="subsubtitle method-title">registerSpriteFramesFile:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Registers a sprite sheet with the sprite frame cache so that the sprite frames can be loaded by name.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)registerSpriteFramesFile:(NSString *)<em>plist</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>plist</em></dt>
+			<dd><p>Sprite sheet file.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCSpriteFrameCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeSpriteFrameByName:" title="removeSpriteFrameByName:"></a>
+	<h3 class="subsubtitle method-title">removeSpriteFrameByName:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Remove the specified sprite frame from the cache.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeSpriteFrameByName:(NSString *)<em>name</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>name</em></dt>
+			<dd><p>Sprite frame name.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCSpriteFrameCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeSpriteFrames" title="removeSpriteFrames"></a>
+	<h3 class="subsubtitle method-title">removeSpriteFrames</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Remove all sprite frames.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeSpriteFrames</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCSpriteFrameCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeSpriteFramesFromFile:" title="removeSpriteFramesFromFile:"></a>
+	<h3 class="subsubtitle method-title">removeSpriteFramesFromFile:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Remove sprite frames detailed in the specified plist.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeSpriteFramesFromFile:(NSString *)<em>plist</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>plist</em></dt>
+			<dd><p>list file to use.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCSpriteFrameCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeSpriteFramesFromTexture:" title="removeSpriteFramesFromTexture:"></a>
+	<h3 class="subsubtitle method-title">removeSpriteFramesFromTexture:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Remove sprite frames associated with the specified texture.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeSpriteFramesFromTexture:(CCTexture *)<em>texture</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>texture</em></dt>
+			<dd><p>Texture to reference.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCSpriteFrameCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/removeUnusedSpriteFrames" title="removeUnusedSpriteFrames"></a>
+	<h3 class="subsubtitle method-title">removeUnusedSpriteFrames</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Remove unused sprite frames e.g. Sprite frames that have a retain count of 1.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)removeUnusedSpriteFrames</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCSpriteFrameCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/spriteFrameByName:" title="spriteFrameByName:"></a>
+	<h3 class="subsubtitle method-title">spriteFrameByName:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Returns a <a href="../Classes/CCSpriteFrame.html">CCSpriteFrame</a> from the cache using the specified name.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (CCSpriteFrame *)spriteFrameByName:(NSString *)<em>name</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>name</em></dt>
+			<dd><p>Name to lookup.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The <a href="../Classes/CCSpriteFrame.html">CCSpriteFrame</a> object.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCSpriteFrameCache.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+                    
+                    
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Cocos2d-iPhone.org. All rights reserved. (Last updated: 2013-12-06)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

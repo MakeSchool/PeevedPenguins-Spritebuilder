@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CCTexture.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CCTexture</TokenIdentifier>
+			<Abstract type="html">CCTexture2D class.
+This class allows to easily create OpenGL 2D textures from images, text or raw data.
+The created CCTexture2D object will always have power-of-two dimensions.
+Depending on how you create the CCTexture2D object, the actual image area of the texture might be smaller than the texture dimensions
+- i.e. &quot;contentSize&quot; != (pixelsWide, pixelsHigh) and (maxS, maxT) != (1.0, 1.0).
+Be aware that the content of the generated textures will be upside-down!</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+            
+			
+			<NodeRef refid="108"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexture/initWithData:pixelFormat:pixelsWide:pixelsHigh:contentSizeInPixels:contentScale:</TokenIdentifier>
+			<Abstract type="html">Initializes with a texture2d with data</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithData:(const void *)data pixelFormat:(CCTexturePixelFormat)pixelFormat pixelsWide:(NSUInteger)width pixelsHigh:(NSUInteger)height contentSizeInPixels:(CGSize)sizeInPixels contentScale:(CGFloat)contentScale</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>data</Name>
+					<Abstract type="html">Pointer to a buffer containing the raw data</Abstract>
+				</Parameter><Parameter>
+					<Name>pixelFormat</Name>
+					<Abstract type="html">Pixelformat of the data</Abstract>
+				</Parameter><Parameter>
+					<Name>width</Name>
+					<Abstract type="html">Width if the texture</Abstract>
+				</Parameter><Parameter>
+					<Name>height</Name>
+					<Abstract type="html">Height of the texture</Abstract>
+				</Parameter><Parameter>
+					<Name>size</Name>
+					<Abstract type="html">The final contentsize of the texture</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Returns a new initialized CCTexture</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithData:pixelFormat:pixelsWide:pixelsHigh:contentSizeInPixels:contentScale:</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCTexture/textureWithFile:</TokenIdentifier>
+			<Abstract type="html">Creates a new texture, based on a filename
+If the texture has already been loaded, and resides in cache, the previously created texture is returned</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)textureWithFile:(NSString *)file</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>file</Name>
+					<Abstract type="html">File to load (should not include any suffixes)</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Returns a new initialized CCTexture</Abstract></ReturnValue>
+			<Anchor>//api/name/textureWithFile:</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexture/setPixelFormat:</TokenIdentifier>
+			<Abstract type="html">pixel format of the texture</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CCTexturePixelFormat pixelFormat</Declaration>
+			
+			
+			<Anchor>//api/name/pixelFormat</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexture/pixelFormat</TokenIdentifier>
+			<Abstract type="html">pixel format of the texture</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CCTexturePixelFormat pixelFormat</Declaration>
+			
+			
+			<Anchor>//api/name/pixelFormat</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCTexture/pixelFormat</TokenIdentifier>
+			<Abstract type="html">pixel format of the texture</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) CCTexturePixelFormat pixelFormat</Declaration>
+			
+			
+			<Anchor>//api/name/pixelFormat</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexture/setPixelWidth:</TokenIdentifier>
+			<Abstract type="html">width in pixels</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSUInteger pixelWidth</Declaration>
+			
+			
+			<Anchor>//api/name/pixelWidth</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexture/pixelWidth</TokenIdentifier>
+			<Abstract type="html">width in pixels</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSUInteger pixelWidth</Declaration>
+			
+			
+			<Anchor>//api/name/pixelWidth</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCTexture/pixelWidth</TokenIdentifier>
+			<Abstract type="html">width in pixels</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSUInteger pixelWidth</Declaration>
+			
+			
+			<Anchor>//api/name/pixelWidth</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexture/setPixelHeight:</TokenIdentifier>
+			<Abstract type="html">hight in pixels</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSUInteger pixelHeight</Declaration>
+			
+			
+			<Anchor>//api/name/pixelHeight</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexture/pixelHeight</TokenIdentifier>
+			<Abstract type="html">hight in pixels</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSUInteger pixelHeight</Declaration>
+			
+			
+			<Anchor>//api/name/pixelHeight</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCTexture/pixelHeight</TokenIdentifier>
+			<Abstract type="html">hight in pixels</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSUInteger pixelHeight</Declaration>
+			
+			
+			<Anchor>//api/name/pixelHeight</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexture/setContentSizeInPixels:</TokenIdentifier>
+			<Abstract type="html">returns content size of the texture in pixels</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, nonatomic) CGSize contentSizeInPixels</Declaration>
+			
+			
+			<Anchor>//api/name/contentSizeInPixels</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexture/contentSizeInPixels</TokenIdentifier>
+			<Abstract type="html">returns content size of the texture in pixels</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, nonatomic) CGSize contentSizeInPixels</Declaration>
+			
+			
+			<Anchor>//api/name/contentSizeInPixels</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCTexture/contentSizeInPixels</TokenIdentifier>
+			<Abstract type="html">returns content size of the texture in pixels</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, nonatomic) CGSize contentSizeInPixels</Declaration>
+			
+			
+			<Anchor>//api/name/contentSizeInPixels</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexture/setPremultipliedAlpha:</TokenIdentifier>
+			<Abstract type="html">whether or not the texture has their Alpha premultiplied</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, getter=hasPremultipliedAlpha) BOOL premultipliedAlpha</Declaration>
+			
+			
+			<Anchor>//api/name/premultipliedAlpha</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexture/hasPremultipliedAlpha</TokenIdentifier>
+			<Abstract type="html">whether or not the texture has their Alpha premultiplied</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, getter=hasPremultipliedAlpha) BOOL premultipliedAlpha</Declaration>
+			
+			
+			<Anchor>//api/name/premultipliedAlpha</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCTexture/premultipliedAlpha</TokenIdentifier>
+			<Abstract type="html">whether or not the texture has their Alpha premultiplied</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, getter=hasPremultipliedAlpha) BOOL premultipliedAlpha</Declaration>
+			
+			
+			<Anchor>//api/name/premultipliedAlpha</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexture/setShaderProgram:</TokenIdentifier>
+			<Abstract type="html">shader program used by drawAtPoint and drawInRect</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite, strong) CCGLProgram *shaderProgram</Declaration>
+			
+			
+			<Anchor>//api/name/shaderProgram</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexture/shaderProgram</TokenIdentifier>
+			<Abstract type="html">shader program used by drawAtPoint and drawInRect</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite, strong) CCGLProgram *shaderProgram</Declaration>
+			
+			
+			<Anchor>//api/name/shaderProgram</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCTexture/shaderProgram</TokenIdentifier>
+			<Abstract type="html">shader program used by drawAtPoint and drawInRect</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite, strong) CCGLProgram *shaderProgram</Declaration>
+			
+			
+			<Anchor>//api/name/shaderProgram</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexture/setContentScale:</TokenIdentifier>
+			<Abstract type="html">Returns the contentScale of the texture.
+In general &quot;HD&quot; textures return a contentScale of 2.0, while non-HD textures return 1.0.
+Loading behavior is changed by [CCFileUtils set*ContentScaleFactor:].
+The value can be changed manually if you want to force a certain content scale.</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) CGFloat contentScale</Declaration>
+			
+			
+			<Anchor>//api/name/contentScale</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexture/contentScale</TokenIdentifier>
+			<Abstract type="html">Returns the contentScale of the texture.
+In general &quot;HD&quot; textures return a contentScale of 2.0, while non-HD textures return 1.0.
+Loading behavior is changed by [CCFileUtils set*ContentScaleFactor:].
+The value can be changed manually if you want to force a certain content scale.</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) CGFloat contentScale</Declaration>
+			
+			
+			<Anchor>//api/name/contentScale</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCTexture/contentScale</TokenIdentifier>
+			<Abstract type="html">Returns the contentScale of the texture.
+In general &quot;HD&quot; textures return a contentScale of 2.0, while non-HD textures return 1.0.
+Loading behavior is changed by [CCFileUtils set*ContentScaleFactor:].
+The value can be changed manually if you want to force a certain content scale.</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) CGFloat contentScale</Declaration>
+			
+			
+			<Anchor>//api/name/contentScale</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexture/contentSize</TokenIdentifier>
+			<Abstract type="html">returns the content size of the texture in points</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>- (CGSize)contentSize</Declaration>
+			
+			
+			<Anchor>//api/name/contentSize</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexture/createSpriteFrame</TokenIdentifier>
+			<Abstract type="html">Creates a sprite frame from the texture.</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>- (CCSpriteFrame *)createSpriteFrame</Declaration>
+			
+			<ReturnValue><Abstract type="html">A new sprite frame.</Abstract></ReturnValue>
+			<Anchor>//api/name/createSpriteFrame</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexture/initWithCGImage:contentScale:</TokenIdentifier>
+			<Abstract type="html">Initializes a texture from a CGImage object.</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithCGImage:(CGImageRef)cgImage contentScale:(CGFloat)contentScale</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>cgImage</Name>
+					<Abstract type="html">CGImage to use for texture</Abstract>
+				</Parameter><Parameter>
+					<Name>resolution</Name>
+					<Abstract type="html">Resolution on image</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">New CCTexture</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithCGImage:contentScale:</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCTexture/setDefaultAlphaPixelFormat:</TokenIdentifier>
+			<Abstract type="html">sets the default pixel format for CGImages that contains alpha channel.
+If the CGImage contains alpha channel, then the options are:
+- generate 32-bit textures: kCCTexture2DPixelFormat_RGBA8888 (default one)
+- generate 16-bit textures: kCCTexture2DPixelFormat_RGBA4444
+- generate 16-bit textures: kCCTexture2DPixelFormat_RGB5A1
+- generate 24-bit textures: kCCTexture2DPixelFormat_RGB888 (no alpha)
+- generate 16-bit textures: kCCTexture2DPixelFormat_RGB565 (no alpha)
+- generate 8-bit textures: kCCTexture2DPixelFormat_A8 (only use it if you use just 1 color)</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>+ (void)setDefaultAlphaPixelFormat:(CCTexturePixelFormat)format</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>format</Name>
+					<Abstract type="html">Format to use with texture</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setDefaultAlphaPixelFormat:</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCTexture/defaultAlphaPixelFormat</TokenIdentifier>
+			<Abstract type="html">Returns the alpha pixel format.</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>+ (CCTexturePixelFormat)defaultAlphaPixelFormat</Declaration>
+			
+			<ReturnValue><Abstract type="html">Pixel format</Abstract></ReturnValue>
+			<Anchor>//api/name/defaultAlphaPixelFormat</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexture/bitsPerPixelForFormat</TokenIdentifier>
+			<Abstract type="html">Returns the bits-per-pixel of the in-memory OpenGL texture.</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>- (NSUInteger)bitsPerPixelForFormat</Declaration>
+			
+			<ReturnValue><Abstract type="html">Number of bits pr. pixel.</Abstract></ReturnValue>
+			<Anchor>//api/name/bitsPerPixelForFormat</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCTexture/stringForFormat</TokenIdentifier>
+			<Abstract type="html">returns the pixel format in a NSString.</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>- (NSString *)stringForFormat</Declaration>
+			
+			
+			<Anchor>//api/name/stringForFormat</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCTexture/bitsPerPixelForFormat:</TokenIdentifier>
+			<Abstract type="html">Helper functions that returns bits per pixels for a given format.</Abstract>
+			<DeclaredIn>CCTexture.h</DeclaredIn>
+			
+			<Declaration>+ (NSUInteger)bitsPerPixelForFormat:(CCTexturePixelFormat)format</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>format</Name>
+					<Abstract type="html">Format to query for pixelsize</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Number of bits for pixelformat.</Abstract></ReturnValue>
+			<Anchor>//api/name/bitsPerPixelForFormat:</Anchor>
+            <NodeRef refid="108"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

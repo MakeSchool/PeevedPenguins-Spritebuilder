@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CCNodeGradient.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CCNodeGradient</TokenIdentifier>
+			<Abstract type="html">CCNodeGradient is a subclass of CCNodeColor that draws gradients across the background.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
+            
+			
+			<NodeRef refid="83"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCNodeGradient/setStartColor:</TokenIdentifier>
+			<Abstract type="html">The starting color.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) ccColor3B startColor</Declaration>
+			
+			
+			<Anchor>//api/name/startColor</Anchor>
+            <NodeRef refid="83"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCNodeGradient/startColor</TokenIdentifier>
+			<Abstract type="html">The starting color.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) ccColor3B startColor</Declaration>
+			
+			
+			<Anchor>//api/name/startColor</Anchor>
+            <NodeRef refid="83"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCNodeGradient/startColor</TokenIdentifier>
+			<Abstract type="html">The starting color.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) ccColor3B startColor</Declaration>
+			
+			
+			<Anchor>//api/name/startColor</Anchor>
+            <NodeRef refid="83"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCNodeGradient/setEndColor:</TokenIdentifier>
+			<Abstract type="html">The ending color.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) ccColor3B endColor</Declaration>
+			
+			
+			<Anchor>//api/name/endColor</Anchor>
+            <NodeRef refid="83"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCNodeGradient/endColor</TokenIdentifier>
+			<Abstract type="html">The ending color.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) ccColor3B endColor</Declaration>
+			
+			
+			<Anchor>//api/name/endColor</Anchor>
+            <NodeRef refid="83"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCNodeGradient/endColor</TokenIdentifier>
+			<Abstract type="html">The ending color.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) ccColor3B endColor</Declaration>
+			
+			
+			<Anchor>//api/name/endColor</Anchor>
+            <NodeRef refid="83"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCNodeGradient/setStartOpacity:</TokenIdentifier>
+			<Abstract type="html">The starting opacity.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) GLubyte startOpacity</Declaration>
+			
+			
+			<Anchor>//api/name/startOpacity</Anchor>
+            <NodeRef refid="83"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCNodeGradient/startOpacity</TokenIdentifier>
+			<Abstract type="html">The starting opacity.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) GLubyte startOpacity</Declaration>
+			
+			
+			<Anchor>//api/name/startOpacity</Anchor>
+            <NodeRef refid="83"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCNodeGradient/startOpacity</TokenIdentifier>
+			<Abstract type="html">The starting opacity.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) GLubyte startOpacity</Declaration>
+			
+			
+			<Anchor>//api/name/startOpacity</Anchor>
+            <NodeRef refid="83"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCNodeGradient/setEndOpacity:</TokenIdentifier>
+			<Abstract type="html">The ending color.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) GLubyte endOpacity</Declaration>
+			
+			
+			<Anchor>//api/name/endOpacity</Anchor>
+            <NodeRef refid="83"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCNodeGradient/endOpacity</TokenIdentifier>
+			<Abstract type="html">The ending color.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) GLubyte endOpacity</Declaration>
+			
+			
+			<Anchor>//api/name/endOpacity</Anchor>
+            <NodeRef refid="83"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCNodeGradient/endOpacity</TokenIdentifier>
+			<Abstract type="html">The ending color.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) GLubyte endOpacity</Declaration>
+			
+			
+			<Anchor>//api/name/endOpacity</Anchor>
+            <NodeRef refid="83"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCNodeGradient/setVector:</TokenIdentifier>
+			<Abstract type="html">The vector along which to fade color.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) CGPoint vector</Declaration>
+			
+			
+			<Anchor>//api/name/vector</Anchor>
+            <NodeRef refid="83"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCNodeGradient/vector</TokenIdentifier>
+			<Abstract type="html">The vector along which to fade color.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) CGPoint vector</Declaration>
+			
+			
+			<Anchor>//api/name/vector</Anchor>
+            <NodeRef refid="83"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCNodeGradient/vector</TokenIdentifier>
+			<Abstract type="html">The vector along which to fade color.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) CGPoint vector</Declaration>
+			
+			
+			<Anchor>//api/name/vector</Anchor>
+            <NodeRef refid="83"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCNodeGradient/setCompressedInterpolation:</TokenIdentifier>
+			<Abstract type="html">Whether or not the interpolation will be compressed in order to display all the colors of the gradient both in canonical and non canonical vectors.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) BOOL compressedInterpolation</Declaration>
+			
+			
+			<Anchor>//api/name/compressedInterpolation</Anchor>
+            <NodeRef refid="83"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCNodeGradient/compressedInterpolation</TokenIdentifier>
+			<Abstract type="html">Whether or not the interpolation will be compressed in order to display all the colors of the gradient both in canonical and non canonical vectors.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) BOOL compressedInterpolation</Declaration>
+			
+			
+			<Anchor>//api/name/compressedInterpolation</Anchor>
+            <NodeRef refid="83"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCNodeGradient/compressedInterpolation</TokenIdentifier>
+			<Abstract type="html">Whether or not the interpolation will be compressed in order to display all the colors of the gradient both in canonical and non canonical vectors.</Abstract>
+			<DeclaredIn>CCNodeColor.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readwrite) BOOL compressedInterpolation</Declaration>
+			
+			
+			<Anchor>//api/name/compressedInterpolation</Anchor>
+            <NodeRef refid="83"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

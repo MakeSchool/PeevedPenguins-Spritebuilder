@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CCResponderManager.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CCResponderManager</TokenIdentifier>
+			<Abstract type="html">The responder manager handles touches and</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+            
+			
+			<NodeRef refid="99"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCResponderManager/setEnabled:</TokenIdentifier>
+			<Abstract type="html">Enables the responder manager
+When the responder manager is disabled, all current touches will be cancelled,
+and no further touch handling registered</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, getter=isEnabled) BOOL enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="99"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCResponderManager/isEnabled</TokenIdentifier>
+			<Abstract type="html">Enables the responder manager
+When the responder manager is disabled, all current touches will be cancelled,
+and no further touch handling registered</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, getter=isEnabled) BOOL enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="99"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCResponderManager/enabled</TokenIdentifier>
+			<Abstract type="html">Enables the responder manager
+When the responder manager is disabled, all current touches will be cancelled,
+and no further touch handling registered</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, getter=isEnabled) BOOL enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="99"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/CCResponderManager/responderManager</TokenIdentifier>
+			<Abstract type="html">CCResponderManager factory method</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>+ (CCResponderManager *)responderManager</Declaration>
+			
+			<ReturnValue><Abstract type="html">Initialized CCResponderManager object</Abstract></ReturnValue>
+			<Anchor>//api/name/responderManager</Anchor>
+            <NodeRef refid="99"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCResponderManager/init</TokenIdentifier>
+			<Abstract type="html">Initializes a freshly created CCResponderManager object</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>- (id)init</Declaration>
+			
+			<ReturnValue><Abstract type="html">Initialized CCResponderManager object</Abstract></ReturnValue>
+			<Anchor>//api/name/init</Anchor>
+            <NodeRef refid="99"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCResponderManager/discardCurrentEvent</TokenIdentifier>
+			<Abstract type="html">Discards current event
+Do not call directly, call [super touchesXXX] or [super mouseXXX] in stead</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>- (void)discardCurrentEvent</Declaration>
+			
+			
+			<Anchor>//api/name/discardCurrentEvent</Anchor>
+            <NodeRef refid="99"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCResponderManager/addResponder:</TokenIdentifier>
+			<Abstract type="html">Adds a responder to the responder manager
+Normally there is no need to call this method directly</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>- (void)addResponder:(CCNode *)responder</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>responder</Name>
+					<Abstract type="html">A CCNode object</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addResponder:</Anchor>
+            <NodeRef refid="99"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCResponderManager/removeAllResponders</TokenIdentifier>
+			<Abstract type="html">Removes all responders
+Normally there is no need to call this method directly</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>- (void)removeAllResponders</Declaration>
+			
+			
+			<Anchor>//api/name/removeAllResponders</Anchor>
+            <NodeRef refid="99"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCResponderManager/markAsDirty</TokenIdentifier>
+			<Abstract type="html">Mark the responder chain as dirty, if responders state changes
+Normally there is no need to call this method directly</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>- (void)markAsDirty</Declaration>
+			
+			
+			<Anchor>//api/name/markAsDirty</Anchor>
+            <NodeRef refid="99"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCResponderManager/nodeAtPoint:</TokenIdentifier>
+			<Abstract type="html">Returns the first responder at a certain world position</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>- (CCNode *)nodeAtPoint:(CGPoint)pos</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>pos</Name>
+					<Abstract type="html">World position ( this in most cases maps to the screen coordinates in points )</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The CCNode at the position, if any</Abstract></ReturnValue>
+			<Anchor>//api/name/nodeAtPoint:</Anchor>
+            <NodeRef refid="99"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCResponderManager/nodesAtPoint:</TokenIdentifier>
+			<Abstract type="html">Returns a list of all responders at a certain world position</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>- (NSArray *)nodesAtPoint:(CGPoint)pos</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>pos</Name>
+					<Abstract type="html">World position ( this in most cases maps to the screen coordinates in points )</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Returns an array of CCNodes at the given point. The top most responder will be the first entry</Abstract></ReturnValue>
+			<Anchor>//api/name/nodesAtPoint:</Anchor>
+            <NodeRef refid="99"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CCRunningResponder.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CCRunningResponder</TokenIdentifier>
+			<Abstract type="html">Defines a running responder</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+            
+			
+			<NodeRef refid="100"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCRunningResponder/setTarget:</TokenIdentifier>
+			<Abstract type="html">Holdes the target of the touch. This is the node which accepted the touch</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) id target</Declaration>
+			
+			
+			<Anchor>//api/name/target</Anchor>
+            <NodeRef refid="100"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCRunningResponder/target</TokenIdentifier>
+			<Abstract type="html">Holdes the target of the touch. This is the node which accepted the touch</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) id target</Declaration>
+			
+			
+			<Anchor>//api/name/target</Anchor>
+            <NodeRef refid="100"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCRunningResponder/target</TokenIdentifier>
+			<Abstract type="html">Holdes the target of the touch. This is the node which accepted the touch</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) id target</Declaration>
+			
+			
+			<Anchor>//api/name/target</Anchor>
+            <NodeRef refid="100"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCRunningResponder/setTouch:</TokenIdentifier>
+			<Abstract type="html">Holds the current touch. Note that touches must not be retained</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) UITouch *touch</Declaration>
+			
+			
+			<Anchor>//api/name/touch</Anchor>
+            <NodeRef refid="100"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCRunningResponder/touch</TokenIdentifier>
+			<Abstract type="html">Holds the current touch. Note that touches must not be retained</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) UITouch *touch</Declaration>
+			
+			
+			<Anchor>//api/name/touch</Anchor>
+            <NodeRef refid="100"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCRunningResponder/touch</TokenIdentifier>
+			<Abstract type="html">Holds the current touch. Note that touches must not be retained</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) UITouch *touch</Declaration>
+			
+			
+			<Anchor>//api/name/touch</Anchor>
+            <NodeRef refid="100"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCRunningResponder/setEvent:</TokenIdentifier>
+			<Abstract type="html">Holdes the current event. Note that events must not be retained</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) UIEvent *event</Declaration>
+			
+			
+			<Anchor>//api/name/event</Anchor>
+            <NodeRef refid="100"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCRunningResponder/event</TokenIdentifier>
+			<Abstract type="html">Holdes the current event. Note that events must not be retained</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) UIEvent *event</Declaration>
+			
+			
+			<Anchor>//api/name/event</Anchor>
+            <NodeRef refid="100"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCRunningResponder/event</TokenIdentifier>
+			<Abstract type="html">Holdes the current event. Note that events must not be retained</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) UIEvent *event</Declaration>
+			
+			
+			<Anchor>//api/name/event</Anchor>
+            <NodeRef refid="100"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCRunningResponder/setButton:</TokenIdentifier>
+			<Abstract type="html">Button in the currently ongoing event</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CCMouseButton button</Declaration>
+			
+			
+			<Anchor>//api/name/button</Anchor>
+            <NodeRef refid="100"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCRunningResponder/button</TokenIdentifier>
+			<Abstract type="html">Button in the currently ongoing event</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CCMouseButton button</Declaration>
+			
+			
+			<Anchor>//api/name/button</Anchor>
+            <NodeRef refid="100"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/CCRunningResponder/button</TokenIdentifier>
+			<Abstract type="html">Button in the currently ongoing event</Abstract>
+			<DeclaredIn>CCResponderManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) CCMouseButton button</Declaration>
+			
+			
+			<Anchor>//api/name/button</Anchor>
+            <NodeRef refid="100"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

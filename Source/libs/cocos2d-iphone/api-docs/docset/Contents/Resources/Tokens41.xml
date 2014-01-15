@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CCActionManager.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CCActionManager</TokenIdentifier>
+			<Abstract type="html">CCActionManager the object that manages all the actions.
+Normally you won&apos;t need to use this API directly. 99% of the cases you will use the CCNode interface, which uses this object.
+But there are some cases where you might need to use this API directly:
+Examples:
+	- When you want to run an action where the target is different from a CCNode.
+	- When you want to pause / resume the actions</Abstract>
+			<DeclaredIn>CCActionManager.h</DeclaredIn>
+            
+			
+			<NodeRef refid="41"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionManager/addAction:target:paused:</TokenIdentifier>
+			<Abstract type="html">Adds an action to a target
+If the target is already present, then the action will be added to the existing target.
+If the target is not present, a new instance of this target will be created either paused or paused, and the action will be added to the newly created target.
+When the target is paused, the queued actions won&apos;t be &apos;ticked&apos;.</Abstract>
+			<DeclaredIn>CCActionManager.h</DeclaredIn>
+			
+			<Declaration>- (void)addAction:(CCAction *)action target:(id)target paused:(BOOL)paused</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>action</Name>
+					<Abstract type="html">The action to add</Abstract>
+				</Parameter><Parameter>
+					<Name>target</Name>
+					<Abstract type="html">The target to add the action to</Abstract>
+				</Parameter><Parameter>
+					<Name>paused</Name>
+					<Abstract type="html">Defines if action will start paused</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addAction:target:paused:</Anchor>
+            <NodeRef refid="41"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionManager/removeAllActions</TokenIdentifier>
+			<Abstract type="html">Removes all actions from all the targets.</Abstract>
+			<DeclaredIn>CCActionManager.h</DeclaredIn>
+			
+			<Declaration>- (void)removeAllActions</Declaration>
+			
+			
+			<Anchor>//api/name/removeAllActions</Anchor>
+            <NodeRef refid="41"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionManager/removeAllActionsFromTarget:</TokenIdentifier>
+			<Abstract type="html">Removes all actions from a certain target.
+All the actions that belongs to the target will be removed.</Abstract>
+			<DeclaredIn>CCActionManager.h</DeclaredIn>
+			
+			<Declaration>- (void)removeAllActionsFromTarget:(id)target</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>target</Name>
+					<Abstract type="html">The target to remove action from</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeAllActionsFromTarget:</Anchor>
+            <NodeRef refid="41"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionManager/removeAction:</TokenIdentifier>
+			<Abstract type="html">Removes an action given an action reference.</Abstract>
+			<DeclaredIn>CCActionManager.h</DeclaredIn>
+			
+			<Declaration>- (void)removeAction:(CCAction *)action</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>action</Name>
+					<Abstract type="html">Action to remove</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeAction:</Anchor>
+            <NodeRef refid="41"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionManager/removeActionByTag:target:</TokenIdentifier>
+			<Abstract type="html">Removes an action given its tag and the target.</Abstract>
+			<DeclaredIn>CCActionManager.h</DeclaredIn>
+			
+			<Declaration>- (void)removeActionByTag:(NSInteger)tag target:(id)target</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>tag</Name>
+					<Abstract type="html">Tag of the action to remove</Abstract>
+				</Parameter><Parameter>
+					<Name>target</Name>
+					<Abstract type="html">Target top remove action from</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeActionByTag:target:</Anchor>
+            <NodeRef refid="41"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionManager/getActionByTag:target:</TokenIdentifier>
+			<Abstract type="html">Gets an action given its tag an a target.</Abstract>
+			<DeclaredIn>CCActionManager.h</DeclaredIn>
+			
+			<Declaration>- (CCAction *)getActionByTag:(NSInteger)tag target:(id)target</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>tag</Name>
+					<Abstract type="html">Tag of the action to retrieve</Abstract>
+				</Parameter><Parameter>
+					<Name>target</Name>
+					<Abstract type="html">Target to retrieve action from</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The Action the with the given tag.</Abstract></ReturnValue>
+			<Anchor>//api/name/getActionByTag:target:</Anchor>
+            <NodeRef refid="41"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionManager/numberOfRunningActionsInTarget:</TokenIdentifier>
+			<Abstract type="html">Returns the numbers of actions that are running in a certain target.
+Composable actions are counted as 1 action.
+Example:
+- If you are running 1 Sequence of 7 actions, it will return 1.
+- If you are running 7 Sequences of 2 actions, it will return 7.</Abstract>
+			<DeclaredIn>CCActionManager.h</DeclaredIn>
+			
+			<Declaration>- (NSUInteger)numberOfRunningActionsInTarget:(id)target</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>target</Name>
+					<Abstract type="html">Target to return number of running action from</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Number of running action</Abstract></ReturnValue>
+			<Anchor>//api/name/numberOfRunningActionsInTarget:</Anchor>
+            <NodeRef refid="41"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionManager/pauseTarget:</TokenIdentifier>
+			<Abstract type="html">Pauses the target: all running actions and newly added actions will be paused.</Abstract>
+			<DeclaredIn>CCActionManager.h</DeclaredIn>
+			
+			<Declaration>- (void)pauseTarget:(id)target</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>target</Name>
+					<Abstract type="html">Target to pause all actions on</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/pauseTarget:</Anchor>
+            <NodeRef refid="41"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionManager/resumeTarget:</TokenIdentifier>
+			<Abstract type="html">Resumes the target. All queued actions will be resumed.</Abstract>
+			<DeclaredIn>CCActionManager.h</DeclaredIn>
+			
+			<Declaration>- (void)resumeTarget:(id)target</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>target</Name>
+					<Abstract type="html">Target to resume all action on</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/resumeTarget:</Anchor>
+            <NodeRef refid="41"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionManager/pauseAllRunningActions</TokenIdentifier>
+			<Abstract type="html">Pauses all running actions, returning a list of targets whose actions were paused.</Abstract>
+			<DeclaredIn>CCActionManager.h</DeclaredIn>
+			
+			<Declaration>- (NSSet *)pauseAllRunningActions</Declaration>
+			
+			<ReturnValue><Abstract type="html">Set of targets which were paused</Abstract></ReturnValue>
+			<Anchor>//api/name/pauseAllRunningActions</Anchor>
+            <NodeRef refid="41"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/CCActionManager/resumeTargets:</TokenIdentifier>
+			<Abstract type="html">Resume a set of targets (convenience function to reverse a pauseAllRunningActions call)</Abstract>
+			<DeclaredIn>CCActionManager.h</DeclaredIn>
+			
+			<Declaration>- (void)resumeTargets:(NSSet *)targetsToResume</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>targetsToResume</Name>
+					<Abstract type="html">Set of target to resume</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/resumeTargets:</Anchor>
+            <NodeRef refid="41"/>
+		</Token>
+		
+        
+	</File>
+</Tokens>

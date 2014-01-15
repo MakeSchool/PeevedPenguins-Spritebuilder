@@ -1,0 +1,1218 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="html/html; charset=utf-8" />
+		<title>CCAnimation Class Reference</title>
+		<meta id="xcode-display" name="xcode-display" content="render"/>
+		<link rel="stylesheet" type="text/css" href="../css/styles.css" media="all" />
+		<link rel="stylesheet" type="text/css" media="print" href="../css/stylesPrint.css" />
+		<meta name="generator" content="appledoc 2.2 (build 961)" />
+	</head>
+	<body>
+		<header id="top_header">
+			<div id="library" class="hideInXcode">
+				<h1><a id="libraryTitle" href="../index.html">Cocos2d </a></h1>
+				<a id="developerHome" href="../index.html">Cocos2d-iPhone.org</a>
+			</div>
+			
+			<div id="title" role="banner">
+				<h1 class="hideInXcode">CCAnimation Class Reference</h1>
+			</div>
+			<ul id="headerButtons" role="toolbar">
+				<li id="toc_button">
+					<button aria-label="Show Table of Contents" role="checkbox" class="open" id="table_of_contents"><span class="disclosure"></span>Table of Contents</button>
+				</li>
+				<li id="jumpto_button" role="navigation">
+					<select id="jumpTo">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+	
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+	
+	
+	
+	<option value="properties">Properties</option>
+	
+	<option value="//api/name/delayPerUnit">&nbsp;&nbsp;&nbsp;&nbsp;delayPerUnit</option>
+	
+	<option value="//api/name/duration">&nbsp;&nbsp;&nbsp;&nbsp;duration</option>
+	
+	<option value="//api/name/frames">&nbsp;&nbsp;&nbsp;&nbsp;frames</option>
+	
+	<option value="//api/name/loops">&nbsp;&nbsp;&nbsp;&nbsp;loops</option>
+	
+	<option value="//api/name/restoreOriginalFrame">&nbsp;&nbsp;&nbsp;&nbsp;restoreOriginalFrame</option>
+	
+	<option value="//api/name/totalDelayUnits">&nbsp;&nbsp;&nbsp;&nbsp;totalDelayUnits</option>
+	
+	
+	
+	
+	<option value="class_methods">Class Methods</option>
+	
+	<option value="//api/name/animation">&nbsp;&nbsp;&nbsp;&nbsp;+ animation</option>
+	
+	<option value="//api/name/animationWithAnimationFrames:delayPerUnit:loops:">&nbsp;&nbsp;&nbsp;&nbsp;+ animationWithAnimationFrames:delayPerUnit:loops:</option>
+	
+	<option value="//api/name/animationWithSpriteFrames:">&nbsp;&nbsp;&nbsp;&nbsp;+ animationWithSpriteFrames:</option>
+	
+	<option value="//api/name/animationWithSpriteFrames:delay:">&nbsp;&nbsp;&nbsp;&nbsp;+ animationWithSpriteFrames:delay:</option>
+	
+	
+	
+	
+	<option value="instance_methods">Instance Methods</option>
+	
+	<option value="//api/name/addSpriteFrame:">&nbsp;&nbsp;&nbsp;&nbsp;- addSpriteFrame:</option>
+	
+	<option value="//api/name/addSpriteFrameWithFilename:">&nbsp;&nbsp;&nbsp;&nbsp;- addSpriteFrameWithFilename:</option>
+	
+	<option value="//api/name/addSpriteFrameWithTexture:rect:">&nbsp;&nbsp;&nbsp;&nbsp;- addSpriteFrameWithTexture:rect:</option>
+	
+	<option value="//api/name/initWithAnimationFrames:delayPerUnit:loops:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithAnimationFrames:delayPerUnit:loops:</option>
+	
+	<option value="//api/name/initWithSpriteFrames:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithSpriteFrames:</option>
+	
+	<option value="//api/name/initWithSpriteFrames:delay:">&nbsp;&nbsp;&nbsp;&nbsp;- initWithSpriteFrames:delay:</option>
+	
+	
+	
+</select>
+				</li>
+			</ul>
+		</header>
+		<nav id="tocContainer" class="isShowingTOC">
+			<ul id="toc" role="tree">
+				
+<li role="treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#overview">Overview</a></span></li>
+
+
+
+
+<li role="treeitem" id="task_treeitem"><span class="nodisclosure"></span><span class="sectionName"><a href="#tasks">Tasks</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Accessing the Animation Attributes">Accessing the Animation Attributes</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Creating a CCAnimation Object">Creating a CCAnimation Object</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Initializing a CCAnimation Object">Initializing a CCAnimation Object</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#task_Animation Management">Animation Management</a></span></li>
+	
+</ul></li>
+
+
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#properties">Properties</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/delayPerUnit">delayPerUnit</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/duration">duration</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/frames">frames</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/loops">loops</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/restoreOriginalFrame">restoreOriginalFrame</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/totalDelayUnits">totalDelayUnits</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#class_methods">Class Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/animation">animation</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/animationWithAnimationFrames:delayPerUnit:loops:">animationWithAnimationFrames:delayPerUnit:loops:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/animationWithSpriteFrames:">animationWithSpriteFrames:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/animationWithSpriteFrames:delay:">animationWithSpriteFrames:delay:</a></span></li>
+	
+</ul></li>
+
+
+
+<li role="treeitem" class="children"><span class="disclosure"></span><span class="sectionName"><a href="#instance_methods">Instance Methods</a></span><ul>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addSpriteFrame:">addSpriteFrame:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addSpriteFrameWithFilename:">addSpriteFrameWithFilename:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/addSpriteFrameWithTexture:rect:">addSpriteFrameWithTexture:rect:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithAnimationFrames:delayPerUnit:loops:">initWithAnimationFrames:delayPerUnit:loops:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithSpriteFrames:">initWithSpriteFrames:</a></span></li>
+	
+	<li><span class="nodisclosure"></span><span class="sectionName"><a href="#//api/name/initWithSpriteFrames:delay:">initWithSpriteFrames:delay:</a></span></li>
+	
+</ul></li>
+
+
+			</ul>
+		</nav>
+		<article>
+			<div id="contents" class="isShowingTOC" role="main">
+				<a title="CCAnimation Class Reference" name="top"></a>
+				<div class="main-navigation navigation-top">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="header">
+					<div class="section-header">
+						<h1 class="title title-header">CCAnimation Class Reference</h1>
+					</div>		
+				</div>
+				<div id="container">	
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<td class="specification-title">Inherits from</td>
+	<td class="specification-value">NSObject</td>
+</tr><tr>
+	<td class="specification-title">Conforms to</td>
+	<td class="specification-value">NSCopying</td>
+</tr><tr>
+	<td class="specification-title">Declared in</td>
+	<td class="specification-value">CCAnimation.h</td>
+</tr>
+						</tbody></table></div>
+					
+                    
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>A CCAnimation object is used to perform animations on a <a href="../Classes/CCSprite.html">CCSprite</a> object.
+The CCAnimation object primarily contains a collection of <a href="../Classes/CCAnimationFrame.html">CCAnimationFrame</a> objects to define the <a href="#//api/name/animation">animation</a>.</p>
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						<h2 class="subtitle subtitle-tasks">Tasks</h2>
+						
+						
+						<a title="Accessing the Animation Attributes" name="task_Accessing the Animation Attributes"></a>
+						<h3 class="subsubtitle task-title">Accessing the Animation Attributes</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/totalDelayUnits">&nbsp;&nbsp;totalDelayUnits</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/delayPerUnit">&nbsp;&nbsp;delayPerUnit</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/duration">&nbsp;&nbsp;duration</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/frames">&nbsp;&nbsp;frames</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/restoreOriginalFrame">&nbsp;&nbsp;restoreOriginalFrame</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/loops">&nbsp;&nbsp;loops</a></code>
+	</span>
+	<span class="task-item-suffix">property</span>
+	
+</li>
+						</ul>
+						
+						
+						<a title="Creating a CCAnimation Object" name="task_Creating a CCAnimation Object"></a>
+						<h3 class="subsubtitle task-title">Creating a CCAnimation Object</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/animation">+&nbsp;animation</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/animationWithSpriteFrames:">+&nbsp;animationWithSpriteFrames:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/animationWithSpriteFrames:delay:">+&nbsp;animationWithSpriteFrames:delay:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/animationWithAnimationFrames:delayPerUnit:loops:">+&nbsp;animationWithAnimationFrames:delayPerUnit:loops:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Initializing a CCAnimation Object" name="task_Initializing a CCAnimation Object"></a>
+						<h3 class="subsubtitle task-title">Initializing a CCAnimation Object</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithSpriteFrames:">&ndash;&nbsp;initWithSpriteFrames:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithSpriteFrames:delay:">&ndash;&nbsp;initWithSpriteFrames:delay:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/initWithAnimationFrames:delayPerUnit:loops:">&ndash;&nbsp;initWithAnimationFrames:delayPerUnit:loops:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+						
+						<a title="Animation Management" name="task_Animation Management"></a>
+						<h3 class="subsubtitle task-title">Animation Management</h3>
+
+						<ul class="task-list">
+							<li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addSpriteFrame:">&ndash;&nbsp;addSpriteFrame:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addSpriteFrameWithFilename:">&ndash;&nbsp;addSpriteFrameWithFilename:</a></code>
+	</span>
+	
+	
+</li><li>
+	<span class="tooltip">
+		<code><a href="#//api/name/addSpriteFrameWithTexture:rect:">&ndash;&nbsp;addSpriteFrameWithTexture:rect:</a></code>
+	</span>
+	
+	
+</li>
+						</ul>
+						
+					</div>
+					
+					
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Properties" name="properties"></a>
+						<h2 class="subtitle subtitle-methods">Properties</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/delayPerUnit" title="delayPerUnit"></a>
+	<h3 class="subsubtitle method-title">delayPerUnit</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Delay in seconds of the per frame delay unit.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) float delayPerUnit</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCAnimation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/duration" title="duration"></a>
+	<h3 class="subsubtitle method-title">duration</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Duration in seconds of the whole <a href="#//api/name/animation">animation</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) float duration</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCAnimation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/frames" title="frames"></a>
+	<h3 class="subsubtitle method-title">frames</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Array of CCAnimationFrames</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite, strong) NSMutableArray *frames</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCAnimation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/loops" title="loops"></a>
+	<h3 class="subsubtitle method-title">loops</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Number of times to loop <a href="#//api/name/animation">animation</a>.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) NSUInteger loops</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCAnimation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/restoreOriginalFrame" title="restoreOriginalFrame"></a>
+	<h3 class="subsubtitle method-title">restoreOriginalFrame</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>True to restore original frame when <a href="#//api/name/animation">animation</a> complete.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readwrite) BOOL restoreOriginalFrame</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCAnimation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/totalDelayUnits" title="totalDelayUnits"></a>
+	<h3 class="subsubtitle method-title">totalDelayUnits</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Total Delay units.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) float totalDelayUnits</code></div>
+
+    
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCAnimation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Class Methods" name="class_methods"></a>
+						<h2 class="subtitle subtitle-methods">Class Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/animation" title="animation"></a>
+	<h3 class="subsubtitle method-title">animation</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Creates and returns an animation object.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (id)animation</code></div>
+
+    
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The CCAnimation Object.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCAnimation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/animationWithAnimationFrames:delayPerUnit:loops:" title="animationWithAnimationFrames:delayPerUnit:loops:"></a>
+	<h3 class="subsubtitle method-title">animationWithAnimationFrames:delayPerUnit:loops:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Creates and returns an <a href="#//api/name/animation">animation</a> object using the specified <a href="../Classes/CCSpriteFrame.html">CCSpriteFrame</a> array, per frame delay and times to repeat <a href="#//api/name/animation">animation</a> values.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (id)animationWithAnimationFrames:(NSArray *)<em>arrayOfAnimationFrames</em> delayPerUnit:(float)<em>delayPerUnit</em> loops:(NSUInteger)<em>loops</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arrayOfAnimationFrames</em></dt>
+			<dd><p><a href="../Classes/CCSpriteFrame.html">CCSpriteFrame</a> array.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>delayPerUnit</em></dt>
+			<dd><p>Per frame delay (in seconds).</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>loops</em></dt>
+			<dd><p>Number of times to repeat <a href="#//api/name/animation">animation</a>.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The CCAnimation Object.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCAnimation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/animationWithSpriteFrames:" title="animationWithSpriteFrames:"></a>
+	<h3 class="subsubtitle method-title">animationWithSpriteFrames:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Creates and returns an <a href="#//api/name/animation">animation</a> object using the specified <a href="../Classes/CCSpriteFrame.html">CCSpriteFrame</a> array value.
+Default per frame delay of 1 second.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (id)animationWithSpriteFrames:(NSArray *)<em>arrayOfSpriteFrameNames</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arrayOfSpriteFrameNames</em></dt>
+			<dd><p><a href="../Classes/CCSpriteFrame.html">CCSpriteFrame</a> array.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The CCAnimation Object.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCAnimation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/animationWithSpriteFrames:delay:" title="animationWithSpriteFrames:delay:"></a>
+	<h3 class="subsubtitle method-title">animationWithSpriteFrames:delay:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Creates and returns an <a href="#//api/name/animation">animation</a> object using the specified <a href="../Classes/CCSpriteFrame.html">CCSpriteFrame</a> array and per frame dealy values.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>+ (id)animationWithSpriteFrames:(NSArray *)<em>arrayOfSpriteFrameNames</em> delay:(float)<em>delay</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arrayOfSpriteFrameNames</em></dt>
+			<dd><p><a href="../Classes/CCSpriteFrame.html">CCSpriteFrame</a> array.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>delay</em></dt>
+			<dd><p>Per frame delay (in seconds).</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>The CCAnimation Object.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCAnimation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+					
+					<div class="section section-methods">
+						<a title="Instance Methods" name="instance_methods"></a>
+						<h2 class="subtitle subtitle-methods">Instance Methods</h2>
+						
+						<div class="section-method">
+	<a name="//api/name/addSpriteFrame:" title="addSpriteFrame:"></a>
+	<h3 class="subsubtitle method-title">addSpriteFrame:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Add the specified sprite frame to the <a href="#//api/name/animation">animation</a> object.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addSpriteFrame:(CCSpriteFrame *)<em>frame</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>frame</em></dt>
+			<dd><p><a href="../Classes/CCSpriteFrame.html">CCSpriteFrame</a> object.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCAnimation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/addSpriteFrameWithFilename:" title="addSpriteFrameWithFilename:"></a>
+	<h3 class="subsubtitle method-title">addSpriteFrameWithFilename:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Creates and adds a <a href="../Classes/CCSpriteFrame.html">CCSpriteFrame</a> to the <a href="#//api/name/animation">animation</a> object from the specified image file.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addSpriteFrameWithFilename:(NSString *)<em>filename</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>filename</em></dt>
+			<dd><p>Image file resource.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCAnimation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/addSpriteFrameWithTexture:rect:" title="addSpriteFrameWithTexture:rect:"></a>
+	<h3 class="subsubtitle method-title">addSpriteFrameWithTexture:rect:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Creates and adds a <a href="../Classes/CCSpriteFrame.html">CCSpriteFrame</a> to the <a href="#//api/name/animation">animation</a> object from the specified the texture and rectangle values.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (void)addSpriteFrameWithTexture:(CCTexture *)<em>texture</em> rect:(CGRect)<em>rect</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>texture</em></dt>
+			<dd><p>Texture object.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>rect</em></dt>
+			<dd><p>Rectangle to use.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCAnimation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithAnimationFrames:delayPerUnit:loops:" title="initWithAnimationFrames:delayPerUnit:loops:"></a>
+	<h3 class="subsubtitle method-title">initWithAnimationFrames:delayPerUnit:loops:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes and returns an <a href="#//api/name/animation">animation</a> object using the specified <a href="../Classes/CCSpriteFrame.html">CCSpriteFrame</a> array, per frame delay and times to repeat <a href="#//api/name/animation">animation</a> values.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithAnimationFrames:(NSArray *)<em>arrayOfAnimationFrames</em> delayPerUnit:(float)<em>delayPerUnit</em> loops:(NSUInteger)<em>loops</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arrayOfAnimationFrames</em></dt>
+			<dd><p><a href="../Classes/CCSpriteFrame.html">CCSpriteFrame</a> array.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>delayPerUnit</em></dt>
+			<dd><p>Per frame delay (in seconds).</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>loops</em></dt>
+			<dd><p>Number of times to repeat <a href="#//api/name/animation">animation</a>.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>An initialized CCAnimation Object.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCAnimation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithSpriteFrames:" title="initWithSpriteFrames:"></a>
+	<h3 class="subsubtitle method-title">initWithSpriteFrames:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes and returns an <a href="#//api/name/animation">animation</a> object.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithSpriteFrames:(NSArray *)<em>arrayOfSpriteFrameNames</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arrayOfSpriteFrameNames</em></dt>
+			<dd><p><a href="../Classes/CCSpriteFrame.html">CCSpriteFrame</a> array.</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>An initialized CCAnimation Object.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCAnimation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+						<div class="section-method">
+	<a name="//api/name/initWithSpriteFrames:delay:" title="initWithSpriteFrames:delay:"></a>
+	<h3 class="subsubtitle method-title">initWithSpriteFrames:delay:</h3>
+	
+	
+	
+	<div class="method-subsection brief-description">
+		<p>Initializes and returns an <a href="#//api/name/animation">animation</a> object using the specified <a href="../Classes/CCSpriteFrame.html">CCSpriteFrame</a> array and per frame dealy values.</p>
+	</div>		
+	
+    
+
+	<div class="method-subsection method-declaration"><code>- (id)initWithSpriteFrames:(NSArray *)<em>arrayOfSpriteFrameNames</em> delay:(float)<em>delay</em></code></div>
+
+    
+	
+	<div class="method-subsection arguments-section parameters">
+		<h4 class="method-subtitle parameter-title">Parameters</h4>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>arrayOfSpriteFrameNames</em></dt>
+			<dd><p><a href="../Classes/CCSpriteFrame.html">CCSpriteFrame</a> array.</p></dd>
+		</dl>
+		
+		<dl class="argument-def parameter-def">
+			<dt><em>delay</em></dt>
+			<dd><p>Per frame delay (in seconds).</p></dd>
+		</dl>
+		
+	</div>
+	
+	
+	
+	<div class="method-subsection return">
+		<h4 class="method-subtitle parameter-title">Return Value</h4>
+		<p>An initialized CCAnimation Object.</p>
+	</div>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<div class="method-subsection declared-in-section">
+		<h4 class="method-subtitle">Declared In</h4>
+		<code class="declared-in-ref">CCAnimation.h</code><br />
+	</div>				
+	
+	
+</div>
+						
+					</div>
+					
+					
+                    
+                    
+				</div>
+				<div class="main-navigation navigation-bottom">
+					<ul>
+	<li><a href="../index.html">Index</a></li>
+	<li><a href="../hierarchy.html">Hierarchy</a></li>
+</ul>
+				</div>
+				<div id="footer">
+					<hr />
+					<div class="footer-copyright">
+						<p><span class="copyright">&copy; 2013 Cocos2d-iPhone.org. All rights reserved. (Last updated: 2013-12-06)</span><br />
+						
+						<span class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2 (build 961)</a>.</span></p>
+						
+					</div>
+				</div>
+			</div>
+		</article>
+		<script type="text/javascript">
+			function jumpToChange()
+			{
+				window.location.hash = this.options[this.selectedIndex].value;
+			}
+			
+			function toggleTOC()
+			{
+				var contents = document.getElementById('contents');
+				var tocContainer = document.getElementById('tocContainer');
+				
+				if (this.getAttribute('class') == 'open')
+				{
+					this.setAttribute('class', '');
+					contents.setAttribute('class', '');
+					tocContainer.setAttribute('class', '');
+					
+					window.name = "hideTOC";
+				}
+				else
+				{
+					this.setAttribute('class', 'open');
+					contents.setAttribute('class', 'isShowingTOC');
+					tocContainer.setAttribute('class', 'isShowingTOC');
+					
+					window.name = "";
+				}
+				return false;
+			}
+			
+			function toggleTOCEntryChildren(e)
+			{
+				e.stopPropagation();
+				var currentClass = this.getAttribute('class');
+				if (currentClass == 'children') {
+					this.setAttribute('class', 'children open');
+				}
+				else if (currentClass == 'children open') {
+					this.setAttribute('class', 'children');
+				}
+				return false;
+			}
+			
+			function tocEntryClick(e)
+			{
+				e.stopPropagation();
+				return true;
+			}
+			
+			function init()
+			{
+				var selectElement = document.getElementById('jumpTo');
+				selectElement.addEventListener('change', jumpToChange, false);
+				
+				var tocButton = document.getElementById('table_of_contents');
+				tocButton.addEventListener('click', toggleTOC, false);
+				
+				var taskTreeItem = document.getElementById('task_treeitem');
+				if (taskTreeItem.getElementsByTagName('li').length > 0)
+				{
+					taskTreeItem.setAttribute('class', 'children');
+					taskTreeItem.firstChild.setAttribute('class', 'disclosure');
+				}
+				
+				var tocList = document.getElementById('toc');
+				
+				var tocEntries = tocList.getElementsByTagName('li');
+				for (var i = 0; i < tocEntries.length; i++) {
+					tocEntries[i].addEventListener('click', toggleTOCEntryChildren, false);
+				}
+				
+				var tocLinks = tocList.getElementsByTagName('a');
+				for (var i = 0; i < tocLinks.length; i++) {
+					tocLinks[i].addEventListener('click', tocEntryClick, false);
+				}
+				
+				if (window.name == "hideTOC") {
+					toggleTOC.call(tocButton);
+				}
+			}
+			
+			window.onload = init;
+			
+			// If showing in Xcode, hide the TOC and Header
+			if (navigator.userAgent.match(/xcode/i)) {
+				document.getElementById("contents").className = "hideInXcode"
+				document.getElementById("tocContainer").className = "hideInXcode"
+				document.getElementById("top_header").className = "hideInXcode"
+			}
+			
+		</script>
+	</body>
+</html>

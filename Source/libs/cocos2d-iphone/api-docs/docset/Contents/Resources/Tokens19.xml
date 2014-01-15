@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/CCActionEaseBounceInOut.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/CCActionEaseBounceInOut</TokenIdentifier>
+			<Abstract type="html">Bounce in and out action.
+Starts and ends the action with a bounce effect
+Note:
+This action doesn&apos;t use a bijective function. Actions like Sequence might have an unexpected result when used with this action.</Abstract>
+			<DeclaredIn>CCActionEase.h</DeclaredIn>
+            
+			
+			<NodeRef refid="19"/>
+		</Token>
+		
+		
+        
+	</File>
+</Tokens>
