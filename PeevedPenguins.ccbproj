@@ -29,7 +29,7 @@
 	<key>javascriptMainCCB</key>
 	<string>MainScene</string>
 	<key>needRepublish</key>
-	<true/>
+	<false/>
 	<key>onlyPublishCCBs</key>
 	<false/>
 	<key>publishAudioQuality_android</key>
@@ -86,6 +86,13 @@
 		<key></key>
 		<dict>
 			<key>previewFolderHidden</key>
+			<true/>
+		</dict>
+		<key>PeevedPenguinsAssets</key>
+		<dict>
+			<key>isDirty</key>
+			<true/>
+			<key>isSmartSpriteSheet</key>
 			<true/>
 		</dict>
 		<key>Sprites</key>
