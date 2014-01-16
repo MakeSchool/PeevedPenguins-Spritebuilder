@@ -29,9 +29,8 @@
     
     [penguin.physicsBody applyForce:force];
     
-    float screenWidth = [[CCDirector sharedDirector] viewSize].width;
-    CCAction* scrollScreen = [CCActionMoveTo actionWithDuration:2.f position:ccp(screenWidth-self.contentSize.width, self.position.y)];
-    [self runAction:scrollScreen];
+    CCActionFollow *follow = [CCActionFollow actionWithTarget:penguin worldBoundary:self.boundingBox];
+    [self runAction:follow];
 }
 
 @end

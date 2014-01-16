@@ -407,7 +407,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonHighlighted.png</string>
+							<string>PeevedPenguinsAssets/catapult.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -755,8 +755,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>467.99993896484375</real>
-									<real>45</real>
+									<real>468.99993896484375</real>
+									<real>47</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -793,8 +793,8 @@
 								<string>ScaleLock</string>
 								<key>value</key>
 								<array>
-									<real>1</real>
-									<real>1</real>
+									<real>1.0020409822463989</real>
+									<real>0.99275374412536621</real>
 									<false/>
 									<integer>0</integer>
 								</array>
