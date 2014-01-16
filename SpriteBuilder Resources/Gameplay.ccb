@@ -15,7 +15,20 @@
 	<key>fileVersion</key>
 	<integer>4</integer>
 	<key>guides</key>
-	<array/>
+	<array>
+		<dict>
+			<key>orientation</key>
+			<integer>0</integer>
+			<key>position</key>
+			<real>59</real>
+		</dict>
+		<dict>
+			<key>orientation</key>
+			<integer>0</integer>
+			<key>position</key>
+			<real>46</real>
+		</dict>
+	</array>
 	<key>jsControlled</key>
 	<false/>
 	<key>nodeGraph</key>
@@ -629,12 +642,12 @@
 									<real>0.0</real>
 								</array>
 								<array>
-									<real>960</real>
-									<real>46.00390625</real>
+									<real>959.94525146484375</real>
+									<real>47.82421875</real>
 								</array>
 								<array>
-									<real>0.0</real>
-									<real>46.00390625</real>
+									<real>0.0624847412109375</real>
+									<real>47.82421875</real>
 								</array>
 							</array>
 						</dict>
@@ -742,8 +755,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>464.99993896484375</real>
-									<real>1</real>
+									<real>467.99993896484375</real>
+									<real>45</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -757,7 +770,7 @@
 								<key>value</key>
 								<array>
 									<real>490</real>
-									<real>320</real>
+									<real>275</real>
 									<integer>0</integer>
 									<integer>0</integer>
 								</array>
@@ -1003,7 +1016,7 @@
 			<key>name</key>
 			<string>Default Timeline</string>
 			<key>offset</key>
-			<real>1.0568443536758423</real>
+			<real>1.0224672555923462</real>
 			<key>position</key>
 			<real>1.7666666507720947</real>
 			<key>resolution</key>
