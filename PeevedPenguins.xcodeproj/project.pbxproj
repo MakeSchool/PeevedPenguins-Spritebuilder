@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		625213B318883868009867C0 /* Penguin.m in Sources */ = {isa = PBXBuildFile; fileRef = 625213B218883868009867C0 /* Penguin.m */; };
+		625213B8188839F9009867C0 /* Seal.m in Sources */ = {isa = PBXBuildFile; fileRef = 625213B7188839F9009867C0 /* Seal.m */; };
 		B737893B180761570076A88C /* Published-iOS in Resources */ = {isa = PBXBuildFile; fileRef = B737893A180761570076A88C /* Published-iOS */; };
 		B737893F1807617C0076A88C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
 		B7378975180762440076A88C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B737896B180762440076A88C /* Default-568h@2x.png */; };
@@ -102,6 +104,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		625213B118883868009867C0 /* Penguin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Penguin.h; path = Source/Penguin.h; sourceTree = "<group>"; };
+		625213B218883868009867C0 /* Penguin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Penguin.m; path = Source/Penguin.m; sourceTree = "<group>"; };
+		625213B6188839F9009867C0 /* Seal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Seal.h; path = Source/Seal.h; sourceTree = "<group>"; };
+		625213B7188839F9009867C0 /* Seal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Seal.m; path = Source/Seal.m; sourceTree = "<group>"; };
 		B737893A180761570076A88C /* Published-iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Published-iOS"; path = "Source/Resources/Published-iOS"; sourceTree = SOURCE_ROOT; };
 		B737893D1807617C0076A88C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Source/AppDelegate.h; sourceTree = "<group>"; };
 		B737893E1807617C0076A88C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Source/AppDelegate.m; sourceTree = "<group>"; };
@@ -246,6 +252,10 @@
 				B737893E1807617C0076A88C /* AppDelegate.m */,
 				B7378992180767190076A88C /* MainScene.h */,
 				B7378993180767190076A88C /* MainScene.m */,
+				625213B118883868009867C0 /* Penguin.h */,
+				625213B218883868009867C0 /* Penguin.m */,
+				625213B6188839F9009867C0 /* Seal.h */,
+				625213B7188839F9009867C0 /* Seal.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -602,6 +612,7 @@
 				D2E65CA318626890007D0B1F /* plane.c in Sources */,
 				D2E65CA918626890007D0B1F /* vec4.c in Sources */,
 				D2E65C541862647B007D0B1F /* cpSpaceHash.c in Sources */,
+				625213B318883868009867C0 /* Penguin.m in Sources */,
 				D2E65C4E1862647B007D0B1F /* cpShape.c in Sources */,
 				D2E65C4C1862647B007D0B1F /* cpRatchetJoint.c in Sources */,
 				D2E65C4F1862647B007D0B1F /* cpSimpleMotor.c in Sources */,
@@ -626,6 +637,7 @@
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
 				D2E65C551862647B007D0B1F /* cpSpaceQuery.c in Sources */,
+				625213B8188839F9009867C0 /* Seal.m in Sources */,
 				D2E65C501862647B007D0B1F /* cpSlideJoint.c in Sources */,
 				D2E65C441862647B007D0B1F /* cpDampedRotarySpring.c in Sources */,
 				D2E65C3C1862647B007D0B1F /* chipmunk.c in Sources */,

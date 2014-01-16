@@ -49,6 +49,9 @@
     
     [self setupCocos2dWithOptions:cocos2dSetup];
     
+    [CCBReader load:@"penguin"];
+    [CCBReader load:@"seal"];
+    
     return YES;
 }
 
