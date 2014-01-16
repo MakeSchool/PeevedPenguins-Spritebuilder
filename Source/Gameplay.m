@@ -35,9 +35,6 @@
     _pullbackNode.physicsBody.collisionMask = @[];
     _mouseJointNode.physicsBody.collisionMask = @[];
     
-    // set up some joints
-//    catapultJoint = [CCPhysicsJoint connectedSpringJointWithBodyA:_catapultArm.physicsBody bodyB:_catapult.physicsBody anchorA:ccp(_catapultArm.contentSize.width/2, 0) anchorB:ccp(_catapult.contentSize.width/2, 0.7 * _catapult.contentSize.height) restLength:0.01f stiffness:2000 damping:200];
-    
     _catapultJoint = [CCPhysicsJoint connectedPivotJointWithBodyA:_catapultArm.physicsBody bodyB:_catapult.physicsBody anchorA:_catapultArm.anchorPointInPoints];
     
     _pullbackSpring = [CCPhysicsJoint connectedSpringJointWithBodyA:_pullbackNode.physicsBody bodyB:_catapultArm.physicsBody anchorA:ccp(0, 0) anchorB:ccp(34, 138) restLength:60.f stiffness:500.f damping:40.f];
@@ -78,9 +75,6 @@
         
         _currentPenguin.physicsBody.allowsRotation = FALSE;
         
-        CCActionFollow *follow = [CCActionFollow actionWithTarget:_currentPenguin worldBoundary:self.boundingBox];
-        [_contentNode runAction:follow];
-        
         _penguinCatapultJoint = [CCPhysicsJoint connectedPivotJointWithBodyA:_catapultArm.physicsBody bodyB:_currentPenguin.physicsBody anchorA:ccp(34, 138)];
     }
 }
@@ -111,6 +105,9 @@
         
         [_mouseSpring invalidate];
         _mouseSpring = nil;
+        
+        CCActionFollow *follow = [CCActionFollow actionWithTarget:_currentPenguin worldBoundary:self.boundingBox];
+        [_contentNode runAction:follow];
     }
 }
 

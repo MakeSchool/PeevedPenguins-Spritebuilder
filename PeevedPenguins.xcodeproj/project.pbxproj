@@ -743,7 +743,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = PeevedPenguins;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "18D84403-392D-4C50-BA7D-C45F153D06AB";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -774,7 +774,7 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = PeevedPenguins;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "18D84403-392D-4C50-BA7D-C45F153D06AB";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
