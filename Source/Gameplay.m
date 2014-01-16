@@ -22,6 +22,8 @@
 
     CCNode *_pullbackNode;
     CCNode *_mouseJointNode;
+    
+    CCNode *_contentNode;
 }
 
 - (void)didLoadFromCCB {
@@ -53,7 +55,11 @@
     [penguin.physicsBody applyForce:force];
     
     CCActionFollow *follow = [CCActionFollow actionWithTarget:penguin worldBoundary:self.boundingBox];
-    [self runAction:follow];
+    [_contentNode runAction:follow];
+}
+
+- (void)retry {
+    [[CCDirector sharedDirector] replaceScene:[CCBReader loadAsScene:@"Gameplay"]];
 }
 
 -(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
@@ -69,7 +75,7 @@
         [_physicsNode addChild:penguin];
         
         CCActionFollow *follow = [CCActionFollow actionWithTarget:penguin worldBoundary:self.boundingBox];
-        [self runAction:follow];
+        [_contentNode runAction:follow];
         
         _penguinCatapultJoint = [CCPhysicsJoint connectedPivotJointWithBodyA:_catapultArm.physicsBody bodyB:penguin.physicsBody anchorA:ccp(34, 138)];
     }
