@@ -50,48 +50,47 @@
     _pullbackJoint = [CCPhysicsJoint connectedSpringJointWithBodyA:_pullbackNode.physicsBody bodyB:_catapultArm.physicsBody anchorA:ccp(0, 0) anchorB:ccp(34, 138) restLength:60.f stiffness:500.f damping:40.f];
 }
 
+- (void)releaseCatapult {
+    if (_mouseJoint != nil)
+    {
+        // releases the joint and lets the catpult snap back
+        [_mouseJoint invalidate];
+        _mouseJoint = nil;
+    }
+}
+
 -(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
     CGPoint touchLocation = [touch locationInNode:self];
+    
+    // start catapult dragging when a touch inside of the catapult arm occurs
     if (CGRectContainsPoint([_catapultArm boundingBox], touchLocation))
     {
+        // move the mouseJointNode to the touch position
         _mouseJointNode.position = touchLocation;
         
-        
+        // setup a spring joint between the mouseJointNode and the catapultArm
         _mouseJoint = [CCPhysicsJoint connectedSpringJointWithBodyA:_mouseJointNode.physicsBody bodyB:_catapultArm.physicsBody anchorA:ccp(0, 0) anchorB:ccp(34, 138) restLength:0.f stiffness:3000.f damping:150.f];
-        
-//        _currentPenguin = [CCBReader load:@"Penguin"];
-//        _currentPenguin.position = ccpAdd(_catapultArm.position, ccp(34, 138));
-//        [_physicsNode addChild:_currentPenguin];
-//        
-//        _currentPenguin.physicsBody.allowsRotation = FALSE;
-//        
-//        _penguinCatapultJoint = [CCPhysicsJoint connectedPivotJointWithBodyA:_catapultArm.physicsBody bodyB:_currentPenguin.physicsBody anchorA:ccp(34, 138)];
     }
 }
 
 - (void)touchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    // whenever touches move, update the position of the mouseJointNode to the touch position
     CGPoint touchLocation = [touch locationInNode:self];
     _mouseJointNode.position = touchLocation;
 }
 
 -(void) touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    // when touches end, release the catapult
     [self releaseCatapult];
 }
 
 -(void) touchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    // when touches are cancelled, release the catapult
     [self releaseCatapult];
-}
-
-- (void)releaseCatapult {
-    if (_mouseJoint != nil)
-    {
-        [_mouseJoint invalidate];
-        _mouseJoint = nil;
-    }
 }
 
 @end
