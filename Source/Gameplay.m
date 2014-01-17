@@ -56,7 +56,9 @@
     if (CGRectContainsPoint([_catapultArm boundingBox], touchLocation))
     {
         _mouseJointNode.position = touchLocation;
-        _mouseJoint = [CCPhysicsJoint connectedSpringJointWithBodyA:_mouseJointNode.physicsBody bodyB:_catapultArm.physicsBody anchorA:ccp(0, 0) anchorB:ccp(34, 138) restLength:0.f stiffness:8000.f damping:150.f];
+        
+        
+        _mouseJoint = [CCPhysicsJoint connectedSpringJointWithBodyA:_mouseJointNode.physicsBody bodyB:_catapultArm.physicsBody anchorA:ccp(0, 0) anchorB:ccp(34, 138) restLength:0.f stiffness:3000.f damping:150.f];
         
 //        _currentPenguin = [CCBReader load:@"Penguin"];
 //        _currentPenguin.position = ccpAdd(_catapultArm.position, ccp(34, 138));

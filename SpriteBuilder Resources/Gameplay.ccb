@@ -59,7 +59,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>1</real>
+									<real>0.0</real>
 									<real>0.0</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -143,9 +143,9 @@
 									<key>bodyShape</key>
 									<integer>1</integer>
 									<key>cornerRadius</key>
-									<real>1</real>
+									<real>0.0</real>
 									<key>density</key>
-									<real>100</real>
+									<real>1</real>
 									<key>dynamic</key>
 									<false/>
 									<key>elasticity</key>
@@ -261,12 +261,12 @@
 											<real>177</real>
 										</array>
 										<array>
-											<real>0.0234375</real>
-											<real>24.57421875</real>
+											<real>0.92578125</real>
+											<real>73.499984741210938</real>
 										</array>
 										<array>
-											<real>16.0234375</real>
-											<real>24.6171875</real>
+											<real>16.925765991210938</real>
+											<real>73.499984741210938</real>
 										</array>
 										<array>
 											<real>41.070281982421875</real>
@@ -351,8 +351,6 @@
 										</array>
 									</dict>
 								</array>
-								<key>selected</key>
-								<true/>
 							</dict>
 							<dict>
 								<key>baseClass</key>
@@ -578,7 +576,7 @@
 										<key>value</key>
 										<array>
 											<real>469</real>
-											<real>44</real>
+											<real>45</real>
 											<integer>0</integer>
 											<integer>0</integer>
 											<integer>0</integer>
@@ -770,9 +768,9 @@
 									<key>bodyShape</key>
 									<integer>1</integer>
 									<key>cornerRadius</key>
-									<real>1</real>
+									<real>0.0</real>
 									<key>density</key>
-									<real>100</real>
+									<real>1</real>
 									<key>dynamic</key>
 									<false/>
 									<key>elasticity</key>
