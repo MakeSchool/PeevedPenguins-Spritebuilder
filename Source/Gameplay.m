@@ -18,6 +18,9 @@
     
     CCNode *_pullbackNode;
     CCPhysicsJoint *_pullbackJoint;
+    
+    CCNode *_mouseJointNode;
+    CCPhysicsJoint *_mouseJoint;
 }
 
 - (void)retry {
@@ -29,6 +32,9 @@
 - (void)didLoadFromCCB {
     // tell this scene to accept touches
     self.userInteractionEnabled = TRUE;
+    
+    _pullbackNode.physicsBody.collisionMask = @[];
+    _mouseJointNode.physicsBody.collisionMask = @[];
     
     // load a level
     CCScene *level = [CCBReader loadAsScene:@"levels/level1"];
@@ -44,29 +50,46 @@
     _pullbackJoint = [CCPhysicsJoint connectedSpringJointWithBodyA:_pullbackNode.physicsBody bodyB:_catapultArm.physicsBody anchorA:ccp(0, 0) anchorB:ccp(34, 138) restLength:60.f stiffness:500.f damping:40.f];
 }
 
-// called on every touch in this scene
-- (void)touchBegan:(UITouch *)touch withEvent:(UIEvent *)event {
-    [self launchPenguin];
+-(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    CGPoint touchLocation = [touch locationInNode:self];
+    if (CGRectContainsPoint([_catapultArm boundingBox], touchLocation))
+    {
+        _mouseJointNode.position = touchLocation;
+        _mouseJoint = [CCPhysicsJoint connectedSpringJointWithBodyA:_mouseJointNode.physicsBody bodyB:_catapultArm.physicsBody anchorA:ccp(0, 0) anchorB:ccp(34, 138) restLength:0.f stiffness:8000.f damping:150.f];
+        
+//        _currentPenguin = [CCBReader load:@"Penguin"];
+//        _currentPenguin.position = ccpAdd(_catapultArm.position, ccp(34, 138));
+//        [_physicsNode addChild:_currentPenguin];
+//        
+//        _currentPenguin.physicsBody.allowsRotation = FALSE;
+//        
+//        _penguinCatapultJoint = [CCPhysicsJoint connectedPivotJointWithBodyA:_catapultArm.physicsBody bodyB:_currentPenguin.physicsBody anchorA:ccp(34, 138)];
+    }
 }
 
-- (void)launchPenguin {
-    // loads the Penguin.ccb we have set up in Spritebuilder
-    CCNode* penguin = [CCBReader load:@"Penguin"];
-    // position the penguin at the scoop of the catapult
-    penguin.position = ccpAdd(_catapultArm.position, ccp(16, 50));
-    
-    // add the penguin to the physicsNode of this scene (because it has physics enabled)
-    [_physicsNode addChild:penguin];
-    
-    // manually create & apply a force to launch the penguin
-    CGPoint launchDirection = ccp(1, 0);
-    CGPoint force = ccpMult(launchDirection, 8000);
-    [penguin.physicsBody applyForce:force];
-    
-    // ensure followed object is in visible are when starting
-    self.position = ccp(0, 0);
-    CCActionFollow *follow = [CCActionFollow actionWithTarget:penguin worldBoundary:self.boundingBox];
-    [_contentNode runAction:follow];
+- (void)touchMoved:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    CGPoint touchLocation = [touch locationInNode:self];
+    _mouseJointNode.position = touchLocation;
+}
+
+-(void) touchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    [self releaseCatapult];
+}
+
+-(void) touchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    [self releaseCatapult];
+}
+
+- (void)releaseCatapult {
+    if (_mouseJoint != nil)
+    {
+        [_mouseJoint invalidate];
+        _mouseJoint = nil;
+    }
 }
 
 @end
