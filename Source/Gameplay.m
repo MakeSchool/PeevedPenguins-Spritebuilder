@@ -12,7 +12,14 @@
     CCPhysicsNode *_physicsNode;
     CCNode *_catapultArm;
     CCNode *_levelNode;
-    CCNode *_penguin;
+    CCNode *_contentNode;
+    CCNode *_catapult;
+    CCPhysicsJoint *_catapultJoint;
+}
+
+- (void)retry {
+    // reload this level
+    [[CCDirector sharedDirector] replaceScene: [CCBReader loadAsScene:@"Gameplay"]];
 }
 
 // is called when CCB file has completed loading
@@ -20,8 +27,15 @@
     // tell this scene to accept touches
     self.userInteractionEnabled = TRUE;
     
+    // load a level
     CCScene *level = [CCBReader loadAsScene:@"levels/level1"];
     [_levelNode addChild:level];
+    
+    // visualize physic bodies & joints
+    _physicsNode.debugDraw = TRUE;
+    
+    // create a joint to connect the catapult arm with the catapult
+    _catapultJoint = [CCPhysicsJoint connectedPivotJointWithBodyA:_catapultArm.physicsBody bodyB:_catapult.physicsBody anchorA:_catapultArm.anchorPointInPoints];
 }
 
 // called on every touch in this scene
@@ -46,7 +60,7 @@
     // ensure followed object is in visible are when starting
     self.position = ccp(0, 0);
     CCActionFollow *follow = [CCActionFollow actionWithTarget:penguin worldBoundary:self.boundingBox];
-    [self runAction:follow];
+    [_contentNode runAction:follow];
 }
 
 @end
