@@ -258,23 +258,19 @@
 									<array>
 										<array>
 											<real>0.0</real>
+											<real>0.0</real>
+										</array>
+										<array>
+											<real>0.0</real>
 											<real>177</real>
-										</array>
-										<array>
-											<real>0.92578125</real>
-											<real>73.499984741210938</real>
-										</array>
-										<array>
-											<real>16.925765991210938</real>
-											<real>73.499984741210938</real>
-										</array>
-										<array>
-											<real>41.070281982421875</real>
-											<real>110.49996948242188</real>
 										</array>
 										<array>
 											<real>42</real>
 											<real>177</real>
+										</array>
+										<array>
+											<real>42</real>
+											<real>0.0</real>
 										</array>
 									</array>
 								</dict>

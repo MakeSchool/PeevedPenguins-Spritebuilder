@@ -33,11 +33,16 @@
 
 // is called when CCB file has completed loading
 - (void)didLoadFromCCB {
-    // tell this scene to accept touches
-    self.userInteractionEnabled = TRUE;
+    // catapultArm and catapult shall not collide
+    [_catapultArm.physicsBody setCollisionGroup:_catapult];
+    [_catapult.physicsBody setCollisionGroup:_catapult];
     
+    // nothing shall collide with our invisible nodes
     _pullbackNode.physicsBody.collisionMask = @[];
     _mouseJointNode.physicsBody.collisionMask = @[];
+    
+    // tell this scene to accept touches
+    self.userInteractionEnabled = TRUE;
     
     // load a level
     CCScene *level = [CCBReader loadAsScene:@"levels/level1"];

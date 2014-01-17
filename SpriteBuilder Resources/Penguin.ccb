@@ -43,7 +43,7 @@
 			<key>cornerRadius</key>
 			<real>13</real>
 			<key>density</key>
-			<real>10</real>
+			<real>30</real>
 			<key>dynamic</key>
 			<true/>
 			<key>elasticity</key>
@@ -131,8 +131,6 @@
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
