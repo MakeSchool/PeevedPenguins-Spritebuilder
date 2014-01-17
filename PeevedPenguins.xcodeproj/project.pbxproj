@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		625213B318883868009867C0 /* Penguin.m in Sources */ = {isa = PBXBuildFile; fileRef = 625213B218883868009867C0 /* Penguin.m */; };
 		625213B8188839F9009867C0 /* Seal.m in Sources */ = {isa = PBXBuildFile; fileRef = 625213B7188839F9009867C0 /* Seal.m */; };
+		62B943F81888CA1900CACE27 /* Gameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 62B943F71888CA1900CACE27 /* Gameplay.m */; };
 		B737893B180761570076A88C /* Published-iOS in Resources */ = {isa = PBXBuildFile; fileRef = B737893A180761570076A88C /* Published-iOS */; };
 		B737893F1807617C0076A88C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
 		B7378975180762440076A88C /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B737896B180762440076A88C /* Default-568h@2x.png */; };
@@ -108,6 +109,8 @@
 		625213B218883868009867C0 /* Penguin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Penguin.m; path = Source/Penguin.m; sourceTree = "<group>"; };
 		625213B6188839F9009867C0 /* Seal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Seal.h; path = Source/Seal.h; sourceTree = "<group>"; };
 		625213B7188839F9009867C0 /* Seal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Seal.m; path = Source/Seal.m; sourceTree = "<group>"; };
+		62B943F61888CA1900CACE27 /* Gameplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gameplay.h; path = Source/Gameplay.h; sourceTree = "<group>"; };
+		62B943F71888CA1900CACE27 /* Gameplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Gameplay.m; path = Source/Gameplay.m; sourceTree = "<group>"; };
 		B737893A180761570076A88C /* Published-iOS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Published-iOS"; path = "Source/Resources/Published-iOS"; sourceTree = SOURCE_ROOT; };
 		B737893D1807617C0076A88C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Source/AppDelegate.h; sourceTree = "<group>"; };
 		B737893E1807617C0076A88C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Source/AppDelegate.m; sourceTree = "<group>"; };
@@ -256,6 +259,8 @@
 				625213B218883868009867C0 /* Penguin.m */,
 				625213B6188839F9009867C0 /* Seal.h */,
 				625213B7188839F9009867C0 /* Seal.m */,
+				62B943F61888CA1900CACE27 /* Gameplay.h */,
+				62B943F71888CA1900CACE27 /* Gameplay.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -618,6 +623,7 @@
 				D2E65C4F1862647B007D0B1F /* cpSimpleMotor.c in Sources */,
 				D2E65CA518626890007D0B1F /* ray2.c in Sources */,
 				D2E65C3F1862647B007D0B1F /* cpArray.c in Sources */,
+				62B943F81888CA1900CACE27 /* Gameplay.m in Sources */,
 				D2E65CA718626890007D0B1F /* vec2.c in Sources */,
 				D2E65C3E1862647B007D0B1F /* cpArbiter.c in Sources */,
 				D2E65C9E18626890007D0B1F /* mat4stack.c in Sources */,

@@ -90,8 +90,6 @@
 		</dict>
 		<key>PeevedPenguinsAssets</key>
 		<dict>
-			<key>isDirty</key>
-			<true/>
 			<key>isSmartSpriteSheet</key>
 			<true/>
 		</dict>
