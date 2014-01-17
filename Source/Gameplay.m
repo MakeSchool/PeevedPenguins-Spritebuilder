@@ -15,6 +15,9 @@
     CCNode *_contentNode;
     CCNode *_catapult;
     CCPhysicsJoint *_catapultJoint;
+    
+    CCNode *_pullbackNode;
+    CCPhysicsJoint *_pullbackJoint;
 }
 
 - (void)retry {
@@ -36,6 +39,8 @@
     
     // create a joint to connect the catapult arm with the catapult
     _catapultJoint = [CCPhysicsJoint connectedPivotJointWithBodyA:_catapultArm.physicsBody bodyB:_catapult.physicsBody anchorA:_catapultArm.anchorPointInPoints];
+    
+    _pullbackJoint = [CCPhysicsJoint connectedSpringJointWithBodyA:_pullbackNode.physicsBody bodyB:_catapultArm.physicsBody anchorA:ccp(0, 0) anchorB:ccp(34, 138) restLength:60.f stiffness:500.f damping:40.f];
 }
 
 // called on every touch in this scene
