@@ -163,7 +163,7 @@ typedef struct CCContactSet {
  *  @param nodeA Node A.
  *  @param nodeB Node B.
  */
--(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair typeA:(CCNode *)nodeA typeB:(CCNode *)nodeB;
+    -(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair typeA:(CCNode *)nodeA typeB:(CCNode *)nodeB;
 
 /**
  *  Separate methods are called the first fixed time step after two bodies stop colliding.

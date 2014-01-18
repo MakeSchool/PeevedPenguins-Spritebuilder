@@ -26,13 +26,11 @@
     CCPhysicsJoint *_penguinCatapultJoint;
 }
 
-- (void)retry {
-    // reload this level
-    [[CCDirector sharedDirector] replaceScene: [CCBReader loadAsScene:@"Gameplay"]];
-}
+#pragma mark - Init
 
 // is called when CCB file has completed loading
-- (void)didLoadFromCCB {
+- (void)didLoadFromCCB
+{
     // catapultArm and catapult shall not collide
     [_catapultArm.physicsBody setCollisionGroup:_catapult];
     [_catapult.physicsBody setCollisionGroup:_catapult];
@@ -50,12 +48,21 @@
     
     // visualize physic bodies & joints
     _physicsNode.debugDraw = TRUE;
+    _physicsNode.collisionDelegate = self;
     
     // create a joint to connect the catapult arm with the catapult
     _catapultJoint = [CCPhysicsJoint connectedPivotJointWithBodyA:_catapultArm.physicsBody bodyB:_catapult.physicsBody anchorA:_catapultArm.anchorPointInPoints];
     
     // create a spring joint for bringing arm in upright position and snapping back when player shoots
     _pullbackJoint = [CCPhysicsJoint connectedSpringJointWithBodyA:_pullbackNode.physicsBody bodyB:_catapultArm.physicsBody anchorA:ccp(0, 0) anchorB:ccp(34, 138) restLength:60.f stiffness:500.f damping:40.f];
+}
+
+#pragma mark - Game Actions
+
+- (void)retry
+{
+    // reload this level
+    [[CCDirector sharedDirector] replaceScene: [CCBReader loadAsScene:@"Gameplay"]];
 }
 
 - (void)releaseCatapult {
@@ -77,6 +84,8 @@
         [_contentNode runAction:follow];
     }
 }
+
+#pragma mark - Touch Handling
 
 -(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
@@ -122,6 +131,13 @@
 {
     // when touches are cancelled, release the catapult
     [self releaseCatapult];
+}
+
+#pragma mark - Collision Handling
+
+-(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair seal:(CCNode *)nodeA wildcard:(CCNode *)nodeB
+{
+    CCLOG(@"Something collided with a seal!");
 }
 
 @end
