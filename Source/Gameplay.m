@@ -7,6 +7,7 @@
 //
 
 #import "Gameplay.h"
+#import "Penguin.h"
 
 @implementation Gameplay {
     CCPhysicsNode *_physicsNode;
@@ -22,15 +23,13 @@
     CCNode *_mouseJointNode;
     CCPhysicsJoint *_mouseJoint;
     
-    CCNode *_currentPenguin;
+    Penguin *_currentPenguin;
     CCPhysicsJoint *_penguinCatapultJoint;
     
     CCActionFollow *_followPenguin;
 }
 
-static const float MIN_SPEED_X = 5.f;
-static const float MIN_SPEED_Y = 5.f;
-
+static const float MIN_SPEED = 5.f;
 
 #pragma mark - Init
 
@@ -84,6 +83,7 @@ static const float MIN_SPEED_Y = 5.f;
         
         // after snapping rotation is fine
         _currentPenguin.physicsBody.allowsRotation = TRUE;
+        _currentPenguin.launched = TRUE;
 
         // follow the flying penguin
         _followPenguin = [CCActionFollow actionWithTarget:_currentPenguin worldBoundary:[self boundingBox]];
@@ -92,6 +92,9 @@ static const float MIN_SPEED_Y = 5.f;
 }
 
 - (void)sealRemoved:(CCNode *)seal {
+    CCParticleSystem *explosion = (CCParticleSystem*) [CCBReader load:@"SealExplosion"];
+    [_levelNode addChild:explosion];
+    explosion.position = seal.position;
     [seal removeFromParent];
 }
 
@@ -111,7 +114,7 @@ static const float MIN_SPEED_Y = 5.f;
         _mouseJoint = [CCPhysicsJoint connectedSpringJointWithBodyA:_mouseJointNode.physicsBody bodyB:_catapultArm.physicsBody anchorA:ccp(0, 0) anchorB:ccp(34, 138) restLength:0.f stiffness:3000.f damping:150.f];
         
         // create a penguin from the ccb-file
-        _currentPenguin = [CCBReader load:@"Penguin"];
+        _currentPenguin = (Penguin *)[CCBReader load:@"Penguin"];
         // initially position it on the scoop
         CGPoint penguinPosition = [_catapultArm convertToWorldSpace:ccp(34, 138)];
         _currentPenguin.position = [_contentNode convertToNodeSpace:penguinPosition];
@@ -171,7 +174,7 @@ static const float MIN_SPEED_Y = 5.f;
 
 - (void)update:(CCTime)delta
 {
-    if (_currentPenguin) {
+    if (_currentPenguin.launched == TRUE) {
         int xMin = _currentPenguin.boundingBox.origin.x;
         
         if (xMin < self.boundingBox.origin.x) {
@@ -186,11 +189,9 @@ static const float MIN_SPEED_Y = 5.f;
             return;
         }
         
-        if (_currentPenguin.physicsBody.velocity.x < MIN_SPEED_X) {
-            [self nextAttempt];
-            return;
-            
-            if (_currentPenguin.physicsBody.velocity.y < MIN_SPEED_Y) {
+        
+        if (abs(_currentPenguin.physicsBody.velocity.x) < MIN_SPEED){
+            if (abs(_currentPenguin.physicsBody.velocity.y) < MIN_SPEED){
                 [self nextAttempt];
                 return;
             }
