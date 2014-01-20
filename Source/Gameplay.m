@@ -28,6 +28,10 @@
     CCActionFollow *_followPenguin;
 }
 
+static const float MIN_SPEED_X = 5.f;
+static const float MIN_SPEED_Y = 5.f;
+
+
 #pragma mark - Init
 
 // is called when CCB file has completed loading
@@ -180,6 +184,16 @@
         if (xMax > (self.boundingBox.origin.x + self.boundingBox.size.width)) {
             [self nextAttempt];
             return;
+        }
+        
+        if (_currentPenguin.physicsBody.velocity.x < MIN_SPEED_X) {
+            [self nextAttempt];
+            return;
+            
+            if (_currentPenguin.physicsBody.velocity.y < MIN_SPEED_Y) {
+                [self nextAttempt];
+                return;
+            }
         }
     }
 }
