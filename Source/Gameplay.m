@@ -93,8 +93,10 @@ static const float MIN_SPEED = 5.f;
 
 - (void)sealRemoved:(CCNode *)seal {
     CCParticleSystem *explosion = (CCParticleSystem*) [CCBReader load:@"SealExplosion"];
+    explosion.autoRemoveOnFinish = TRUE;
     [_levelNode addChild:explosion];
     explosion.position = seal.position;
+
     [seal removeFromParent];
 }
 
