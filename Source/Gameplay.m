@@ -85,6 +85,10 @@
     }
 }
 
+- (void)sealRemoved:(CCNode *)seal {
+    [seal removeFromParent];
+}
+
 #pragma mark - Touch Handling
 
 -(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
@@ -139,12 +143,10 @@
 {
     float energy = [pair totalKineticEnergy];
     
-    
-    CCLOG(@"%f", energy);
-    
+    // if energy is large enough, remove the seal
     if (energy > 5000.f)
     {
-        [nodeA removeFromParent];
+        [self sealRemoved:nodeA];
     }
 }
 
