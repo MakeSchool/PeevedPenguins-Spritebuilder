@@ -2201,7 +2201,7 @@
 		<key>children</key>
 		<array/>
 		<key>customClass</key>
-		<string></string>
+		<string>WaitingPenguin</string>
 		<key>displayName</key>
 		<string>CCSprite</string>
 		<key>memberVarAssignmentName</key>
@@ -2324,7 +2324,7 @@
 	<array>
 		<dict>
 			<key>autoPlay</key>
-			<true/>
+			<false/>
 			<key>callbackChannel</key>
 			<dict>
 				<key>keyframes</key>
@@ -2337,7 +2337,7 @@
 			<key>length</key>
 			<real>4</real>
 			<key>name</key>
-			<string>Default Timeline</string>
+			<string>BlinkAndJump</string>
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
