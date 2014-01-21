@@ -167,7 +167,7 @@ FindPOTScale(CGFloat size, CGFloat fixedSize)
 #if DEBUG
 	if(![config[CCSetupHideDebugStats] boolValue]){
 		// Display FSP and SPF
-		[director setDisplayStats:YES];
+		[director setDisplayStats:NO];
 	}
 #endif
 	
