@@ -113,7 +113,7 @@
 				<key>type</key>
 				<string>Float</string>
 				<key>value</key>
-				<real>-1</real>
+				<real>1</real>
 			</dict>
 			<dict>
 				<key>name</key>
