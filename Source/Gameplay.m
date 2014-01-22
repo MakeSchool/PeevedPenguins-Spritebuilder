@@ -27,9 +27,12 @@
     CCPhysicsJoint *_penguinCatapultJoint;
     
     CCAction *_followPenguin;
+    
+    CCNode *_waitingPenguin;
 }
 
 static const float MIN_SPEED = 5.f;
+static const CGPoint SCOOP_POSITION = {34, 138};
 
 #pragma mark - Init
 
@@ -59,7 +62,7 @@ static const float MIN_SPEED = 5.f;
     _catapultJoint = [CCPhysicsJoint connectedPivotJointWithBodyA:_catapultArm.physicsBody bodyB:_catapult.physicsBody anchorA:_catapultArm.anchorPointInPoints];
     
     // create a spring joint for bringing arm in upright position and snapping back when player shoots
-    _pullbackJoint = [CCPhysicsJoint connectedSpringJointWithBodyA:_pullbackNode.physicsBody bodyB:_catapultArm.physicsBody anchorA:ccp(0, 0) anchorB:ccp(34, 138) restLength:60.f stiffness:500.f damping:40.f];
+    _pullbackJoint = [CCPhysicsJoint connectedSpringJointWithBodyA:_pullbackNode.physicsBody bodyB:_catapultArm.physicsBody anchorA:ccp(0, 0) anchorB:SCOOP_POSITION restLength:60.f stiffness:500.f damping:40.f];
 }
 
 #pragma mark - Game Actions
@@ -113,6 +116,18 @@ static const float MIN_SPEED = 5.f;
     [_contentNode runAction:actionMoveTo];
 }
 
+- (void)launchPenguin {
+    CGPoint scoopPosition = [self scoopWorldPosition];
+    scoopPosition = [_contentNode convertToNodeSpace:scoopPosition];
+    
+    CCActionMoveToMovingTarget *moveTo = [CCActionMoveToMovingTarget actionWithSpeed:200.f position:scoopPosition];
+    moveTo.delegate = self;
+    CCActionRotateBy *rotate = [CCActionRotateBy actionWithDuration:1.f angle:450.f];
+    
+    [_waitingPenguin runAction:rotate];
+    [_waitingPenguin runAction:moveTo];
+}
+
 #pragma mark - Touch Handling
 
 -(void) touchBegan:(UITouch *)touch withEvent:(UIEvent *)event
@@ -126,12 +141,13 @@ static const float MIN_SPEED = 5.f;
         _mouseJointNode.position = touchLocation;
         
         // setup a spring joint between the mouseJointNode and the catapultArm
-        _mouseJoint = [CCPhysicsJoint connectedSpringJointWithBodyA:_mouseJointNode.physicsBody bodyB:_catapultArm.physicsBody anchorA:ccp(0, 0) anchorB:ccp(34, 138) restLength:0.f stiffness:3000.f damping:150.f];
+        _mouseJoint = [CCPhysicsJoint connectedSpringJointWithBodyA:_mouseJointNode.physicsBody bodyB:_catapultArm.physicsBody anchorA:ccp(0, 0) anchorB:SCOOP_POSITION restLength:0.f stiffness:3000.f damping:150.f];
         
+        [self launchPenguin];
         // create a penguin from the ccb-file
         _currentPenguin = (Penguin*)[CCBReader load:@"Penguin"];
-        // initially position it on the scoop. 34,138 is the position in the node space of the _catapultArm
-        CGPoint penguinPosition = [_catapultArm convertToWorldSpace:ccp(34, 138)];
+        // initially position it on the scoop
+        CGPoint penguinPosition = [self scoopWorldPosition];
         // transform the world position to the node space to which the penguin will be added (_physicsNode)
         _currentPenguin.position = [_physicsNode convertToNodeSpace:penguinPosition];
         // add it to the physics world
@@ -161,6 +177,12 @@ static const float MIN_SPEED = 5.f;
 {
     // when touches are cancelled, release the catapult
     [self releaseCatapult];
+}
+
+#pragma mark - Utilites
+
+- (CGPoint)scoopWorldPosition {
+    return [_catapultArm convertToWorldSpace:SCOOP_POSITION];
 }
 
 #pragma mark - Collision Handling
@@ -208,6 +230,11 @@ static const float MIN_SPEED = 5.f;
             return;
         }
     }
+}
+
+- (CGPoint)targetPointForActionMovingTarget:(CCActionMoveToMovingTarget *)actionMovingTarget
+{
+    return [_contentNode convertToNodeSpace:[self scoopWorldPosition]];
 }
 
 @end
