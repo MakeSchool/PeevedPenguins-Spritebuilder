@@ -116,35 +116,46 @@
     CGPoint endPosition = CGPointZero;
     
     if (_positionUpdateBlock) {
+        // if a block is provided, get target position by executing the block
         endPosition = _positionUpdateBlock();
     }  else if (_targetNode) {
+        // if a node shall be followed, get the world position of that node
         CGPoint worldPos = [_targetNode.parent convertToWorldSpace:_targetNode.position];
+        // and convert the position to the node space of the target of this action
         endPosition = [[(CCNode*)_target parent] convertToNodeSpace:worldPos];
     } 
+
+    CCNode *actionTargetNode = (CCNode*)_target;
+
+    // calculate distance between node and target position
+    CGPoint positionDelta = ccpSub(endPosition, actionTargetNode.position);
     
-    CCLOG(@"position x:%f y:%f   ;;;; Target position: x:%f y:%f", [(CCNode*)_target position].x, [(CCNode*)_target position].y, endPosition.x, endPosition.y);
-    
-    CGPoint positionDelta = ccpSub(endPosition, [(CCNode*)_target position]);
-    
-    CCNode *node = (CCNode*)_target;
-    
-	CGPoint currentPos = [node position];
+    // normalize distance -> results in a movement vector
     CGPoint normalizedDiff = ccpNormalize(positionDelta);
+    
+    // multiply the movement vector with the speed
     CGPoint moveBy = ccpMult(normalizedDiff, (dt * _speed));
     
-    CGPoint newPos =  ccpAdd(currentPos, moveBy);
+    // calculate the new position of this node
+    CGPoint newPos =  ccpAdd(actionTargetNode.position, moveBy);
     
-    // if moveBy > diff, set position to target position
+    // if moveBy > position delta, we would be shooting past the target, instead set position to target position
     CGFloat moveByLength = ccpLength(moveBy);
     CGFloat distanceTargetLength = ccpLength(positionDelta);
     
     if (moveByLength > distanceTargetLength) {
+        // if this isn't an infinite action, it is completed, because we reached the target position
         if (!_followInfinite) {
             _done = YES;
+            
+            if (self.completionBlock) {
+                self.completionBlock();
+            }
         }
         
         newPos = endPosition;
     }
+    
 	[_target setPosition: newPos];
 }
 

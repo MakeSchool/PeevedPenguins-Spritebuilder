@@ -122,8 +122,12 @@ static const CGPoint SCOOP_POSITION = {34, 138};
     
     CCActionMoveToMovingTarget *moveTo = [CCActionMoveToMovingTarget actionWithSpeed:200.f positionUpdateBlock:^CGPoint{
         return [_contentNode convertToNodeSpace:[self scoopWorldPosition]];
-    } followInfinite:TRUE];
- 
+    } followInfinite:FALSE];
+    
+    [moveTo setCompletionBlock: ^(void) {
+        CCLOG(@"Done!");
+    }];
+    
 //    CCActionMoveToMovingTarget *moveTo = [CCActionMoveToMovingTarget actionWithSpeed:200.f targetNode:_currentPenguin];
     
     CCActionRotateBy *rotate = [CCActionRotateBy actionWithDuration:1.f angle:450.f];

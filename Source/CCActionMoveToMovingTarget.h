@@ -22,10 +22,10 @@
  * THE SOFTWARE.
  *
  */
-
 #import "CCActionInterval.h"
 
 typedef CGPoint(^PositionUpdateBlock)(void);
+typedef void(^CompletionBlock)(void);
 
 // -----------------------------------------------------------------
 /** @name CCActionMoveToMovingTarget */
@@ -50,6 +50,18 @@ typedef CGPoint(^PositionUpdateBlock)(void);
  *  @endcode
  */
 @interface CCActionMoveToMovingTarget : CCAction <NSCopying>
+
+/**
+ *  If you assign a block to this property, it will be called once the action is completed.
+ *
+ *  Example:
+ *  @code
+ *  [moveTo setCompletionBlock: ^(void) {
+ *     CCLOG(@"Done!");
+ *  }];
+ *  @endcode
+ */
+@property (readwrite,nonatomic,copy) CompletionBlock completionBlock;
 
 /**
  *  Creates the action.
