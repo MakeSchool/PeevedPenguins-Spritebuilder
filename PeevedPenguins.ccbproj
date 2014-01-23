@@ -93,8 +93,103 @@
 			<key>isSmartSpriteSheet</key>
 			<true/>
 		</dict>
+		<key>PeevedPenguinsAssets/background.png</key>
+		<dict>
+			<key>tabletScale</key>
+			<integer>1</integer>
+		</dict>
+		<key>PeevedPenguinsAssets/bear.png</key>
+		<dict>
+			<key>tabletScale</key>
+			<integer>1</integer>
+		</dict>
+		<key>PeevedPenguinsAssets/beararm.png</key>
+		<dict>
+			<key>tabletScale</key>
+			<integer>1</integer>
+		</dict>
+		<key>PeevedPenguinsAssets/bearnoarms.png</key>
+		<dict>
+			<key>tabletScale</key>
+			<integer>1</integer>
+		</dict>
+		<key>PeevedPenguinsAssets/button.png</key>
+		<dict>
+			<key>tabletScale</key>
+			<integer>1</integer>
+		</dict>
+		<key>PeevedPenguinsAssets/catapult.png</key>
+		<dict>
+			<key>tabletScale</key>
+			<integer>1</integer>
+		</dict>
+		<key>PeevedPenguinsAssets/catapultarm.png</key>
+		<dict>
+			<key>tabletScale</key>
+			<integer>1</integer>
+		</dict>
+		<key>PeevedPenguinsAssets/flyingpenguin.png</key>
+		<dict>
+			<key>tabletScale</key>
+			<integer>1</integer>
+		</dict>
+		<key>PeevedPenguinsAssets/ground.png</key>
+		<dict>
+			<key>tabletScale</key>
+			<integer>1</integer>
+		</dict>
+		<key>PeevedPenguinsAssets/longblock.png</key>
+		<dict>
+			<key>tabletScale</key>
+			<integer>1</integer>
+		</dict>
+		<key>PeevedPenguinsAssets/menubackground.png</key>
+		<dict>
+			<key>tabletScale</key>
+			<integer>1</integer>
+		</dict>
+		<key>PeevedPenguinsAssets/seal.png</key>
+		<dict>
+			<key>tabletScale</key>
+			<integer>1</integer>
+		</dict>
+		<key>PeevedPenguinsAssets/squareblock.png</key>
+		<dict>
+			<key>tabletScale</key>
+			<integer>1</integer>
+		</dict>
+		<key>PeevedPenguinsAssets/tallblock.png</key>
+		<dict>
+			<key>tabletScale</key>
+			<integer>1</integer>
+		</dict>
+		<key>PeevedPenguinsAssets/taperedblock.png</key>
+		<dict>
+			<key>tabletScale</key>
+			<integer>1</integer>
+		</dict>
+		<key>PeevedPenguinsAssets/waitingpenguin.png</key>
+		<dict>
+			<key>tabletScale</key>
+			<integer>1</integer>
+		</dict>
 		<key>Sprites</key>
 		<dict/>
+		<key>animation/1.png</key>
+		<dict>
+			<key>tabletScale</key>
+			<integer>1</integer>
+		</dict>
+		<key>animation/119.png</key>
+		<dict>
+			<key>tabletScale</key>
+			<integer>1</integer>
+		</dict>
+		<key>animation/120.png</key>
+		<dict>
+			<key>tabletScale</key>
+			<integer>1</integer>
+		</dict>
 		<key>ccbResources</key>
 		<dict>
 			<key>previewFolderHidden</key>
@@ -179,8 +274,8 @@
 		</dict>
 	</dict>
 	<key>versionStr</key>
-	<string>Version: 1.0.0.beta.0
-GitHub: 30d09beb81
+	<string>Version: 1.0.2
+GitHub: cdd395620d
 </string>
 </dict>
 </plist>

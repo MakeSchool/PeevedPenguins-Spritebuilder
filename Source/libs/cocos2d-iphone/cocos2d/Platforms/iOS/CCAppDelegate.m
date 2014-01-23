@@ -193,7 +193,7 @@ FindPOTScale(CGFloat size, CGFloat fixedSize)
 		director.UIScaleFactor = (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone ? 1.0 : 0.5);
 		
 		// Let CCFileUtils know that "-ipad" textures should be treated as having a contentScale of 2.0.
-		[[CCFileUtils sharedFileUtils] setiPadContentScaleFactor: 2.0];
+		[[CCFileUtils sharedFileUtils] setiPadContentScaleFactor: 1.0];
 		
 		director.designSize = fixed;
 		[director setProjection:CCDirectorProjectionCustom];
@@ -204,13 +204,13 @@ FindPOTScale(CGFloat size, CGFloat fixedSize)
 			[config[CCSetupTabletScale2X] boolValue]
 		){
 			// Set the director to use 2 points per pixel.
-			director.contentScaleFactor *= 2.0;
+			director.contentScaleFactor *= 1.0;
 			
 			// Set the UI scale factor to show things at "native" size.
 			director.UIScaleFactor = 0.5;
 			
 			// Let CCFileUtils know that "-ipad" textures should be treated as having a contentScale of 2.0.
-			[[CCFileUtils sharedFileUtils] setiPadContentScaleFactor:2.0];
+			[[CCFileUtils sharedFileUtils] setiPadContentScaleFactor:1.0];
 		}
 		
 		[director setProjection:CCDirectorProjection2D];
