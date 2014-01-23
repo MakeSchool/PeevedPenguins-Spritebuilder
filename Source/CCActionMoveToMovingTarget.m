@@ -17,6 +17,7 @@
     BOOL _done;
     
     PositionUpdateBlock _positionUpdateBlock;
+    CCNode *_targetNode;
 }
 
 +(id) actionWithSpeed: (CGFloat) s position: (CGPoint) p positionUpdateBlock:(PositionUpdateBlock)block
@@ -28,6 +29,11 @@
 +(id) actionWithSpeed: (CGFloat) s position: (CGPoint) p
 {
 	return [[self alloc] initWithSpeed:s position:p ];
+}
+
++ (id) actionWithSpeed: (CGFloat)s targetNode:(CCNode *)t
+{
+    return [[self alloc] initWithSpeed:s targetNode:t];
 }
 
 -(id) initWithSpeed: (CGFloat) s position: (CGPoint) p
@@ -45,6 +51,18 @@
     self = [self initWithSpeed:s position:p];
     
     _positionUpdateBlock = block;
+    
+    return self;
+}
+
+- (id) initWithSpeed: (CGFloat)s targetNode:(CCNode *)t
+{
+    self = [super init];
+    
+    if (self) {
+        _targetNode = t;
+        _speed = s;
+    }
     
     return self;
 }
@@ -69,9 +87,12 @@
     
     if (_positionUpdateBlock) {
         endPosition = _positionUpdateBlock();
-    } else {
-        endPosition = [self.delegate targetPointForActionMovingTarget:self];
-    }
+    }  else if (_targetNode) {
+        CGPoint worldPos = [_targetNode.parent convertToWorldSpace:_targetNode.position];
+        endPosition = [[(CCNode*)_target parent] convertToNodeSpace:worldPos];
+    } 
+    
+    CCLOG(@"position x:%f y:%f   ;;;; Target position: x:%f y:%f", [(CCNode*)_target position].x, [(CCNode*)_target position].y, endPosition.x, endPosition.y);
     
     _positionDelta = ccpSub(endPosition, [(CCNode*)_target position]);
     

@@ -9,6 +9,6 @@
 #import "CCNode.h"
 #import "CCActionMoveToMovingTarget.h"
 
-@interface Gameplay : CCNode <CCPhysicsCollisionDelegate, CCActionMoveToMovingTargetDelegate>
+@interface Gameplay : CCNode <CCPhysicsCollisionDelegate>
 
 @end

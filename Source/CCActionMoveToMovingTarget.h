@@ -8,25 +8,14 @@
 
 #import "CCActionInterval.h"
 
-@class CCActionMoveToMovingTarget;
-
-@protocol CCActionMoveToMovingTargetDelegate
-
-- (CGPoint)targetPointForActionMovingTarget:(CCActionMoveToMovingTarget *)actionMovingTarget;
-
-@end
-
 @interface CCActionMoveToMovingTarget : CCAction
-
-@property (nonatomic, assign) id<CCActionMoveToMovingTargetDelegate> delegate;
 
 typedef CGPoint(^PositionUpdateBlock)(void);
 
-
 + (id) actionWithSpeed: (CGFloat) s position: (CGPoint) p positionUpdateBlock:(PositionUpdateBlock) block;
-+ (id) actionWithSpeed: (CGFloat)s position: (CGPoint)p;
++ (id) actionWithSpeed: (CGFloat)s targetNode:(CCNode *)t;
 
-- (id) initWithSpeed: (CGFloat)s position: (CGPoint)p;
 - (id) initWithSpeed: (CGFloat)s position: (CGPoint)p positionUpdateBlock:(PositionUpdateBlock) block;
+- (id) initWithSpeed: (CGFloat)s targetNode:(CCNode *)t;
 
 @end
