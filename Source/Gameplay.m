@@ -120,11 +120,11 @@ static const CGPoint SCOOP_POSITION = {34, 138};
     CGPoint scoopPosition = [self scoopWorldPosition];
     scoopPosition = [_contentNode convertToNodeSpace:scoopPosition];
     
-//    CCActionMoveToMovingTarget *moveTo = [CCActionMoveToMovingTarget actionWithSpeed:200.f position:scoopPosition positionUpdateBlock:^CGPoint{
-//        return [_contentNode convertToNodeSpace:[self scoopWorldPosition]];
-//    }];
+    CCActionMoveToMovingTarget *moveTo = [CCActionMoveToMovingTarget actionWithSpeed:200.f positionUpdateBlock:^CGPoint{
+        return [_contentNode convertToNodeSpace:[self scoopWorldPosition]];
+    } followInfinite:TRUE];
  
-    CCActionMoveToMovingTarget *moveTo = [CCActionMoveToMovingTarget actionWithSpeed:200.f targetNode:_currentPenguin];
+//    CCActionMoveToMovingTarget *moveTo = [CCActionMoveToMovingTarget actionWithSpeed:200.f targetNode:_currentPenguin];
     
     CCActionRotateBy *rotate = [CCActionRotateBy actionWithDuration:1.f angle:450.f];
     
