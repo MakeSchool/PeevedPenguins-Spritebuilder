@@ -15,7 +15,15 @@
     CGPoint _positionDelta;
     CGPoint _startPos;
     BOOL _done;
+    
+    PositionUpdateBlock _positionUpdateBlock;
 }
+
++(id) actionWithSpeed: (CGFloat) s position: (CGPoint) p positionUpdateBlock:(PositionUpdateBlock)block
+{
+    return [[self alloc] initWithSpeed:s position:p positionUpdateBlock:block];
+}
+
 
 +(id) actionWithSpeed: (CGFloat) s position: (CGPoint) p
 {
@@ -32,6 +40,16 @@
 	return self;
 }
 
+- (id) initWithSpeed: (CGFloat)s position: (CGPoint)p positionUpdateBlock:(PositionUpdateBlock) block
+{
+    self = [self initWithSpeed:s position:p];
+    
+    _positionUpdateBlock = block;
+    
+    return self;
+}
+
+
 -(id) copyWithZone: (NSZone*) zone
 {
 	CCAction *copy = [[[self class] allocWithZone: zone] initWithSpeed:_speed position: _endPosition];
@@ -47,11 +65,15 @@
 
 - (void)step:(CCTime)dt
 {
-    CGPoint endPosition = [self.delegate targetPointForActionMovingTarget:self];
+    CGPoint endPosition = CGPointZero;
+    
+    if (_positionUpdateBlock) {
+        endPosition = _positionUpdateBlock();
+    } else {
+        endPosition = [self.delegate targetPointForActionMovingTarget:self];
+    }
+    
     _positionDelta = ccpSub(endPosition, [(CCNode*)_target position]);
-    
-    CCLOG(@"position x:%f y:%f   ;;;; Target position: x:%f y:%f", [(CCNode*)_target position].x, [(CCNode*)_target position].y, endPosition.x, endPosition.y);
-    
     
     CCNode *node = (CCNode*)_target;
     
@@ -76,6 +98,5 @@
 {
 	return _done;
 }
-
 
 @end

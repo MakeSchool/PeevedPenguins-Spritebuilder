@@ -120,7 +120,10 @@ static const CGPoint SCOOP_POSITION = {34, 138};
     CGPoint scoopPosition = [self scoopWorldPosition];
     scoopPosition = [_contentNode convertToNodeSpace:scoopPosition];
     
-    CCActionMoveToMovingTarget *moveTo = [CCActionMoveToMovingTarget actionWithSpeed:200.f position:scoopPosition];
+    CCActionMoveToMovingTarget *moveTo = [CCActionMoveToMovingTarget actionWithSpeed:200.f position:scoopPosition positionUpdateBlock:^CGPoint{
+        return [_contentNode convertToNodeSpace:[self scoopWorldPosition]];
+    }];
+    
     moveTo.delegate = self;
     CCActionRotateBy *rotate = [CCActionRotateBy actionWithDuration:1.f angle:450.f];
     

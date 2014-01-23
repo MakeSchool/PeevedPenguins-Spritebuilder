@@ -20,7 +20,13 @@
 
 @property (nonatomic, assign) id<CCActionMoveToMovingTargetDelegate> delegate;
 
-+(id) actionWithSpeed: (CGFloat) s position: (CGPoint) p;
--(id) initWithSpeed: (CGFloat) s position: (CGPoint) p;
+typedef CGPoint(^PositionUpdateBlock)(void);
+
+
++ (id) actionWithSpeed: (CGFloat) s position: (CGPoint) p positionUpdateBlock:(PositionUpdateBlock) block;
++ (id) actionWithSpeed: (CGFloat)s position: (CGPoint)p;
+
+- (id) initWithSpeed: (CGFloat)s position: (CGPoint)p;
+- (id) initWithSpeed: (CGFloat)s position: (CGPoint)p positionUpdateBlock:(PositionUpdateBlock) block;
 
 @end
