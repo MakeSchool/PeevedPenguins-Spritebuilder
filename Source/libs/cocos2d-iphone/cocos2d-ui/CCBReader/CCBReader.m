@@ -972,6 +972,8 @@ static inline float readFloat(CCBReader *self)
         
         node.physicsBody = body;
 #endif
+        free(points);
+
     }
     
     // Read and add children
