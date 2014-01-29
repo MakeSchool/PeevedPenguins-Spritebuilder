@@ -48,7 +48,7 @@ static const float MIN_SPEED = 5.f;
     self.userInteractionEnabled = TRUE;
     
     // load a level
-    CCScene *level = [CCBReader loadAsScene:@"levels/level1"];
+    CCScene *level = [CCBReader loadAsScene:@"Levels/Level1"];
     [_levelNode addChild:level];
     
     // visualize physic bodies & joints
