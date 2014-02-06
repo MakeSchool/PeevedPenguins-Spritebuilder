@@ -8,6 +8,7 @@
 
 #import "Gameplay.h"
 #import "Penguin.h"
+#import "CCPhysics+ObjectiveChipmunk.h"
 
 @implementation Gameplay {
     CCPhysicsNode *_physicsNode;
@@ -166,14 +167,32 @@ static const float MIN_SPEED = 5.f;
 
 #pragma mark - Collision Handling
 
--(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair seal:(CCNode *)nodeA wildcard:(CCNode *)nodeB
+-(void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair seal:(CCNode *)seal wildcard:(CCNode *)nodeB
 {
     float energy = [pair totalKineticEnergy];
     
     // if energy is large enough, remove the seal
     if (energy > 5000.f)
     {
-        [self sealRemoved:nodeA];
+        [self sealRemoved:seal];
+    }
+}
+
+- (void)ccPhysicsCollisionPostSolve:(CCPhysicsCollisionPair *)pair penguin:(CCNode *)penguin wildcard:(CCNode *)nodeB
+{
+    if (nodeB == _catapultArm) {
+        // penguin shall not stick to catapultArm
+        return;
+    }
+    
+    float energy = [pair totalKineticEnergy];
+
+    // if energy is large enough, make penguin static
+    if (_currentPenguin.launched && (energy > 10000.f))
+    {
+        [[_physicsNode space] addPostStepBlock:^{
+            penguin.physicsBody.type = CCPhysicsBodyTypeStatic;
+        } key:penguin];
     }
 }
 
