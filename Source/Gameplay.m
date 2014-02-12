@@ -184,13 +184,11 @@ static const float MIN_SPEED = 5.f;
     if (_currentPenguin.launched) {
         
         // if speed is below minimum speed, assume this attempt is over
-        if (abs(_currentPenguin.physicsBody.velocity.x) < MIN_SPEED){
-            if (abs(_currentPenguin.physicsBody.velocity.y) < MIN_SPEED){
-                [self nextAttempt];
-                return;
-            }
+        if (ccpLength(_currentPenguin.physicsBody.velocity) < MIN_SPEED){
+          [self nextAttempt];
+          return;
         }
-        
+      
         // right corner of penguin
         int penguinMaxX = _currentPenguin.boundingBox.origin.x + _currentPenguin.boundingBox.size.width;
         
