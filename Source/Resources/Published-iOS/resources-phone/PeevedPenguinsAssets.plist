@@ -7,20 +7,20 @@
 		<key>PeevedPenguinsAssets/background.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{1, 1}, {960, 320}}</string>
+			<string>{{1, 1}, {960, 384}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>rotated</key>
 			<false/>
 			<key>sourceColorRect</key>
-			<string>{{0, 0}, {960, 320}}</string>
+			<string>{{0, 0}, {960, 384}}</string>
 			<key>sourceSize</key>
-			<string>{960, 320}</string>
+			<string>{960, 384}</string>
 		</dict>
 		<key>PeevedPenguinsAssets/bear.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{404, 386}, {80, 78}}</string>
+			<string>{{323, 836}, {80, 78}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>rotated</key>
@@ -46,7 +46,7 @@
 		<key>PeevedPenguinsAssets/bearnoarms.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{404, 468}, {80, 78}}</string>
+			<string>{{323, 918}, {80, 78}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>rotated</key>
@@ -59,7 +59,7 @@
 		<key>PeevedPenguinsAssets/button.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{323, 603}, {167, 152}}</string>
+			<string>{{323, 667}, {167, 152}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>rotated</key>
@@ -72,7 +72,7 @@
 		<key>PeevedPenguinsAssets/catapult.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{323, 386}, {215, 79}}</string>
+			<string>{{323, 450}, {215, 79}}</string>
 			<key>offset</key>
 			<string>{0, -6}</string>
 			<key>rotated</key>
@@ -111,7 +111,7 @@
 		<key>PeevedPenguinsAssets/ground.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{1, 323}, {960, 61}}</string>
+			<string>{{1, 387}, {960, 61}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>rotated</key>
@@ -137,7 +137,7 @@
 		<key>PeevedPenguinsAssets/menubackground.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{1, 386}, {568, 320}}</string>
+			<string>{{1, 450}, {568, 320}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>rotated</key>

@@ -84,9 +84,10 @@ static const float MIN_SPEED = 5.f;
         // after snapping rotation is fine
         _currentPenguin.physicsBody.allowsRotation = TRUE;
         _currentPenguin.launched = TRUE;
-
+        
+        CGRect uiPointsBoundingBox = CGRectMake(0, 0, self.boundingBox.size.width, self.boundingBox.size.height);
         // follow the flying penguin
-        _followPenguin = [CCActionFollow actionWithTarget:_currentPenguin worldBoundary:self.boundingBox];
+        _followPenguin = [CCActionFollow actionWithTarget:_currentPenguin worldBoundary:uiPointsBoundingBox];
         [_contentNode runAction:_followPenguin];
     }
 }

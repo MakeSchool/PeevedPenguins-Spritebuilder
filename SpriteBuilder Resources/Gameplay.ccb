@@ -5,7 +5,7 @@
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
-	<integer>0</integer>
+	<integer>1</integer>
 	<key>currentSequenceId</key>
 	<integer>0</integer>
 	<key>docDimensionsType</key>
@@ -1217,9 +1217,9 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>40</real>
-							<real>292.99996948242188</real>
-							<integer>0</integer>
+							<real>15</real>
+							<real>15</real>
+							<integer>1</integer>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -1231,8 +1231,8 @@
 						<string>Point</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
-							<real>0.5</real>
+							<real>0.0</real>
+							<real>1</real>
 						</array>
 					</dict>
 					<dict>
@@ -1552,9 +1552,9 @@
 				<key>value</key>
 				<array>
 					<real>960</real>
-					<real>320</real>
-					<integer>1</integer>
-					<integer>1</integer>
+					<real>1</real>
+					<integer>0</integer>
+					<integer>2</integer>
 				</array>
 			</dict>
 			<dict>
