@@ -1,0 +1,2969 @@
+{
+    "assets": [
+        {
+            "asset": "Source/Resources/Default@2x.png", 
+            "target": "Default@2x.png"
+        }, 
+        {
+            "asset": "Source/Resources/Icon@2x.png", 
+            "target": "Icon@2x.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/Bear.ccbi", 
+            "target": "Published-iOS/Bear.ccbi"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/configCocos2d.plist", 
+            "target": "Published-iOS/configCocos2d.plist"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/fileLookup.plist", 
+            "target": "Published-iOS/fileLookup.plist"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/Gameplay.ccbi", 
+            "target": "Published-iOS/Gameplay.ccbi"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/MainScene.ccbi", 
+            "target": "Published-iOS/MainScene.ccbi"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/Penguin.ccbi", 
+            "target": "Published-iOS/Penguin.ccbi"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/Seal.ccbi", 
+            "target": "Published-iOS/Seal.ccbi"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/SealExplosion.ccbi", 
+            "target": "Published-iOS/SealExplosion.ccbi"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/spriteFrameFileList.plist", 
+            "target": "Published-iOS/spriteFrameFileList.plist"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/Strings.ccbLang", 
+            "target": "Published-iOS/Strings.ccbLang"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/WaitingPenguin.ccbi", 
+            "target": "Published-iOS/WaitingPenguin.ccbi"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/1.png", 
+            "target": "Published-iOS/animation/resources-phone/1.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/10.png", 
+            "target": "Published-iOS/animation/resources-phone/10.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/100.png", 
+            "target": "Published-iOS/animation/resources-phone/100.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/101.png", 
+            "target": "Published-iOS/animation/resources-phone/101.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/102.png", 
+            "target": "Published-iOS/animation/resources-phone/102.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/103.png", 
+            "target": "Published-iOS/animation/resources-phone/103.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/104.png", 
+            "target": "Published-iOS/animation/resources-phone/104.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/105.png", 
+            "target": "Published-iOS/animation/resources-phone/105.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/106.png", 
+            "target": "Published-iOS/animation/resources-phone/106.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/107.png", 
+            "target": "Published-iOS/animation/resources-phone/107.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/108.png", 
+            "target": "Published-iOS/animation/resources-phone/108.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/109.png", 
+            "target": "Published-iOS/animation/resources-phone/109.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/11.png", 
+            "target": "Published-iOS/animation/resources-phone/11.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/110.png", 
+            "target": "Published-iOS/animation/resources-phone/110.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/111.png", 
+            "target": "Published-iOS/animation/resources-phone/111.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/112.png", 
+            "target": "Published-iOS/animation/resources-phone/112.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/113.png", 
+            "target": "Published-iOS/animation/resources-phone/113.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/114.png", 
+            "target": "Published-iOS/animation/resources-phone/114.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/115.png", 
+            "target": "Published-iOS/animation/resources-phone/115.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/116.png", 
+            "target": "Published-iOS/animation/resources-phone/116.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/117.png", 
+            "target": "Published-iOS/animation/resources-phone/117.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/118.png", 
+            "target": "Published-iOS/animation/resources-phone/118.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/119.png", 
+            "target": "Published-iOS/animation/resources-phone/119.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/12.png", 
+            "target": "Published-iOS/animation/resources-phone/12.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/120.png", 
+            "target": "Published-iOS/animation/resources-phone/120.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/13.png", 
+            "target": "Published-iOS/animation/resources-phone/13.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/14.png", 
+            "target": "Published-iOS/animation/resources-phone/14.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/15.png", 
+            "target": "Published-iOS/animation/resources-phone/15.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/16.png", 
+            "target": "Published-iOS/animation/resources-phone/16.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/17.png", 
+            "target": "Published-iOS/animation/resources-phone/17.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/18.png", 
+            "target": "Published-iOS/animation/resources-phone/18.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/19.png", 
+            "target": "Published-iOS/animation/resources-phone/19.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/2.png", 
+            "target": "Published-iOS/animation/resources-phone/2.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/20.png", 
+            "target": "Published-iOS/animation/resources-phone/20.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/21.png", 
+            "target": "Published-iOS/animation/resources-phone/21.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/22.png", 
+            "target": "Published-iOS/animation/resources-phone/22.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/23.png", 
+            "target": "Published-iOS/animation/resources-phone/23.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/24.png", 
+            "target": "Published-iOS/animation/resources-phone/24.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/25.png", 
+            "target": "Published-iOS/animation/resources-phone/25.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/26.png", 
+            "target": "Published-iOS/animation/resources-phone/26.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/27.png", 
+            "target": "Published-iOS/animation/resources-phone/27.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/28.png", 
+            "target": "Published-iOS/animation/resources-phone/28.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/29.png", 
+            "target": "Published-iOS/animation/resources-phone/29.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/3.png", 
+            "target": "Published-iOS/animation/resources-phone/3.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/30.png", 
+            "target": "Published-iOS/animation/resources-phone/30.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/31.png", 
+            "target": "Published-iOS/animation/resources-phone/31.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/32.png", 
+            "target": "Published-iOS/animation/resources-phone/32.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/33.png", 
+            "target": "Published-iOS/animation/resources-phone/33.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/34.png", 
+            "target": "Published-iOS/animation/resources-phone/34.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/35.png", 
+            "target": "Published-iOS/animation/resources-phone/35.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/36.png", 
+            "target": "Published-iOS/animation/resources-phone/36.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/37.png", 
+            "target": "Published-iOS/animation/resources-phone/37.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/38.png", 
+            "target": "Published-iOS/animation/resources-phone/38.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/39.png", 
+            "target": "Published-iOS/animation/resources-phone/39.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/4.png", 
+            "target": "Published-iOS/animation/resources-phone/4.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/40.png", 
+            "target": "Published-iOS/animation/resources-phone/40.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/41.png", 
+            "target": "Published-iOS/animation/resources-phone/41.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/42.png", 
+            "target": "Published-iOS/animation/resources-phone/42.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/43.png", 
+            "target": "Published-iOS/animation/resources-phone/43.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/44.png", 
+            "target": "Published-iOS/animation/resources-phone/44.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/45.png", 
+            "target": "Published-iOS/animation/resources-phone/45.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/46.png", 
+            "target": "Published-iOS/animation/resources-phone/46.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/47.png", 
+            "target": "Published-iOS/animation/resources-phone/47.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/48.png", 
+            "target": "Published-iOS/animation/resources-phone/48.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/49.png", 
+            "target": "Published-iOS/animation/resources-phone/49.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/5.png", 
+            "target": "Published-iOS/animation/resources-phone/5.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/50.png", 
+            "target": "Published-iOS/animation/resources-phone/50.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/51.png", 
+            "target": "Published-iOS/animation/resources-phone/51.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/52.png", 
+            "target": "Published-iOS/animation/resources-phone/52.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/53.png", 
+            "target": "Published-iOS/animation/resources-phone/53.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/54.png", 
+            "target": "Published-iOS/animation/resources-phone/54.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/55.png", 
+            "target": "Published-iOS/animation/resources-phone/55.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/56.png", 
+            "target": "Published-iOS/animation/resources-phone/56.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/57.png", 
+            "target": "Published-iOS/animation/resources-phone/57.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/58.png", 
+            "target": "Published-iOS/animation/resources-phone/58.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/59.png", 
+            "target": "Published-iOS/animation/resources-phone/59.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/6.png", 
+            "target": "Published-iOS/animation/resources-phone/6.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/60.png", 
+            "target": "Published-iOS/animation/resources-phone/60.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/61.png", 
+            "target": "Published-iOS/animation/resources-phone/61.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/62.png", 
+            "target": "Published-iOS/animation/resources-phone/62.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/63.png", 
+            "target": "Published-iOS/animation/resources-phone/63.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/64.png", 
+            "target": "Published-iOS/animation/resources-phone/64.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/65.png", 
+            "target": "Published-iOS/animation/resources-phone/65.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/66.png", 
+            "target": "Published-iOS/animation/resources-phone/66.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/67.png", 
+            "target": "Published-iOS/animation/resources-phone/67.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/68.png", 
+            "target": "Published-iOS/animation/resources-phone/68.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/69.png", 
+            "target": "Published-iOS/animation/resources-phone/69.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/7.png", 
+            "target": "Published-iOS/animation/resources-phone/7.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/70.png", 
+            "target": "Published-iOS/animation/resources-phone/70.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/71.png", 
+            "target": "Published-iOS/animation/resources-phone/71.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/72.png", 
+            "target": "Published-iOS/animation/resources-phone/72.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/73.png", 
+            "target": "Published-iOS/animation/resources-phone/73.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/74.png", 
+            "target": "Published-iOS/animation/resources-phone/74.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/75.png", 
+            "target": "Published-iOS/animation/resources-phone/75.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/76.png", 
+            "target": "Published-iOS/animation/resources-phone/76.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/77.png", 
+            "target": "Published-iOS/animation/resources-phone/77.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/78.png", 
+            "target": "Published-iOS/animation/resources-phone/78.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/79.png", 
+            "target": "Published-iOS/animation/resources-phone/79.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/8.png", 
+            "target": "Published-iOS/animation/resources-phone/8.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/80.png", 
+            "target": "Published-iOS/animation/resources-phone/80.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/81.png", 
+            "target": "Published-iOS/animation/resources-phone/81.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/82.png", 
+            "target": "Published-iOS/animation/resources-phone/82.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/83.png", 
+            "target": "Published-iOS/animation/resources-phone/83.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/84.png", 
+            "target": "Published-iOS/animation/resources-phone/84.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/85.png", 
+            "target": "Published-iOS/animation/resources-phone/85.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/86.png", 
+            "target": "Published-iOS/animation/resources-phone/86.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/87.png", 
+            "target": "Published-iOS/animation/resources-phone/87.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/88.png", 
+            "target": "Published-iOS/animation/resources-phone/88.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/89.png", 
+            "target": "Published-iOS/animation/resources-phone/89.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/9.png", 
+            "target": "Published-iOS/animation/resources-phone/9.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/90.png", 
+            "target": "Published-iOS/animation/resources-phone/90.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/91.png", 
+            "target": "Published-iOS/animation/resources-phone/91.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/92.png", 
+            "target": "Published-iOS/animation/resources-phone/92.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/93.png", 
+            "target": "Published-iOS/animation/resources-phone/93.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/94.png", 
+            "target": "Published-iOS/animation/resources-phone/94.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/95.png", 
+            "target": "Published-iOS/animation/resources-phone/95.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/96.png", 
+            "target": "Published-iOS/animation/resources-phone/96.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/97.png", 
+            "target": "Published-iOS/animation/resources-phone/97.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/98.png", 
+            "target": "Published-iOS/animation/resources-phone/98.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phone/99.png", 
+            "target": "Published-iOS/animation/resources-phone/99.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/1.png", 
+            "target": "Published-iOS/animation/resources-phonehd/1.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/10.png", 
+            "target": "Published-iOS/animation/resources-phonehd/10.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/100.png", 
+            "target": "Published-iOS/animation/resources-phonehd/100.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/101.png", 
+            "target": "Published-iOS/animation/resources-phonehd/101.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/102.png", 
+            "target": "Published-iOS/animation/resources-phonehd/102.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/103.png", 
+            "target": "Published-iOS/animation/resources-phonehd/103.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/104.png", 
+            "target": "Published-iOS/animation/resources-phonehd/104.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/105.png", 
+            "target": "Published-iOS/animation/resources-phonehd/105.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/106.png", 
+            "target": "Published-iOS/animation/resources-phonehd/106.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/107.png", 
+            "target": "Published-iOS/animation/resources-phonehd/107.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/108.png", 
+            "target": "Published-iOS/animation/resources-phonehd/108.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/109.png", 
+            "target": "Published-iOS/animation/resources-phonehd/109.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/11.png", 
+            "target": "Published-iOS/animation/resources-phonehd/11.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/110.png", 
+            "target": "Published-iOS/animation/resources-phonehd/110.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/111.png", 
+            "target": "Published-iOS/animation/resources-phonehd/111.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/112.png", 
+            "target": "Published-iOS/animation/resources-phonehd/112.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/113.png", 
+            "target": "Published-iOS/animation/resources-phonehd/113.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/114.png", 
+            "target": "Published-iOS/animation/resources-phonehd/114.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/115.png", 
+            "target": "Published-iOS/animation/resources-phonehd/115.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/116.png", 
+            "target": "Published-iOS/animation/resources-phonehd/116.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/117.png", 
+            "target": "Published-iOS/animation/resources-phonehd/117.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/118.png", 
+            "target": "Published-iOS/animation/resources-phonehd/118.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/119.png", 
+            "target": "Published-iOS/animation/resources-phonehd/119.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/12.png", 
+            "target": "Published-iOS/animation/resources-phonehd/12.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/120.png", 
+            "target": "Published-iOS/animation/resources-phonehd/120.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/13.png", 
+            "target": "Published-iOS/animation/resources-phonehd/13.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/14.png", 
+            "target": "Published-iOS/animation/resources-phonehd/14.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/15.png", 
+            "target": "Published-iOS/animation/resources-phonehd/15.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/16.png", 
+            "target": "Published-iOS/animation/resources-phonehd/16.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/17.png", 
+            "target": "Published-iOS/animation/resources-phonehd/17.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/18.png", 
+            "target": "Published-iOS/animation/resources-phonehd/18.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/19.png", 
+            "target": "Published-iOS/animation/resources-phonehd/19.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/2.png", 
+            "target": "Published-iOS/animation/resources-phonehd/2.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/20.png", 
+            "target": "Published-iOS/animation/resources-phonehd/20.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/21.png", 
+            "target": "Published-iOS/animation/resources-phonehd/21.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/22.png", 
+            "target": "Published-iOS/animation/resources-phonehd/22.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/23.png", 
+            "target": "Published-iOS/animation/resources-phonehd/23.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/24.png", 
+            "target": "Published-iOS/animation/resources-phonehd/24.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/25.png", 
+            "target": "Published-iOS/animation/resources-phonehd/25.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/26.png", 
+            "target": "Published-iOS/animation/resources-phonehd/26.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/27.png", 
+            "target": "Published-iOS/animation/resources-phonehd/27.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/28.png", 
+            "target": "Published-iOS/animation/resources-phonehd/28.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/29.png", 
+            "target": "Published-iOS/animation/resources-phonehd/29.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/3.png", 
+            "target": "Published-iOS/animation/resources-phonehd/3.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/30.png", 
+            "target": "Published-iOS/animation/resources-phonehd/30.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/31.png", 
+            "target": "Published-iOS/animation/resources-phonehd/31.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/32.png", 
+            "target": "Published-iOS/animation/resources-phonehd/32.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/33.png", 
+            "target": "Published-iOS/animation/resources-phonehd/33.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/34.png", 
+            "target": "Published-iOS/animation/resources-phonehd/34.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/35.png", 
+            "target": "Published-iOS/animation/resources-phonehd/35.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/36.png", 
+            "target": "Published-iOS/animation/resources-phonehd/36.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/37.png", 
+            "target": "Published-iOS/animation/resources-phonehd/37.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/38.png", 
+            "target": "Published-iOS/animation/resources-phonehd/38.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/39.png", 
+            "target": "Published-iOS/animation/resources-phonehd/39.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/4.png", 
+            "target": "Published-iOS/animation/resources-phonehd/4.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/40.png", 
+            "target": "Published-iOS/animation/resources-phonehd/40.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/41.png", 
+            "target": "Published-iOS/animation/resources-phonehd/41.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/42.png", 
+            "target": "Published-iOS/animation/resources-phonehd/42.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/43.png", 
+            "target": "Published-iOS/animation/resources-phonehd/43.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/44.png", 
+            "target": "Published-iOS/animation/resources-phonehd/44.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/45.png", 
+            "target": "Published-iOS/animation/resources-phonehd/45.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/46.png", 
+            "target": "Published-iOS/animation/resources-phonehd/46.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/47.png", 
+            "target": "Published-iOS/animation/resources-phonehd/47.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/48.png", 
+            "target": "Published-iOS/animation/resources-phonehd/48.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/49.png", 
+            "target": "Published-iOS/animation/resources-phonehd/49.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/5.png", 
+            "target": "Published-iOS/animation/resources-phonehd/5.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/50.png", 
+            "target": "Published-iOS/animation/resources-phonehd/50.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/51.png", 
+            "target": "Published-iOS/animation/resources-phonehd/51.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/52.png", 
+            "target": "Published-iOS/animation/resources-phonehd/52.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/53.png", 
+            "target": "Published-iOS/animation/resources-phonehd/53.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/54.png", 
+            "target": "Published-iOS/animation/resources-phonehd/54.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/55.png", 
+            "target": "Published-iOS/animation/resources-phonehd/55.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/56.png", 
+            "target": "Published-iOS/animation/resources-phonehd/56.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/57.png", 
+            "target": "Published-iOS/animation/resources-phonehd/57.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/58.png", 
+            "target": "Published-iOS/animation/resources-phonehd/58.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/59.png", 
+            "target": "Published-iOS/animation/resources-phonehd/59.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/6.png", 
+            "target": "Published-iOS/animation/resources-phonehd/6.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/60.png", 
+            "target": "Published-iOS/animation/resources-phonehd/60.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/61.png", 
+            "target": "Published-iOS/animation/resources-phonehd/61.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/62.png", 
+            "target": "Published-iOS/animation/resources-phonehd/62.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/63.png", 
+            "target": "Published-iOS/animation/resources-phonehd/63.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/64.png", 
+            "target": "Published-iOS/animation/resources-phonehd/64.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/65.png", 
+            "target": "Published-iOS/animation/resources-phonehd/65.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/66.png", 
+            "target": "Published-iOS/animation/resources-phonehd/66.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/67.png", 
+            "target": "Published-iOS/animation/resources-phonehd/67.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/68.png", 
+            "target": "Published-iOS/animation/resources-phonehd/68.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/69.png", 
+            "target": "Published-iOS/animation/resources-phonehd/69.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/7.png", 
+            "target": "Published-iOS/animation/resources-phonehd/7.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/70.png", 
+            "target": "Published-iOS/animation/resources-phonehd/70.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/71.png", 
+            "target": "Published-iOS/animation/resources-phonehd/71.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/72.png", 
+            "target": "Published-iOS/animation/resources-phonehd/72.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/73.png", 
+            "target": "Published-iOS/animation/resources-phonehd/73.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/74.png", 
+            "target": "Published-iOS/animation/resources-phonehd/74.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/75.png", 
+            "target": "Published-iOS/animation/resources-phonehd/75.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/76.png", 
+            "target": "Published-iOS/animation/resources-phonehd/76.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/77.png", 
+            "target": "Published-iOS/animation/resources-phonehd/77.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/78.png", 
+            "target": "Published-iOS/animation/resources-phonehd/78.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/79.png", 
+            "target": "Published-iOS/animation/resources-phonehd/79.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/8.png", 
+            "target": "Published-iOS/animation/resources-phonehd/8.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/80.png", 
+            "target": "Published-iOS/animation/resources-phonehd/80.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/81.png", 
+            "target": "Published-iOS/animation/resources-phonehd/81.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/82.png", 
+            "target": "Published-iOS/animation/resources-phonehd/82.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/83.png", 
+            "target": "Published-iOS/animation/resources-phonehd/83.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/84.png", 
+            "target": "Published-iOS/animation/resources-phonehd/84.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/85.png", 
+            "target": "Published-iOS/animation/resources-phonehd/85.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/86.png", 
+            "target": "Published-iOS/animation/resources-phonehd/86.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/87.png", 
+            "target": "Published-iOS/animation/resources-phonehd/87.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/88.png", 
+            "target": "Published-iOS/animation/resources-phonehd/88.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/89.png", 
+            "target": "Published-iOS/animation/resources-phonehd/89.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/9.png", 
+            "target": "Published-iOS/animation/resources-phonehd/9.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/90.png", 
+            "target": "Published-iOS/animation/resources-phonehd/90.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/91.png", 
+            "target": "Published-iOS/animation/resources-phonehd/91.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/92.png", 
+            "target": "Published-iOS/animation/resources-phonehd/92.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/93.png", 
+            "target": "Published-iOS/animation/resources-phonehd/93.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/94.png", 
+            "target": "Published-iOS/animation/resources-phonehd/94.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/95.png", 
+            "target": "Published-iOS/animation/resources-phonehd/95.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/96.png", 
+            "target": "Published-iOS/animation/resources-phonehd/96.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/97.png", 
+            "target": "Published-iOS/animation/resources-phonehd/97.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/98.png", 
+            "target": "Published-iOS/animation/resources-phonehd/98.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-phonehd/99.png", 
+            "target": "Published-iOS/animation/resources-phonehd/99.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/1.png", 
+            "target": "Published-iOS/animation/resources-tablet/1.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/10.png", 
+            "target": "Published-iOS/animation/resources-tablet/10.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/100.png", 
+            "target": "Published-iOS/animation/resources-tablet/100.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/101.png", 
+            "target": "Published-iOS/animation/resources-tablet/101.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/102.png", 
+            "target": "Published-iOS/animation/resources-tablet/102.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/103.png", 
+            "target": "Published-iOS/animation/resources-tablet/103.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/104.png", 
+            "target": "Published-iOS/animation/resources-tablet/104.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/105.png", 
+            "target": "Published-iOS/animation/resources-tablet/105.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/106.png", 
+            "target": "Published-iOS/animation/resources-tablet/106.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/107.png", 
+            "target": "Published-iOS/animation/resources-tablet/107.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/108.png", 
+            "target": "Published-iOS/animation/resources-tablet/108.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/109.png", 
+            "target": "Published-iOS/animation/resources-tablet/109.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/11.png", 
+            "target": "Published-iOS/animation/resources-tablet/11.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/110.png", 
+            "target": "Published-iOS/animation/resources-tablet/110.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/111.png", 
+            "target": "Published-iOS/animation/resources-tablet/111.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/112.png", 
+            "target": "Published-iOS/animation/resources-tablet/112.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/113.png", 
+            "target": "Published-iOS/animation/resources-tablet/113.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/114.png", 
+            "target": "Published-iOS/animation/resources-tablet/114.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/115.png", 
+            "target": "Published-iOS/animation/resources-tablet/115.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/116.png", 
+            "target": "Published-iOS/animation/resources-tablet/116.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/117.png", 
+            "target": "Published-iOS/animation/resources-tablet/117.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/118.png", 
+            "target": "Published-iOS/animation/resources-tablet/118.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/119.png", 
+            "target": "Published-iOS/animation/resources-tablet/119.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/12.png", 
+            "target": "Published-iOS/animation/resources-tablet/12.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/120.png", 
+            "target": "Published-iOS/animation/resources-tablet/120.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/13.png", 
+            "target": "Published-iOS/animation/resources-tablet/13.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/14.png", 
+            "target": "Published-iOS/animation/resources-tablet/14.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/15.png", 
+            "target": "Published-iOS/animation/resources-tablet/15.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/16.png", 
+            "target": "Published-iOS/animation/resources-tablet/16.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/17.png", 
+            "target": "Published-iOS/animation/resources-tablet/17.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/18.png", 
+            "target": "Published-iOS/animation/resources-tablet/18.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/19.png", 
+            "target": "Published-iOS/animation/resources-tablet/19.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/2.png", 
+            "target": "Published-iOS/animation/resources-tablet/2.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/20.png", 
+            "target": "Published-iOS/animation/resources-tablet/20.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/21.png", 
+            "target": "Published-iOS/animation/resources-tablet/21.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/22.png", 
+            "target": "Published-iOS/animation/resources-tablet/22.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/23.png", 
+            "target": "Published-iOS/animation/resources-tablet/23.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/24.png", 
+            "target": "Published-iOS/animation/resources-tablet/24.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/25.png", 
+            "target": "Published-iOS/animation/resources-tablet/25.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/26.png", 
+            "target": "Published-iOS/animation/resources-tablet/26.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/27.png", 
+            "target": "Published-iOS/animation/resources-tablet/27.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/28.png", 
+            "target": "Published-iOS/animation/resources-tablet/28.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/29.png", 
+            "target": "Published-iOS/animation/resources-tablet/29.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/3.png", 
+            "target": "Published-iOS/animation/resources-tablet/3.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/30.png", 
+            "target": "Published-iOS/animation/resources-tablet/30.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/31.png", 
+            "target": "Published-iOS/animation/resources-tablet/31.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/32.png", 
+            "target": "Published-iOS/animation/resources-tablet/32.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/33.png", 
+            "target": "Published-iOS/animation/resources-tablet/33.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/34.png", 
+            "target": "Published-iOS/animation/resources-tablet/34.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/35.png", 
+            "target": "Published-iOS/animation/resources-tablet/35.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/36.png", 
+            "target": "Published-iOS/animation/resources-tablet/36.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/37.png", 
+            "target": "Published-iOS/animation/resources-tablet/37.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/38.png", 
+            "target": "Published-iOS/animation/resources-tablet/38.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/39.png", 
+            "target": "Published-iOS/animation/resources-tablet/39.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/4.png", 
+            "target": "Published-iOS/animation/resources-tablet/4.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/40.png", 
+            "target": "Published-iOS/animation/resources-tablet/40.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/41.png", 
+            "target": "Published-iOS/animation/resources-tablet/41.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/42.png", 
+            "target": "Published-iOS/animation/resources-tablet/42.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/43.png", 
+            "target": "Published-iOS/animation/resources-tablet/43.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/44.png", 
+            "target": "Published-iOS/animation/resources-tablet/44.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/45.png", 
+            "target": "Published-iOS/animation/resources-tablet/45.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/46.png", 
+            "target": "Published-iOS/animation/resources-tablet/46.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/47.png", 
+            "target": "Published-iOS/animation/resources-tablet/47.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/48.png", 
+            "target": "Published-iOS/animation/resources-tablet/48.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/49.png", 
+            "target": "Published-iOS/animation/resources-tablet/49.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/5.png", 
+            "target": "Published-iOS/animation/resources-tablet/5.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/50.png", 
+            "target": "Published-iOS/animation/resources-tablet/50.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/51.png", 
+            "target": "Published-iOS/animation/resources-tablet/51.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/52.png", 
+            "target": "Published-iOS/animation/resources-tablet/52.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/53.png", 
+            "target": "Published-iOS/animation/resources-tablet/53.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/54.png", 
+            "target": "Published-iOS/animation/resources-tablet/54.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/55.png", 
+            "target": "Published-iOS/animation/resources-tablet/55.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/56.png", 
+            "target": "Published-iOS/animation/resources-tablet/56.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/57.png", 
+            "target": "Published-iOS/animation/resources-tablet/57.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/58.png", 
+            "target": "Published-iOS/animation/resources-tablet/58.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/59.png", 
+            "target": "Published-iOS/animation/resources-tablet/59.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/6.png", 
+            "target": "Published-iOS/animation/resources-tablet/6.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/60.png", 
+            "target": "Published-iOS/animation/resources-tablet/60.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/61.png", 
+            "target": "Published-iOS/animation/resources-tablet/61.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/62.png", 
+            "target": "Published-iOS/animation/resources-tablet/62.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/63.png", 
+            "target": "Published-iOS/animation/resources-tablet/63.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/64.png", 
+            "target": "Published-iOS/animation/resources-tablet/64.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/65.png", 
+            "target": "Published-iOS/animation/resources-tablet/65.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/66.png", 
+            "target": "Published-iOS/animation/resources-tablet/66.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/67.png", 
+            "target": "Published-iOS/animation/resources-tablet/67.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/68.png", 
+            "target": "Published-iOS/animation/resources-tablet/68.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/69.png", 
+            "target": "Published-iOS/animation/resources-tablet/69.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/7.png", 
+            "target": "Published-iOS/animation/resources-tablet/7.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/70.png", 
+            "target": "Published-iOS/animation/resources-tablet/70.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/71.png", 
+            "target": "Published-iOS/animation/resources-tablet/71.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/72.png", 
+            "target": "Published-iOS/animation/resources-tablet/72.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/73.png", 
+            "target": "Published-iOS/animation/resources-tablet/73.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/74.png", 
+            "target": "Published-iOS/animation/resources-tablet/74.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/75.png", 
+            "target": "Published-iOS/animation/resources-tablet/75.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/76.png", 
+            "target": "Published-iOS/animation/resources-tablet/76.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/77.png", 
+            "target": "Published-iOS/animation/resources-tablet/77.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/78.png", 
+            "target": "Published-iOS/animation/resources-tablet/78.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/79.png", 
+            "target": "Published-iOS/animation/resources-tablet/79.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/8.png", 
+            "target": "Published-iOS/animation/resources-tablet/8.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/80.png", 
+            "target": "Published-iOS/animation/resources-tablet/80.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/81.png", 
+            "target": "Published-iOS/animation/resources-tablet/81.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/82.png", 
+            "target": "Published-iOS/animation/resources-tablet/82.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/83.png", 
+            "target": "Published-iOS/animation/resources-tablet/83.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/84.png", 
+            "target": "Published-iOS/animation/resources-tablet/84.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/85.png", 
+            "target": "Published-iOS/animation/resources-tablet/85.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/86.png", 
+            "target": "Published-iOS/animation/resources-tablet/86.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/87.png", 
+            "target": "Published-iOS/animation/resources-tablet/87.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/88.png", 
+            "target": "Published-iOS/animation/resources-tablet/88.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/89.png", 
+            "target": "Published-iOS/animation/resources-tablet/89.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/9.png", 
+            "target": "Published-iOS/animation/resources-tablet/9.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/90.png", 
+            "target": "Published-iOS/animation/resources-tablet/90.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/91.png", 
+            "target": "Published-iOS/animation/resources-tablet/91.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/92.png", 
+            "target": "Published-iOS/animation/resources-tablet/92.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/93.png", 
+            "target": "Published-iOS/animation/resources-tablet/93.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/94.png", 
+            "target": "Published-iOS/animation/resources-tablet/94.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/95.png", 
+            "target": "Published-iOS/animation/resources-tablet/95.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/96.png", 
+            "target": "Published-iOS/animation/resources-tablet/96.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/97.png", 
+            "target": "Published-iOS/animation/resources-tablet/97.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/98.png", 
+            "target": "Published-iOS/animation/resources-tablet/98.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablet/99.png", 
+            "target": "Published-iOS/animation/resources-tablet/99.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/1.png", 
+            "target": "Published-iOS/animation/resources-tablethd/1.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/10.png", 
+            "target": "Published-iOS/animation/resources-tablethd/10.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/100.png", 
+            "target": "Published-iOS/animation/resources-tablethd/100.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/101.png", 
+            "target": "Published-iOS/animation/resources-tablethd/101.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/102.png", 
+            "target": "Published-iOS/animation/resources-tablethd/102.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/103.png", 
+            "target": "Published-iOS/animation/resources-tablethd/103.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/104.png", 
+            "target": "Published-iOS/animation/resources-tablethd/104.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/105.png", 
+            "target": "Published-iOS/animation/resources-tablethd/105.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/106.png", 
+            "target": "Published-iOS/animation/resources-tablethd/106.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/107.png", 
+            "target": "Published-iOS/animation/resources-tablethd/107.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/108.png", 
+            "target": "Published-iOS/animation/resources-tablethd/108.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/109.png", 
+            "target": "Published-iOS/animation/resources-tablethd/109.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/11.png", 
+            "target": "Published-iOS/animation/resources-tablethd/11.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/110.png", 
+            "target": "Published-iOS/animation/resources-tablethd/110.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/111.png", 
+            "target": "Published-iOS/animation/resources-tablethd/111.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/112.png", 
+            "target": "Published-iOS/animation/resources-tablethd/112.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/113.png", 
+            "target": "Published-iOS/animation/resources-tablethd/113.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/114.png", 
+            "target": "Published-iOS/animation/resources-tablethd/114.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/115.png", 
+            "target": "Published-iOS/animation/resources-tablethd/115.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/116.png", 
+            "target": "Published-iOS/animation/resources-tablethd/116.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/117.png", 
+            "target": "Published-iOS/animation/resources-tablethd/117.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/118.png", 
+            "target": "Published-iOS/animation/resources-tablethd/118.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/119.png", 
+            "target": "Published-iOS/animation/resources-tablethd/119.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/12.png", 
+            "target": "Published-iOS/animation/resources-tablethd/12.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/120.png", 
+            "target": "Published-iOS/animation/resources-tablethd/120.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/13.png", 
+            "target": "Published-iOS/animation/resources-tablethd/13.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/14.png", 
+            "target": "Published-iOS/animation/resources-tablethd/14.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/15.png", 
+            "target": "Published-iOS/animation/resources-tablethd/15.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/16.png", 
+            "target": "Published-iOS/animation/resources-tablethd/16.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/17.png", 
+            "target": "Published-iOS/animation/resources-tablethd/17.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/18.png", 
+            "target": "Published-iOS/animation/resources-tablethd/18.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/19.png", 
+            "target": "Published-iOS/animation/resources-tablethd/19.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/2.png", 
+            "target": "Published-iOS/animation/resources-tablethd/2.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/20.png", 
+            "target": "Published-iOS/animation/resources-tablethd/20.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/21.png", 
+            "target": "Published-iOS/animation/resources-tablethd/21.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/22.png", 
+            "target": "Published-iOS/animation/resources-tablethd/22.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/23.png", 
+            "target": "Published-iOS/animation/resources-tablethd/23.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/24.png", 
+            "target": "Published-iOS/animation/resources-tablethd/24.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/25.png", 
+            "target": "Published-iOS/animation/resources-tablethd/25.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/26.png", 
+            "target": "Published-iOS/animation/resources-tablethd/26.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/27.png", 
+            "target": "Published-iOS/animation/resources-tablethd/27.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/28.png", 
+            "target": "Published-iOS/animation/resources-tablethd/28.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/29.png", 
+            "target": "Published-iOS/animation/resources-tablethd/29.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/3.png", 
+            "target": "Published-iOS/animation/resources-tablethd/3.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/30.png", 
+            "target": "Published-iOS/animation/resources-tablethd/30.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/31.png", 
+            "target": "Published-iOS/animation/resources-tablethd/31.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/32.png", 
+            "target": "Published-iOS/animation/resources-tablethd/32.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/33.png", 
+            "target": "Published-iOS/animation/resources-tablethd/33.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/34.png", 
+            "target": "Published-iOS/animation/resources-tablethd/34.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/35.png", 
+            "target": "Published-iOS/animation/resources-tablethd/35.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/36.png", 
+            "target": "Published-iOS/animation/resources-tablethd/36.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/37.png", 
+            "target": "Published-iOS/animation/resources-tablethd/37.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/38.png", 
+            "target": "Published-iOS/animation/resources-tablethd/38.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/39.png", 
+            "target": "Published-iOS/animation/resources-tablethd/39.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/4.png", 
+            "target": "Published-iOS/animation/resources-tablethd/4.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/40.png", 
+            "target": "Published-iOS/animation/resources-tablethd/40.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/41.png", 
+            "target": "Published-iOS/animation/resources-tablethd/41.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/42.png", 
+            "target": "Published-iOS/animation/resources-tablethd/42.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/43.png", 
+            "target": "Published-iOS/animation/resources-tablethd/43.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/44.png", 
+            "target": "Published-iOS/animation/resources-tablethd/44.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/45.png", 
+            "target": "Published-iOS/animation/resources-tablethd/45.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/46.png", 
+            "target": "Published-iOS/animation/resources-tablethd/46.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/47.png", 
+            "target": "Published-iOS/animation/resources-tablethd/47.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/48.png", 
+            "target": "Published-iOS/animation/resources-tablethd/48.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/49.png", 
+            "target": "Published-iOS/animation/resources-tablethd/49.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/5.png", 
+            "target": "Published-iOS/animation/resources-tablethd/5.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/50.png", 
+            "target": "Published-iOS/animation/resources-tablethd/50.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/51.png", 
+            "target": "Published-iOS/animation/resources-tablethd/51.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/52.png", 
+            "target": "Published-iOS/animation/resources-tablethd/52.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/53.png", 
+            "target": "Published-iOS/animation/resources-tablethd/53.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/54.png", 
+            "target": "Published-iOS/animation/resources-tablethd/54.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/55.png", 
+            "target": "Published-iOS/animation/resources-tablethd/55.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/56.png", 
+            "target": "Published-iOS/animation/resources-tablethd/56.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/57.png", 
+            "target": "Published-iOS/animation/resources-tablethd/57.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/58.png", 
+            "target": "Published-iOS/animation/resources-tablethd/58.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/59.png", 
+            "target": "Published-iOS/animation/resources-tablethd/59.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/6.png", 
+            "target": "Published-iOS/animation/resources-tablethd/6.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/60.png", 
+            "target": "Published-iOS/animation/resources-tablethd/60.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/61.png", 
+            "target": "Published-iOS/animation/resources-tablethd/61.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/62.png", 
+            "target": "Published-iOS/animation/resources-tablethd/62.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/63.png", 
+            "target": "Published-iOS/animation/resources-tablethd/63.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/64.png", 
+            "target": "Published-iOS/animation/resources-tablethd/64.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/65.png", 
+            "target": "Published-iOS/animation/resources-tablethd/65.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/66.png", 
+            "target": "Published-iOS/animation/resources-tablethd/66.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/67.png", 
+            "target": "Published-iOS/animation/resources-tablethd/67.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/68.png", 
+            "target": "Published-iOS/animation/resources-tablethd/68.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/69.png", 
+            "target": "Published-iOS/animation/resources-tablethd/69.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/7.png", 
+            "target": "Published-iOS/animation/resources-tablethd/7.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/70.png", 
+            "target": "Published-iOS/animation/resources-tablethd/70.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/71.png", 
+            "target": "Published-iOS/animation/resources-tablethd/71.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/72.png", 
+            "target": "Published-iOS/animation/resources-tablethd/72.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/73.png", 
+            "target": "Published-iOS/animation/resources-tablethd/73.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/74.png", 
+            "target": "Published-iOS/animation/resources-tablethd/74.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/75.png", 
+            "target": "Published-iOS/animation/resources-tablethd/75.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/76.png", 
+            "target": "Published-iOS/animation/resources-tablethd/76.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/77.png", 
+            "target": "Published-iOS/animation/resources-tablethd/77.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/78.png", 
+            "target": "Published-iOS/animation/resources-tablethd/78.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/79.png", 
+            "target": "Published-iOS/animation/resources-tablethd/79.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/8.png", 
+            "target": "Published-iOS/animation/resources-tablethd/8.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/80.png", 
+            "target": "Published-iOS/animation/resources-tablethd/80.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/81.png", 
+            "target": "Published-iOS/animation/resources-tablethd/81.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/82.png", 
+            "target": "Published-iOS/animation/resources-tablethd/82.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/83.png", 
+            "target": "Published-iOS/animation/resources-tablethd/83.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/84.png", 
+            "target": "Published-iOS/animation/resources-tablethd/84.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/85.png", 
+            "target": "Published-iOS/animation/resources-tablethd/85.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/86.png", 
+            "target": "Published-iOS/animation/resources-tablethd/86.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/87.png", 
+            "target": "Published-iOS/animation/resources-tablethd/87.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/88.png", 
+            "target": "Published-iOS/animation/resources-tablethd/88.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/89.png", 
+            "target": "Published-iOS/animation/resources-tablethd/89.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/9.png", 
+            "target": "Published-iOS/animation/resources-tablethd/9.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/90.png", 
+            "target": "Published-iOS/animation/resources-tablethd/90.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/91.png", 
+            "target": "Published-iOS/animation/resources-tablethd/91.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/92.png", 
+            "target": "Published-iOS/animation/resources-tablethd/92.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/93.png", 
+            "target": "Published-iOS/animation/resources-tablethd/93.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/94.png", 
+            "target": "Published-iOS/animation/resources-tablethd/94.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/95.png", 
+            "target": "Published-iOS/animation/resources-tablethd/95.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/96.png", 
+            "target": "Published-iOS/animation/resources-tablethd/96.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/97.png", 
+            "target": "Published-iOS/animation/resources-tablethd/97.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/98.png", 
+            "target": "Published-iOS/animation/resources-tablethd/98.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/animation/resources-tablethd/99.png", 
+            "target": "Published-iOS/animation/resources-tablethd/99.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phone/ccbButtonHighlighted.png", 
+            "target": "Published-iOS/ccbResources/resources-phone/ccbButtonHighlighted.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phone/ccbButtonNormal.png", 
+            "target": "Published-iOS/ccbResources/resources-phone/ccbButtonNormal.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phone/ccbParticleFire.png", 
+            "target": "Published-iOS/ccbResources/resources-phone/ccbParticleFire.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phone/ccbParticleMagic.png", 
+            "target": "Published-iOS/ccbResources/resources-phone/ccbParticleMagic.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phone/ccbParticleSmoke.png", 
+            "target": "Published-iOS/ccbResources/resources-phone/ccbParticleSmoke.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phone/ccbParticleSnow.png", 
+            "target": "Published-iOS/ccbResources/resources-phone/ccbParticleSnow.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phone/ccbParticleStars.png", 
+            "target": "Published-iOS/ccbResources/resources-phone/ccbParticleStars.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phone/ccbSliderBgHighlighted.png", 
+            "target": "Published-iOS/ccbResources/resources-phone/ccbSliderBgHighlighted.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phone/ccbSliderBgNormal.png", 
+            "target": "Published-iOS/ccbResources/resources-phone/ccbSliderBgNormal.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phone/ccbSliderHandle.png", 
+            "target": "Published-iOS/ccbResources/resources-phone/ccbSliderHandle.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phone/ccbTextField.png", 
+            "target": "Published-iOS/ccbResources/resources-phone/ccbTextField.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phonehd/ccbButtonHighlighted.png", 
+            "target": "Published-iOS/ccbResources/resources-phonehd/ccbButtonHighlighted.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phonehd/ccbButtonNormal.png", 
+            "target": "Published-iOS/ccbResources/resources-phonehd/ccbButtonNormal.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phonehd/ccbParticleFire.png", 
+            "target": "Published-iOS/ccbResources/resources-phonehd/ccbParticleFire.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phonehd/ccbParticleMagic.png", 
+            "target": "Published-iOS/ccbResources/resources-phonehd/ccbParticleMagic.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phonehd/ccbParticleSmoke.png", 
+            "target": "Published-iOS/ccbResources/resources-phonehd/ccbParticleSmoke.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phonehd/ccbParticleSnow.png", 
+            "target": "Published-iOS/ccbResources/resources-phonehd/ccbParticleSnow.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phonehd/ccbParticleStars.png", 
+            "target": "Published-iOS/ccbResources/resources-phonehd/ccbParticleStars.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phonehd/ccbSliderBgHighlighted.png", 
+            "target": "Published-iOS/ccbResources/resources-phonehd/ccbSliderBgHighlighted.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phonehd/ccbSliderBgNormal.png", 
+            "target": "Published-iOS/ccbResources/resources-phonehd/ccbSliderBgNormal.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phonehd/ccbSliderHandle.png", 
+            "target": "Published-iOS/ccbResources/resources-phonehd/ccbSliderHandle.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-phonehd/ccbTextField.png", 
+            "target": "Published-iOS/ccbResources/resources-phonehd/ccbTextField.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablet/ccbButtonHighlighted.png", 
+            "target": "Published-iOS/ccbResources/resources-tablet/ccbButtonHighlighted.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablet/ccbButtonNormal.png", 
+            "target": "Published-iOS/ccbResources/resources-tablet/ccbButtonNormal.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablet/ccbParticleFire.png", 
+            "target": "Published-iOS/ccbResources/resources-tablet/ccbParticleFire.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablet/ccbParticleMagic.png", 
+            "target": "Published-iOS/ccbResources/resources-tablet/ccbParticleMagic.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablet/ccbParticleSmoke.png", 
+            "target": "Published-iOS/ccbResources/resources-tablet/ccbParticleSmoke.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablet/ccbParticleSnow.png", 
+            "target": "Published-iOS/ccbResources/resources-tablet/ccbParticleSnow.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablet/ccbParticleStars.png", 
+            "target": "Published-iOS/ccbResources/resources-tablet/ccbParticleStars.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablet/ccbSliderBgHighlighted.png", 
+            "target": "Published-iOS/ccbResources/resources-tablet/ccbSliderBgHighlighted.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablet/ccbSliderBgNormal.png", 
+            "target": "Published-iOS/ccbResources/resources-tablet/ccbSliderBgNormal.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablet/ccbSliderHandle.png", 
+            "target": "Published-iOS/ccbResources/resources-tablet/ccbSliderHandle.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablet/ccbTextField.png", 
+            "target": "Published-iOS/ccbResources/resources-tablet/ccbTextField.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablethd/ccbButtonHighlighted.png", 
+            "target": "Published-iOS/ccbResources/resources-tablethd/ccbButtonHighlighted.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablethd/ccbButtonNormal.png", 
+            "target": "Published-iOS/ccbResources/resources-tablethd/ccbButtonNormal.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablethd/ccbParticleFire.png", 
+            "target": "Published-iOS/ccbResources/resources-tablethd/ccbParticleFire.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablethd/ccbParticleMagic.png", 
+            "target": "Published-iOS/ccbResources/resources-tablethd/ccbParticleMagic.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablethd/ccbParticleSmoke.png", 
+            "target": "Published-iOS/ccbResources/resources-tablethd/ccbParticleSmoke.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablethd/ccbParticleSnow.png", 
+            "target": "Published-iOS/ccbResources/resources-tablethd/ccbParticleSnow.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablethd/ccbParticleStars.png", 
+            "target": "Published-iOS/ccbResources/resources-tablethd/ccbParticleStars.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablethd/ccbSliderBgHighlighted.png", 
+            "target": "Published-iOS/ccbResources/resources-tablethd/ccbSliderBgHighlighted.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablethd/ccbSliderBgNormal.png", 
+            "target": "Published-iOS/ccbResources/resources-tablethd/ccbSliderBgNormal.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablethd/ccbSliderHandle.png", 
+            "target": "Published-iOS/ccbResources/resources-tablethd/ccbSliderHandle.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/ccbResources/resources-tablethd/ccbTextField.png", 
+            "target": "Published-iOS/ccbResources/resources-tablethd/ccbTextField.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/Levels/Level1.ccbi", 
+            "target": "Published-iOS/Levels/Level1.ccbi"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/resources-phone/PeevedPenguinsAssets.plist", 
+            "target": "Published-iOS/resources-phone/PeevedPenguinsAssets.plist"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/resources-phone/PeevedPenguinsAssets.png", 
+            "target": "Published-iOS/resources-phone/PeevedPenguinsAssets.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/resources-phonehd/PeevedPenguinsAssets.plist", 
+            "target": "Published-iOS/resources-phonehd/PeevedPenguinsAssets.plist"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/resources-phonehd/PeevedPenguinsAssets.png", 
+            "target": "Published-iOS/resources-phonehd/PeevedPenguinsAssets.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/resources-tablet/PeevedPenguinsAssets.plist", 
+            "target": "Published-iOS/resources-tablet/PeevedPenguinsAssets.plist"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/resources-tablet/PeevedPenguinsAssets.png", 
+            "target": "Published-iOS/resources-tablet/PeevedPenguinsAssets.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/resources-tablethd/PeevedPenguinsAssets.plist", 
+            "target": "Published-iOS/resources-tablethd/PeevedPenguinsAssets.plist"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS/resources-tablethd/PeevedPenguinsAssets.png", 
+            "target": "Published-iOS/resources-tablethd/PeevedPenguinsAssets.png"
+        }, 
+        {
+            "asset": "Source/Resources/Icon-Small@2x.png", 
+            "target": "Icon-Small@2x.png"
+        }, 
+        {
+            "asset": "Source/libs/cocos2d-iphone/external/kazmath/src/CMakeLists.txt", 
+            "target": "CMakeLists.txt"
+        }, 
+        {
+            "asset": "Source/libs/cocos2d-iphone/external/Chipmunk/src/CMakeLists.txt", 
+            "target": "CMakeLists.txt"
+        }, 
+        {
+            "asset": "Source/Resources/Default-Landscape~ipad.png", 
+            "target": "Default-Landscape~ipad.png"
+        }, 
+        {
+            "asset": "Source/Resources/Default-568h@2x.png", 
+            "target": "Default-568h@2x.png"
+        }, 
+        {
+            "asset": "Source/Resources/Icon-Small-50.png", 
+            "target": "Icon-Small-50.png"
+        }, 
+        {
+            "asset": "Source/Resources/Icon-72.png", 
+            "target": "Icon-72.png"
+        }, 
+        {
+            "asset": "Source/libs/cocos2d-iphone/external/kazmath/src/ChangeLog", 
+            "target": "ChangeLog"
+        }, 
+        {
+            "asset": "Source/Resources/Icon.png", 
+            "target": "Icon.png"
+        }, 
+        {
+            "asset": "Source/Resources/Default.png", 
+            "target": "Default.png"
+        }, 
+        {
+            "asset": "Source/Resources/Icon-Small.png", 
+            "target": "Icon-Small.png"
+        }
+    ], 
+    "config": {
+        "APPLICATION_FULL_NAME": "PeevedPenguins", 
+        "APPLICATION_IDENTIFIER": "com.apportable.PeevedPenguins", 
+        "APPLICATION_NAME": "PeevedPenguins", 
+        "FEATURES": [
+            "opengles2", 
+            "landscape"
+        ], 
+        "ICU_CONFIG": "normal", 
+        "LONG_VERSION": "1.0", 
+        "TEMPLATE_VALUES": {
+            "EXECUTABLE_NAME": "PeevedPenguins", 
+            "PRODUCT_NAME": "PeevedPenguins"
+        }
+    }, 
+    "defines": {
+        "NDEBUG": 1, 
+        "NS_BLOCK_ASSERTIONS": 1, 
+        "__IPHONE_OS_VERSION_MIN_REQUIRED": 50000
+    }, 
+    "deps": [
+        "UIKit", 
+        "QuartzCore", 
+        "OpenGLES", 
+        "OpenAL", 
+        "AudioToolbox", 
+        "AVFoundation", 
+        "UIKit", 
+        "Foundation", 
+        "CoreGraphics", 
+        "CoreText"
+    ], 
+    "flags": [
+        "-fobjc-arc", 
+        "-fasm-blocks", 
+        {
+            "flag": "-std=gnu99", 
+            "not_type": "c++"
+        }, 
+        {
+            "flag": "-fgnu-keywords", 
+            "not_type": "c++"
+        }, 
+        "-fno-asm", 
+        "-fpascal-strings", 
+        "-Wno-deprecated-declarations", 
+        "-Wreturn-type", 
+        "-Wswitch", 
+        "-Wparentheses", 
+        "-Wformat", 
+        "-Wunused-value", 
+        "-Wunused-variable", 
+        {
+            "flag": "-Winvalid-offsetof", 
+            "type": "c++"
+        }, 
+        {
+            "flag": "-Wprotocol", 
+            "type": "objc"
+        }
+    ], 
+    "header_paths": [
+        {
+            "header_path": "PeevedPenguins-generated-files.hmap", 
+            "hmap": {}, 
+            "type": "iquote"
+        }, 
+        {
+            "header_path": "PeevedPenguins-own-target-headers.hmap", 
+            "hmap": {}, 
+            "type": "I"
+        }, 
+        {
+            "header_path": "PeevedPenguins-all-target-headers.hmap", 
+            "hmap": {}, 
+            "type": "I"
+        }, 
+        {
+            "header_path": "PeevedPenguins-project-headers.hmap", 
+            "hmap": {
+                "AppDelegate.h": {
+                    "key": "AppDelegate.h", 
+                    "prefix": "Source/", 
+                    "suffix": "AppDelegate.h"
+                }, 
+                "Gameplay.h": {
+                    "key": "Gameplay.h", 
+                    "prefix": "Source/", 
+                    "suffix": "Gameplay.h"
+                }, 
+                "MainScene.h": {
+                    "key": "MainScene.h", 
+                    "prefix": "Source/", 
+                    "suffix": "MainScene.h"
+                }, 
+                "Penguin.h": {
+                    "key": "Penguin.h", 
+                    "prefix": "Source/", 
+                    "suffix": "Penguin.h"
+                }, 
+                "Prefix.pch": {
+                    "key": "Prefix.pch", 
+                    "prefix": "Source/", 
+                    "suffix": "Prefix.pch"
+                }, 
+                "Seal.h": {
+                    "key": "Seal.h", 
+                    "prefix": "Source/", 
+                    "suffix": "Seal.h"
+                }, 
+                "WaitingPenguin.h": {
+                    "key": "WaitingPenguin.h", 
+                    "prefix": "Source/", 
+                    "suffix": "WaitingPenguin.h"
+                }, 
+                "aabb.h": {
+                    "key": "aabb.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "aabb.h"
+                }, 
+                "chipmunk.h": {
+                    "key": "chipmunk.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "chipmunk.h"
+                }, 
+                "chipmunk_ffi.h": {
+                    "key": "chipmunk_ffi.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "chipmunk_ffi.h"
+                }, 
+                "chipmunk_private.h": {
+                    "key": "chipmunk_private.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "chipmunk_private.h"
+                }, 
+                "chipmunk_types.h": {
+                    "key": "chipmunk_types.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "chipmunk_types.h"
+                }, 
+                "chipmunk_unsafe.h": {
+                    "key": "chipmunk_unsafe.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "chipmunk_unsafe.h"
+                }, 
+                "cpArbiter.h": {
+                    "key": "cpArbiter.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpArbiter.h"
+                }, 
+                "cpBB.h": {
+                    "key": "cpBB.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpBB.h"
+                }, 
+                "cpBody.h": {
+                    "key": "cpBody.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpBody.h"
+                }, 
+                "cpConstraint.h": {
+                    "key": "cpConstraint.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpConstraint.h"
+                }, 
+                "cpDampedRotarySpring.h": {
+                    "key": "cpDampedRotarySpring.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpDampedRotarySpring.h"
+                }, 
+                "cpDampedSpring.h": {
+                    "key": "cpDampedSpring.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpDampedSpring.h"
+                }, 
+                "cpGearJoint.h": {
+                    "key": "cpGearJoint.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpGearJoint.h"
+                }, 
+                "cpGrooveJoint.h": {
+                    "key": "cpGrooveJoint.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpGrooveJoint.h"
+                }, 
+                "cpPinJoint.h": {
+                    "key": "cpPinJoint.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpPinJoint.h"
+                }, 
+                "cpPivotJoint.h": {
+                    "key": "cpPivotJoint.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpPivotJoint.h"
+                }, 
+                "cpPolyShape.h": {
+                    "key": "cpPolyShape.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpPolyShape.h"
+                }, 
+                "cpRatchetJoint.h": {
+                    "key": "cpRatchetJoint.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpRatchetJoint.h"
+                }, 
+                "cpRotaryLimitJoint.h": {
+                    "key": "cpRotaryLimitJoint.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpRotaryLimitJoint.h"
+                }, 
+                "cpShape.h": {
+                    "key": "cpShape.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpShape.h"
+                }, 
+                "cpSimpleMotor.h": {
+                    "key": "cpSimpleMotor.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpSimpleMotor.h"
+                }, 
+                "cpSlideJoint.h": {
+                    "key": "cpSlideJoint.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpSlideJoint.h"
+                }, 
+                "cpSpace.h": {
+                    "key": "cpSpace.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpSpace.h"
+                }, 
+                "cpSpatialIndex.h": {
+                    "key": "cpSpatialIndex.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpSpatialIndex.h"
+                }, 
+                "cpTransform.h": {
+                    "key": "cpTransform.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpTransform.h"
+                }, 
+                "cpVect.h": {
+                    "key": "cpVect.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpVect.h"
+                }, 
+                "kazmath.h": {
+                    "key": "kazmath.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "kazmath.h"
+                }, 
+                "mat3.h": {
+                    "key": "mat3.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "mat3.h"
+                }, 
+                "mat4.h": {
+                    "key": "mat4.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "mat4.h"
+                }, 
+                "mat4stack.h": {
+                    "key": "mat4stack.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/GL/", 
+                    "suffix": "mat4stack.h"
+                }, 
+                "matrix.h": {
+                    "key": "matrix.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/GL/", 
+                    "suffix": "matrix.h"
+                }, 
+                "neon_matrix_impl.h": {
+                    "key": "neon_matrix_impl.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "neon_matrix_impl.h"
+                }, 
+                "plane.h": {
+                    "key": "plane.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "plane.h"
+                }, 
+                "prime.h": {
+                    "key": "prime.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/src/", 
+                    "suffix": "prime.h"
+                }, 
+                "quaternion.h": {
+                    "key": "quaternion.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "quaternion.h"
+                }, 
+                "ray2.h": {
+                    "key": "ray2.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "ray2.h"
+                }, 
+                "utility.h": {
+                    "key": "utility.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "utility.h"
+                }, 
+                "vec2.h": {
+                    "key": "vec2.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "vec2.h"
+                }, 
+                "vec3.h": {
+                    "key": "vec3.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "vec3.h"
+                }, 
+                "vec4.h": {
+                    "key": "vec4.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "vec4.h"
+                }
+            }, 
+            "type": "iquote"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/external/kazmath/include", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/GL", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/cocos2d", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/cocos2d/Platforms", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/cocos2d/Support", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/cocos2d/Platforms/iOS", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/cocos2d/Platforms/Mac", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/external/Chipmunk/objectivec/include", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/external/Chipmunk/include", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/cocos2d-ui", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/cocos2d-ui/CCBReader", 
+            "type": "I"
+        }
+    ], 
+    "infoplists": [
+        "./Source/Resources/Info.plist"
+    ], 
+    "java_libs": [], 
+    "java_res_dirs": [], 
+    "java_sourcepaths": [], 
+    "java_sources": [], 
+    "libs": [
+        "z", 
+        "sqlite3"
+    ], 
+    "link_flags": [], 
+    "modules": [
+        {
+            "build_cwd": "Source/libs/cocos2d-iphone", 
+            "project": "cocos2d-ios", 
+            "project_config": "Release", 
+            "target": "cocos2d"
+        }, 
+        {
+            "build_cwd": "Source/libs/cocos2d-iphone/external/Chipmunk/xcode", 
+            "project": "Chipmunk7", 
+            "project_config": "Release", 
+            "target": "ObjectiveChipmunk-iPhone"
+        }
+    ], 
+    "pchs": [
+        "./Source/Prefix.pch"
+    ], 
+    "sources": [
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Source/AppDelegate.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Source/Gameplay.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Source/MainScene.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Source/Penguin.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Source/Seal.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Source/WaitingPenguin.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/chipmunk.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpArbiter.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpArray.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpBBTree.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpBody.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpCollision.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpConstraint.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpDampedRotarySpring.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpDampedSpring.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpGearJoint.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpGrooveJoint.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpHashSet.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpPinJoint.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpPivotJoint.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpPolyShape.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpRatchetJoint.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpRotaryLimitJoint.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpShape.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpSimpleMotor.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpSlideJoint.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpSpace.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpSpaceComponent.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpSpaceDebug.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpSpaceHash.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpSpaceQuery.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpSpaceStep.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpSpatialIndex.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpSweep1D.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/GL/mat4stack.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/GL/matrix.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/aabb.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/mat3.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/mat4.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/neon_matrix_impl.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/plane.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/quaternion.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/ray2.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/utility.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/vec2.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/vec3.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/vec4.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Source/main.m"
+        }
+    ], 
+    "type": "app", 
+    "version": "1", 
+    "xcode_project": "PeevedPenguins.xcodeproj"
+}

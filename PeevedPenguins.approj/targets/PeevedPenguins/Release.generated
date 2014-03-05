@@ -1,0 +1,787 @@
+{
+    "assets": [
+        {
+            "asset": "Source/Resources/Default@2x.png", 
+            "target": "Default@2x.png"
+        }, 
+        {
+            "asset": "Source/Resources/Icon@2x.png", 
+            "target": "Icon@2x.png"
+        }, 
+        {
+            "asset": "Source/Resources/Published-iOS", 
+            "target": "Published-iOS"
+        }, 
+        {
+            "asset": "Source/Resources/Icon-Small@2x.png", 
+            "target": "Icon-Small@2x.png"
+        }, 
+        {
+            "asset": "Source/libs/cocos2d-iphone/external/kazmath/src/CMakeLists.txt", 
+            "target": "CMakeLists.txt"
+        }, 
+        {
+            "asset": "Source/libs/cocos2d-iphone/external/Chipmunk/src/CMakeLists.txt", 
+            "target": "CMakeLists.txt"
+        }, 
+        {
+            "asset": "Source/Resources/Default-Landscape~ipad.png", 
+            "target": "Default-Landscape~ipad.png"
+        }, 
+        {
+            "asset": "Source/Resources/Default-568h@2x.png", 
+            "target": "Default-568h@2x.png"
+        }, 
+        {
+            "asset": "Source/Resources/Icon-Small-50.png", 
+            "target": "Icon-Small-50.png"
+        }, 
+        {
+            "asset": "Source/Resources/Icon-72.png", 
+            "target": "Icon-72.png"
+        }, 
+        {
+            "asset": "Source/libs/cocos2d-iphone/external/kazmath/src/ChangeLog", 
+            "target": "ChangeLog"
+        }, 
+        {
+            "asset": "Source/Resources/Icon.png", 
+            "target": "Icon.png"
+        }, 
+        {
+            "asset": "Source/Resources/Default.png", 
+            "target": "Default.png"
+        }, 
+        {
+            "asset": "Source/Resources/Icon-Small.png", 
+            "target": "Icon-Small.png"
+        }
+    ], 
+    "config": {
+        "APPLICATION_FULL_NAME": "PeevedPenguins", 
+        "APPLICATION_IDENTIFIER": "com.apportable.PeevedPenguins", 
+        "APPLICATION_NAME": "PeevedPenguins", 
+        "LONG_VERSION": "1.0", 
+        "TEMPLATE_VALUES": {
+            "EXECUTABLE_NAME": "PeevedPenguins", 
+            "PRODUCT_NAME": "PeevedPenguins"
+        }
+    }, 
+    "defines": {
+        "NDEBUG": 1, 
+        "NS_BLOCK_ASSERTIONS": 1, 
+        "__IPHONE_OS_VERSION_MIN_REQUIRED": 50000
+    }, 
+    "deps": [
+        "UIKit", 
+        "QuartzCore", 
+        "OpenGLES", 
+        "OpenAL", 
+        "AudioToolbox", 
+        "AVFoundation", 
+        "UIKit", 
+        "Foundation", 
+        "CoreGraphics", 
+        "CoreText"
+    ], 
+    "flags": [
+        "-fobjc-arc", 
+        "-fasm-blocks", 
+        {
+            "flag": "-std=gnu99", 
+            "not_type": "c++"
+        }, 
+        {
+            "flag": "-fgnu-keywords", 
+            "not_type": "c++"
+        }, 
+        "-fno-asm", 
+        "-fpascal-strings", 
+        "-Wno-deprecated-declarations", 
+        "-Wreturn-type", 
+        "-Wswitch", 
+        "-Wparentheses", 
+        "-Wformat", 
+        "-Wunused-value", 
+        "-Wunused-variable", 
+        {
+            "flag": "-Winvalid-offsetof", 
+            "type": "c++"
+        }, 
+        {
+            "flag": "-Wprotocol", 
+            "type": "objc"
+        }
+    ], 
+    "header_paths": [
+        {
+            "header_path": "PeevedPenguins-generated-files.hmap", 
+            "hmap": {}, 
+            "type": "iquote"
+        }, 
+        {
+            "header_path": "PeevedPenguins-own-target-headers.hmap", 
+            "hmap": {}, 
+            "type": "I"
+        }, 
+        {
+            "header_path": "PeevedPenguins-all-target-headers.hmap", 
+            "hmap": {}, 
+            "type": "I"
+        }, 
+        {
+            "header_path": "PeevedPenguins-project-headers.hmap", 
+            "hmap": {
+                "AppDelegate.h": {
+                    "key": "AppDelegate.h", 
+                    "prefix": "Source/", 
+                    "suffix": "AppDelegate.h"
+                }, 
+                "Gameplay.h": {
+                    "key": "Gameplay.h", 
+                    "prefix": "Source/", 
+                    "suffix": "Gameplay.h"
+                }, 
+                "MainScene.h": {
+                    "key": "MainScene.h", 
+                    "prefix": "Source/", 
+                    "suffix": "MainScene.h"
+                }, 
+                "Penguin.h": {
+                    "key": "Penguin.h", 
+                    "prefix": "Source/", 
+                    "suffix": "Penguin.h"
+                }, 
+                "Prefix.pch": {
+                    "key": "Prefix.pch", 
+                    "prefix": "Source/", 
+                    "suffix": "Prefix.pch"
+                }, 
+                "Seal.h": {
+                    "key": "Seal.h", 
+                    "prefix": "Source/", 
+                    "suffix": "Seal.h"
+                }, 
+                "WaitingPenguin.h": {
+                    "key": "WaitingPenguin.h", 
+                    "prefix": "Source/", 
+                    "suffix": "WaitingPenguin.h"
+                }, 
+                "aabb.h": {
+                    "key": "aabb.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "aabb.h"
+                }, 
+                "chipmunk.h": {
+                    "key": "chipmunk.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "chipmunk.h"
+                }, 
+                "chipmunk_ffi.h": {
+                    "key": "chipmunk_ffi.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "chipmunk_ffi.h"
+                }, 
+                "chipmunk_private.h": {
+                    "key": "chipmunk_private.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "chipmunk_private.h"
+                }, 
+                "chipmunk_types.h": {
+                    "key": "chipmunk_types.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "chipmunk_types.h"
+                }, 
+                "chipmunk_unsafe.h": {
+                    "key": "chipmunk_unsafe.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "chipmunk_unsafe.h"
+                }, 
+                "cpArbiter.h": {
+                    "key": "cpArbiter.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpArbiter.h"
+                }, 
+                "cpBB.h": {
+                    "key": "cpBB.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpBB.h"
+                }, 
+                "cpBody.h": {
+                    "key": "cpBody.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpBody.h"
+                }, 
+                "cpConstraint.h": {
+                    "key": "cpConstraint.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpConstraint.h"
+                }, 
+                "cpDampedRotarySpring.h": {
+                    "key": "cpDampedRotarySpring.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpDampedRotarySpring.h"
+                }, 
+                "cpDampedSpring.h": {
+                    "key": "cpDampedSpring.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpDampedSpring.h"
+                }, 
+                "cpGearJoint.h": {
+                    "key": "cpGearJoint.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpGearJoint.h"
+                }, 
+                "cpGrooveJoint.h": {
+                    "key": "cpGrooveJoint.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpGrooveJoint.h"
+                }, 
+                "cpPinJoint.h": {
+                    "key": "cpPinJoint.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpPinJoint.h"
+                }, 
+                "cpPivotJoint.h": {
+                    "key": "cpPivotJoint.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpPivotJoint.h"
+                }, 
+                "cpPolyShape.h": {
+                    "key": "cpPolyShape.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpPolyShape.h"
+                }, 
+                "cpRatchetJoint.h": {
+                    "key": "cpRatchetJoint.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpRatchetJoint.h"
+                }, 
+                "cpRotaryLimitJoint.h": {
+                    "key": "cpRotaryLimitJoint.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpRotaryLimitJoint.h"
+                }, 
+                "cpShape.h": {
+                    "key": "cpShape.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpShape.h"
+                }, 
+                "cpSimpleMotor.h": {
+                    "key": "cpSimpleMotor.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpSimpleMotor.h"
+                }, 
+                "cpSlideJoint.h": {
+                    "key": "cpSlideJoint.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpSlideJoint.h"
+                }, 
+                "cpSpace.h": {
+                    "key": "cpSpace.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpSpace.h"
+                }, 
+                "cpSpatialIndex.h": {
+                    "key": "cpSpatialIndex.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpSpatialIndex.h"
+                }, 
+                "cpTransform.h": {
+                    "key": "cpTransform.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpTransform.h"
+                }, 
+                "cpVect.h": {
+                    "key": "cpVect.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/include/chipmunk/", 
+                    "suffix": "cpVect.h"
+                }, 
+                "kazmath.h": {
+                    "key": "kazmath.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "kazmath.h"
+                }, 
+                "mat3.h": {
+                    "key": "mat3.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "mat3.h"
+                }, 
+                "mat4.h": {
+                    "key": "mat4.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "mat4.h"
+                }, 
+                "mat4stack.h": {
+                    "key": "mat4stack.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/GL/", 
+                    "suffix": "mat4stack.h"
+                }, 
+                "matrix.h": {
+                    "key": "matrix.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/GL/", 
+                    "suffix": "matrix.h"
+                }, 
+                "neon_matrix_impl.h": {
+                    "key": "neon_matrix_impl.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "neon_matrix_impl.h"
+                }, 
+                "plane.h": {
+                    "key": "plane.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "plane.h"
+                }, 
+                "prime.h": {
+                    "key": "prime.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/Chipmunk/src/", 
+                    "suffix": "prime.h"
+                }, 
+                "quaternion.h": {
+                    "key": "quaternion.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "quaternion.h"
+                }, 
+                "ray2.h": {
+                    "key": "ray2.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "ray2.h"
+                }, 
+                "utility.h": {
+                    "key": "utility.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "utility.h"
+                }, 
+                "vec2.h": {
+                    "key": "vec2.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "vec2.h"
+                }, 
+                "vec3.h": {
+                    "key": "vec3.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "vec3.h"
+                }, 
+                "vec4.h": {
+                    "key": "vec4.h", 
+                    "prefix": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/", 
+                    "suffix": "vec4.h"
+                }
+            }, 
+            "type": "iquote"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/external/kazmath/include", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/external/kazmath/include/kazmath/GL", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/cocos2d", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/cocos2d/Platforms", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/cocos2d/Support", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/cocos2d/Platforms/iOS", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/cocos2d/Platforms/Mac", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/external/Chipmunk/objectivec/include", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/external/Chipmunk/include", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/cocos2d-ui", 
+            "type": "I"
+        }, 
+        {
+            "header_path": "Source/libs/cocos2d-iphone/cocos2d-ui/CCBReader", 
+            "type": "I"
+        }
+    ], 
+    "infoplists": [
+        "./Source/Resources/Info.plist"
+    ], 
+    "libs": [
+        "z", 
+        "sqlite3"
+    ], 
+    "modules": [
+        {
+            "build_cwd": "Source/libs/cocos2d-iphone", 
+            "project": "cocos2d-ios", 
+            "project_config": "Release", 
+            "target": "cocos2d"
+        }, 
+        {
+            "build_cwd": "Source/libs/cocos2d-iphone/external/Chipmunk/xcode", 
+            "project": "Chipmunk7", 
+            "project_config": "Release", 
+            "target": "ObjectiveChipmunk-iPhone"
+        }
+    ], 
+    "pchs": [
+        "./Source/Prefix.pch"
+    ], 
+    "sources": [
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Source/AppDelegate.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Source/Gameplay.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Source/MainScene.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Source/Penguin.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Source/Seal.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Source/WaitingPenguin.m"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/chipmunk.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpArbiter.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpArray.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpBBTree.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpBody.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpCollision.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpConstraint.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpDampedRotarySpring.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpDampedSpring.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpGearJoint.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpGrooveJoint.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpHashSet.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpPinJoint.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpPivotJoint.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpPolyShape.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpRatchetJoint.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpRotaryLimitJoint.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpShape.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpSimpleMotor.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpSlideJoint.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpSpace.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpSpaceComponent.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpSpaceDebug.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpSpaceHash.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpSpaceQuery.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpSpaceStep.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpSpatialIndex.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/Chipmunk/src/cpSweep1D.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/GL/mat4stack.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/GL/matrix.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/aabb.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/mat3.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/mat4.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/neon_matrix_impl.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/plane.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/quaternion.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/ray2.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/utility.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/vec2.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/vec3.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "c", 
+            "source": "Source/libs/cocos2d-iphone/external/kazmath/src/vec4.c"
+        }, 
+        {
+            "defines": {}, 
+            "flags": [], 
+            "header_paths": [], 
+            "language": "objc", 
+            "source": "Source/main.m"
+        }
+    ], 
+    "type": "app", 
+    "version": "1", 
+    "xcode_project": "PeevedPenguins.xcodeproj"
+}
