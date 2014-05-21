@@ -3,7 +3,7 @@
  *
  * Copyright (c) 2008-2010 Ricardo Quesada
  * Copyright (c) 2011 Zynga Inc.
- * Copyright (c) 2013 Lars Birkemose
+ * Copyright (c) 2013-2014 Cocos2D Authors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,6 +27,7 @@
 
 #import "CCTransition.h"
 #import "CCDirector_Private.h"
+#import "CCNode_Private.h"
 
 // -----------------------------------------------------------------
 
@@ -52,6 +53,7 @@ typedef NS_ENUM(NSInteger, CCTransitionFixedFunction)
     __strong CCScene *_outgoingScene;
     CCRenderTexture *_incomingTexture;
     CCRenderTexture *_outgoingTexture;
+    BOOL _incomingPauseState;
     //
     CCTransitionFixedFunction _fixedFunction;
     CCTransitionDirection _direction;
@@ -68,9 +70,9 @@ typedef NS_ENUM(NSInteger, CCTransitionFixedFunction)
     return([[self alloc] initWithDuration:duration fixedFunction:CCTransitionFixedFunctionCrossFade direction:CCTransitionDirectionInvalid color:ccBLACK]);
 }
 
-+ (CCTransition *)transitionFadeWithColor:(ccColor3B)color duration:(NSTimeInterval)duration
++ (CCTransition *)transitionFadeWithColor:(CCColor*)color duration:(NSTimeInterval)duration
 {
-    return([[self alloc] initWithDuration:duration fixedFunction:CCTransitionFixedFunctionFadeWithColor direction:CCTransitionDirectionInvalid color:color]);
+    return([[self alloc] initWithDuration:duration fixedFunction:CCTransitionFixedFunctionFadeWithColor direction:CCTransitionDirectionInvalid color:color.ccColor3b]);
 }
 
 + (CCTransition *)transitionFadeWithDuration:(NSTimeInterval)duration
@@ -110,7 +112,7 @@ typedef NS_ENUM(NSInteger, CCTransitionFixedFunction)
     _outgoingOverIncoming = NO;
     
     // find out where the outgoing scene will end (if it is a transition with movement)
-    CGSize size = [CCDirector sharedDirector].designSize;
+    CGSize size = [CCDirector sharedDirector].viewportRect.size;
     switch (direction) {
         case CCTransitionDirectionDown: _outgoingDestination = CGPointMake(0, -size.height); break;
         case CCTransitionDirectionLeft: _outgoingDestination = CGPointMake(-size.width, 0); break;
@@ -162,7 +164,8 @@ typedef NS_ENUM(NSInteger, CCTransitionFixedFunction)
     _runTime = 0.0f;
     _progress = 0.0f;
     
-    _transitionPixelFormat = CCTexturePixelFormat_RGB565;
+    _transitionPixelFormat = CCTexturePixelFormat_RGBA8888;
+		_transitionDepthStencilFormat = GL_DEPTH24_STENCIL8;
     
     // disable touch during transition
     self.userInteractionEnabled = NO;
@@ -173,30 +176,38 @@ typedef NS_ENUM(NSInteger, CCTransitionFixedFunction)
 
 // -----------------------------------------------------------------
 
-- (void)replaceScene:(CCScene *)scene
+- (void)startTransition:(CCScene *)scene
 {
     _incomingScene = scene;
     [_incomingScene onEnter];
+    _incomingPauseState = _incomingScene.paused;
+    _incomingScene.paused = _incomingScene.paused || !_incomingSceneAnimated;
+    
     _outgoingScene = [CCDirector sharedDirector].runningScene;
     [_outgoingScene onExitTransitionDidStart];
+    _outgoingScene.paused = _outgoingScene.paused || !_outgoingSceneAnimated;
 
     // create render textures
     // get viewport size
-    CGSize size = [CCDirector sharedDirector].designSize;
+    CGRect rect = [CCDirector sharedDirector].viewportRect;
+		
+		// Make sure we aren't rounding down.
+		rect.size.width = ceil(rect.size.width);
+		rect.size.height = ceil(rect.size.height);
 
     // create texture for outgoing scene
-    _outgoingTexture = [CCRenderTexture renderTextureWithWidth:size.width / _outgoingDownScale
-                                                        height:size.height / _outgoingDownScale
-                                                   pixelFormat:_transitionPixelFormat];
-    _outgoingTexture.position = CGPointMake(size.width * 0.5f, size.height * 0.5f);
+    _outgoingTexture = [CCRenderTexture renderTextureWithWidth:rect.size.width / _outgoingDownScale
+                                                        height:rect.size.height / _outgoingDownScale
+                                                   pixelFormat:_transitionPixelFormat depthStencilFormat:_transitionDepthStencilFormat];
+    _outgoingTexture.position = CGPointMake(rect.size.width * 0.5f + rect.origin.x, rect.size.height * 0.5f + rect.origin.y);
     _outgoingTexture.scale = _outgoingDownScale;
     [self addChild:_outgoingTexture z:_outgoingOverIncoming];
     
     // create texture for incoming scene
-    _incomingTexture = [CCRenderTexture renderTextureWithWidth:size.width / _incomingDownScale
-                                                        height:size.height / _incomingDownScale
-                                                   pixelFormat:_transitionPixelFormat];
-    _incomingTexture.position = CGPointMake(size.width * 0.5f, size.height * 0.5f);
+    _incomingTexture = [CCRenderTexture renderTextureWithWidth:rect.size.width / _incomingDownScale
+                                                        height:rect.size.height / _incomingDownScale
+                                                   pixelFormat:_transitionPixelFormat depthStencilFormat:_transitionDepthStencilFormat];
+    _incomingTexture.position = CGPointMake(rect.size.width * 0.5f + rect.origin.x, rect.size.height * 0.5f + rect.origin.y);
     _incomingTexture.scale = _incomingDownScale;
     [self addChild:_incomingTexture];
     
@@ -205,7 +216,7 @@ typedef NS_ENUM(NSInteger, CCTransitionFixedFunction)
     [self renderIncoming:0];
     
     // switch to transition scene
-    [[CCDirector sharedDirector] replaceScene:self];
+    [[CCDirector sharedDirector] performSelector:@selector(startTransition:) withObject:self];
 }
 
 // -----------------------------------------------------------------
@@ -227,24 +238,32 @@ typedef NS_ENUM(NSInteger, CCTransitionFixedFunction)
     // check for runtime expired
     if (_progress >= 1.0f)
     {
-        // exit out scene, and start new scene
+        // Exit out scene
         [_outgoingScene onExit];
+        if ([CCDirector sharedDirector].sendCleanupToScene) [_outgoingScene cleanup];
+        _outgoingScene = nil;
+				
+				
+				// Start incoming scene
         [[CCDirector sharedDirector] replaceScene:_incomingScene];
         [_incomingScene onEnterTransitionDidFinish];
-        
-        // mark new scene as dirty, to make sure responder manager is updated
-        [[[CCDirector sharedDirector] responderManager] markAsDirty];
-        
-        // release scenes
+        [_incomingScene setPaused:NO];
         _incomingScene = nil;
-        _outgoingScene = nil;
         
         return;
     }
     
     // render the scenes
-    if (_incomingSceneAnimated) [self renderIncoming:_progress];
-    if (_outgoingSceneAnimated) [self renderOutgoing:_progress];
+    if (_incomingSceneAnimated)
+    {
+        
+        [self renderIncoming:_progress];
+    }
+    if (_outgoingSceneAnimated)
+    {
+     
+        [self renderOutgoing:_progress];
+    }
 }
 
 // -----------------------------------------------------------------
@@ -252,12 +271,14 @@ typedef NS_ENUM(NSInteger, CCTransitionFixedFunction)
 - (void)renderOutgoing:(float)progress
 {
     float oldScale;
+    GLfloat clearColor[4];
 
     // scale the out scene to fit render texture
     oldScale = _outgoingScene.scale;
     _outgoingScene.scale = oldScale / _outgoingDownScale;
     
-    [_outgoingTexture beginWithClear:0 g:0 b:0 a:1];
+    glGetFloatv(GL_COLOR_CLEAR_VALUE, clearColor);
+    [_outgoingTexture beginWithClear:clearColor[0] g:clearColor[1] b:clearColor[2] a:clearColor[3] depth:1.0 stencil:0];
     [_outgoingScene visit];
     [_outgoingTexture end];
     
@@ -267,12 +288,14 @@ typedef NS_ENUM(NSInteger, CCTransitionFixedFunction)
 - (void)renderIncoming:(float)progress
 {
     float oldScale;
+    GLfloat clearColor[4];
     
     // scale the in scene to fit render texture
     oldScale = _incomingScene.scale;
     _incomingScene.scale = oldScale / _incomingDownScale;
     
-    [_incomingTexture beginWithClear:0 g:0 b:0 a:1];
+    glGetFloatv(GL_COLOR_CLEAR_VALUE, clearColor);
+    [_incomingTexture beginWithClear:clearColor[0] g:clearColor[1] b:clearColor[2] a:clearColor[3] depth:1.0 stencil:0];
     [_incomingScene visit];
     [_incomingTexture end];
     

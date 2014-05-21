@@ -1,5 +1,5 @@
 dependencies: \
-  /Users/Lidholt/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/external/kazmath/src/GL/matrix.c \
+  /Users/viktor/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/external/kazmath/src/GL/matrix.c \
   external/kazmath/include/kazmath/GL/matrix.h \
   external/kazmath/include/kazmath/GL/../mat4.h \
   external/kazmath/include/kazmath/GL/../utility.h \

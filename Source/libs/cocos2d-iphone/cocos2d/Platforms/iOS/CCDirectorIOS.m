@@ -3,6 +3,7 @@
  *
  * Copyright (c) 2010 Ricardo Quesada
  * Copyright (c) 2011 Zynga Inc.
+ * Copyright (c) 2013-2014 Cocos2D Authors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -211,6 +212,7 @@
 	_projection = projection;
 
 	ccSetProjectionMatrixDirty();
+	[self createStatsLabel];
 }
 
 // override default logic
@@ -285,11 +287,29 @@
 //		[_delegate willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
 //}
 
+-(void) startAnimationIfPossible
+{
+    UIApplicationState state = UIApplication.sharedApplication.applicationState;
+    if (state != UIApplicationStateBackground)
+    {
+        [self startAnimation];
+    }
+    else
+    {
+        // we are backgrounded, try again in 1 second, we want to make sure that this call eventually goes through in the event
+        // that there was a full screen view controller that caused additional stop animation calls
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^
+        {
+            [self startAnimationIfPossible];
+        });
+    }
+}
 
 -(void) viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
-	[self startAnimation];
+
+    [self startAnimationIfPossible];
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -340,21 +360,24 @@
 
 #pragma mark helper
 
--(void)getFPSImageData:(unsigned char**)datapointer length:(NSUInteger*)len
+-(void)getFPSImageData:(unsigned char**)datapointer length:(NSUInteger*)len contentScale:(CGFloat *)scale
 {
-	int device = [[CCConfiguration sharedConfiguration] runningDevice];
+	NSInteger device = [[CCConfiguration sharedConfiguration] runningDevice];
 
 	if( device == CCDeviceiPadRetinaDisplay) {
 		*datapointer = cc_fps_images_ipadhd_png;
 		*len = cc_fps_images_ipadhd_len();
+		*scale = 2;
 		
 	} else if( device == CCDeviceiPhoneRetinaDisplay || device == CCDeviceiPhone5RetinaDisplay ) {
 		*datapointer = cc_fps_images_hd_png;
 		*len = cc_fps_images_hd_len();
+		*scale = 2;
 
 	} else {
 		*datapointer = cc_fps_images_png;
 		*len = cc_fps_images_len();
+		*scale = 1;
 	}
 }
 

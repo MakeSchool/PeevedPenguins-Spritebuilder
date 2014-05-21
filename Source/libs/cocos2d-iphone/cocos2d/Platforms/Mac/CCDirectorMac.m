@@ -3,6 +3,7 @@
  *
  * Copyright (c) 2010 Ricardo Quesada
  * Copyright (c) 2011 Zynga Inc.
+ * Copyright (c) 2013-2014 Cocos2D Authors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -40,7 +41,8 @@
 #import "../../ccMacros.h"
 #import "../../CCGLProgram.h"
 #import "../../ccGLStateCache.h"
-
+#import "../../ccFPSImages.h"
+ 
 // external
 #import "kazmath/kazmath.h"
 #import "kazmath/GL/matrix.h"
@@ -148,7 +150,10 @@
 
         // Show the fullscreen window
         [_fullScreenWindow makeKeyAndOrderFront:self];
-		[_fullScreenWindow makeMainWindow];
+        [_fullScreenWindow makeMainWindow];
+        // issue #632
+        self.view.wantsBestResolutionOpenGLSurface = NO;
+
 
     } else {
 
@@ -166,7 +171,10 @@
 
         // Show the window
         [_windowGLView makeKeyAndOrderFront:self];
-		[_windowGLView makeMainWindow];
+        [_windowGLView makeMainWindow];
+        // issue #632
+        self.view.wantsBestResolutionOpenGLSurface = YES;
+
     }
 	
 	// issue #1189
@@ -316,6 +324,7 @@
 	_projection = projection;
 
 	ccSetProjectionMatrixDirty();
+	[self createStatsLabel];
 }
 
 
@@ -393,6 +402,25 @@
 //{
 //	return [self unConvertFromLogicalCoordinates:glPoint];
 //}
+
+#pragma mark helper
+
+-(void)getFPSImageData:(unsigned char**)datapointer length:(NSUInteger*)len contentScale:(CGFloat *)scale
+{
+	// Mac Retina display?
+	if (self.view.wantsBestResolutionOpenGLSurface &&
+		self.view.window.backingScaleFactor == 2.0) {
+
+		*datapointer = cc_fps_images_hd_png;
+		*len = cc_fps_images_hd_len();
+		*scale = 2;
+	} else {
+
+		*datapointer = cc_fps_images_png;
+		*len = cc_fps_images_len();
+		*scale = 1;
+	}
+}
 
 @end
 

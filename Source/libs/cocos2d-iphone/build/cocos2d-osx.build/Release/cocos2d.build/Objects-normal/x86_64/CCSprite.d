@@ -1,11 +1,11 @@
 dependencies: \
-  /Users/Lidholt/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/cocos2d/CCSprite.m \
+  /Users/viktor/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/cocos2d/CCSprite.m \
   cocos2d/ccConfig.h cocos2d/CCSpriteBatchNode.h cocos2d/CCNode.h \
   cocos2d/Platforms/CCGL.h cocos2d/Platforms/../ccMacros.h \
-  /Users/Lidholt/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/cocos2d/Support/CGPointExtension.h \
+  /Users/viktor/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/cocos2d/Support/CGPointExtension.h \
   cocos2d/Platforms/Mac/CCGLView.h cocos2d/ccTypes.h \
   cocos2d/CCProtocols.h \
-  /Users/Lidholt/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/cocos2d/Support/CCColor.h \
+  /Users/viktor/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/cocos2d/Support/CCColor.h \
   cocos2d/ccGLStateCache.h external/kazmath/include/kazmath/kazmath.h \
   external/kazmath/include/kazmath/vec2.h \
   external/kazmath/include/kazmath/vec3.h \
@@ -21,8 +21,7 @@ dependencies: \
   cocos2d/CCSprite.h cocos2d/CCSpriteFrame.h \
   cocos2d/CCSpriteFrameCache.h cocos2d/CCAnimation.h \
   cocos2d/CCAnimationCache.h cocos2d/CCTextureCache.h \
-  cocos2d/CCDrawingPrimitives.h cocos2d/CCShaderCache.h \
-  cocos2d/CCGLProgram.h cocos2d/CCDirector.h \
+  cocos2d/CCShaderCache.h cocos2d/CCGLProgram.h cocos2d/CCDirector.h \
   cocos2d/Support/TransformUtils.h cocos2d/Support/CCProfiling.h \
   cocos2d/Support/OpenGL_Internal.h cocos2d/CCNode_Private.h \
   cocos2d/CCSprite_Private.h cocos2d/CCSpriteBatchNode_Private.h \

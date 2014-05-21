@@ -2,6 +2,7 @@
  * cocos2d for iPhone: http://www.cocos2d-iphone.org
  *
  * Copyright (c) 2013 Apportable Inc.
+ * Copyright (c) 2013-2014 Cocos2D Authors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -42,16 +43,19 @@
 }
 
 - (void) layout
-{}
+{
+    _needsLayout = NO;
+}
+
+- (CGSize)contentSize
+{
+    if (_needsLayout) [self layout];
+    return super.contentSize;
+}
 
 - (void) visit
 {
-    if (_needsLayout)
-    {
-        [self layout];
-        _needsLayout = NO;
-    }
-    
+    if (_needsLayout) [self layout];
     [super visit];
 }
 

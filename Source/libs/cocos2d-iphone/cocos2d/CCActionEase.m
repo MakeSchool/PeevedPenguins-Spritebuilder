@@ -3,6 +3,7 @@
  *
  * Copyright (c) 2008-2009 Jason Booth
  * Copyright (c) 2013 Nader Eloshaiker
+ * Copyright (c) 2013-2014 Cocos2D Authors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -91,6 +92,47 @@
 }
 @end
 
+
+#pragma mark - Ease Sine Actions
+//
+// EaseSineIn
+//
+@implementation CCActionEaseSineIn
+-(void) update: (CCTime) t
+{
+	[_inner update:-1*cosf(t * (float)M_PI_2) +1];
+}
+
+- (CCActionInterval*) reverse
+{
+	return [CCActionEaseSineOut actionWithAction: [_inner reverse]];
+}
+@end
+
+//
+// EaseSineOut
+//
+@implementation CCActionEaseSineOut
+-(void) update: (CCTime) t
+{
+	[_inner update:sinf(t * (float)M_PI_2)];
+}
+
+- (CCActionInterval*) reverse
+{
+	return [CCActionEaseSineIn actionWithAction: [_inner reverse]];
+}
+@end
+
+//
+// EaseSineInOut
+//
+@implementation CCActionEaseSineInOut
+-(void) update: (CCTime) t
+{
+	[_inner update:-0.5f*(cosf( (float)M_PI*t) - 1)];
+}
+@end
 
 #pragma mark -
 #pragma mark EaseRate

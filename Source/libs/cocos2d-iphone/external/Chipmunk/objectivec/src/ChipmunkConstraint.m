@@ -20,7 +20,7 @@
  */
 
 #define CP_ALLOW_PRIVATE_ACCESS 1
-#import "ObjectiveChipmunk.h"
+#import "ObjectiveChipmunk/ObjectiveChipmunk.h"
 
 @interface ChipmunkSpace(DoubleDispatch)
 
@@ -59,9 +59,9 @@
 
 // accessor macros
 #define getter(type, lower, upper) \
-- (type)lower {return self.constraint->lower;}
+- (type)lower {return cpConstraintGet##upper(self.constraint);}
 #define setter(type, lower, upper) \
-- (void)set##upper:(type)value {self.constraint->lower = value;};
+- (void)set##upper:(type)value {cpConstraintSet##upper(self.constraint, value);};
 #define both(type, lower, upper) \
 getter(type, lower, upper) \
 setter(type, lower, upper)
@@ -79,8 +79,8 @@ both(cpFloat, maxBias, MaxBias)
 
 - (ChipmunkBody *)bodyA
 {
-	cpBody *body = self.constraint->a;
-	return (body ? body->userData : nil);
+	cpBody *body = cpConstraintGetBodyA(self.constraint);
+	return (body ? cpBodyGetUserData(body) : nil);
 }
 
 //- (void)setBodyA:(ChipmunkBody *)value {
@@ -92,8 +92,8 @@ both(cpFloat, maxBias, MaxBias)
 
 - (ChipmunkBody *)bodyB
 {
-	cpBody *body = self.constraint->b;
-	return (body ? body->userData : nil);
+	cpBody *body = cpConstraintGetBodyB(self.constraint);
+	return (body ? cpBodyGetUserData(body) : nil);
 }
 
 //- (void)setBodyB:(ChipmunkBody *)value {
@@ -263,19 +263,19 @@ both2(cpVect, cpPivotJoint, anchorB, AnchorB)
 	cpGrooveJoint _constraint;
 }
 
-+ (id)grooveJointWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b groove_a:(cpVect)groove_a groove_b:(cpVect)groove_b anchorB:(cpVect)anchorB
++ (id)grooveJointWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b grooveA:(cpVect)grooveA grooveB:(cpVect)grooveB anchorB:(cpVect)anchorB
 {
-	return [[[self alloc] initWithBodyA:a bodyB:b groove_a:groove_a groove_b:groove_b anchorB:anchorB] autorelease];
+	return [[[self alloc] initWithBodyA:a bodyB:b grooveA:grooveA grooveB:grooveB anchorB:anchorB] autorelease];
 }
 
 - (cpConstraint *)constraint {return (cpConstraint *)&_constraint;}
 
-- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b groove_a:(cpVect)groove_a groove_b:(cpVect)groove_b anchorB:(cpVect)anchorB
+- (id)initWithBodyA:(ChipmunkBody *)a bodyB:(ChipmunkBody *)b grooveA:(cpVect)grooveA grooveB:(cpVect)grooveB anchorB:(cpVect)anchorB
 {
 	if((self = [super init])){
 		[a retain];
 		[b retain];
-		cpGrooveJointInit(&_constraint, a.body, b.body, groove_a, groove_b, anchorB);
+		cpGrooveJointInit(&_constraint, a.body, b.body, grooveA, grooveB, anchorB);
 		self.constraint->userData = self;
 		
 		[self setupCallbacks];
@@ -286,7 +286,7 @@ both2(cpVect, cpPivotJoint, anchorB, AnchorB)
 
 both2(cpVect, cpGrooveJoint, grooveA, GrooveA)
 both2(cpVect, cpGrooveJoint, grooveB, GrooveB)
-both2(cpVect, cpPivotJoint, anchorB, AnchorB)
+both2(cpVect, cpGrooveJoint, anchorB, AnchorB)
 
 @end
 

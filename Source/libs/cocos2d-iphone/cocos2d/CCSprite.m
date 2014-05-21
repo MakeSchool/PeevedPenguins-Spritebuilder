@@ -3,6 +3,7 @@
  *
  * Copyright (c) 2008-2010 Ricardo Quesada
  * Copyright (c) 2011 Zynga Inc.
+ * Copyright (c) 2013-2014 Cocos2D Authors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -32,7 +33,6 @@
 #import "CCAnimation.h"
 #import "CCAnimationCache.h"
 #import "CCTextureCache.h"
-#import "CCDrawingPrimitives.h"
 #import "CCShaderCache.h"
 #import "ccGLStateCache.h"
 #import "CCGLProgram.h"
@@ -425,7 +425,7 @@
 	NSAssert( _batchNode, @"updateTransform is only valid when CCSprite is being rendered using an CCSpriteBatchNode");
 
 	// recaculate matrix only if it is dirty
-	if( self.dirty ) {
+	if( self.dirty || self->_physicsBody ) {
 
 		// If it is not visible, or one of its ancestors is not visible, then do nothing:
 		if( !_visible || ( _parent && _parent != _batchNode && ((CCSprite*)_parent)->_shouldBeHidden) ) {

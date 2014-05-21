@@ -3,6 +3,7 @@
  *
  * Copyright (c) 2008-2010 Ricardo Quesada
  * Copyright (c) 2011 Zynga Inc.
+ * Copyright (c) 2013-2014 Cocos2D Authors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -38,7 +39,7 @@
  
  ### Resources
  
- - http://iosfonts.com/ (Safari for accurate font rendering.)
+ - http://iosfonts.com/ (Please use Safari for accurate font rendering)
  
  */
 
@@ -63,7 +64,7 @@
 @property (nonatomic,strong) NSString* fontName;
 
 /** The font size of the text. */
-@property (nonatomic,assign) float fontSize;
+@property (nonatomic,assign) CGFloat fontSize;
 
 /** The color of the text (If not using shadow or outline). */
 @property (nonatomic,strong) CCColor* fontColor;
@@ -89,10 +90,10 @@
 @property (nonatomic,assign) BOOL adjustsFontSizeToFit;
 
 /** Used together with adjustsFontSizeToFit. Fonts will not be scaled down below this size (the label will instead be clipped). */
-@property (nonatomic,assign) float minimumFontSize;
+@property (nonatomic,assign) CGFloat minimumFontSize;
 
 /** Adjusts the fonts baseline, the value is set in points. */
-@property (nonatomic,assign) float baselineAdjustment;
+@property (nonatomic,assign) CGFloat baselineAdjustment;
 
 
 /// -----------------------------------------------------------------------
@@ -105,11 +106,14 @@
 /** The offset of the shadow. */
 @property (nonatomic,assign) CGPoint shadowOffset;
 
+/** The offset of the shadow in points */
+@property(nonatomic,readonly) CGPoint shadowOffsetInPoints;
+
 /** The position type to be used for the shadow offset. */
 @property (nonatomic,assign) CCPositionType shadowOffsetType;
 
 /** The blur radius of the shadow. */
-@property (nonatomic,assign) float shadowBlurRadius;
+@property (nonatomic,assign) CGFloat shadowBlurRadius;
 
 
 /// -----------------------------------------------------------------------
@@ -120,7 +124,7 @@
 @property (nonatomic,strong) CCColor* outlineColor;
 
 /** The width of the text's outline. */
-@property (nonatomic,assign) float outlineWidth;
+@property (nonatomic,assign) CGFloat outlineWidth;
 
 
 /// -----------------------------------------------------------------------

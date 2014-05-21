@@ -3,6 +3,7 @@
  *
  * Copyright (c) 2008-2010 Ricardo Quesada
  * Copyright (c) 2011 Zynga Inc.
+ * Copyright (c) 2013-2014 Cocos2D Authors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -47,7 +48,7 @@ typedef NS_ENUM(NSUInteger, CCDirectorProjection) {
 	CCDirectorProjectionCustom,
 
 	/// Detault projection is 3D projection
-	CCDirectorProjectionDefault = CCDirectorProjection3D,
+	CCDirectorProjectionDefault = CCDirectorProjection2D,
 
 };
 
@@ -161,21 +162,22 @@ and when to execute the Scenes.
  */
 @property (unsafe_unretained, readonly, nonatomic ) NSThread *runningThread;
 /** The current running Scene. Director can only run one Scene at the time */
-@property (nonatomic,readonly) CCScene* runningScene;
+@property (nonatomic, readonly) CCScene* runningScene;
 /** The FPS value */
-@property (nonatomic,readwrite, assign) NSTimeInterval animationInterval;
+@property (nonatomic, readwrite, assign) CCTime animationInterval;
+@property (nonatomic, readwrite, assign) CCTime fixedUpdateInterval;
 /** Whether or not to display director statistics */
 @property (nonatomic, readwrite, assign) BOOL displayStats;
 /** whether or not the next delta time will be zero */
 @property (nonatomic,readwrite,assign,getter=isNextDeltaTimeZero) BOOL nextDeltaTimeZero;
 /** Whether or not the Director is paused */
-@property (nonatomic,readonly,getter=isPaused) BOOL paused;
+@property (nonatomic, readonly,getter=isPaused) BOOL paused;
 /** Whether or not the Director is active (animating) */
-@property (nonatomic,readonly,getter=isAnimating) BOOL animating;
+@property (nonatomic, readonly,getter=isAnimating) BOOL animating;
 /** Sets an OpenGL projection */
-@property (nonatomic,readwrite) CCDirectorProjection projection;
+@property (nonatomic, readwrite) CCDirectorProjection projection;
 /** How many frames were called since the director started */
-@property (nonatomic,readonly) NSUInteger	totalFrames;
+@property (nonatomic, readonly) NSUInteger totalFrames;
 /** seconds per frame */
 @property (nonatomic, readonly) CCTime secondsPerFrame;
 
@@ -266,7 +268,7 @@ and when to execute the Scenes.
  *  @param scene Scene to start.
  *  @param transition Transition to use.
  */
-- (void)presentScene:(CCScene *)scene WithTransition:(CCTransition *)transition;
+- (void)presentScene:(CCScene *)scene withTransition:(CCTransition *)transition;
 
 /**
  *  Enters the Director's main loop with the given Scene.

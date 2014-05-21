@@ -3,7 +3,7 @@
  *
  * Copyright (c) 2008-2010 Ricardo Quesada
  * Copyright (c) 2011 Zynga Inc.
- * Copyright (c) 2013 Scott Lembcke.
+ * Copyright (c) 2013-2014 Cocos2D Authors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -36,6 +36,7 @@
 
 // Used to break ties for scheduled blocks, updated: and fixedUpdate: methods.
 // Targets are sorted by priority so lower priorities are called first.
+// The priority value for a given object should be constant.
 @property(nonatomic, readonly) NSInteger priority;
 
 @optional
@@ -99,14 +100,6 @@ typedef void (^CCTimerBlock)(CCTimer *timer);
 //
 /* CCScheduler is responsible of triggering the scheduled callbacks.
  You should not use NSTimer. Instead use this class.
-
- There are 2 different types of callbacks (selectors):
-
-	- update selector: the 'update' selector will be called every frame. You can customize the priority.
-	- custom selector: A custom selector will be called every frame, or with a custom interval of time
-
- The 'custom selectors' should be avoided when possible. It is faster, and consumes less memory to use the 'update selector'.
-
 */
 
 @interface CCScheduler : NSObject
@@ -119,15 +112,6 @@ typedef void (^CCTimerBlock)(CCTimer *timer);
  */
 @property (nonatomic,readwrite) CCTime	timeScale;
 
-
-/* Will pause / resume the CCScheduler.
- It won't dispatch any message to any target/selector, block if it is paused.
-
- The difference between `pauseAllTargets` and `pause, is that `setPaused` will pause the CCScheduler,
- while `pauseAllTargets` will pause all the targets, one by one.
- `setPaused` will pause the whole Scheduler, meaning that calls to `resumeTargets:`, `resumeTarget:` won't affect it.
-
- */
 @property (nonatomic, assign) BOOL paused;
 
 // Current time the scheduler is calling a block for.
@@ -144,7 +128,7 @@ typedef void (^CCTimerBlock)(CCTimer *timer);
 @property(nonatomic, assign) CCTime maxTimeStep;
 
 // The time between fixedUpdate: calls.
-@property(nonatomic, assign) CCTime fixedTimeStep;
+@property(nonatomic, assign) CCTime fixedUpdateInterval;
 
 /* 'update' the scheduler.
  You should NEVER call this method, unless you know what you are doing.
@@ -160,6 +144,7 @@ typedef void (^CCTimerBlock)(CCTimer *timer);
  */
 -(void) unscheduleTarget:(NSObject<CCSchedulerTarget> *)target;
 
+// TODO This is no longer needed and should maybe be removed or made a testing only method.
 -(BOOL) isTargetScheduled:(NSObject<CCSchedulerTarget> *)target;
 
 -(void)setPaused:(BOOL)paused target:(NSObject<CCSchedulerTarget> *)target;

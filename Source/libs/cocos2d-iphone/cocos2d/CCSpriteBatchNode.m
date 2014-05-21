@@ -2,9 +2,9 @@
  * cocos2d for iPhone: http://www.cocos2d-iphone.org
  *
  * Copyright (C) 2009 Matt Oswald
- *
  * Copyright (c) 2009-2010 Ricardo Quesada
  * Copyright (c) 2011 Zynga Inc.
+ * Copyright (c) 2013-2014 Cocos2D Authors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -30,7 +30,6 @@
 #import "ccConfig.h"
 #import "CCSprite.h"
 #import "CCSpriteBatchNode.h"
-#import "CCDrawingPrimitives.h"
 #import "CCTextureCache.h"
 #import "CCShaderCache.h"
 #import "CCGLProgram.h"
@@ -338,6 +337,10 @@ const NSUInteger defaultCapacity = 0;
     //update the index of other swapped item
 	( ( CCSprite* )[ _descendants objectAtIndex:newIndex ] ).atlasIndex = oldIndex;
     [_descendants exchangeObjectAtIndex:oldIndex withObjectAtIndex:newIndex];
+    
+    // update the quads for the swapped sprites in the textureAtlas (issue #598)
+    _textureAtlas.quads[newIndex] = [(CCSprite *)[_descendants objectAtIndex:newIndex] quad];
+    _textureAtlas.quads[oldIndex] = [(CCSprite *)[_descendants objectAtIndex:oldIndex] quad];
 }
 
 - (void) reorderBatch:(BOOL) reorder

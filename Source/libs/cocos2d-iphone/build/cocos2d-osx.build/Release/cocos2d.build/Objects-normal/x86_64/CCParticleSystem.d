@@ -1,11 +1,11 @@
 dependencies: \
-  /Users/Lidholt/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/cocos2d/CCParticleSystem.m \
+  /Users/viktor/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/cocos2d/CCParticleSystem.m \
   cocos2d/Platforms/CCGL.h cocos2d/Platforms/../ccMacros.h \
   cocos2d/ccConfig.h \
-  /Users/Lidholt/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/cocos2d/Support/CGPointExtension.h \
+  /Users/viktor/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/cocos2d/Support/CGPointExtension.h \
   cocos2d/Platforms/Mac/CCGLView.h cocos2d/CCParticleSystem.h \
   cocos2d/CCParticleSystemBase.h cocos2d/CCProtocols.h cocos2d/ccTypes.h \
-  /Users/Lidholt/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/cocos2d/Support/CCColor.h \
+  /Users/viktor/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/cocos2d/Support/CCColor.h \
   cocos2d/CCNode.h cocos2d/ccGLStateCache.h \
   external/kazmath/include/kazmath/kazmath.h \
   external/kazmath/include/kazmath/vec2.h \

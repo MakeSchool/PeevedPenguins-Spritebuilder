@@ -3,6 +3,7 @@
  *
  * Copyright (c) 2008-2011 Ricardo Quesada
  * Copyright (c) 2011 Zynga Inc.
+ * Copyright (c) 2013-2014 Cocos2D Authors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -163,8 +164,8 @@
 -(id) initOne: (CCActionFiniteTime*) one two: (CCActionFiniteTime*) two
 {
 	NSAssert( one!=nil && two!=nil, @"Sequence: arguments must be non-nil");
-	NSAssert( one!=_actions[0] && one!=_actions[1], @"Sequence: re-init using the same parameters is not supported");
-	NSAssert( two!=_actions[1] && two!=_actions[0], @"Sequence: re-init using the same parameters is not supported");
+	// NSAssert( one!=_actions[0] && one!=_actions[1], @"Sequence: re-init using the same parameters is not supported");
+	// NSAssert( two!=_actions[1] && two!=_actions[0], @"Sequence: re-init using the same parameters is not supported");
 	
 	CCTime d = [one duration] + [two duration];
 	
@@ -553,8 +554,16 @@
 }
 -(void) update: (CCTime) t
 {
-	[_target setRotationalSkewX: _startAngleX + _diffAngleX * t];
-	[_target setRotationalSkewY: _startAngleY + _diffAngleY * t];
+    // added to support overriding setRotation only
+    if ((_startAngleX == _startAngleY) && (_diffAngleX == _diffAngleY))
+    {
+        [(CCNode *)_target setRotation:(_startAngleX + (_diffAngleX * t))];
+    }
+    else
+    {
+        [_target setRotationalSkewX: _startAngleX + _diffAngleX * t];
+        [_target setRotationalSkewY: _startAngleY + _diffAngleY * t];
+    }
 }
 @end
 
@@ -587,8 +596,8 @@
 {
 	if( (self=[super initWithDuration: t]) ){
 		_angleX = aX;
-    _angleY = aY;
-  }
+        _angleY = aY;
+    }
 	return self;
 }
 
@@ -608,8 +617,16 @@
 -(void) update: (CCTime) t
 {
 	// XXX: shall I add % 360
-	[_target setRotationalSkewX: (_startAngleX + _angleX * t )];
-	[_target setRotationalSkewY: (_startAngleY + _angleY * t )];
+    // added to support overriding setRotation only
+    if ((_startAngleX == _startAngleY) && (_angleX == _angleY))
+    {
+        [(CCNode *)_target setRotation:(_startAngleX + (_angleX * t))];
+    }
+    else
+    {
+        [_target setRotationalSkewX: (_startAngleX + _angleX * t )];
+        [_target setRotationalSkewY: (_startAngleY + _angleY * t )];
+    }
 }
 
 -(CCActionInterval*) reverse
@@ -1057,8 +1074,16 @@ static inline CGFloat bezierat( float a, float b, float c, float d, CCTime t )
 
 -(void) update: (CCTime) t
 {
-	[_target setScaleX: (_startScaleX + _deltaX * t ) ];
-	[_target setScaleY: (_startScaleY + _deltaY * t ) ];
+    // added to support overriding setScale only
+    if ((_startScaleX == _startScaleY) && (_endScaleX == _endScaleY))
+    {
+        [(CCNode *)_target setScale:(_startScaleX + (_deltaX * t))];
+    }
+    else
+    {
+        [_target setScaleX: (_startScaleX + _deltaX * t ) ];
+        [_target setScaleY: (_startScaleY + _deltaY * t ) ];
+    }
 }
 @end
 

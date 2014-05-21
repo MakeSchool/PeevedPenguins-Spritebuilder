@@ -1,8 +1,8 @@
 dependencies: \
-  /Users/Lidholt/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/cocos2d/ccShaders.m \
+  /Users/viktor/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/cocos2d/ccShaders.m \
   cocos2d/ccShaders.h cocos2d/Platforms/CCGL.h \
   cocos2d/Platforms/../ccMacros.h cocos2d/ccConfig.h \
-  /Users/Lidholt/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/cocos2d/Support/CGPointExtension.h \
+  /Users/viktor/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/cocos2d/Support/CGPointExtension.h \
   cocos2d/Platforms/Mac/CCGLView.h \
   cocos2d/ccShader_Position_uColor_frag.h \
   cocos2d/ccShader_Position_uColor_vert.h \

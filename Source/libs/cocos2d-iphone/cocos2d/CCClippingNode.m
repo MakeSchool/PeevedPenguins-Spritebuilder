@@ -2,6 +2,7 @@
  * cocos2d for iPhone: http://www.cocos2d-iphone.org
  *
  * Copyright (c) 2012 Pierre-David Bélanger
+ * Copyright (c) 2013-2014 Cocos2D Authors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -32,12 +33,12 @@
 #import "CCShaderCache.h"
 
 #import "CCDirector.h"
-#import "CCDrawingPrimitives.h"
 #import "CGPointExtension.h"
 
 #import "kazmath/GL/matrix.h"
 
 #import "CCNode_Private.h"
+#import "CCDrawingPrimitives.h"
 
 static GLint _stencilBits = -1;
 
@@ -277,6 +278,7 @@ static void setProgram(CCNode *n, CCGLProgram *p) {
         CCGLProgram *program = [[CCShaderCache sharedShaderCache] programForKey:kCCShader_PositionTextureColorAlphaTest];
         GLint alphaValueLocation = glGetUniformLocation(program.program, kCCUniformAlphaTestValue_s);
         // set our alphaThreshold
+        [program use];
         [program setUniformLocation:alphaValueLocation withF1:_alphaThreshold];
         // we need to recursively apply this shader to all the nodes in the stencil node
         // XXX: we should have a way to apply shader to all nodes without having to do this

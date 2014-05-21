@@ -1,10 +1,27 @@
-//
-//  CCAppDelegate.h
-//  cocos2d-ios
-//
-//  Created by Viktor on 12/6/13.
-//
-//
+/*
+ * cocos2d for iPhone: http://www.cocos2d-iphone.org
+ *
+ * Copyright (c) 2013-2014 Cocos2D Authors
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ */
 
 #import "../../ccMacros.h"
 #ifdef __CC_PLATFORM_IOS
@@ -13,31 +30,38 @@
 #import <UIKit/UIKit.h>
 #import "CCDirectorIOS.h"
 
-NSString* const CCSetupPixelFormat;
-NSString* const CCSetupScreenMode;
-NSString* const CCSetupScreenOrientation;
-NSString* const CCSetupAnimationInterval;
-NSString* const CCSetupHideDebugStats;
-NSString* const CCSetupTabletScale2X;
+extern NSString* const CCSetupPixelFormat;
+extern NSString* const CCSetupScreenMode;
+extern NSString* const CCSetupScreenOrientation;
+extern NSString* const CCSetupAnimationInterval;
+extern NSString* const CCSetupFixedUpdateInterval;
+extern NSString* const CCSetupShowDebugStats;
+extern NSString* const CCSetupTabletScale2X;
+
+extern NSString* const CCSetupDepthFormat;
+extern NSString* const CCSetupPreserveBackbuffer;
+extern NSString* const CCSetupMultiSampling;
+extern NSString* const CCSetupNumberOfSamples;
+
+// Landscape screen orientation. Used with CCSetupScreenOrientation.
+extern NSString* const CCScreenOrientationLandscape;
+
+// Portrait screen orientation.  Used with CCSetupScreenOrientation.
+extern NSString* const CCScreenOrientationPortrait;
 
 
-/// Landscape screen orientation. Used with CCSetupScreenOrientation.
-NSString* const CCScreenOrientationLandscape;
-/// Portrait screen orientation.  Used with CCSetupScreenOrientation.
-NSString* const CCScreenOrientationPortrait;
+// The flexible screen mode is Cocos2d's default. It will give you an area that can vary slightly in size. In landscape mode the height will be 320 points for mobiles and 384 points for tablets. The width of the area can vary from 480 to 568 points.
+extern NSString* const CCScreenModeFlexible;
 
-
-/// The flexible screen mode is Cocos2d's default. It will give you an area that can vary slightly in size. In landscape mode the height will be 320 points for mobiles and 384 points for tablets. The width of the area can vary from 480 to 568 points.
-NSString* const CCScreenModeFlexible;
-/// The fixed screen mode will setup the working area to be 568 x 384 points. Depending on the device, the outer edges may be cropped. The safe area, that will be displayed on all sorts of devices, is 480 x 320 points and placed in the center of the working area.
-NSString* const CCScreenModeFixed;
+// The fixed screen mode will setup the working area to be 568 x 384 points. Depending on the device, the outer edges may be cropped. The safe area, that will be displayed on all sorts of devices, is 480 x 320 points and placed in the center of the working area.
+extern NSString* const CCScreenModeFixed;
 
 
 @class CCAppDelegate;
 @class CCScene;
 
-@interface CCNavigationController : UINavigationController <CCDirectorDelegate>
-{
+
+@interface CCNavigationController : UINavigationController <CCDirectorDelegate> {
 }
 @end
 
@@ -88,9 +112,15 @@ NSString* const CCScreenModeFixed;
  *  - CCSetupPixelFormat NSString with the pixel format, normally kEAGLColorFormatRGBA8 or kEAGLColorFormatRGB565. The RGB565 option is faster, but will allow less colors.
  *  - CCSetupScreenMode NSString value that accepts either CCScreenModeFlexible or CCScreenModeFixed.
  *  - CCSetupScreenOrientation NSString value that accepts either CCScreenOrientationLandscape or CCScreenOrientationPortrait.
- *  - CCSetupAnimationInterval NSNumber with double. Specifies the interval between animation frames. Supported values are 1.0/60 and 1.0/30.
- *  - CCSetupHideDebugStats NSNumber with bool. Specifies if the stats (FPS, frame time and draw call count) should be hidden when running in debug mode.
- *  - CCSetupTabletScale2X NSNumber with bool. If true, the iPad will be setup to act like it has a 512x384 "retina" screen. This makes it much easier to make universal iOS games. This value is overriden when using the fixed screen mode.
+ *  - CCSetupAnimationInterval NSNumber with double. Specifies the desired interval between animation frames. Supported values are 1.0/60.0 (default) and 1.0/30.0.
+ *  - CCSetupFixedUpdateInterval NSNumber with double. Specifies the desired interval between fixed updates.Should be smaller than CCSetupAnimationInterval. Defaults to 1/60.0.
+ *  - CCSetupShowDebugStats NSNumber with bool. Specifies if the stats (FPS, frame time and draw call count) should be shown. Defaults to NO.
+ *  - CCSetupTabletScale2X NSNumber with bool. If true, the iPad will be setup to act like it has a 512x384 "retina" screen. This makes it much easier to make universal iOS games. This value is ignored when using the fixed screen mode.
+ *
+ *  - CCSetupDepthFormat NSNumber with integer. Specifies the desired depth format. Values are 0, GL_DEPTH_COMPONENT24_OES and GL_DEPTH24_STENCIL8_OES.
+ *  - CCSetupPreserveBackbuffer NSNumber with bool. Specifies whether backbuffer will be preserved.
+ *  - CCSetupMultiSampling NSNumber with bool. Specifies whether miltisampling is enabled.
+ *  - CCSetupNumberOfSamples NSNumber with integer. Specifies number of samples when multisampling is enabled.
  *
  *  @param config Dictionary with options for configuring Cocos2d.
  */

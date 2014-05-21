@@ -3,6 +3,7 @@
  *
  * Copyright (c) 2008-2010 Ricardo Quesada
  * Copyright (c) 2011 Zynga Inc.
+ * Copyright (c) 2013-2014 Cocos2D Authors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -231,8 +232,12 @@
 		_lifeVar = [[dictionary valueForKey:@"particleLifespanVariance"] floatValue];
 
 		// emission Rate
-		_emissionRate = _totalParticles/_life;
-
+        _emissionRate = [[dictionary valueForKey:@"emissionRate"] floatValue];
+        if (!_emissionRate)
+        {
+            _emissionRate = _totalParticles/_life;
+        }
+        
 		//don't get the internal texture if a batchNode is used
 		if (!_batchNode)
 		{

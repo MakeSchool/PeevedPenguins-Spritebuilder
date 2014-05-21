@@ -2,10 +2,9 @@
  * cocos2d for iPhone: http://www.cocos2d-iphone.org
  *
  * Copyright (c) 2009 Valentin Milea
- *
  * Copyright (c) 2008-2010 Ricardo Quesada
  * Copyright (c) 2011 Zynga Inc.
- * Copyright (c) 2013 Lars Birkemose
+ * Copyright (c) 2013-2014 Cocos2D Authors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -73,7 +72,6 @@
 
 // Suppress automatic ivar creation.
 @dynamic runningInActiveScene;
-@dynamic paused;
 
 static inline
 CCPhysicsBody *
@@ -87,7 +85,7 @@ NodeToPhysicsTransform(CCNode *node)
 {
 	CGAffineTransform transform = CGAffineTransformIdentity;
 	for(CCNode *n = node; n && !n.isPhysicsNode; n = n.parent){
-		transform = cpTransformMult(n.nodeToParentTransform, transform);
+		transform = CGAffineTransformConcat(transform, n.nodeToParentTransform);
 	}
 	
 	return transform;
@@ -107,7 +105,7 @@ NodeToPhysicsRotation(CCNode *node)
 static inline CGAffineTransform
 RigidBodyToParentTransform(CCNode *node, CCPhysicsBody *body)
 {
-	return cpTransformMult(cpTransformInverse(NodeToPhysicsTransform(node.parent)), body.absoluteTransform);
+	return CGAffineTransformConcat(body.absoluteTransform, CGAffineTransformInvert(NodeToPhysicsTransform(node.parent)));
 }
 
 // XXX: Yes, nodes might have a sort problem once every 15 days if the game runs at 60 FPS and each frame sprites are reordered.
@@ -224,7 +222,11 @@ static NSUInteger globalOrderOfArrival = 1;
 {
 	CCPhysicsBody *body = GetBodyIfRunning(self);
 	if(body){
+		CGPoint position = self.position;
 		body.absoluteRadians = -CC_DEGREES_TO_RADIANS(newRotation + NodeToPhysicsRotation(self.parent));
+		
+		// Rotating the body will cause the node to move unless the CoG is the same as the anchor point.
+		self.position = position;
 	} else {
 		_rotationalSkewX = newRotation;
 		_rotationalSkewY = newRotation;
@@ -238,13 +240,18 @@ static NSUInteger globalOrderOfArrival = 1;
 	if(body){
 		return -CC_RADIANS_TO_DEGREES(body.absoluteRadians) + NodeToPhysicsRotation(self.parent);
 	} else {
-		NSAssert( _rotationalSkewX == _rotationalSkewY, @"CCNode#rotation. RotationX != RotationY. Don't know which one to return");
+		NSAssert( _rotationalSkewX == _rotationalSkewY, @"CCNode#rotation. rotationalSkewX != rotationalSkewY. Don't know which one to return");
 		return _rotationalSkewX;
 	}
 }
 
 -(float)rotationalSkewX {
-	return _rotationalSkewX;
+	CCPhysicsBody *body = GetBodyIfRunning(self);
+	if(body){
+		return -CC_RADIANS_TO_DEGREES(body.absoluteRadians) + NodeToPhysicsRotation(self.parent);
+	} else {
+		return _rotationalSkewX;
+	}
 }
 
 -(void) setRotationalSkewX: (float)newX
@@ -257,7 +264,12 @@ static NSUInteger globalOrderOfArrival = 1;
 
 -(float)rotationalSkewY
 {
-	return _rotationalSkewY;
+	CCPhysicsBody *body = GetBodyIfRunning(self);
+	if(body){
+		return -CC_RADIANS_TO_DEGREES(body.absoluteRadians) + NodeToPhysicsRotation(self.parent);
+	} else {
+		return _rotationalSkewY;
+	}
 }
 
 -(void) setRotationalSkewY: (float)newY
@@ -299,7 +311,7 @@ static NSUInteger globalOrderOfArrival = 1;
 static inline CGPoint
 GetPositionFromBody(CCNode *node, CCPhysicsBody *body)
 {
-	return cpTransformPoint([node nodeToParentTransform], node->_anchorPointInPoints);
+	return CGPointApplyAffineTransform(node->_anchorPointInPoints, [node nodeToParentTransform]);
 }
 
 -(CGPoint)position
@@ -312,13 +324,20 @@ GetPositionFromBody(CCNode *node, CCPhysicsBody *body)
 	}
 }
 
+// Urg. CGPoint types. -_-
+static inline CGPoint
+TransformPointAsVector(CGPoint p, CGAffineTransform t)
+{
+  return (CGPoint){t.a*p.x + t.c*p.y, t.b*p.x + t.d*p.y};
+}
+
 -(void) setPosition: (CGPoint)newPosition
 {
 	CCPhysicsBody *body = GetBodyIfRunning(self);
 	if(body){
 		CGPoint currentPosition = GetPositionFromBody(self, body);
 		CGPoint delta = ccpSub([self convertPositionToPoints:newPosition type:_positionType], currentPosition);
-		body.absolutePosition = ccpAdd(body.absolutePosition, cpTransformVect(NodeToPhysicsTransform(self.parent), delta));
+		body.absolutePosition = ccpAdd(body.absolutePosition, TransformPointAsVector(delta, NodeToPhysicsTransform(self.parent)));
 	} else {
 		_position = newPosition;
 		_isTransformDirty = _isInverseDirty = YES;
@@ -343,25 +362,22 @@ GetPositionFromBody(CCNode *node, CCPhysicsBody *body)
 
 -(void) setContentSize:(CGSize)size
 {
-	if( ! CGSizeEqualToSize(size, _contentSize) ) {
+	if( ! CGSizeEqualToSize(size, _contentSize) )
+    {
 		_contentSize = size;
-        
-        CGSize contentSizeInPoints = self.contentSizeInPoints;
-		_anchorPointInPoints = ccp( contentSizeInPoints.width * _anchorPoint.x, contentSizeInPoints.height * _anchorPoint.y );
-		_isTransformDirty = _isInverseDirty = YES;
-        
-        if ([_parent isKindOfClass:[CCLayout class]])
-        {
-            CCLayout* layout = (CCLayout*)_parent;
-            [layout needsLayout];
-        }
+        [self contentSizeChanged];
 	}
 }
 
 - (void) setContentSizeType:(CCSizeType)contentSizeType
 {
     _contentSizeType = contentSizeType;
-    
+    [self contentSizeChanged];
+}
+
+- (void) contentSizeChanged
+{
+    // Update children
     CGSize contentSizeInPoints = self.contentSizeInPoints;
     _anchorPointInPoints = ccp( contentSizeInPoints.width * _anchorPoint.x, contentSizeInPoints.height * _anchorPoint.y );
     _isTransformDirty = _isInverseDirty = YES;
@@ -370,6 +386,16 @@ GetPositionFromBody(CCNode *node, CCPhysicsBody *body)
     {
         CCLayout* layout = (CCLayout*)_parent;
         [layout needsLayout];
+    }
+    
+    // Update the children (if needed)
+    for (CCNode* child in _children)
+    {
+        if (!CCPositionTypeIsBasicPoints(child->_positionType))
+        {
+            // This is a position type affected by content size
+            child->_isTransformDirty = _isInverseDirty = YES;
+        }
     }
 }
 
@@ -574,10 +600,10 @@ GetPositionFromBody(CCNode *node, CCPhysicsBody *body)
 
 - (void) setZOrder:(NSInteger)zOrder
 {
-	[self _setZOrder:zOrder];
-
     if (_parent)
         [_parent reorderChild:self z:zOrder];
+    else
+    	[self _setZOrder:zOrder]; // issue #598
 }
 
 #pragma mark CCNode Composition
@@ -587,26 +613,34 @@ GetPositionFromBody(CCNode *node, CCPhysicsBody *body)
 	_children = [[NSMutableArray alloc] init];
 }
 
+// Recursively get a child by name, but don't return the root of the search.
+-(CCNode*) getChildByNameRecursive:(NSString *)name root:(CCNode *)root
+{
+	if(self != root && [_name isEqualToString:name]) return self;
+	
+	for (CCNode* node in _children) {
+		CCNode *n = [node getChildByNameRecursive:name root:root];
+		if(n) return n;
+	}
+
+	// not found
+	return nil;
+}
+
 -(CCNode*) getChildByName:(NSString *)name recursively:(bool)isRecursive
 {
-	NSAssert(name, @"name is NULL");
-	if([self.name isEqualToString:name]){
-		return self;
-	}
+	NSAssert(name, @"name is nil.");
 	
-  for (CCNode* node in _children) {
-		if(isRecursive){
-			// Recurse:
-			CCNode* n = [node getChildByName:name recursively:isRecursive];
-			if(n)
-				return n;
-		}else{
+	if(isRecursive){
+		return [self getChildByNameRecursive:name root:self];
+	} else {
+		for (CCNode* node in _children) {
 			if([node.name isEqualToString:name]){
 				return node;
 			}
 		}
 	}
-	
+
 	// not found
 	return nil;
 }
@@ -615,13 +649,10 @@ GetPositionFromBody(CCNode *node, CCPhysicsBody *body)
 static void
 RecursivelyIncrementPausedAncestors(CCNode *node, int increment)
 {
-	NSArray *children = node->_children;
-	for(NSUInteger i=0, count=children.count; i<count; i++){
-		CCNode *child = children[i];
-		
-		BOOL wasRunning = node.runningInActiveScene;
+	for(CCNode *child in node->_children){
+		BOOL wasRunning = child.runningInActiveScene;
 		child->_pausedAncestors += increment;
-		[node wasRunning:wasRunning];
+		[child wasRunning:wasRunning];
 		
 		RecursivelyIncrementPausedAncestors(child, increment);
 	}
@@ -708,7 +739,7 @@ RecursivelyIncrementPausedAncestors(CCNode *node, int increment)
 
 -(void) removeChildByName:(NSString*)name cleanup:(BOOL)cleanup
 {
-	NSAssert( !name, @"Invalid name");
+	NSAssert( name, @"Invalid name");
 
 	CCNode *child = [self getChildByName:name recursively:NO];
 
@@ -922,6 +953,13 @@ RecursivelyIncrementPausedAncestors(CCNode *node, int increment)
 
 #pragma mark CCPhysics support.
 
+static inline CGAffineTransform
+CGAffineTransformMakeRigid(CGPoint translate, CGFloat radians)
+{
+	CGPoint rot = ccpForAngle(radians);
+	return CGAffineTransformMake(rot.x, rot.y, -rot.y, rot.x, translate.x, translate.y);
+}
+
 // Private method used to extract the non-rigid part of the node's transform relative to a CCPhysicsNode.
 // This method can only be called in very specific circumstances.
 -(CGAffineTransform)nonRigidTransform
@@ -930,13 +968,13 @@ RecursivelyIncrementPausedAncestors(CCNode *node, int increment)
 	
 	CCPhysicsBody *body = GetBodyIfRunning(self);
 	if(body){
-		return cpTransformMult(cpTransformInverse(body.absoluteTransform), toPhysics);
+		return CGAffineTransformConcat(toPhysics, CGAffineTransformInvert(body.absoluteTransform));
 	} else {
 		// Body is not active yet, so this is more of a mess. :-\
 		// Need to guess the rigid part of the transform.
 		float radians = CC_DEGREES_TO_RADIANS(NodeToPhysicsRotation(self));
-		CGAffineTransform absolute = cpTransformRigid(ccp(toPhysics.tx, toPhysics.ty), radians);
-		return cpTransformMult(cpTransformInverse(absolute), toPhysics);
+		CGAffineTransform absolute = CGAffineTransformMakeRigid(ccp(toPhysics.tx, toPhysics.ty), radians);
+		return CGAffineTransformConcat(toPhysics, CGAffineTransformInvert(absolute));
 	}
 }
 
@@ -958,9 +996,10 @@ RecursivelyIncrementPausedAncestors(CCNode *node, int increment)
 		CGAffineTransform transform = NodeToPhysicsTransform(self);
 		physicsBody.absolutePosition = ccp(transform.tx, transform.ty);
 		
-		cpTransform nonRigid = self.nonRigidTransform;
-		[_physicsBody willAddToPhysicsNode:physics nonRigidTransform:nonRigid];
+		CGAffineTransform nonRigid = self.nonRigidTransform;
+		[_physicsBody willAddToPhysicsNode:physics nonRigidTransform:CGAFFINETRANSFORM_TO_CPTRANSFORM(nonRigid)];
 		[physics.space smartAdd:physicsBody];
+		[_physicsBody didAddToPhysicsNode:physics];
 		
 		NSArray *joints = physicsBody.joints;
 		for(NSUInteger i=0, count=joints.count; i<count; i++){
@@ -1028,10 +1067,7 @@ RecursivelyIncrementPausedAncestors(CCNode *node, int increment)
 	[_children makeObjectsPerformSelector:@selector(onEnter)];
 	
 	[self setupPhysicsBody:_physicsBody];
-	
-	if(![_scheduler isTargetScheduled:self]){
-		[_scheduler scheduleTarget:self];
-	}
+	[_scheduler scheduleTarget:self];
 	
 	BOOL wasRunning = self.runningInActiveScene;
 	_isInActiveScene = YES;
@@ -1138,22 +1174,39 @@ RecursivelyIncrementPausedAncestors(CCNode *node, int increment)
 
 -(CCTimer *) schedule:(SEL)selector interval:(CCTime)interval
 {
-	return [self schedule:selector interval:interval repeat:kCCRepeatForever delay:0];
+	return [self schedule:selector interval:interval repeat:CCTimerRepeatForever delay:0];
 }
 
--(CCTimer *) schedule:(SEL)selector interval:(CCTime)interval repeat: (uint) repeat delay:(CCTime) delay
+-(BOOL)unschedule_private:(SEL)selector
 {
-	NSAssert( selector != nil, @"Argument must be non-nil");
-	NSAssert( interval >=0, @"Arguemnt must be positive");
+	NSString *selectorName = NSStringFromSelector(selector);
 	
-	[self unschedule:selector];
+	for(CCTimer *timer in [_scheduler timersForTarget:self]){
+		if([selectorName isEqual:timer.userData]){
+			[timer invalidate];
+			return YES;
+		}
+	}
+	
+	return NO;
+}
+
+-(CCTimer *) schedule:(SEL)selector interval:(CCTime)interval repeat: (NSUInteger) repeat delay:(CCTime) delay
+{
+	NSAssert(selector != nil, @"Selector must be non-nil");
+	NSAssert(selector != @selector(update:) && selector != @selector(fixedUpdate:), @"The update: and fixedUpdate: methods are scheduled automatically.");
+	NSAssert(interval > 0.0, @"Scheduled method interval must be positive.");
+	
+	if([self unschedule_private:selector]){
+		CCLOGWARN(@"Selector '%@' was already scheduled on %@", NSStringFromSelector(selector), self);
+	}
 	
 	void (*imp)(id, SEL, CCTime) = (__typeof(imp))[self methodForSelector:selector];
 	CCTimer *timer = [_scheduler scheduleBlock:^(CCTimer *t){
 		imp(self, selector, t.deltaTime);
 	} forTarget:self withDelay:delay];
 	
-	timer.repeatCount = CCTimerRepeatForever;
+	timer.repeatCount = repeat;
 	timer.repeatInterval = interval;
 	timer.userData = NSStringFromSelector(selector);
 	
@@ -1162,15 +1215,13 @@ RecursivelyIncrementPausedAncestors(CCNode *node, int increment)
 
 - (CCTimer *) scheduleOnce:(SEL) selector delay:(CCTime) delay
 {
-	return [self schedule:selector interval:0.f repeat:0 delay:delay];
+	return [self schedule:selector interval:INFINITY repeat:0 delay:delay];
 }
 
 -(void)unschedule:(SEL)selector
 {
-	NSString *selectorName = NSStringFromSelector(selector);
-	
-	for(CCTimer *timer in [_scheduler timersForTarget:self]){
-		if([selectorName isEqual:timer.userData]) [timer invalidate];
+	if(![self unschedule_private:selector]){
+		CCLOGWARN(@"Selector '%@' was never scheduled on %@", NSStringFromSelector(selector), self);
 	}
 }
 
@@ -1233,7 +1284,7 @@ RecursivelyIncrementPausedAncestors(CCNode *node, int increment)
     else if (yUnit == CCPositionUnitNormalized) y = position.y * _parent.contentSizeInPoints.height;
     
     // Account for reference corner
-    CCPositionReferenceCorner corner = _positionType.corner;
+    CCPositionReferenceCorner corner = type.corner;
     if (corner == CCPositionReferenceCornerBottomLeft)
     {
         // Nothing needs to be done
@@ -1331,7 +1382,7 @@ RecursivelyIncrementPausedAncestors(CCNode *node, int increment)
 	CCPhysicsBody *physicsBody = GetBodyIfRunning(self);
 	if(physicsBody){
 		CGAffineTransform rigidTransform = RigidBodyToParentTransform(self, physicsBody);
-		_transform = cpTransformMult(rigidTransform, cpTransformScale(_scaleX, _scaleY));
+		_transform = CGAffineTransformConcat(CGAffineTransformMakeScale(_scaleX, _scaleY), rigidTransform);
 	} else if ( _isTransformDirty ) {
         
         // Get content size
@@ -1567,11 +1618,11 @@ RecursivelyIncrementPausedAncestors(CCNode *node, int increment)
 	_displayColor.g = _color.g * parentColor.g;
 	_displayColor.b = _color.b * parentColor.b;
 	
-	if (_cascadeColorEnabled) {
+	// if (_cascadeColorEnabled) {
 		for (CCNode* item in _children) {
 			[item updateDisplayedColor:_displayColor];
 		}
-	}
+	// }
 }
 
 - (void) cascadeOpacityIfNeeded
@@ -1588,11 +1639,11 @@ RecursivelyIncrementPausedAncestors(CCNode *node, int increment)
 {
 	_displayColor.a = _color.a * parentOpacity;
 	
-	if (_cascadeOpacityEnabled) {
+	// if (_cascadeOpacityEnabled) {
 		for (CCNode* item in _children) {
 			[item updateDisplayedOpacity:_displayColor.a];
 		}
-	}
+	// }
 }
 
 -(void) setOpacityModifyRGB:(BOOL)boolean{

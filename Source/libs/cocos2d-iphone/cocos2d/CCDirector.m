@@ -3,6 +3,7 @@
  *
  * Copyright (c) 2008-2010 Ricardo Quesada
  * Copyright (c) 2011 Zynga Inc.
+ * Copyright (c) 2013-2014 Cocos2D Authors
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -44,7 +45,6 @@
 #import "ccGLStateCache.h"
 #import "CCShaderCache.h"
 #import "ccFPSImages.h"
-#import "CCDrawingPrimitives.h"
 #import "CCConfiguration.h"
 #import "CCTransition.h"
 
@@ -80,6 +80,10 @@ NSUInteger	__ccNumberOfDraws = 0;
 
 extern NSString * cocos2dVersion(void);
 
+@interface CCScheduler (Private)
+@property(nonatomic, assign) CCTime fixedUpdateInterval;
+@end
+
 @interface CCDirector (Private)
 -(void) setNextScene;
 // shows the statistics
@@ -88,8 +92,6 @@ extern NSString * cocos2dVersion(void);
 -(void) calculateDeltaTime;
 // calculates the milliseconds per frame from the start of the frame
 -(void) calculateMPF;
-// returns the FPS image data pointer and len
--(void)getFPSImageData:(unsigned char**)datapointer length:(NSUInteger*)len;
 @end
 
 @implementation CCDirector
@@ -326,7 +328,12 @@ static CCDirector *_sharedDirector = nil;
 
 		// set size
 		CGSize size = CCNSSizeToCGSize(__view.bounds.size);
+#ifdef __CC_PLATFORM_IOS
 		CGFloat scale = __view.layer.contentsScale ?: 1.0;
+#else
+		//self.view.wantsBestResolutionOpenGLSurface = YES;
+		CGFloat scale = self.view.window.backingScaleFactor;
+#endif
 		
 		_winSizeInPixels = CGSizeMake(size.width*scale, size.height*scale);
 		_winSizeInPoints = size;
@@ -437,6 +444,29 @@ GLToClipTransform(kmMat4 *transformOut)
 	return _winSizeInPixels;
 }
 
+-(CGRect)viewportRect
+{
+	// TODO It's _possible_ that a user will use a non-axis aligned projection. Weird, but possible.
+	kmMat4 transform;
+	GLToClipTransform(&transform);
+		
+	kmMat4 transformInv;
+	kmMat4Inverse(&transformInv, &transform);
+	
+	// Calculate z=0 using -> transform*[0, 0, 0, 1]/w
+	kmScalar zClip = transform.mat[14]/transform.mat[15];
+	
+	// Bottom left and top right coordinates of viewport in clip coords.
+	kmVec3 clipBL = {-1.0, -1.0, zClip};
+	kmVec3 clipTR = { 1.0,  1.0, zClip};
+	
+	kmVec3 glBL, glTR;
+	kmVec3TransformCoord(&glBL, &clipBL, &transformInv);
+	kmVec3TransformCoord(&glTR, &clipTR, &transformInv);
+	
+	return CGRectMake(glBL.x, glBL.y, glTR.x - glBL.x, glTR.y - glBL.y);
+}
+
 -(CGSize)designSize
 {
 	// Return the viewSize unless designSize has been set.
@@ -470,7 +500,7 @@ GLToClipTransform(kmMat4 *transformOut)
         [self runWithScene:scene];
 }
 
-- (void)presentScene:(CCScene *)scene WithTransition:(CCTransition *)transition
+- (void)presentScene:(CCScene *)scene withTransition:(CCTransition *)transition
 {
     if (_runningScene)
         [self replaceScene:scene withTransition:transition];
@@ -494,7 +524,7 @@ GLToClipTransform(kmMat4 *transformOut)
     
     [_scenesStack addObject:scene];
     _sendCleanupToScene = NO;
-    [transition performSelector:@selector(replaceScene:) withObject:scene];
+    [transition performSelector:@selector(startTransition:) withObject:scene];
 }
 
 -(void) popScene
@@ -525,7 +555,7 @@ GLToClipTransform(kmMat4 *transformOut)
         [_scenesStack removeLastObject];
         CCScene * incomingScene = [_scenesStack lastObject];
         _sendCleanupToScene = YES;
-        [transition performSelector:@selector(replaceScene:) withObject:incomingScene];
+        [transition performSelector:@selector(startTransition:) withObject:incomingScene];
     }
 }
 
@@ -589,7 +619,19 @@ GLToClipTransform(kmMat4 *transformOut)
 {
     // the transition gets to become the running scene
     _sendCleanupToScene = YES;
-    [transition performSelector:@selector(replaceScene:) withObject:scene];
+    [transition performSelector:@selector(startTransition:) withObject:scene];
+}
+
+// -----------------------------------------------------------------
+
+- (void)startTransition:(CCTransition *)transition
+{
+	NSAssert(transition, @"Argument must be non-nil");
+    NSAssert(_runningScene, @"There must be a running scene");
+    
+    [_scenesStack removeLastObject];
+    [_scenesStack addObject:transition];
+    _nextScene = transition;
 }
 
 // -----------------------------------------------------------------
@@ -619,7 +661,6 @@ GLToClipTransform(kmMat4 *transformOut)
 	[CCLabelBMFont purgeCachedData];
 
 	// Purge all managers / caches
-	ccDrawFree();
 	[CCAnimationCache purgeSharedAnimationCache];
 	[CCSpriteFrameCache purgeSharedSpriteFrameCache];
 	[CCTextureCache purgeSharedTextureCache];
@@ -641,9 +682,6 @@ GLToClipTransform(kmMat4 *transformOut)
 
 -(void) setNextScene
 {
-    // -----------------------------------------------------------------
-    // v2.5 functionality
-    
     // If next scene is a transition, the transition has just started
     // Make transition the running scene.
     // Outgoing scene will continue to run
@@ -664,36 +702,34 @@ GLToClipTransform(kmMat4 *transformOut)
     if ([_runningScene isKindOfClass:[CCTransition class]])
     {
         [_runningScene onExit];
-		if( _sendCleanupToScene) [_runningScene cleanup];
+        [_runningScene cleanup];
         _runningScene = nil;
         _runningScene = _nextScene;
         _nextScene = nil;
         return;
     }
-    // -----------------------------------------------------------------
 
-	Class transClass = [CCTransition class];
-	BOOL runningIsTransition = [_runningScene isKindOfClass:transClass];
-	BOOL newIsTransition = [_nextScene isKindOfClass:transClass];
-
-	// If it is not a transition, call onExit/cleanup
-	if( ! newIsTransition ) {
+    
+	// if next scene is not a transition, force exit calls
+	if (![_nextScene isKindOfClass:[CCTransition class]])
+    {
 		[_runningScene onExitTransitionDidStart];
 		[_runningScene onExit];
 
 		// issue #709. the root node (scene) should receive the cleanup message too
 		// otherwise it might be leaked.
-		if( _sendCleanupToScene)
-			[_runningScene cleanup];
+		if (_sendCleanupToScene) [_runningScene cleanup];
 	}
-
 
 	_runningScene = _nextScene;
 	_nextScene = nil;
 
-	if( ! runningIsTransition ) {
+    // if running scene is not a transition, force enter calls
+	if (![_runningScene isKindOfClass:[CCTransition class]])
+    {
 		[_runningScene onEnter];
 		[_runningScene onEnterTransitionDidFinish];
+        [_runningScene setPaused:NO];
 	}
 }
 
@@ -745,6 +781,16 @@ GLToClipTransform(kmMat4 *transformOut)
 	CCLOG(@"cocos2d: Director#setAnimationInterval. Override me");
 }
 
+- (CCTime)fixedUpdateInterval
+{
+	return self.scheduler.fixedUpdateInterval;
+}
+
+-(void)setFixedUpdateInterval:(CCTime)fixedUpdateInterval
+{
+	self.scheduler.fixedUpdateInterval = fixedUpdateInterval;
+}
+
 
 // display statistics
 -(void) showStats
@@ -792,20 +838,16 @@ GLToClipTransform(kmMat4 *transformOut)
 
 #pragma mark Director - Helper
 
--(void)getFPSImageData:(unsigned char**)datapointer length:(NSUInteger*)len
+-(void)getFPSImageData:(unsigned char**)datapointer length:(NSUInteger*)len contentScale:(CGFloat *)scale
 {
 	*datapointer = cc_fps_images_png;
 	*len = cc_fps_images_len();
+	*scale = 1.0;
 }
 
 -(void) createStatsLabel
 {
-	CCTexture *texture;
-	CCTextureCache *textureCache = [CCTextureCache sharedTextureCache];
-	
 	if( _FPSLabel && _SPFLabel ) {
-
-		[textureCache removeTextureForKey:@"cc_fps_images"];
 		_FPSLabel = nil;
 		_SPFLabel = nil;
 		_drawsLabel = nil;
@@ -818,12 +860,13 @@ GLToClipTransform(kmMat4 *transformOut)
 
 	unsigned char *data;
 	NSUInteger data_len;
-	[self getFPSImageData:&data length:&data_len];
+	CGFloat contentScale = 0;
+	[self getFPSImageData:&data length:&data_len contentScale:&contentScale];
 	
 	NSData *nsdata = [NSData dataWithBytes:data length:data_len];
 	CGDataProviderRef imgDataProvider = CGDataProviderCreateWithCFData( (__bridge CFDataRef) nsdata);
 	CGImageRef imageRef = CGImageCreateWithPNGDataProvider(imgDataProvider, NULL, true, kCGRenderingIntentDefault);
-	texture = [textureCache addCGImage:imageRef forKey:@"cc_fps_images"];
+	CCTexture *texture = [[CCTexture alloc] initWithCGImage:imageRef contentScale:contentScale];
 	CGDataProviderRelease(imgDataProvider);
 	CGImageRelease(imageRef);
 
@@ -832,10 +875,12 @@ GLToClipTransform(kmMat4 *transformOut)
 	_drawsLabel = [[CCLabelAtlas alloc]  initWithString:@"000" texture:texture itemWidth:12 itemHeight:32 startCharMap:'.'];
 
 	[CCTexture setDefaultAlphaPixelFormat:currentFormat];
-
-	[_drawsLabel setPosition: ccpAdd( ccp(0,34), CC_DIRECTOR_STATS_POSITION ) ];
-	[_SPFLabel setPosition: ccpAdd( ccp(0,17), CC_DIRECTOR_STATS_POSITION ) ];
-	[_FPSLabel setPosition: CC_DIRECTOR_STATS_POSITION ];
+	
+	CGPoint offset = [self convertToGL:ccp(0, (self.flipY == 1.0) ? 0 : __view.bounds.size.height)];
+	CGPoint pos = ccpAdd(CC_DIRECTOR_STATS_POSITION, offset);
+	[_drawsLabel setPosition: ccpAdd( ccp(0,34), pos ) ];
+	[_SPFLabel setPosition: ccpAdd( ccp(0,17), pos ) ];
+	[_FPSLabel setPosition: pos ];
 }
 
 @end
