@@ -1,0 +1,15 @@
+./.uncrustify/test-expected.m
+./.uncrustify/test-input.m
+./PeevedPenguins.spritebuilder/Source/AppDelegate.h
+./PeevedPenguins.spritebuilder/Source/AppDelegate.m
+./PeevedPenguins.spritebuilder/Source/Gameplay.h
+./PeevedPenguins.spritebuilder/Source/Gameplay.m
+./PeevedPenguins.spritebuilder/Source/main.m
+./PeevedPenguins.spritebuilder/Source/MainScene.h
+./PeevedPenguins.spritebuilder/Source/MainScene.m
+./PeevedPenguins.spritebuilder/Source/Penguin.h
+./PeevedPenguins.spritebuilder/Source/Penguin.m
+./PeevedPenguins.spritebuilder/Source/Seal.h
+./PeevedPenguins.spritebuilder/Source/Seal.m
+./PeevedPenguins.spritebuilder/Source/WaitingPenguin.h
+./PeevedPenguins.spritebuilder/Source/WaitingPenguin.m
