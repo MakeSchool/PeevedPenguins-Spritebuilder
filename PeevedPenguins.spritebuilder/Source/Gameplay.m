@@ -44,14 +44,14 @@ static const float MIN_SPEED = 5.f;
   _mouseJointNode.physicsBody.collisionMask = @[];
 
   // tell this scene to accept touches
-  self.userInteractionEnabled = TRUE;
+  self.userInteractionEnabled = YES;
 
   // load a level
   CCScene *level = [CCBReader loadAsScene:@"Levels/Level1"];
   [_levelNode addChild:level];
 
   // visualize physic bodies & joints
-//    _physicsNode.debugDraw = TRUE;
+  //    _physicsNode.debugDraw = YES;
   _physicsNode.collisionDelegate = self;
 
   // create a joint to connect the catapult arm with the catapult
@@ -79,8 +79,8 @@ static const float MIN_SPEED = 5.f;
     _penguinCatapultJoint = nil;
 
     // after snapping rotation is fine
-    _currentPenguin.physicsBody.allowsRotation = TRUE;
-    _currentPenguin.launched = TRUE;
+    _currentPenguin.physicsBody.allowsRotation = YES;
+    _currentPenguin.launched = YES;
 
     CGRect uiPointsBoundingBox = CGRectMake(0, 0, self.boundingBox.size.width, self.boundingBox.size.height);
     // follow the flying penguin
@@ -93,7 +93,7 @@ static const float MIN_SPEED = 5.f;
   // load particle effect
   CCParticleSystem *explosion = (CCParticleSystem *)[CCBReader load:@"SealExplosion"];
   // make the particle effect clean itself up, once it is completed
-  explosion.autoRemoveOnFinish = TRUE;
+  explosion.autoRemoveOnFinish = YES;
   // place the particle effect on the seals position
   explosion.position = seal.position;
   // add the particle effect to the same node the seal is on
@@ -134,7 +134,7 @@ static const float MIN_SPEED = 5.f;
     // add it to the physics world
     [_physicsNode addChild:_currentPenguin];
     // we don't want the penguin to rotate in the scoop
-    _currentPenguin.physicsBody.allowsRotation = FALSE;
+    _currentPenguin.physicsBody.allowsRotation = NO;
 
     // create a joint to keep the penguin fixed to the scoop until the catapult is released
     _penguinCatapultJoint = [CCPhysicsJoint connectedPivotJointWithBodyA:_currentPenguin.physicsBody bodyB:_catapultArm.physicsBody anchorA:_currentPenguin.anchorPointInPoints];
