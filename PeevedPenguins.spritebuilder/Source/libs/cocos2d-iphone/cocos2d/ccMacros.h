@@ -132,30 +132,21 @@ CCRANDOM_ON_UNIT_CIRCLE()
 /** @def CC_DEGREES_TO_RADIANS
  converts degrees to radians
  */
-#define CC_DEGREES_TO_RADIANS(__ANGLE__) ((__ANGLE__) * 0.01745329252f) // PI / 180
+static inline float
+CC_DEGREES_TO_RADIANS(const float angle)
+{
+	return angle*0.01745329252f;
+} 
 
 /** @def CC_RADIANS_TO_DEGREES
  converts radians to degrees
  */
-#define CC_RADIANS_TO_DEGREES(__ANGLE__) ((__ANGLE__) * 57.29577951f) // PI * 180
+static inline float
+CC_RADIANS_TO_DEGREES(const float angle)
+{
+	return angle*57.29577951f;
+} 
 
-#define kCCRepeatForever (UINT_MAX -1)
-/** @def CC_BLEND_SRC
-default gl blend src function. Compatible with premultiplied alpha images.
-*/
-#define CC_BLEND_SRC GL_ONE
-#define CC_BLEND_DST GL_ONE_MINUS_SRC_ALPHA
-
-/** @def CC_NODE_DRAW_SETUP
- Helpful macro that setups the GL server state, the correct GL program and sets the Model View Projection matrix
- */
-#define CC_NODE_DRAW_SETUP()																	\
-do {																							\
-	ccGLEnable( _glServerState );																\
-    NSAssert1(_shaderProgram, @"No shader program set for node: %@", self);						\
-	[_shaderProgram use];																		\
-	[_shaderProgram setUniformsForBuiltins];									\
-} while(0)
 
 
 /** @def CC_CONTENT_SCALE_FACTOR

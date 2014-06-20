@@ -29,17 +29,18 @@
 #import "ccTypes.h"
 #import "CCProtocols.h"
 #import "ccConfig.h"
-#import "ccGLStateCache.h"
-#import "kazmath/kazmath.h"
 #import "CCResponder.h"
 #import "CCScheduler.h"
+#import "CCRenderer.h"
 
 @class CCScene;
-@class CCGLProgram;
+@class CCShader;
 @class CCScheduler;
 @class CCActionManager;
 @class CCAction;
 @class CCPhysicsBody;
+@class CCBAnimationManager;
+@class CCAnimationManager;
 
 /** CCNode is the base class for all objects displayed by Cocos2d. The nodes are hierachically organized in a tree, normally with a CCScene as its root node. Example of CCNode:s are CCSprite, CCScene and CCButton. The CCNode handles transformations, can have a content size and provides a coordinate system to its children. Any CCNode or subclass can handle user interaction, such as touches and mouse events, see the CCResponder for more information on this.
  
@@ -96,6 +97,7 @@ A common user pattern in building a Cocos2d game is to subclass CCNode, add it t
 
 	// Transform.
 	CGAffineTransform _transform, _inverse;
+
 	BOOL _isTransformDirty;
 	BOOL _isInverseDirty;
 
@@ -114,20 +116,34 @@ A common user pattern in building a Cocos2d game is to subclass CCNode, add it t
 	// User data field.
 	id _userObject;
 
-	// Shader Program.
-	CCGLProgram	*_shaderProgram;
-
-	// Server side state.
-	ccGLServerState _glServerState;
-
 	// Used to preserve sequence while sorting children with the same zOrder.
 	NSUInteger _orderOfArrival;
+	
+	// True when visible.
+	BOOL _visible;
 
+    // True to ensure reorder.
+	BOOL _isReorderChildDirty;
+	
+	// DisplayColor and Color are kept separate to allow for cascading color and alpha changes through node children.
+	// Alphas tend to be multiplied together so you can fade groups of objects that are colored differently.
+	ccColor4F	_displayColor, _color;
+
+	// Opacity/Color propagates into children that conform to if cascadeOpacity/cascadeColor is enabled.
+	BOOL		_cascadeColorEnabled, _cascadeOpacityEnabled;
+	
+@private
+	// Physics Body.
+	CCPhysicsBody* _physicsBody;
+	
 	// Scheduler used to schedule timers and updates/
 	CCScheduler		*_scheduler;
-
+	
 	// ActionManager used to handle all the actions.
 	CCActionManager	*_actionManager;
+	
+    //Animation Manager used to handle CCB animations
+    CCAnimationManager * _animationManager;
 	
 	// YES if the node is added to an active scene.
 	BOOL _isInActiveScene;
@@ -137,22 +153,6 @@ A common user pattern in building a Cocos2d game is to subclass CCNode, add it t
 	
 	// Number of paused parent or ancestor nodes.
 	int _pausedAncestors;
-	
-	// True when visible.
-	BOOL _visible;
-
-    // True to ensure reorder.
-	BOOL _isReorderChildDirty;
-    
-    // Physics Body.
-    CCPhysicsBody* _physicsBody;
-	
-    // DisplayColor and Color are kept separate to allow for cascading color and alpha changes through node children.
-    // Alphas tend to be multiplied together so you can fade groups of objects that are colored differently.
-	ccColor4F	_displayColor, _color;
-
-	// Opacity/Color propagates into children that conform to if cascadeOpacity/cascadeColor is enabled.
-	BOOL		_cascadeColorEnabled, _cascadeOpacityEnabled;
 }
 
 
@@ -197,7 +197,7 @@ A common user pattern in building a Cocos2d game is to subclass CCNode, add it t
 @property(nonatomic,readwrite,assign) CGPoint position;
 
 /** Position (x,y) of the node in points from the bottom left corner. */
-@property(nonatomic,readonly) CGPoint positionInPoints;
+@property(nonatomic,readwrite,assign) CGPoint positionInPoints;
 
 /** Defines the position type used for the position property. Changing the position type affects the meaning of the position, and allows you to change the referenceCorner, relative to the parent container. It allso allows changing from points to UIPoints. UIPoints are scaled by [CCDirector sharedDirector].UIScaleFactor. See "Coordinate System and Positioning" for more information. */
 @property(nonatomic,readwrite,assign) CCPositionType positionType;
@@ -252,7 +252,7 @@ A common user pattern in building a Cocos2d game is to subclass CCNode, add it t
 @property (nonatomic,readwrite,assign) CGSize contentSize;
 
 /** The untransformed size of the node in Points. The contentSize remains the same no matter the node is scaled or rotated. contentSizeInPoints is affected by the contentSizeType and will be scaled by the [CCDirector sharedDirector].UIScaleFactor if the type is CCSizeUnitUIPoints. */
-@property (nonatomic,readonly) CGSize contentSizeInPoints;
+@property (nonatomic,readwrite,assign) CGSize contentSizeInPoints;
 
 /** Defines the contentSize type used for the widht and height component of the contentSize property. */
 @property (nonatomic,readwrite,assign) CCSizeType contentSizeType;
@@ -267,6 +267,15 @@ A common user pattern in building a Cocos2d game is to subclass CCNode, add it t
 
 /** The anchorPoint in absolute pixels.  Since v0.8 you can only read it. If you wish to modify it, use anchorPoint instead. */
 @property(nonatomic,readonly) CGPoint anchorPointInPoints;
+
+/**
+ * Invoked automatically when the OS view has been resized.
+ *
+ * This implementation simply propagates the same method to the children.
+ * Subclasses may override to actually do something when the view resizes.
+ */
+-(void) viewDidResizeTo: (CGSize) newViewSize;
+
 
 /** Returns a "local" axis aligned bounding box of the node in points.
  The returned box is relative only to its parent.
@@ -401,7 +410,7 @@ A common user pattern in building a Cocos2d game is to subclass CCNode, add it t
 
 /** 
  *  Expands ( or contracts ) the hit area of the node.
- *  The expansion is in normalized content size. Ie a hit area expansion of 2, will result in the hit area being double width, and double height.
+ *  The expansion is calculated as a margin around the sprite, in points.
  */
 @property (nonatomic, assign) float hitAreaExpansion;
 
@@ -557,13 +566,17 @@ A common user pattern in building a Cocos2d game is to subclass CCNode, add it t
  */
 -(void)unscheduleAllSelectors;
 
+/**
+ *  Returns the CCB Animation Manager of this node, or that of its parent.
+ */
+@property (nonatomic, readonly) CCAnimationManager * animationManager;
 
 /// -----------------------------------------------------------------------
 /// @name Accessing Transformations and Matrices
 /// -----------------------------------------------------------------------
 
-/** Performs OpenGL view-matrix transformation based on position, scale, rotation and other attributes. */
--(void) transform;
+/** Returns the 4x4 drawing transformation for this node. Really only useful when overriding visit:parentTransform: */
+-(GLKMatrix4)transform:(const GLKMatrix4 *)parentTransform;
 
 /** Returns the matrix that transform the node's (local) space coordinates into the parent's space coordinates.
  The matrix is in Pixels.
@@ -634,10 +647,13 @@ A common user pattern in building a Cocos2d game is to subclass CCNode, add it t
  * For further info, please see ccGLstate.h.
  * You shall NOT call [super draw];
  */
--(void) draw;
+-(void)draw:(CCRenderer *)renderer transform:(const GLKMatrix4 *)transform;
+
+/** Calls visit:parentTransform using the current renderer and projection. */
+-(void) visit;
 
 /** Recursive method that visit its children and draw them. */
--(void) visit;
+-(void) visit:(CCRenderer *)renderer parentTransform:(const GLKMatrix4 *)parentTransform;
 
 /** Sets and returns the color (tint), alpha is ignored when setting. */
 @property (nonatomic,strong) CCColor* color;
@@ -697,11 +713,11 @@ A common user pattern in building a Cocos2d game is to subclass CCNode, add it t
  *
  *  @param boolean Enables or disables setting of opacity with color.
  */
--(void) setOpacityModifyRGB:(BOOL)boolean;
+-(void) setOpacityModifyRGB:(BOOL)boolean __attribute__((deprecated));
 
 /** Returns whether or not the opacity will be applied using glColor(R,G,B,opacity) or glColor(opacity, opacity, opacity, opacity).
  */
--(BOOL) doesOpacityModifyRGB;
+-(BOOL) doesOpacityModifyRGB __attribute__((deprecated));
 
 @end
 

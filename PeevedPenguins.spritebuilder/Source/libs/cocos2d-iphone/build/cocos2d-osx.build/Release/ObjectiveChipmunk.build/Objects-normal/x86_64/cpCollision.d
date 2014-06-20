@@ -1,5 +1,5 @@
 dependencies: \
-  /Users/viktor/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/external/Chipmunk/src/cpCollision.c \
+  /Users/Lidholt/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/external/Chipmunk/src/cpCollision.c \
   external/Chipmunk/include/chipmunk/chipmunk_private.h \
   external/Chipmunk/include/chipmunk/chipmunk.h \
   external/Chipmunk/include/chipmunk/chipmunk_types.h \

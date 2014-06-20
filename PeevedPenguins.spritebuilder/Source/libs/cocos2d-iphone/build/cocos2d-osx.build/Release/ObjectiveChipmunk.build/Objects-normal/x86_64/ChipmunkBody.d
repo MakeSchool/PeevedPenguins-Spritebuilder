@@ -1,5 +1,5 @@
 dependencies: \
-  /Users/viktor/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/external/Chipmunk/objectivec/src/ChipmunkBody.m \
+  /Users/Lidholt/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/external/Chipmunk/objectivec/src/ChipmunkBody.m \
   external/Chipmunk/objectivec/include/ObjectiveChipmunk/ObjectiveChipmunk.h \
   external/Chipmunk/include/chipmunk/chipmunk_private.h \
   external/Chipmunk/include/chipmunk/chipmunk.h \

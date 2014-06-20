@@ -1,5 +1,5 @@
 dependencies: \
-  /Users/viktor/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/external/Chipmunk/src/cpSpaceHash.c \
+  /Users/Lidholt/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/external/Chipmunk/src/cpSpaceHash.c \
   external/Chipmunk/include/chipmunk/chipmunk_private.h \
   external/Chipmunk/include/chipmunk/chipmunk.h \
   external/Chipmunk/include/chipmunk/chipmunk_types.h \
@@ -23,4 +23,4 @@ dependencies: \
   external/Chipmunk/include/chipmunk/cpGearJoint.h \
   external/Chipmunk/include/chipmunk/cpSimpleMotor.h \
   external/Chipmunk/include/chipmunk/cpSpace.h \
-  /Users/viktor/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/external/Chipmunk/src/prime.h
+  /Users/Lidholt/Projects/SpriteBuilder/SpriteBuilder/libs/cocos2d-iphone/external/Chipmunk/src/prime.h

@@ -10,7 +10,13 @@
 #import "cocos2d.h"
 
 #import "CCPhysics+ObjectiveChipmunk.h"
+#import "CCDirector_Private.h"
 
+@interface CCScheduler(Test)
+
+-(CCTimer*)fixedUpdateTimer;
+
+@end
 
 @interface CCPhysicsTests : XCTestCase <CCPhysicsCollisionDelegate>
 
@@ -768,6 +774,333 @@ TestBasicSequenceHelper(id self, CCPhysicsNode *physicsNode, CCNode *parent, CCN
 	XCTAssert(check, @"The objects should have had a collision pair listed between them.");
 	
 	[physicsNode onExit];
+}
+
+//Focusing on Position.
+-(void)testKineticBodyBasic1
+{
+    CCPhysicsNode *physicsNode = [CCPhysicsNode node];
+	physicsNode.collisionDelegate = self;
+	physicsNode.gravity = ccp(0, 0);
+    
+    CGPoint node0Pos = ccp(100.0f,0.0f);
+    
+    CCNode *node0 = [CCNode node];
+    node0.position = node0Pos;
+    node0.name = @"node0";
+    [physicsNode addChild:node0];
+	
+    CCPhysicsBody * body1 = [CCPhysicsBody bodyWithRect:CGRectMake(0, 0, 60, 20) cornerRadius:0];
+
+    
+    CGPoint node1Pos = ccp(-25, 0);
+	CCNode *node1 = [CCNode node];
+	node1.physicsBody = body1;
+	node1.physicsBody.type = CCPhysicsBodyTypeStatic;
+	node1.physicsBody.collisionType = @"theStaticOne";
+    node1.name = @"node1";
+    node1.position = node1Pos;
+    node1.contentSize = CGSizeMake(60, 20);
+    node1.anchorPoint = ccp(0.5f,0.5f);
+	[node0 addChild:node1];
+    
+	// Force entering the scene to set up the physics objects.
+	[physicsNode onEnter];
+    
+    // Step the physics for a while.
+    const int KineticCount = 50;
+    
+    //Test translation.
+	for(int i=0; i<100; i++)
+    {
+        if(i < KineticCount)
+        {
+            node0.position = ccp(node0Pos.x + (i + 1), node0Pos.y);
+        }
+      
+		[physicsNode fixedUpdate:1.0/100.0];
+        
+        if(i >= KineticCount)
+        {
+            XCTAssertTrue(body1.type != CCPhysicsBodyTypeKinematic,@"Should not be kinetic now.");
+            XCTAssertTrue(ccpLength(body1.velocity) == 0.0f ,@"Should not have velocity.");
+        }
+        else
+        {
+            XCTAssertTrue(body1.type == CCPhysicsBodyTypeKinematic, @"Should be kinetic now");
+            XCTAssertTrue(ccpLength(body1.velocity) > 0.0f ,@"Should have velocity.");
+            XCTAssertTrue(body1.absolutePosition.x == (45.0f + (i + 1)), @"should be this value");
+        }
+	}
+    
+    
+}
+
+//Focusing on rotation.
+-(void)testKineticBodyBasic2
+{
+    CCPhysicsNode *physicsNode = [CCPhysicsNode node];
+	physicsNode.collisionDelegate = self;
+	physicsNode.gravity = ccp(0, 0);
+    
+    CGPoint node0Pos = ccp(100.0f,0.0f);
+    
+    CCNode *node0 = [CCNode node];
+    node0.position = node0Pos;
+    node0.name = @"node0";
+    [physicsNode addChild:node0];
+	
+    CCPhysicsBody * body1 = [CCPhysicsBody bodyWithRect:CGRectMake(0, 0, 60, 20) cornerRadius:0];
+    
+    CGPoint node1Pos = ccp(-25, 0);
+	CCNode *node1 = [CCNode node];
+	node1.physicsBody = body1;
+	node1.physicsBody.type = CCPhysicsBodyTypeStatic;
+	node1.physicsBody.collisionType = @"theStaticOne";
+    node1.name = @"node1";
+    node1.position = node1Pos;
+    node1.contentSize = CGSizeMake(60, 20);
+    node1.anchorPoint = ccp(0.5f,0.5f);
+	[node0 addChild:node1];
+    
+	// Force entering the scene to set up the physics objects.
+	[physicsNode onEnter];
+    
+    // Step the physics for a while.
+    const int KineticCount = 50;
+ 
+    
+    //Test translation.
+	for(int i=0; i<100; i++)
+    {
+        if(i < KineticCount)
+        {
+            node0.rotation = (i + 1) * 1.0f;
+            node1.rotation = (i + 1) * 1.0f;
+        }
+        
+        [physicsNode fixedUpdate:1.0/100.0];
+        
+        if(i >= KineticCount)
+        {
+            XCTAssertTrue(body1.type != CCPhysicsBodyTypeKinematic, @"Should not be kinetic now.");
+        }
+        else
+        {
+            XCTAssertTrue(body1.type == CCPhysicsBodyTypeKinematic, @"Should be kinetic now");
+            XCTAssertEqualWithAccuracy(-CC_RADIANS_TO_DEGREES(body1.absoluteRadians),(i + 1) * 2.0f,0.01f, @"Should be 2x rotation because of parent.");
+        }
+	}
+    
+    //TODO on exit
+    //TODO if node0->node1->node2->node3 and you detatch node1,that node0 can get unobservered.
+    
+}
+
+
+//When a node graph that is the child of a physics node is added (onEnter) ensure all the actions
+//it subsuquently posesses are changed to fixed scheduled.
+-(void)testKineticNodeActionsBasic1
+{
+    CCPhysicsNode *physicsNode = [CCPhysicsNode node];
+	physicsNode.collisionDelegate = self;
+	physicsNode.gravity = ccp(0, 0);
+    
+    CGPoint node0Pos = ccp(0.0f,0.0f);
+    
+    CCNode *node0 = [CCNode node];
+    node0.position = node0Pos;
+    node0.name = @"node0";
+	node0.scale = 2.0f;
+	[node0 runAction:[CCActionMoveBy actionWithDuration:10 position:ccp(100, 0)]];
+    [physicsNode addChild:node0];
+	
+    CCPhysicsBody * body1 = [CCPhysicsBody bodyWithRect:CGRectMake(0, 0, 60, 20) cornerRadius:0];
+    
+    CGPoint node1Pos = ccp(0, 0);
+	CCNode *node1 = [CCNode node];
+	node1.physicsBody = body1;
+	node1.physicsBody.type = CCPhysicsBodyTypeStatic;
+	node1.physicsBody.collisionType = @"theStaticOne";
+    node1.name = @"node1";
+    node1.position = node1Pos;
+    node1.contentSize = CGSizeMake(60, 20);
+    node1.anchorPoint = ccp(0.0f,0.0f);
+	[node0 addChild:node1];
+    
+	[node1 runAction:[CCActionMoveBy actionWithDuration:10 position:ccp(100, 0)]];
+	
+	// Force entering the scene to set up the physics objects.
+	[physicsNode onEnter];
+	
+	CCScheduler * scheduler =  [CCDirector sharedDirector].scheduler;
+    scheduler.fixedUpdateInterval = 0.1f;
+	[scheduler update:0.10f];// first tick
+	const float accuracy = 1e-4;
+    //test actions are fixed.
+    for(int i = 0; i < 100; i++)
+	{
+		float desired  = (float)i * 0.1f * 100.0f/10.0f + (float)i * 0.1f * 200.0f/10.0f;
+		//NSLog(@"node1.position.x=  %0.2f   desired = %0.2f",body1.absolutePosition.x, desired);
+		XCTAssertEqualWithAccuracy(body1.absolutePosition.x, desired , accuracy, @"Not in the write position");
+		[scheduler update:0.10f];
+	}
+}
+
+
+//TODO
+//Test : When a node is added to a scene graph, its actions are Fixed if its part of a PhysicsNode.
+
+
+
+-(void)testApplyImpulse
+{
+	CCPhysicsNode *physics = [CCPhysicsNode node];
+	[physics onEnter];
+	
+	{
+		CCNode *node = [CCNode node];
+		[physics addChild:node];
+		
+		node.physicsBody = [CCPhysicsBody bodyWithCircleOfRadius:1 andCenter:CGPointZero];
+		node.physicsBody.mass = 5;
+		
+		node.physicsBody.velocity = ccp(10, 10);
+		[node.physicsBody applyImpulse:ccp(5, 5)];
+		XCTAssert(ccpDistance(ccp(11, 11), node.physicsBody.velocity) < 1e-5, @"");
+	}{
+		CCNode *node = [CCNode node];
+		node.rotation = 90;
+		[physics addChild:node];
+		
+		node.physicsBody = [CCPhysicsBody bodyWithCircleOfRadius:1 andCenter:CGPointZero];
+		node.physicsBody.mass = 5;
+		
+		node.physicsBody.velocity = ccp(10, 10);
+		[node.physicsBody applyImpulse:ccp(5, 5)];
+		XCTAssert(ccpDistance(ccp(11, 11), node.physicsBody.velocity) < 1e-5, @"");
+	}{
+		CCNode *node = [CCNode node];
+		node.position = ccp(20, 20);
+		[physics addChild:node];
+		
+		node.physicsBody = [CCPhysicsBody bodyWithCircleOfRadius:1 andCenter:CGPointZero];
+		node.physicsBody.mass = 5;
+		
+		node.physicsBody.velocity = ccp(10, 10);
+		[node.physicsBody applyImpulse:ccp(5, 5) atWorldPoint:node.position];
+		XCTAssert(ccpDistance(ccp(11, 11), node.physicsBody.velocity) < 1e-5, @"");
+	}{
+		CCNode *node = [CCNode node];
+		node.position = ccp(20, 20);
+		[physics addChild:node];
+		
+		node.physicsBody = [CCPhysicsBody bodyWithCircleOfRadius:1 andCenter:CGPointZero];
+		node.physicsBody.mass = 5;
+		
+		node.physicsBody.velocity = ccp(10, 10);
+		[node.physicsBody applyImpulse:ccp(5, 5) atLocalPoint:ccp(0, 0)];
+		XCTAssert(ccpDistance(ccp(11, 11), node.physicsBody.velocity) < 1e-5, @"");
+	}{
+		CCNode *node = [CCNode node];
+		node.position = ccp(20, 20);
+		node.rotation = 90;
+		[physics addChild:node];
+		
+		node.physicsBody = [CCPhysicsBody bodyWithCircleOfRadius:1 andCenter:CGPointZero];
+		node.physicsBody.mass = 5;
+		
+		node.physicsBody.velocity = ccp(10, 10);
+		[node.physicsBody applyImpulse:ccp(5, 0) atLocalPoint:ccp(0, 0)];
+		XCTAssert(ccpDistance(ccp(10, 9), node.physicsBody.velocity) < 1e-5, @"");
+	}{
+		CCNode *node = [CCNode node];
+		node.position = ccp(20, 20);
+		node.rotation = 180;
+		[physics addChild:node];
+		
+		node.physicsBody = [CCPhysicsBody bodyWithCircleOfRadius:1 andCenter:CGPointZero];
+		node.physicsBody.mass = 5;
+		
+		node.physicsBody.velocity = ccp(10, 10);
+		[node.physicsBody applyImpulse:ccp(5, 0) atLocalPoint:ccp(0, 1)];
+		XCTAssert(ccpDistance(ccp(9, 10), node.physicsBody.velocity) < 1e-5, @"");
+		XCTAssertEqualWithAccuracy(node.physicsBody.angularVelocity, -2, 1e-5, @"");
+	}
+	
+	[physics onExit];
+}
+
+-(void)testApplyForce
+{
+	CCPhysicsNode *physics = [CCPhysicsNode node];
+	[physics onEnter];
+	
+	{
+		CCNode *node = [CCNode node];
+		[physics addChild:node];
+		
+		node.physicsBody = [CCPhysicsBody bodyWithCircleOfRadius:1 andCenter:CGPointZero];
+		node.physicsBody.mass = 5;
+		
+		[node.physicsBody applyForce:ccp(5, 5)];
+		XCTAssert(ccpDistance(ccp(5, 5), node.physicsBody.force) < 1e-5, @"");
+	}{
+		CCNode *node = [CCNode node];
+		node.rotation = 90;
+		[physics addChild:node];
+		
+		node.physicsBody = [CCPhysicsBody bodyWithCircleOfRadius:1 andCenter:CGPointZero];
+		node.physicsBody.mass = 5;
+		
+		[node.physicsBody applyForce:ccp(5, 5)];
+		XCTAssert(ccpDistance(ccp(5, 5), node.physicsBody.force) < 1e-5, @"");
+	}{
+		CCNode *node = [CCNode node];
+		node.position = ccp(20, 20);
+		[physics addChild:node];
+		
+		node.physicsBody = [CCPhysicsBody bodyWithCircleOfRadius:1 andCenter:CGPointZero];
+		node.physicsBody.mass = 5;
+		
+		[node.physicsBody applyForce:ccp(5, 5) atWorldPoint:node.position];
+		XCTAssert(ccpDistance(ccp(5, 5), node.physicsBody.force) < 1e-5, @"");
+	}{
+		CCNode *node = [CCNode node];
+		node.position = ccp(20, 20);
+		[physics addChild:node];
+		
+		node.physicsBody = [CCPhysicsBody bodyWithCircleOfRadius:1 andCenter:CGPointZero];
+		node.physicsBody.mass = 5;
+		
+		[node.physicsBody applyForce:ccp(5, 5) atLocalPoint:ccp(0, 0)];
+		XCTAssert(ccpDistance(ccp(5, 5), node.physicsBody.force) < 1e-5, @"");
+	}{
+		CCNode *node = [CCNode node];
+		node.position = ccp(20, 20);
+		node.rotation = 90;
+		[physics addChild:node];
+		
+		node.physicsBody = [CCPhysicsBody bodyWithCircleOfRadius:1 andCenter:CGPointZero];
+		node.physicsBody.mass = 5;
+		
+		[node.physicsBody applyForce:ccp(5, 0) atLocalPoint:ccp(0, 0)];
+		XCTAssert(ccpDistance(ccp(0, -5), node.physicsBody.force) < 1e-5, @"");
+	}{
+		CCNode *node = [CCNode node];
+		node.position = ccp(20, 20);
+		node.rotation = 180;
+		[physics addChild:node];
+		
+		node.physicsBody = [CCPhysicsBody bodyWithCircleOfRadius:1 andCenter:CGPointZero];
+		node.physicsBody.mass = 5;
+		
+		[node.physicsBody applyForce:ccp(5, 0) atLocalPoint:ccp(0, 1)];
+		XCTAssert(ccpDistance(ccp(-5, 0), node.physicsBody.force) < 1e-5, @"");
+		XCTAssertEqualWithAccuracy(node.physicsBody.torque, -5, 1e-5, @"");
+	}
+	
+	[physics onExit];
 }
 
 // TODO

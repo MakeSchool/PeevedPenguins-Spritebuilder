@@ -32,9 +32,6 @@
 #import "CCDirector_Private.h"
 #import "CCScheduler.h"
 
-#import "kazmath/kazmath.h"
-#import "kazmath/GL/matrix.h"
-
 #import "OALSimpleAudio.h"
 
 NSString* const CCSetupPixelFormat = @"CCSetupPixelFormat";
@@ -52,6 +49,7 @@ NSString* const CCSetupNumberOfSamples = @"CCSetupNumberOfSamples";
 
 NSString* const CCScreenOrientationLandscape = @"CCScreenOrientationLandscape";
 NSString* const CCScreenOrientationPortrait = @"CCScreenOrientationPortrait";
+NSString* const CCScreenOrientationAll = @"CCScreenOrientationAll";
 
 NSString* const CCScreenModeFlexible = @"CCScreenModeFlexible";
 NSString* const CCScreenModeFixed = @"CCScreenModeFixed";
@@ -78,13 +76,17 @@ const CGSize FIXED_SIZE = {568, 384};
 // Only valid for iOS 6+. NOT VALID for iOS 4 / 5.
 -(NSUInteger)supportedInterfaceOrientations
 {
-    if ([_screenOrientation isEqual:CCScreenOrientationLandscape])
+    if ([_screenOrientation isEqual:CCScreenOrientationAll])
     {
-        return UIInterfaceOrientationMaskLandscape;
+        return UIInterfaceOrientationMaskAll;
+    }
+    else if ([_screenOrientation isEqual:CCScreenOrientationPortrait])
+    {
+        return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskPortraitUpsideDown;
     }
     else
     {
-        return UIInterfaceOrientationMaskPortrait | UIInterfaceOrientationMaskPortraitUpsideDown;
+        return UIInterfaceOrientationMaskLandscape;
     }
 }
 
@@ -92,18 +94,22 @@ const CGSize FIXED_SIZE = {568, 384};
 // Only valid on iOS 4 / 5. NOT VALID for iOS 6.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    if ([_screenOrientation isEqual:CCScreenOrientationLandscape])
+    if ([_screenOrientation isEqual:CCScreenOrientationAll])
     {
-        return UIInterfaceOrientationIsLandscape(interfaceOrientation);
+        return YES;
+    }
+    else if ([_screenOrientation isEqual:CCScreenOrientationPortrait])
+    {
+        return UIInterfaceOrientationIsPortrait(interfaceOrientation);
     }
     else
     {
-        return UIInterfaceOrientationIsPortrait(interfaceOrientation);
+        return UIInterfaceOrientationIsLandscape(interfaceOrientation);
     }
 }
 
 // Projection delegate is only used if the fixed resolution mode is enabled
--(void)updateProjection
+-(GLKMatrix4)updateProjection
 {
 	CGSize sizePoint = [CCDirector sharedDirector].viewSize;
 	CGSize fixed = [CCDirector sharedDirector].designSize;
@@ -111,15 +117,7 @@ const CGSize FIXED_SIZE = {568, 384};
 	// Half of the extra size that will be cut off
 	CGPoint offset = ccpMult(ccp(fixed.width - sizePoint.width, fixed.height - sizePoint.height), 0.5);
 	
-	kmGLMatrixMode(KM_GL_PROJECTION);
-	kmGLLoadIdentity();
-	
-	kmMat4 orthoMatrix;
-	kmMat4OrthographicProjection(&orthoMatrix, offset.x, sizePoint.width + offset.x, offset.y, sizePoint.height + offset.y, -1024, 1024 );
-	kmGLMultMatrix( &orthoMatrix );
-	
-	kmGLMatrixMode(KM_GL_MODELVIEW);
-	kmGLLoadIdentity();
+	return GLKMatrix4MakeOrtho(offset.x, sizePoint.width + offset.x, offset.y, sizePoint.height + offset.y, -1024, 1024);
 }
 
 // This is needed for iOS4 and iOS5 in order to ensure

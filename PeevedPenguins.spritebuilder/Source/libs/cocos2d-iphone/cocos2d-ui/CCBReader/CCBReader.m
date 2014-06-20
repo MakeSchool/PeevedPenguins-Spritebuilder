@@ -27,14 +27,24 @@
 #import <objc/runtime.h>
 #import <objc/message.h>
 #import "CCBAnimationManager.h"
+#import "CCAnimationManager.h"
 #import "CCBSequence.h"
 #import "CCBSequenceProperty.h"
 #import "CCBKeyframe.h"
 #import "CCBLocalizationManager.h"
 #import "CCBReader_Private.h"
+#import "CCNode_Private.h"
+#import "CCDirector_Private.h"
+#import "CCPhysics+ObjectiveChipmunk.h"
+#import "CCAnimationManager_Private.h"
 
 #ifdef CCB_ENABLE_UNZIP
 #import "SSZipArchive.h"
+#endif
+
+// Set to 1 to log assignment of properties in the form: "propertyname = value"
+#ifndef DEBUG_READER_PROPERTIES
+#define DEBUG_READER_PROPERTIES 0
 #endif
 
 
@@ -45,6 +55,12 @@
 @property (nonatomic,strong) CCNode* ccbFile;
 @end
 
+
+@interface CCBReader()
+
+@property (nonatomic, copy) NSString *currentCCBFile;
+
+@end
 
 
 @implementation CCBReader
@@ -89,13 +105,15 @@
     if (!self) return NULL;
     
     // Setup action manager
-    self.animationManager = [[CCBAnimationManager alloc] init];
+    self.animationManager = [[CCAnimationManager alloc] init];
     
     // Setup set of loaded sprite sheets
     loadedSpriteSheets = [[NSMutableSet alloc] init];
     
     // Setup resolution scale and default container size
     animationManager.rootContainerSize = [CCDirector sharedDirector].designSize;
+    
+    nodeMapping = [NSMutableDictionary dictionary];
     
     return self;
 }
@@ -140,9 +158,53 @@ static inline void alignBits(CCBReader *self)
     }
 }
 
+
+static inline unsigned int readVariableLengthIntFromArray(const uint8_t* buffer, uint32_t * value) {
+    const uint8_t* ptr = buffer;
+    uint32_t b;
+    uint32_t result;
+    
+    b = *(ptr++); result  = (b & 0x7F)      ; if (!(b & 0x80)) goto done;
+    b = *(ptr++); result |= (b & 0x7F) <<  7; if (!(b & 0x80)) goto done;
+    b = *(ptr++); result |= (b & 0x7F) << 14; if (!(b & 0x80)) goto done;
+    b = *(ptr++); result |= (b & 0x7F) << 21; if (!(b & 0x80)) goto done;
+    b = *(ptr++); result |=  b         << 28; if (!(b & 0x80)) goto done;
+    
+done:
+    *value = result;
+    return ptr - buffer;
+}
+
+
+static inline int readIntWithSign(CCBReader *self, BOOL pSigned)
+{
+    unsigned int value = 0;
+    self->currentByte += readVariableLengthIntFromArray(self->bytes + self->currentByte, &value);
+    
+    int num = 0;
+    
+    if (pSigned)
+    {
+        if (value & 0x1)
+            num = -(int)((value+1) >> 1);
+        else
+            num = (int)(value >> 1);
+    }
+    else
+    {
+        num = (int)value;
+    }
+    
+    return num;
+}
+
+
 #define REVERSE_BYTE(b) (unsigned char)(((b * 0x0802LU & 0x22110LU) | (b * 0x8020LU & 0x88440LU)) * 0x10101LU >> 16)
 
-static inline int readIntWithSign(CCBReader *self, BOOL sign)
+//DEPRICATED
+//DEPRICATED
+//DEPRICATED
+static inline int readIntWithSignOLD(CCBReader *self, BOOL sign)
 {
     // Good luck groking this!
     // The basic idea is to do as little bit reading as possible and use everything in a byte contexts and avoid loops; espc ones that iterate 8 * bytes-read
@@ -245,6 +307,9 @@ static inline int readIntWithSign(CCBReader *self, BOOL sign)
     return num;
 }
 
+
+
+
 static inline float readFloat(CCBReader *self)
 {
     unsigned char type = readByte(self);
@@ -275,12 +340,17 @@ static inline float readFloat(CCBReader *self)
     return [stringCache objectAtIndex:n];
 }
 
+-(void) readerDidSetSpriteFrame:(CCSpriteFrame*)spriteFrame node:(CCNode*)node
+{
+	// does nothing, overridden by Sprite Kit reader
+}
+
 - (void) readPropertyForNode:(CCNode*) node parent:(CCNode*)parent isExtraProp:(BOOL)isExtraProp
 {
     // Read type and property name
     int type = readIntWithSign(self, NO);
     NSString* name = [self readCachedString];
-    
+
     // Check if the property can be set for this platform
     BOOL setProp = YES;
     
@@ -308,7 +378,20 @@ static inline float readFloat(CCBReader *self)
         
         [extraPropNames addObject:name];
     }
+
+#if DEBUG
+    if (isExtraProp
+        && ![self isPropertyKeySettable:name onInstance:node])
+    {
+        NSLog(@"*** [PROPERTY] ERROR HINT: Did you set a custom property \"%@\"? In file \"%@\" ", name, _currentCCBFile);
+        NSLog(@"*** [PROPERTY] ERROR HINT: Make sure the class \"%@\" is KVC compliant and \"%@\" can be set", [node class], name);
+    }
+#endif
     
+#if DEBUG_READER_PROPERTIES
+	NSString* valueString = nil;
+#endif
+	
     if (type == kCCBPropTypePosition)
     {
         float x = readFloat(self);
@@ -316,6 +399,10 @@ static inline float readFloat(CCBReader *self)
         int corner = readByte(self);
         int xUnit = readByte(self);
         int yUnit = readByte(self);
+
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"{%f, %f}", x, y];
+#endif
 
         if (setProp)
         {
@@ -347,6 +434,10 @@ static inline float readFloat(CCBReader *self)
         float x = readFloat(self);
         float y = readFloat(self);
         
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"{%f, %f}", x, y];
+#endif
+
         if (setProp)
         {
             CGPoint pt = ccp(x,y);
@@ -364,6 +455,10 @@ static inline float readFloat(CCBReader *self)
         int xUnit = readByte(self);
         int yUnit = readByte(self);
         
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"{%f, %f}", w, h];
+#endif
+
         if (setProp)
         {
             CGSize size = CGSizeMake(w, h);
@@ -383,6 +478,10 @@ static inline float readFloat(CCBReader *self)
         float y = readFloat(self);
         int sType = readByte(self);
         
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"{%f, %f}", x, y];
+#endif
+
         if (setProp)
         {
             [node setValue:[NSNumber numberWithFloat:x] forKey:[name stringByAppendingString:@"X"]];
@@ -405,6 +504,10 @@ static inline float readFloat(CCBReader *self)
         float xFloat = readFloat(self);
         float yFloat = readFloat(self);
         
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"{%f, %f}", xFloat, yFloat];
+#endif
+
         if (setProp)
         {
             NSString* nameX = [NSString stringWithFormat:@"%@X",name];
@@ -418,6 +521,10 @@ static inline float readFloat(CCBReader *self)
     {
         float f = readFloat(self);
         
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"%f", f];
+#endif
+
         if (setProp)
         {
             id value = [NSNumber numberWithFloat:f];
@@ -433,7 +540,11 @@ static inline float readFloat(CCBReader *self)
     {
         float f = readFloat(self);
         int sType = readIntWithSign(self, NO);
-        
+
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"%f (%i)", f, sType];
+#endif
+
         if (setProp)
         {
             if (sType == 1) f *= [CCDirector sharedDirector].UIScaleFactor;
@@ -445,6 +556,10 @@ static inline float readFloat(CCBReader *self)
     {
         int d = readIntWithSign(self, YES);
         
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"%d", d];
+#endif
+
         if (setProp)
         {
             [node setValue:[NSNumber numberWithInt:d] forKey:name];
@@ -455,6 +570,10 @@ static inline float readFloat(CCBReader *self)
         float f = readFloat(self);
         float fVar = readFloat(self);
         
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"%f (%f)", f, fVar];
+#endif
+
         if (setProp)
         {
             NSString* nameVar = [NSString stringWithFormat:@"%@Var",name];
@@ -466,6 +585,10 @@ static inline float readFloat(CCBReader *self)
     {
         BOOL b = readBool(self);
         
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"%@", b ? @"YES" : @"NO"];
+#endif
+
         if (setProp)
         {
             id value = [NSNumber numberWithBool:b];
@@ -481,11 +604,20 @@ static inline float readFloat(CCBReader *self)
     {
         NSString* spriteFile = [self readCachedString];
         
-        if (setProp && ![spriteFile isEqualToString:@""])
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"%@", spriteFile];
+#endif
+
+        if (setProp && spriteFile.length > 0)
         {
             CCSpriteFrame* spriteFrame = [CCSpriteFrame frameWithImageNamed:spriteFile];
             [node setValue:spriteFrame forKey:name];
+			[self readerDidSetSpriteFrame:spriteFrame node:node];
             
+#if DEBUG_READER_PROPERTIES
+			valueString = [NSString stringWithFormat:@"%@ (%@)", valueString, spriteFrame];
+#endif
+
             if ([animatedProps containsObject:name])
             {
                 [animationManager setBaseValue:spriteFrame forNode:node propertyName:name];
@@ -496,16 +628,28 @@ static inline float readFloat(CCBReader *self)
     {
         NSString* spriteFile = [self readCachedString];
         
-        if (setProp && ![spriteFile isEqualToString:@""])
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"%@", spriteFile];
+#endif
+
+        if (setProp && spriteFile.length > 0)
         {
             CCTexture* texture = [CCTexture textureWithFile:spriteFile];
             [node setValue:texture forKey:name];
+
+#if DEBUG_READER_PROPERTIES
+			valueString = [NSString stringWithFormat:@"%@ (%@)", valueString, texture];
+#endif
         }
     }
     else if (type == kCCBPropTypeByte)
     {
         int byte = readByte(self);
         
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"%d", byte];
+#endif
+
         if (setProp)
         {
             id value = [NSNumber numberWithInt:byte];
@@ -525,6 +669,10 @@ static inline float readFloat(CCBReader *self)
         CGFloat b = readFloat(self);
         CGFloat a = readFloat(self);
         
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"{%.2f, %.2f, %.2f, %.2f}", r, g, b, a];
+#endif
+
         if (setProp)
         {
             CCColor* cVal = [CCColor colorWithRed:r green:g blue:b alpha:a];
@@ -547,7 +695,11 @@ static inline float readFloat(CCBReader *self)
         float gVar = readFloat(self);
         float bVar = readFloat(self);
         float aVar = readFloat(self);
-        
+
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"{%.2f, %.2f, %.2f, %.2f}", r, g, b, a];
+#endif
+
         if (setProp)
         {
             CCColor* cVal = [CCColor colorWithRed:r green:g blue:b alpha:a];;
@@ -562,6 +714,11 @@ static inline float readFloat(CCBReader *self)
         BOOL xFlip = readBool(self);
         BOOL yFlip = readBool(self);
         
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"x:%@", xFlip ? @"YES" : @"NO"];
+		valueString = [NSString stringWithFormat:@"%@ y:%@", valueString, yFlip ? @"YES" : @"NO"];
+#endif
+
         if (setProp)
         {
             NSString* nameX = [NSString stringWithFormat:@"%@X",name];
@@ -575,6 +732,10 @@ static inline float readFloat(CCBReader *self)
         int src = readIntWithSign(self, NO);
         int dst = readIntWithSign(self, NO);
         
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"{%i, %i}", src, dst];
+#endif
+
         if (setProp)
         {
             ccBlendFunc blend;
@@ -588,6 +749,10 @@ static inline float readFloat(CCBReader *self)
     {
         NSString* fntFile = [self readCachedString];
         [node setValue:fntFile forKey:name];
+
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"%@", fntFile];
+#endif
     }
     else if (type == kCCBPropTypeText
              || type == kCCBPropTypeString)
@@ -595,9 +760,16 @@ static inline float readFloat(CCBReader *self)
         NSString* txt = [self readCachedString];
         BOOL localized = readBool(self);
         
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"\"%@\"", txt];
+#endif
+
         if (localized)
         {
             txt = CCBLocalize(txt);
+#if DEBUG_READER_PROPERTIES
+			valueString = [NSString stringWithFormat:@"%@ localized: \"%@\"", txt];
+#endif
         }
         
         if (setProp)
@@ -609,6 +781,10 @@ static inline float readFloat(CCBReader *self)
     {
         NSString* fnt = [self readCachedString];
         
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"%@", fnt];
+#endif
+
         if (setProp)
         {
             //if ([[fnt lowercaseString] hasSuffix:@".ttf"])
@@ -623,6 +799,10 @@ static inline float readFloat(CCBReader *self)
         NSString* selectorName = [self readCachedString];
         int selectorTarget = readIntWithSign(self, NO);
         
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"@selector(%@) target:%i", selectorName, selectorTarget];
+#endif
+
         if (setProp)
         {
             // Objective C callbacks
@@ -635,8 +815,8 @@ static inline float readFloat(CCBReader *self)
                 if (target)
                 {
                     SEL selector = NSSelectorFromString(selectorName);
-                    __unsafe_unretained id t = target;
-                    
+                    __weak id t = target;
+
                     void (^block)(id sender);
                     block = ^(id sender) {
                         typedef void (*Func)(id, SEL, id);
@@ -646,15 +826,19 @@ static inline float readFloat(CCBReader *self)
                     NSString* setSelectorName = [NSString stringWithFormat:@"set%@:",[name capitalizedString]];
                     SEL setSelector = NSSelectorFromString(setSelectorName);
                     
-                    if ([node respondsToSelector:setSelector])
+                    if ([target respondsToSelector:selector] && [node respondsToSelector:setSelector])
                     {
                         typedef void (*Func)(id, SEL, id);
                         ((Func)objc_msgSend)(node, setSelector, block);
                     }
                     else
                     {
-                        NSLog(@"CCBReader: Failed to set selector/target block for %@",selectorName);
+                        NSLog(@"CCBReader: Failed to set selector/target block for \"%@\" for target %@",selectorName,target);
                     }
+
+#if DEBUG_READER_PROPERTIES
+					valueString = [NSString stringWithFormat:@"%@ (%@)", valueString, t];
+#endif
                 }
                 else
                 {
@@ -671,12 +855,25 @@ static inline float readFloat(CCBReader *self)
         if ([ccbFileName hasSuffix:@".ccb"]) ccbFileName = [ccbFileName stringByDeletingPathExtension];
         
         ccbFileName = [NSString stringWithFormat:@"%@.ccbi", ccbFileName];
-        
+
+#if DEBUG_READER_PROPERTIES
+		valueString = [NSString stringWithFormat:@"%@", ccbFileName];
+#endif
+
         // Load sub file
         NSString* path = [[CCFileUtils sharedFileUtils] fullPathForFilename:ccbFileName];
         NSData* d = [NSData dataWithContentsOfFile:path];
 
-        NSAssert(d,@"Failed to find ccb file: %@",ccbFileName);
+#if DEBUG
+        // Special case: scroll view missing content node
+        if (!d && [ccbFileName isEqualToString:@".ccbi"] && [NSStringFromClass([node class]) isEqualToString:@"CCScrollView"])
+        {
+            NSLog(@"*** [PROPERTY] ERROR HINT: Did you forget to set the content node for your CCScrollView?");
+        }
+#endif
+
+        NSAssert(d,@"[PROPERTY] %@ - kCCBPropTypeCCBFile - Failed to find ccb file: \"%@\", node class name: \"%@\", name: \"%@\", in ccb file: \"%@\"",
+                 name, ccbFileName, [node class], [node name], _currentCCBFile);
 
         CCBReader* reader = [[CCBReader alloc] init];
         reader.animationManager.rootContainerSize = parent.contentSize;
@@ -704,10 +901,93 @@ static inline float readFloat(CCBReader *self)
             [node setValue:ccbFile forKey:name];
         }
     }
+    else if(type == kCCBPropTypeNodeReference)
+    {
+        int uuid = readIntWithSign(self, NO);
+        CCNode * mappedNode = nodeMapping[@(uuid)];
+        NSAssert(mappedNode != nil, @"CCBReader: Failed to find node UUID:%i", uuid);
+        [node setValue:mappedNode forKey:name];
+    }
+    else if(type == kCCBPropTypeFloatCheck)
+    {
+        float f = readFloat(self);
+        bool enabled = readBool(self);
+        
+        [node setValue:@(enabled) forKey:[NSString stringWithFormat:@"%@Enabled",name]];
+        if(enabled)
+        {
+            [node setValue:@(f) forKey:name];
+        }
+    }
     else
     {
-        NSLog(@"CCBReader: Failed to read property type %d",type);
+        NSAssert(false, @"[PROPERTY] %@ - Failed to read property type %d, node class name: \"%@\", name: \"%@\", in ccb file: \"%@\"", name, type, [node class], [node name], _currentCCBFile);
     }
+}
+
+- (BOOL)isPropertyKeySettable:(NSString *)key onInstance:(id)instance
+{
+    if (!key || !instance || ([key length] == 0))
+    {
+        return NO;
+    }
+
+    NSString *firstCharacterOfKey = [[key substringWithRange:NSMakeRange(0, 1)] uppercaseString];
+    NSString *uppercaseKey = [key stringByReplacingCharactersInRange:NSMakeRange(0, 1) withString:firstCharacterOfKey];
+    NSString *setterName = [NSString stringWithFormat:@"set%@", uppercaseKey];
+
+    if ([instance respondsToSelector:NSSelectorFromString(setterName)])
+    {
+        return YES;
+    }
+
+    NSArray *setOfDirectlySettableIvarNames = @[[NSString stringWithFormat:@"_%@", key],
+                                                [NSString stringWithFormat:@"_is%@", uppercaseKey],
+                                                key,
+                                                [NSString stringWithFormat:@"is%@", uppercaseKey]];
+
+    return [self doesIvarNameExistInClassHierarchy:[instance class] searchForIvarNames:setOfDirectlySettableIvarNames];
+}
+
+- (BOOL)doesIvarNameExistInClassHierarchy:(Class)class searchForIvarNames:(NSArray *)searchedIvarNames
+{
+    if ([class accessInstanceVariablesDirectly])
+    {
+        NSArray *ivarNames = [self getIvarNamesOfClass:class];
+
+        for (NSString *ivarName in ivarNames)
+        {
+            if ([searchedIvarNames containsObject:ivarName])
+            {
+                return YES;
+            }
+        }
+    }
+
+    Class superClass = class_getSuperclass(class);
+    if (superClass)
+    {
+        return [self doesIvarNameExistInClassHierarchy:superClass searchForIvarNames:searchedIvarNames];
+    }
+
+    return NO;
+}
+
+- (NSArray *)getIvarNamesOfClass:(Class)class
+{
+    NSMutableArray *result = [NSMutableArray array];
+    unsigned int iVarCount;
+
+    Ivar *vars = class_copyIvarList(class, &iVarCount);
+    for (int i = 0; i < iVarCount; i++)
+    {
+        Ivar var = vars[i];
+        NSString *ivarName = [NSString stringWithCString:ivar_getName(var) encoding:NSUTF8StringEncoding];
+        [result addObject:ivarName];
+    }
+    free(vars);
+
+    return result;
 }
 
 - (CCBKeyframe*) readKeyframeOfType:(int)type
@@ -780,13 +1060,181 @@ static inline float readFloat(CCBReader *self)
 }
 
 - (void) didLoadFromCCB
-{}
+{
+}
+
+-(void)readJoints
+{
+    int numJoints = readIntWithSign(self, NO);
+    
+    for (int i =0; i < numJoints; i++)
+    {
+        [self readJoint];
+    }
+}
+
+
+-(void)readJoint
+{
+    
+    CCPhysicsJoint * joint = nil;
+    NSString* className = [self readCachedString];
+
+    int propertyCount = readIntWithSign(self,NO);
+    
+    NSMutableDictionary * properties = [NSMutableDictionary dictionary];
+    for (int i =0; i < propertyCount; i++)
+    {
+        //Hack to extract the properties serialized. the dictionary is Not a node.
+        [self readPropertyForNode:(CCNode*)properties parent:nil isExtraProp:NO];
+    }
+    
+    CCNode * nodeBodyA = properties[@"bodyA"];
+    CCNode * nodeBodyB = properties[@"bodyB"];
+    
+    float breakingForce = [properties[@"breakingForceEnabled"] boolValue] ? [properties[@"breakingForce"] floatValue] : INFINITY;
+    float maxForce = [properties[@"maxForceEnabled"] boolValue] ? [properties[@"maxForce"] floatValue] : INFINITY;
+    bool  collideBodies = [properties[@"collideBodies"] boolValue];
+    float referenceAngle = [properties[@"referenceAngle"] floatValue];
+    referenceAngle = CC_DEGREES_TO_RADIANS(referenceAngle);
+    
+    if([className isEqualToString:@"CCPhysicsPivotJoint"])
+    {
+        if([properties[@"motorEnabled"] boolValue])
+        {
+            float motorRate = properties[@"motorRate"] ? [properties[@"motorRate"]  floatValue] : 1.0f;
+            CCPhysicsJoint * motorJoint = [CCPhysicsJoint connectedMotorJointWithBodyA:nodeBodyA.physicsBody bodyB:nodeBodyB.physicsBody rate:motorRate];
+            
+            float maxMotorForce = [properties[@"motorMaxForceEnabled"] boolValue] ? [properties[@"motorMaxForce"] floatValue] : INFINITY;
+
+            motorJoint.maxForce = maxMotorForce;
+            motorJoint.breakingForce = breakingForce;
+            motorJoint.collideBodies = collideBodies;
+        }
+        
+        if([properties[@"dampedSpringEnabled"] boolValue])
+        {
+            float   restAngle = properties[@"dampedSpringRestAngle"] ?  [properties[@"dampedSpringRestAngle"]  floatValue] : 0.0f;
+            restAngle = CC_DEGREES_TO_RADIANS(restAngle);
+            float   stiffness = properties[@"dampedSpringStiffness"] ? [properties[@"dampedSpringStiffness"] floatValue] : 1.0f;
+            stiffness *= 1000.0f;
+            float   damping = properties[@"dampedSpringDamping"] ? [properties[@"dampedSpringDamping"] floatValue] : 4.0f;
+            damping *= 100.0f;
+
+            CCPhysicsJoint * rotarySpringJoint = [CCPhysicsJoint connectedRotarySpringJointWithBodyA:nodeBodyA.physicsBody bodyB:nodeBodyB.physicsBody restAngle:restAngle stifness:stiffness damping:damping];
+            
+            rotarySpringJoint.maxForce = maxForce;
+            rotarySpringJoint.breakingForce = breakingForce;
+            rotarySpringJoint.collideBodies = collideBodies;
+        }
+        
+        
+        if([properties[@"limitEnabled"] boolValue])
+        {
+            float   limitMax = properties[@"limitMax"] ? [properties[@"limitMax"]  floatValue] : 90.0f;
+            limitMax = CC_DEGREES_TO_RADIANS(limitMax);
+            
+            float   limitMin = properties[@"limitMin"] ? [properties[@"limitMin"] floatValue] : 0;
+            limitMin = CC_DEGREES_TO_RADIANS(limitMin);
+            
+            CCPhysicsJoint * limitJoint = [CCPhysicsJoint connectedRotaryLimitJointWithBodyA:nodeBodyA.physicsBody bodyB:nodeBodyB.physicsBody min:limitMin max:limitMax];
+            
+            limitJoint.maxForce = maxForce;
+            limitJoint.breakingForce = breakingForce;
+            limitJoint.collideBodies = collideBodies;
+        }
+            
+        if([properties[@"ratchetEnabled"] boolValue])
+        {
+            float ratchetValue = properties[@"ratchetValue"] ? [properties[@"ratchetValue"]  floatValue] : 30.0f;
+            ratchetValue = CC_DEGREES_TO_RADIANS(ratchetValue);
+            float ratchetPhase = properties[@"ratchetPhase"] ? [properties[@"ratchetPhase"]  floatValue] : 0.0f;
+            ratchetPhase = CC_DEGREES_TO_RADIANS(ratchetPhase);
+            
+            CCPhysicsJoint * ratchetJoint = [CCPhysicsJoint connectedRatchetJointWithBodyA:nodeBodyA.physicsBody bodyB:nodeBodyB.physicsBody phase:ratchetPhase ratchet:ratchetValue];
+            
+            ratchetJoint.maxForce = maxForce;
+            ratchetJoint.breakingForce = breakingForce;
+            ratchetJoint.collideBodies = collideBodies;
+    
+        }
+        
+        CGPoint anchorA = [properties[@"anchorA"] CGPointValue];
+        joint = [CCPhysicsJoint connectedPivotJointWithBodyA:nodeBodyA.physicsBody bodyB:nodeBodyB.physicsBody anchorA:anchorA];
+        
+    }
+    else if([className isEqualToString:@"CCPhysicsSpringJoint"])
+    {
+		CGPoint anchorA = [properties[@"anchorA"] CGPointValue];
+        CGPoint anchorB = [properties[@"anchorB"] CGPointValue];
+		
+		CGPoint anchoAWorldPos = [nodeBodyA convertToWorldSpace:anchorA];
+        CGPoint anchoBWorldPos = [nodeBodyB convertToWorldSpace:anchorB];
+        float distance =  ccpDistance(anchoAWorldPos, anchoBWorldPos);
+        
+		BOOL    restLengthEnabled = [properties[@"restLengthEnabled"] boolValue];
+        float   restLength = restLengthEnabled?  [properties[@"restLength"] floatValue] : distance;
+
+        float   stiffness = [properties[@"stiffness"] floatValue];
+        float   damping = [properties[@"damping"] floatValue];
+        
+        joint = [CCPhysicsJoint connectedSpringJointWithBodyA:nodeBodyA.physicsBody bodyB:nodeBodyB.physicsBody anchorA:anchorA anchorB:anchorB restLength:restLength stiffness:stiffness damping:damping];
+
+        
+    }
+    else if([className isEqualToString:@"CCPhysicsPinJoint"])
+    {
+        CGPoint anchorA = [properties[@"anchorA"] CGPointValue];
+        CGPoint anchorB = [properties[@"anchorB"] CGPointValue];
+        
+        BOOL minEnabled = [properties[@"minDistanceEnabled"] boolValue];
+        BOOL maxEnabled = [properties[@"maxDistanceEnabled"] boolValue];
+        
+        CGPoint anchoAWorldPos = [nodeBodyA convertToWorldSpace:anchorA];
+        CGPoint anchoBWorldPos = [nodeBodyB convertToWorldSpace:anchorB];
+        
+        float distance =  ccpDistance(anchoAWorldPos, anchoBWorldPos);
+        
+        float minDistance = minEnabled ? [properties[@"minDistance"] floatValue] : distance;
+        float maxDistance = maxEnabled ? [properties[@"maxDistance"] floatValue] : distance;
+        
+        if(maxEnabled || minEnabled)
+        {
+            joint =  [CCPhysicsJoint connectedDistanceJointWithBodyA:nodeBodyA.physicsBody bodyB:nodeBodyB.physicsBody anchorA:anchorA anchorB:anchorB minDistance:minDistance maxDistance:maxDistance];
+        }
+        else
+        {
+            joint =  [CCPhysicsJoint connectedDistanceJointWithBodyA:nodeBodyA.physicsBody bodyB:nodeBodyB.physicsBody anchorA:anchorA anchorB:anchorB];
+        }
+    }
+    else
+    {
+        return;
+    }
+    joint.maxForce = maxForce;
+    joint.breakingForce = breakingForce;
+    joint.collideBodies = collideBodies;
+    [joint resetScale:NodeToPhysicsScale(nodeBodyA).x];
+    
+}
+
+-(CCNode*) nodeFromClassName:(NSString*)nodeClassName
+{
+    Class nodeClass = NSClassFromString(nodeClassName);
+    if (nodeClass == nil)
+    {
+		NSAssert(nil, @"CCBReader: Could not create class named: %@", nodeClassName);
+        return nil;
+    }
+	
+	CCNode* node = [[nodeClass alloc] init];
+	return node;
+}
 
 - (CCNode*) readNodeGraphParent:(CCNode*)parent
 {
-    // Read class
     NSString* className = [self readCachedString];
-    
+  
     // Read assignment type and name
     int memberVarAssignmentType = readIntWithSign(self, NO);
     NSString* memberVarAssignmentName = NULL;
@@ -798,13 +1246,21 @@ static inline float readFloat(CCBReader *self)
     Class class = NSClassFromString(className);
     if (!class)
     {
-        NSAssert(false,@"CCBReader: Could not create class of type %@",className);
+#if DEBUG
+        NSLog(@"*** [CLASS] ERROR HINT: Did you set a custom class for a CCNode? Please check if the specified class name is spelled correctly and available in your project.");
+#endif
+        NSAssert(nil, @"[CLASS] Could not create class named: \"%@\". in CCB file: \"%@\"", className, _currentCCBFile);
         return NULL;
     }
     CCNode* node = [[class alloc] init];
     
     // Set root node
     if (!animationManager.rootNode) animationManager.rootNode = node;
+    
+    if(animationManager.fixedTimestep)
+    {
+        node.actionManager = [CCDirector sharedDirector].actionManagerFixed;
+    }
     
     // Read animated properties
     NSMutableDictionary* seqs = [NSMutableDictionary dictionary];
@@ -832,6 +1288,13 @@ static inline float readFloat(CCBReader *self)
             {
                 CCBKeyframe* keyframe = [self readKeyframeOfType:seqProp.type];
                 
+				if(k==0 && keyframe.time > 0.0f)
+				{
+					CCBKeyframe * copyKeyframe = [keyframe copy];
+					copyKeyframe.time = 0.0f;
+					[seqProp.keyframes addObject:copyKeyframe];
+				}
+                
                 [seqProp.keyframes addObject:keyframe];
             }
             
@@ -847,6 +1310,11 @@ static inline float readFloat(CCBReader *self)
     }
     
     // Read properties
+    NSUInteger uuid = readIntWithSign(self, NO);
+    if(uuid != 0x0)
+    {
+        nodeMapping[@(uuid)] = node;
+    }
     int numRegularProps = readIntWithSign(self, NO);
     int numExtraProps = readIntWithSign(self, NO);
     int numProps = numRegularProps + numExtraProps;
@@ -908,37 +1376,80 @@ static inline float readFloat(CCBReader *self)
     BOOL hasPhysicsBody = readBool(self);
     if (hasPhysicsBody)
     {
-#ifdef __CC_PLATFORM_IOS
+//#ifdef __CC_PLATFORM_IOS
 			// Read body shape
         int bodyShape = readIntWithSign(self, NO);
         float cornerRadius = readFloat(self);
-#endif
-        // Read points
-        int numPoints = readIntWithSign(self, NO);
-        CGPoint* points = malloc(sizeof(CGPoint)*numPoints);
-        for (int i = 0; i < numPoints; i++)
-        {
-            float x = readFloat(self);
-            float y = readFloat(self);
-            
-            points[i] = ccp(x, y);
-        }
-        
-#ifdef __CC_PLATFORM_IOS
+
         // Create body
         CCPhysicsBody* body = NULL;
         
         if (bodyShape == 0)
         {
-            body = [CCPhysicsBody bodyWithPolygonFromPoints:points count:numPoints cornerRadius:cornerRadius];
+            
+            
+            int numPolygons = readIntWithSign(self, NO);
+            
+            
+            //Read Shapes from binary
+            typedef struct
+            {
+                CGPoint * polygon;
+                int numPoints;
+            } PolygonPtr;
+            
+            PolygonPtr * polygons =malloc(sizeof(PolygonPtr)*numPolygons);
+            
+            for(int j = 0; j < numPolygons; j++)
+            {
+                // Read points
+                int numPoints = readIntWithSign(self, NO);
+                CGPoint* points = malloc(sizeof(CGPoint)*numPoints);
+                for (int i = 0; i < numPoints; i++)
+                {
+                    float x = readFloat(self);
+                    float y = readFloat(self);
+                    
+                    points[i] = ccp(x, y);
+                }
+                
+                polygons[j].polygon = points;
+                polygons[j].numPoints = numPoints;
+                
+            }
+            
+            // INit CCPhysicsShape.
+            NSMutableArray * shapes = [NSMutableArray array];
+            for (int i=0; i < numPolygons; i++)
+            {
+                CCPhysicsShape * shape = [CCPhysicsShape polygonShapeWithPoints:polygons[i].polygon count:polygons[i].numPoints cornerRadius:cornerRadius];
+                [shapes addObject:shape];
+            }
+            //Construct body.
+            body = [CCPhysicsBody bodyWithShapes:shapes];
+           
+            
+            //Cleanup.
+            for (int i=0; i < numPolygons; i++)
+            {
+                free(polygons[i].polygon);
+            }
+            
+            free(polygons);
+
+        
         }
         else if (bodyShape == 1)
         {
-            if (numPoints > 0)
-                body = [CCPhysicsBody bodyWithCircleOfRadius:cornerRadius andCenter:points[0]];
+            float x = readFloat(self);
+            float y = readFloat(self);
+            
+            CGPoint point = ccp(x, y);
+
+            body = [CCPhysicsBody bodyWithCircleOfRadius:cornerRadius andCenter:point];
         }
-        NSAssert(body, @"Unknown body shape");
-        
+        NSAssert(body, @"[PHYSICS] Unknown body shape %i, class name \"%@\", in CCB file: \"%@\"", bodyShape, className, _currentCCBFile);
+
         BOOL dynamic = readBool(self);
         BOOL affectedByGravity = readBool(self);
         BOOL allowsRotation = readBool(self);
@@ -950,6 +1461,10 @@ static inline float readFloat(CCBReader *self)
         float friction = readFloat(self);
         float elasticity = readFloat(self);
         
+        NSString * collisionType = [self readCachedString];
+        NSString * collisionCategories = [self readCachedString];
+        NSString * collisionMask = [self readCachedString];
+        
         if (dynamic)
         {
             body.affectedByGravity = affectedByGravity;
@@ -960,9 +1475,26 @@ static inline float readFloat(CCBReader *self)
         body.friction = friction;
         body.elasticity = elasticity;
         
+        body.collisionType = collisionType;
+        
+        NSArray * masks = nil;
+        if(![collisionMask isEqualToString:@""])
+        {
+            masks = [collisionMask componentsSeparatedByString:@";"];
+        }
+        
+        NSArray * categories= nil;
+        if(![collisionCategories isEqualToString:@""])
+        {
+            categories = [collisionCategories componentsSeparatedByString:@";"];
+        }
+
+        body.collisionMask = masks;
+        body.collisionCategories = categories;
+        
         node.physicsBody = body;
-#endif
-        free(points);
+//#endif
+
     }
     
     // Read and add children
@@ -970,7 +1502,9 @@ static inline float readFloat(CCBReader *self)
     for (int i = 0; i < numChildren; i++)
     {
         CCNode* child = [self readNodeGraphParent:node];
-        [node addChild:child];
+		if (child) {
+			[node addChild:child];
+		}
     }
     
     
@@ -1049,6 +1583,8 @@ static inline float readFloat(CCBReader *self)
     NSMutableArray* sequences = animationManager.sequences;
     
     int numSeqs = readIntWithSign(self, NO);
+    bool hasPhysicsBodies = readBool(self);
+    bool hasPhysicsNodes  = readBool(self);
     
     for (int i = 0; i < numSeqs; i++)
     {
@@ -1065,6 +1601,7 @@ static inline float readFloat(CCBReader *self)
     }
     
     animationManager.autoPlaySequenceId = readIntWithSign(self, YES);
+    animationManager.fixedTimestep = hasPhysicsBodies || hasPhysicsNodes;
     return YES;
 }
 
@@ -1094,10 +1631,10 @@ static inline float readFloat(CCBReader *self)
     if (magic != CHAR4('c', 'c', 'b', 'i')) return NO;
     
     // Read version
-    int version = readIntWithSign(self, NO);
+    int version = readIntWithSignOLD(self, NO);
     if (version != kCCBVersion)
     {
-        NSLog(@"CCBReader: Incompatible ccbi file version (file: %d reader: %d)",version,kCCBVersion);
+		[NSException raise:NSInternalInconsistencyException format:@"CCBReader: Incompatible ccbi file version (file: %d reader: %d)",version,kCCBVersion];
         return NO;
     }
     
@@ -1123,6 +1660,7 @@ static inline float readFloat(CCBReader *self)
     actionManagers = am;
     
     CCNode* node = [self readNodeGraphParent:NULL];
+    [self readJoints];
     
     [actionManagers setObject:self.animationManager forKey:[NSValue valueWithPointer:(__bridge const void *)(node)]];
     
@@ -1162,7 +1700,7 @@ static inline float readFloat(CCBReader *self)
     
     NSMutableDictionary* animationManagers = [NSMutableDictionary dictionary];
     CCNode* nodeGraph = [self readFileWithCleanUp:YES actionManagers:animationManagers];
-    
+
     if (nodeGraph && self.animationManager.autoPlaySequenceId != -1)
     {
         // Auto play animations
@@ -1173,8 +1711,9 @@ static inline float readFloat(CCBReader *self)
     {
         CCNode* node = [pointerValue pointerValue];
         
-        CCBAnimationManager* manager = [animationManagers objectForKey:pointerValue];
-        node.userObject = manager;
+        CCAnimationManager* manager = [animationManagers objectForKey:pointerValue];
+        node.animationManager = manager;
+        node.userObject = manager;//Backwards Compatible.
     }
     
     // Call didLoadFromCCB
@@ -1190,7 +1729,9 @@ static inline float readFloat(CCBReader *self)
     
     NSString* path = [[CCFileUtils sharedFileUtils] fullPathForFilename:file];
     NSData* d = [NSData dataWithContentsOfFile:path];
-    
+
+    self.currentCCBFile = file;
+
     return [self loadWithData:d owner:(id)o];
 }
 
@@ -1213,6 +1754,13 @@ static inline float readFloat(CCBReader *self)
 
 + (CCBReader*) reader
 {
+	// if available, create an instance of Sprite Kit Reader class instead
+	Class spriteKitReaderClass = NSClassFromString(@"CCBSpriteKitReader");
+	if (spriteKitReaderClass)
+	{
+		return [[spriteKitReaderClass alloc] init];
+	}
+	
     return [[CCBReader alloc] init];
 }
 
@@ -1241,6 +1789,11 @@ static inline float readFloat(CCBReader *self)
     return [CCBReader sceneWithNodeGraphFromFile:file owner:owner parentSize:[CCDirector sharedDirector].designSize];
 }
 
+-(CCScene*) createScene
+{
+	return [CCScene node];
+}
+
 + (CCScene*) sceneWithNodeGraphFromFile:(NSString *)file owner:(id)owner parentSize:(CGSize)parentSize
 {
     CCNode* node = [CCBReader load:file owner:owner parentSize:parentSize];
@@ -1258,6 +1811,16 @@ static inline float readFloat(CCBReader *self)
 {
     NSArray *searchPaths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     return [[searchPaths objectAtIndex:0] stringByAppendingPathComponent:@"ccb"];
+}
+
++(void) setSceneSize:(CGSize)sceneSize
+{
+	[[CCBReader reader] setSceneSize:sceneSize];
+}
+
+-(void) setSceneSize:(CGSize)sceneSize
+{
+	// does nothing, only needed for CCBSpriteKitReader
 }
 
 @end

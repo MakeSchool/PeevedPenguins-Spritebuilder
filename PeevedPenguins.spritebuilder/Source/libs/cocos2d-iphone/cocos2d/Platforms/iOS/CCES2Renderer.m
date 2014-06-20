@@ -34,7 +34,7 @@
 
 #import "CCES2Renderer.h"
 
-#import "../../Support/OpenGL_Internal.h"
+#import "../CCGL.h"
 #import "../../ccMacros.h"
 
 @implementation CCES2Renderer
@@ -67,10 +67,8 @@
 
         // Create default framebuffer object. The backing will be allocated for the current layer in -resizeFromLayer
         glGenFramebuffers(1, &_defaultFramebuffer);
-		NSAssert( _defaultFramebuffer, @"Can't create default frame buffer");
 
         glGenRenderbuffers(1, &_colorRenderbuffer);
-		NSAssert( _colorRenderbuffer, @"Can't create default render buffer");
 
         glBindFramebuffer(GL_FRAMEBUFFER, _defaultFramebuffer);
         glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderbuffer);
@@ -84,12 +82,11 @@
 			
 			/* Create the MSAA framebuffer (offscreen) */
 			glGenFramebuffers(1, &_msaaFramebuffer);
-			NSAssert( _msaaFramebuffer, @"Can't create default MSAA frame buffer");
 			glBindFramebuffer(GL_FRAMEBUFFER, _msaaFramebuffer);
 			
 		}
 
-		CHECK_GL_ERROR_DEBUG();
+		CC_CHECK_GL_ERROR_DEBUG();
     }
 
     return self;
@@ -121,7 +118,6 @@
 		//msaaFrameBuffer needs to be binded
 		glBindFramebuffer(GL_FRAMEBUFFER, _msaaFramebuffer);
 		glGenRenderbuffers(1, &_msaaColorbuffer);
-		NSAssert(_msaaFramebuffer, @"Can't create MSAA color buffer");
 		
 		glBindRenderbuffer(GL_RENDERBUFFER, _msaaColorbuffer);
 		
@@ -137,13 +133,12 @@
 		}
 	}
 
-	CHECK_GL_ERROR();
+	CC_CHECK_GL_ERROR_DEBUG();
 
 	if (_depthFormat)
 	{
 		if( ! _depthBuffer ) {
 			glGenRenderbuffers(1, &_depthBuffer);
-			NSAssert(_depthBuffer, @"Can't create depth buffer");
 		}
 
 		glBindRenderbuffer(GL_RENDERBUFFER, _depthBuffer);
@@ -163,7 +158,7 @@
 		glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderbuffer);		
 	}
 
-	CHECK_GL_ERROR();
+	CC_CHECK_GL_ERROR_DEBUG();
 
 	GLenum error;
 	if( (error=glCheckFramebufferStatus(GL_FRAMEBUFFER)) != GL_FRAMEBUFFER_COMPLETE)

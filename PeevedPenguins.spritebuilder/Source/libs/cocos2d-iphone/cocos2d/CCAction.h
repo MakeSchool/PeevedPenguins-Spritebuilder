@@ -44,8 +44,8 @@ enum {
  *
  */
 @interface CCAction : NSObject <NSCopying> {
-	id			__unsafe_unretained _originalTarget;
-	id			__unsafe_unretained _target;
+	id			__weak _originalTarget;
+	id			__weak _target;
 	NSInteger	_tag;
 }
 
@@ -60,10 +60,10 @@ enum {
  *  When the 'stop' method is called, target will be set to nil.
  *  The target is 'assigned', it is not 'retained'.
  */
-@property (nonatomic,readonly,unsafe_unretained) id target;
+@property (nonatomic,readonly,weak) id target;
 
 /** The original target, since target can be nil. */
-@property (nonatomic,readonly,unsafe_unretained) id originalTarget;
+@property (nonatomic,readonly,weak) id originalTarget;
 
 /** The action tag. An identifier of the action. */
 @property (nonatomic,readwrite,assign) NSInteger tag;
