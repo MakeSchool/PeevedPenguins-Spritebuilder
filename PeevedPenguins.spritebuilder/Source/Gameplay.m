@@ -15,12 +15,8 @@
   CCNode *_catapultArm;
   CCNode *_levelNode;
   CCNode *_contentNode;
-  CCNode *_catapult;
-  CCPhysicsJoint *_catapultJoint;
 
   CCNode *_pullbackNode;
-  CCPhysicsJoint *_pullbackJoint;
-
   CCNode *_mouseJointNode;
   CCPhysicsJoint *_mouseJoint;
 
@@ -36,14 +32,9 @@ static const float MIN_SPEED = 5.f;
 
 // is called when CCB file has completed loading
 - (void)didLoadFromCCB {
-  // catapultArm and catapult shall not collide
-  [_catapultArm.physicsBody setCollisionGroup:_catapult];
-  [_catapult.physicsBody setCollisionGroup:_catapult];
-
   // nothing shall collide with our invisible nodes
-  _pullbackNode.physicsBody.collisionMask = @[];
   _mouseJointNode.physicsBody.collisionMask = @[];
-
+  _pullbackNode.physicsBody.collisionMask = @[];
   // tell this scene to accept touches
   self.userInteractionEnabled = YES;
 
@@ -52,14 +43,8 @@ static const float MIN_SPEED = 5.f;
   [_levelNode addChild:level];
 
   // visualize physic bodies & joints
-  //    _physicsNode.debugDraw = YES;
+//  _physicsNode.debugDraw = YES;
   _physicsNode.collisionDelegate = self;
-
-  // create a joint to connect the catapult arm with the catapult
-  _catapultJoint = [CCPhysicsJoint connectedPivotJointWithBodyA:_catapultArm.physicsBody bodyB:_catapult.physicsBody anchorA:_catapultArm.anchorPointInPoints];
-
-  // create a spring joint for bringing arm in upright position and snapping back when player shoots
-  _pullbackJoint = [CCPhysicsJoint connectedSpringJointWithBodyA:_pullbackNode.physicsBody bodyB:_catapultArm.physicsBody anchorA:ccp(0, 0) anchorB:ccp(34, 138) restLength:60.f stiffness:500.f damping:40.f];
 }
 
 #pragma mark - Game Actions
@@ -99,8 +84,7 @@ static const float MIN_SPEED = 5.f;
   [seal.parent addChild:explosion];
   // make the particle effect clean itself up, once it is completed
   explosion.autoRemoveOnFinish = YES;
-
-
+  
   // finally, remove the destroyed seal
   [seal removeFromParent];
 }
