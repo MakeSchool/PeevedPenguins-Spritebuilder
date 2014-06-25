@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>cocos2dUpdateIgnoredVersions</key>
-	<array/>
+	<array>
+		<string>3.1.1</string>
+	</array>
 	<key>defaultOrientation</key>
 	<integer>0</integer>
 	<key>designTarget</key>
@@ -176,8 +178,8 @@
 		</dict>
 	</dict>
 	<key>versionStr</key>
-	<string>Version: 1.1.0-rc
-GitHub: 12746019b4
+	<string>Version: 1.1.0
+GitHub: d058712eaf
 </string>
 </dict>
 </plist>
