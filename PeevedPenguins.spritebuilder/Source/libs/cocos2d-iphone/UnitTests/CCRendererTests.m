@@ -10,6 +10,12 @@
 
 #import "CCRenderer_private.h"
 
+
+@interface NSValue()
+-(size_t)CCRendererSizeOf;
+@end
+
+
 @interface CCRendererTests : XCTestCase
 @end
 
@@ -81,5 +87,39 @@
 		XCTAssertEqual([CCBlendMode multiplyMode], mode, @"");
 	}
 }
+
+-(void)testRenderStateCacheFlush
+{
+	__weak CCRenderState *renderState = nil;
+	
+	@autoreleasepool {
+		CCBlendMode *mode = [CCBlendMode alphaMode];
+		CCShader *shader = [CCShader positionColorShader];
+		CCTexture *texture = [CCTexture textureWithFile:@"Images/grossini_dance_01.png"];
+		
+		renderState = [CCRenderState renderStateWithBlendMode:mode shader:shader mainTexture:texture];
+		XCTAssertNotNil(renderState, @"Render state was not created.");
+	}
+	
+	[CCRenderState flushCache];
+	
+	XCTAssertNil(renderState, @"Render state was not released.");
+}
+
+-(void)testNSValueSizeOf
+{
+	GLKVector2 v2 = {};
+	GLKVector3 v3 = {};
+	GLKVector4 v4 = {};
+	GLKMatrix4 m4 = {};
+	CCGlobalUniforms globals = {};
+	
+	XCTAssertEqual(sizeof(v2), [NSValue valueWithGLKVector2:v2].CCRendererSizeOf, @"");
+	XCTAssertEqual(sizeof(v3), [NSValue valueWithGLKVector3:v3].CCRendererSizeOf, @"");
+	XCTAssertEqual(sizeof(v4), [NSValue valueWithGLKVector4:v4].CCRendererSizeOf, @"");
+	XCTAssertEqual(sizeof(m4), [NSValue valueWithGLKMatrix4:m4].CCRendererSizeOf, @"");
+	XCTAssertEqual(sizeof(globals), [NSValue valueWithBytes:&globals objCType:@encode(CCGlobalUniforms)].CCRendererSizeOf, @"");
+}
+
 
 @end

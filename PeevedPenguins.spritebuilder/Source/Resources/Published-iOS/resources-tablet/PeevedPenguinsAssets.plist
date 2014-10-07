@@ -98,13 +98,13 @@
 		<key>PeevedPenguinsAssets/flyingpenguin.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{539, 1923}, {50, 49}}</string>
+			<string>{{539, 1923}, {50, 50}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>rotated</key>
-			<true/>
+			<false/>
 			<key>sourceColorRect</key>
-			<string>{{0, 0}, {50, 49}}</string>
+			<string>{{0, 0}, {50, 50}}</string>
 			<key>sourceSize</key>
 			<string>{50, 50}</string>
 		</dict>
@@ -163,7 +163,7 @@
 		<key>PeevedPenguinsAssets/squareblock.png</key>
 		<dict>
 			<key>frame</key>
-			<string>{{590, 1923}, {49, 48}}</string>
+			<string>{{591, 1923}, {49, 48}}</string>
 			<key>offset</key>
 			<string>{0, 0}</string>
 			<key>rotated</key>
