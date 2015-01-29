@@ -30,15 +30,19 @@
 #import "CCActionInstant.h"
 #import "CCResponderManager.h"
 #import "CCTouch.h"
+
+
 #if __CC_PLATFORM_IOS
 
-// Includes for iOS
-//#import "PlatformTouch+CC.h"
 #import <UIKit/UIGestureRecognizerSubclass.h>
+
 #elif __CC_PLATFORM_ANDROID
+
 #import "CCActivity.h"
 #import "CCGestureListener.h"
-// Includes for Mac
+#import <AndroidKit/AndroidGestureDetector.h>
+#import <AndroidKit/AndroidMotionEvent.h>
+
 #elif __CC_PLATFORM_MAC
 
 #endif
@@ -62,6 +66,7 @@
 #pragma mark Helper classes
 
 #if __CC_PLATFORM_IOS
+
 @interface CCTapDownGestureRecognizer : UIGestureRecognizer
 @end
 
@@ -213,7 +218,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         _listener = [[CCGestureListener alloc] init];
         _listener.delegate = (id<CCGestureListenerDelegate>)self;
-        _detector = [[AndroidGestureDetector alloc] initWithContext:[CCActivity currentActivity] listener:_listener];
+        _detector = [[AndroidGestureDetector alloc] initWithContext:[CCActivity currentActivity] onGestureListener:_listener];
     });
 #elif __CC_PLATFORM_MAC
     
@@ -330,7 +335,7 @@
     if (!_pagingEnabled) return 0;
     if (!self.contentSizeInPoints.width || !_contentNode.contentSizeInPoints.width) return 0;
     
-    return _contentNode.contentSizeInPoints.width / self.contentSizeInPoints.width;
+    return roundf(_contentNode.contentSizeInPoints.width / self.contentSizeInPoints.width);
 }
 
 - (int) numVerticalPages
@@ -338,7 +343,7 @@
     if (!_pagingEnabled) return 0;
     if (!self.contentSizeInPoints.height || !_contentNode.contentSizeInPoints.height) return 0;
     
-    return _contentNode.contentSizeInPoints.height / self.contentSizeInPoints.height;
+    return roundf(_contentNode.contentSizeInPoints.height / self.contentSizeInPoints.height);
 }
 
 #pragma mark Panning and setting position
@@ -413,7 +418,7 @@
 - (void)updateAndroidScrollTranslation:(CGPoint)worldPosition
 {
 #if __CC_PLATFORM_ANDROID
-    _rawScrollTranslation = [self convertToWindowSpace:worldPosition];
+    _rawScrollTranslation = [self convertToWindowSpace:CGPointMake(-worldPosition.x, worldPosition.y)];
 #endif
 }
 
@@ -501,7 +506,7 @@
             
             _contentNode.position = ccpAdd(_contentNode.position, delta);
             
-            [self updateAndroidScrollTranslation:CGPointMake(_contentNode.position.x, _contentNode.position.y * -1)];
+            [self updateAndroidScrollTranslation:CGPointMake(_contentNode.position.x * -1, _contentNode.position.y * -1)];
 
             // Deaccelerate layer
             float deaccelerationX = kCCScrollViewDeacceleration;
@@ -863,7 +868,7 @@
     dx /= scaleFactor;
     dy /= scaleFactor;
 
-    _rawScrollTranslation.x += dx;
+    _rawScrollTranslation.x -= dx;
     _rawScrollTranslation.y -= dy;
     
     CCDirector* dir = [CCDirector sharedDirector];

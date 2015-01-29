@@ -29,7 +29,8 @@
 #if __CC_PLATFORM_IOS
 #import <UIKit/UIKit.h>		// Needed for UIDevice
 #elif __CC_PLATFORM_ANDROID
-#import <BridgeKitV3/BridgeKit.h> // Needed for AndroidBuild
+#import <AndroidKit/AndroidWindowManager.h>
+#import <AndroidKit/AndroidDisplay.h>
 #endif
 
 #import "Platforms/CCGL.h"
@@ -140,7 +141,8 @@ static char * glExtensions;
 {
 	if(_graphicsAPI == CCGraphicsAPIInvalid){
 #if __CC_METAL_SUPPORTED_AND_ENABLED
-		if(NSProtocolFromString(@"MTLDevice") && !getenv("CC_FORCE_GL")){
+		// Metal is weakly linked. Check that the function exists AND that it returns non-nil.
+		if(MTLCreateSystemDefaultDevice && MTLCreateSystemDefaultDevice() && !getenv("CC_FORCE_GL")){
 			CCGraphicsBufferClass = NSClassFromString(@"CCGraphicsBufferMetal");
 			CCGraphicsBufferBindingsClass = NSClassFromString(@"CCGraphicsBufferBindingsMetal");
 			CCRenderStateClass = NSClassFromString(@"CCRenderStateMetal");
@@ -182,12 +184,13 @@ static char * glExtensions;
 // XXX: Optimization: This should be called only once
 -(NSInteger) runningDevice
 {
-	NSInteger ret=-1;
-
+	// TODO: This method really needs to go very away in v4
+	
 #if __CC_PLATFORM_ANDROID
     
     AndroidDisplayMetrics *metrics = [[AndroidDisplayMetrics alloc] init];
-    [[CCActivity currentActivity].windowManager.defaultDisplay getMetrics:metrics];
+    [[CCActivity currentActivity].windowManager.defaultDisplay metricsForDisplayMetrics:metrics];
+
     double yInches= metrics.heightPixels/metrics.ydpi;
     double xInches= metrics.widthPixels/metrics.xdpi;
     double diagonalInches = sqrt(xInches*xInches + yInches*yInches);
@@ -196,20 +199,20 @@ static char * glExtensions;
         
         if([CCDirector sharedDirector].contentScaleFactor > 1.0)
         {
-            ret = CCDeviceiPhoneRetinaDisplay;
+            return CCDeviceiPhoneRetinaDisplay;
         }
         else
         {
-            ret = CCDeviceiPhone;
+            return CCDeviceiPhone;
         }
     } else {
         if([CCDirector sharedDirector].contentScaleFactor > 1.0)
         {
-            ret = CCDeviceiPadRetinaDisplay;
+            return CCDeviceiPadRetinaDisplay;
         }
         else
         {
-            ret = CCDeviceiPad;
+            return CCDeviceiPad;
         }
 
     }
@@ -217,27 +220,32 @@ static char * glExtensions;
 	
 	if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 	{
-		ret = ([UIScreen mainScreen].scale == 2) ? CCDeviceiPadRetinaDisplay : CCDeviceiPad;
+		return ([UIScreen mainScreen].scale == 2) ? CCDeviceiPadRetinaDisplay : CCDeviceiPad;
 	}
 	else if( UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone )
 	{
-		// From http://stackoverflow.com/a/12535566
-		BOOL isiPhone5 = CGSizeEqualToSize([[UIScreen mainScreen] preferredMode].size,CGSizeMake(640, 1136));
+		CGSize preferredSize = [[UIScreen mainScreen] preferredMode].size;
+		// This code makes me sad. Very glad it's going away in v4.
 		
-		if( [UIScreen mainScreen].scale == 2 ) {
-			ret = isiPhone5 ? CCDeviceiPhone5RetinaDisplay : CCDeviceiPhoneRetinaDisplay;
-		} else
-			ret = isiPhone5 ? CCDeviceiPhone5 : CCDeviceiPhone;
+		if(preferredSize.height == 480){
+			return CCDeviceiPhone;
+		} else if(preferredSize.height == 960){
+			return CCDeviceiPhoneRetinaDisplay;
+		} else if(preferredSize.height == 1136){
+			return CCDeviceiPhone5RetinaDisplay;
+		} else {
+			return ([UIScreen mainScreen].scale == 2 ? CCDeviceiPhone6 : CCDeviceiPhone6Plus);
+		}
 	}
 	
 #elif __CC_PLATFORM_MAC
-	
-	// XXX: Add here support for Mac Retina Display
-	ret = CCDeviceMac;
+    CCDirectorMac *dir = (CCDirectorMac *)[CCDirectorMac sharedDirector];
+    return dir.deviceContentScaleFactor == 1.0 ? CCDeviceMac : CCDeviceMacRetinaDisplay;
 	
 #endif // __CC_PLATFORM_MAC
 	
-	return ret;
+	// This is what it used to do before, but it seems quite wrong...
+	return -1;
 }
 
 #pragma mark OpenGL getters
@@ -421,9 +429,10 @@ static char * glExtensions;
 		printf("cocos2d: OpenGL Rendering enabled.");
 		
 		CCRenderDispatch(NO, ^{
-			printf("cocos2d: GL_VENDOR:   %s\n", glGetString(GL_VENDOR) );
-			printf("cocos2d: GL_RENDERER: %s\n", glGetString ( GL_RENDERER   ) );
-			printf("cocos2d: GL_VERSION:  %s\n", glGetString ( GL_VERSION    ) );
+			printf("cocos2d: GL_VENDOR:    %s\n", glGetString(GL_VENDOR) );
+			printf("cocos2d: GL_RENDERER:  %s\n", glGetString ( GL_RENDERER   ) );
+			printf("cocos2d: GL_VERSION:   %s\n", glGetString ( GL_VERSION    ) );
+			printf("cocos2d: GLSL_VERSION: %s\n", glGetString ( GL_SHADING_LANGUAGE_VERSION ) );
 		});
 		
 		printf("cocos2d: GL_MAX_TEXTURE_SIZE: %d\n", _maxTextureSize);

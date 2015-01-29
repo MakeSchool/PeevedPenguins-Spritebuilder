@@ -31,18 +31,19 @@
 #import "../ccConfig.h"
 #import "../ccTypes.h"
 
-NSString *CCFileUtilsSuffixDefault = @"default";
+NSString * const CCFileUtilsSuffixDefault = @"default";
 
-NSString *CCFileUtilsSuffixiPad = @"ipad";
-NSString *CCFileUtilsSuffixiPadHD = @"ipadhd";
-NSString *CCFileUtilsSuffixiPhone = @"iphone";
-NSString *CCFileUtilsSuffixiPhoneHD = @"iphonehd";
-NSString *CCFileUtilsSuffixiPhone5 = @"iphone5";
-NSString *CCFileUtilsSuffixiPhone5HD = @"iphone5hd";
-NSString *CCFileUtilsSuffixMac = @"mac";
-NSString *CCFileUtilsSuffixMacHD = @"machd";
+NSString * const CCFileUtilsSuffixiPad = @"ipad";
+NSString * const CCFileUtilsSuffixiPadHD = @"ipadhd";
+NSString * const CCFileUtilsSuffixiPhone = @"iphone";
+NSString * const CCFileUtilsSuffixiPhoneHD = @"iphonehd";
+NSString * const CCFileUtilsSuffixiPhone5 = @"iphone5";
+NSString * const CCFileUtilsSuffixiPhone5HD = @"iphone5hd";
+NSString * const CCFileUtilsSuffixMac = @"mac";
+NSString * const CCFileUtilsSuffixMacHD = @"machd";
+NSString * const CCFileUtilsSuffix2x = @"2x";
 
-NSString *kCCFileUtilsDefaultSearchPath = @"";
+NSString * const kCCFileUtilsDefaultSearchPath = @"";
 
 #pragma mark - Helper free functions
 
@@ -179,6 +180,7 @@ static CCFileUtils *fileUtils = nil;
 		_suffixesDict = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
 						 @"", CCFileUtilsSuffixMac,
 						 @"-machd", CCFileUtilsSuffixMacHD,
+						 @"@2x", CCFileUtilsSuffix2x,
 						 @"", CCFileUtilsSuffixDefault,
 						 nil];
 		
@@ -213,7 +215,6 @@ static CCFileUtils *fileUtils = nil;
 - (void) buildSearchResolutionsOrder
 {
 	NSInteger device = [[CCConfiguration sharedConfiguration] runningDevice];
-    
 	[_searchResolutionsOrder removeAllObjects];
 	
 #if __CC_PLATFORM_IOS || __CC_PLATFORM_ANDROID
@@ -234,7 +235,20 @@ static CCFileUtils *fileUtils = nil;
 			[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhoneHD];
 		}
 	}
-	else if (device == CCDeviceiPhone5RetinaDisplay)
+#if __CC_PLATFORM_IOS
+	else if (device == CCDeviceiPhone6Plus)
+	{
+		// Terrible, terrible iPhone 6+ hack.
+		[self setiPadContentScaleFactor:2.0];
+		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPadHD];
+		
+		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhone5HD];
+		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhoneHD];
+		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhone5];
+		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhone];
+	}
+#endif
+	else if (device == CCDeviceiPhone5RetinaDisplay || device == CCDeviceiPhone6)
 	{
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhone5HD];
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixiPhoneHD];
@@ -259,6 +273,7 @@ static CCFileUtils *fileUtils = nil;
 #elif __CC_PLATFORM_MAC
 	if (device == CCDeviceMacRetinaDisplay)
 	{
+		[_searchResolutionsOrder addObject:CCFileUtilsSuffix2x];
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixMacHD];
 		[_searchResolutionsOrder addObject:CCFileUtilsSuffixMac];
 	}
@@ -405,8 +420,10 @@ static CCFileUtils *fileUtils = nil;
 				return 1.0*_macContentScaleFactor;
 			if( [key isEqualToString:CCFileUtilsSuffixMacHD] )
 				return 2.0*_macContentScaleFactor;
+			if( [key isEqualToString:CCFileUtilsSuffix2x] )
+				return 2.0*_macContentScaleFactor;
 			if( [key isEqualToString:CCFileUtilsSuffixDefault] )
-				return 1.0;
+				return 1.0*_macContentScaleFactor;
 #endif // __CC_PLATFORM_MAC
 		}
 	}
@@ -468,6 +485,68 @@ static CCFileUtils *fileUtils = nil;
 	return ret;
 }
 
+- (NSArray *)fullPathsOfFileNameInAllSearchPaths:(NSString *)filename
+{
+    NSMutableArray *result = [NSMutableArray array];
+
+    for (NSString *path in self.searchPath)
+    {
+        NSString *aPath = [path stringByAppendingPathComponent:filename];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+
+        if ([fileManager fileExistsAtPath:aPath])
+        {
+            [result addObject:aPath];
+            continue;
+        }
+
+        NSString *file = [aPath lastPathComponent];
+        NSString *file_path = [aPath stringByDeletingLastPathComponent];
+        // Default to normal resource directory
+        NSString *foundPath = [[NSBundle mainBundle] pathForResource:file
+                                                              ofType:nil
+                                                         inDirectory:file_path];
+        if (foundPath)
+        {
+            [result addObject:aPath];
+        }
+    }
+
+    return result;
+}
+
+- (void)loadAndAddFilenameLookupDictionaryFromFile:(NSString *)filename
+{
+	NSString *fullpath = [self fullPathForFilenameIgnoringResolutions:filename];
+	if( fullpath ) {
+		NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:fullpath];
+
+		NSDictionary *metadata = dict[@"metadata"];
+		NSInteger version = [metadata[@"version"] integerValue];
+		if( version != 1) {
+			CCLOG(@"cocos2d: ERROR: Invalid filenameLookup dictionary version: %ld. Filename: %@", (long)version, filename);
+			return;
+		}
+
+		NSDictionary *filenames = dict[@"filenames"];
+        NSMutableDictionary *newFileLookup = [NSMutableDictionary dictionary];
+        [newFileLookup addEntriesFromDictionary:filenames];
+        [newFileLookup addEntriesFromDictionary:_filenameLookup];
+
+        self.filenameLookup = newFileLookup;
+	}
+}
+
+- (void)loadFileNameLookupsInAllSearchPathsWithName:(NSString *)filename
+{
+    NSArray *paths = [self fullPathsOfFileNameInAllSearchPaths:filename];
+
+    for (NSString *fileLookupFullPath in paths)
+    {
+        [self loadAndAddFilenameLookupDictionaryFromFile:fileLookupFullPath];
+    }
+}
+
 -(NSString*) fullPathForFilename:(NSString*)filename
 {
 	return [self fullPathForFilename:filename contentScale:NULL];
@@ -501,10 +580,10 @@ static CCFileUtils *fileUtils = nil;
 	BOOL found = NO;
 	NSString *ret = @"";
 	
-	for( NSString *path in _searchPath ) {
-		
-		// Search with Suffixes
-		for( NSString *device in _searchResolutionsOrder ) {
+    // Search with Suffixes
+    for( NSString *device in _searchResolutionsOrder ) {
+
+    	for( NSString *path in _searchPath ) {
 
 			NSString *fileWithPath = [path stringByAppendingPathComponent:newfilename];
 			
@@ -606,7 +685,7 @@ static CCFileUtils *fileUtils = nil;
 	}
 }
 
-#if __CC_PLATFORM_IOS
+#if __CC_PLATFORM_IOS || __CC_PLATFORM_ANDROID
 
 -(void) setiPadRetinaDisplaySuffix:(NSString *)suffix
 {

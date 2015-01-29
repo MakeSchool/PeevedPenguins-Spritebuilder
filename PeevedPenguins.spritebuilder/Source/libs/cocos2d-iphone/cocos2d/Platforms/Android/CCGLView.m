@@ -20,7 +20,10 @@
 #import "CCTouchAndroid.h"
 #import <CoreGraphics/CGGeometry.h>
 
-#define IPHONE3G_WIDTH 320.0f
+#import <AndroidKit/AndroidMotionEvent.h>
+#import <AndroidKit/AndroidGestureDetector.h>
+
+static const CGSize FIXED_SIZE = {586, 384};
 
 static NSMutableDictionary *touches = nil;
 static CCTouchEvent *currentEvent = nil;
@@ -29,8 +32,6 @@ static CCTouchEvent *currentEvent = nil;
     NSMutableSet *_gestureDetectors;
 }
 
-@bridge (constructor) initWithContext:;
-@bridge (callback) onTouchEvent: = onTouchEvent;
 
 - (id)initWithContext:(AndroidContext *)context screenMode:(enum CCAndroidScreenMode)screenMode  scaleFactor:(float)scaleFactor
 {
@@ -517,7 +518,9 @@ static inline void logConfig(EGLDisplay display, EGLConfig conf) {
         NSLog(@"eglQuerySurface() returned error %d", eglGetError());
         return NO;
     }
-    
+
+	CCLOG(@"cocos2d: surface size: %dx%d", (int)width, (int)height);
+
     switch (_screenMode)
     {
         case CCNativeScreenMode:
@@ -533,7 +536,7 @@ static inline void logConfig(EGLDisplay display, EGLConfig conf) {
             if (width > height)
                 size = CGSizeMake(height, width);
             
-            _contentScaleFactor = size.width / IPHONE3G_WIDTH;
+            _contentScaleFactor = size.width / FIXED_SIZE.width;
             
             width /= _contentScaleFactor;
             height /= _contentScaleFactor;
@@ -547,11 +550,6 @@ static inline void logConfig(EGLDisplay display, EGLConfig conf) {
             
     }
     
-//    ANativeWindow_setBuffersGeometry(window, width, height, format);
-    
-    if(eglGetError() != EGL_SUCCESS) { NSLog(@"EGL ERROR: %i", eglGetError()); };
-    
-//    eglSwapInterval(_eglDisplay, 0.016667);
     
     if(eglGetError() != EGL_SUCCESS) { NSLog(@"EGL ERROR: %i", eglGetError()); };
     

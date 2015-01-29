@@ -36,8 +36,9 @@
 #import "ARCSafe_MemMgmt.h"
 
 #if __CC_PLATFORM_ANDROID
-#import <BridgeKitV3/AndroidMediaPlayer.h>
-#import <BridgeKitV3/AndroidAssetFileDescriptor.h>
+#import <AndroidKit/AndroidAssetFileDescriptor.h>
+#import <AndroidKit/AndroidAssetManager.h>
+#import <JavaKit/JavaFileDescriptor.h>
 #import "CCActivity.h"
 #endif
 
@@ -329,7 +330,6 @@
     [player setVolume:left rightVolume:right];
 }
 
-@bridge (callback) onCompletion: = onCompletion;
 - (void)onCompletion:(AndroidMediaPlayer *)mp {
     if (mp != player) {
         return;
@@ -750,14 +750,21 @@
         player.pan = pan;
 
 #elif __CC_PLATFORM_ANDROID
-        NSString *path = [url path];
+        NSURL *fullURL = [OALTools urlForPath:[url relativeString]];
+        NSString *path = [fullURL path];
         NSString *bundlePath = [[NSBundle mainBundle] bundlePath];
+        
         if ([path hasPrefix:bundlePath]) {
-            NSInteger bundlePathLength = [bundlePath length] + 1;
+            NSUInteger bundlePathLength = [bundlePath length] + 1;
             path = [path substringWithRange:NSMakeRange(bundlePathLength, [path length] - bundlePathLength)];
         }
+        
+        if (![[NSFileManager defaultManager] fileExistsAtPath:path]){
+            OAL_LOG_ERROR(@"%@ Could not find file at path:%@", self, path);
+            return NO;
+        }
         player = [[AndroidMediaPlayer alloc] init];
-        AndroidAssetFileDescriptor *assetFd = [[[CCActivity currentActivity] assets] openFdWithFileName:path];
+        AndroidAssetFileDescriptor *assetFd = [[[CCActivity currentActivity] assets] openFd:path];
         if (assetFd.fileDescriptor && [assetFd.fileDescriptor valid]) {
             [player reset];
             [player setDataSource:assetFd.fileDescriptor offset:assetFd.startOffset length:assetFd.length];
@@ -770,7 +777,10 @@
             [assetFd close];
         }
 
-        [player setOnCompletionListener:self];
+        __weak id weakSelf = self;
+        [player setOnCompletionListener:[AndroidMediaPlayerOnCompletionListener listenerWithBlock:^(AndroidMediaPlayer *mp) {
+            [weakSelf onCompletion:mp];
+        }]];
 #endif
 		as_release(currentlyLoadedUrl);
 		currentlyLoadedUrl = as_retain(url);
@@ -1139,6 +1149,10 @@
 #pragma mark AVAudioPlayerDelegate
 
 #if TARGET_OS_IPHONE
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 - (void) audioPlayerBeginInterruption:(AVAudioPlayer*) playerIn
 {
 	if([delegate respondsToSelector:@selector(audioPlayerBeginInterruption:)])
@@ -1154,6 +1168,8 @@
 		[delegate audioPlayerEndInterruption:playerIn withOptions:flags];
 	}
 }
+
+#pragma clang diagnostic pop
 
 #if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_6_0
 - (void)audioPlayerEndInterruption:(AVAudioPlayer *)playerIn withFlags:(NSUInteger)flags

@@ -66,6 +66,8 @@ static NSBundle* g_defaultBundle;
 
 + (NSURL*) urlForPath:(NSString*) path bundle:(NSBundle*) bundle
 {
+#pragma unused(bundle)
+    
 	if(nil == path)
 	{
 		return nil;

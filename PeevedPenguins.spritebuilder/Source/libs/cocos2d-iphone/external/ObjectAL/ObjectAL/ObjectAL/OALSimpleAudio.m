@@ -30,9 +30,9 @@
 #import "OALSimpleAudio.h"
 
 #if __CC_PLATFORM_ANDROID
-#import <BridgeKitV3/AndroidMediaPlayer.h>
-#import <BridgeKitV3/JavaFileInputStream.h>
-#import <BridgeKitV3/JavaFileDescriptor.h>
+#import <AndroidKit/AndroidMediaPlayer.h>
+#import <JavaKit/JavaFileInputStream.h>
+#import <JavaKit/JavaFileDescriptor.h>
 #import "CCActivity.h"
 #endif
 
