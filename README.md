@@ -1,3 +1,5 @@
+![](https://travis-ci.org/MakeSchool/PeevedPenguins-Spritebuilder.svg?branch=master)
+
 #Get started learning SpriteBuilder!
 
 This is the repository for the MakeGamesWithUs Tutorial on SpriteBuilder. Visit [MakeGamesWith.Us](https://www.makegameswith.us/tutorials/getting-started-with-spritebuilder/) to create your own Angry Birds clone while learning about the most important features of SpriteBuilder and cocos2d 3.0.
