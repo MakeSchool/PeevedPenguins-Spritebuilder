@@ -1,0 +1,4 @@
+language: objective-c
+
+script:
+  - xctool -project PeevedPenguins.spritebuilder/PeevedPenguins.xcodeproj -scheme PeevedPenguins -sdk iphonesimulator build test CODE_SIGNING_REQUIRED=NO
