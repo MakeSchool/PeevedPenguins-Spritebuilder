@@ -234,6 +234,7 @@ NotAffectedByGravity
 	cpBodySetVelocityUpdateFunc(self.body.body, func);
 	
 	_affectedByGravity = affectedByGravity;
+	[_body activate];
 }
 
 -(BOOL)allowsRotation {
@@ -272,6 +273,12 @@ static cpBodyType ToChipmunkBodyType[] = {CP_BODY_TYPE_DYNAMIC, CP_BODY_TYPE_KIN
 		// Chipmunk body type cannot be changed from within a callback, need to make this safe.
 		[space addPostStepBlock:^{_body.type = ToChipmunkBodyType[type];} key:self];
 	} else {
+		
+		if(self.type != type && self.type == CCPhysicsBodyTypeKinematic)
+		{
+			[self.node.physicsNode.kineticNodes removeObject:self.node];
+		}
+		
 		_body.type = ToChipmunkBodyType[type];
 	}
 }
@@ -361,6 +368,24 @@ CCPhysicsBodyUpdatePosition(cpBody *body, cpFloat dt)
 }
 
 -(BOOL)sleeping {return _body.isSleeping;}
+-(void)setSleeping:(BOOL)sleep
+{
+	if(_body.type != CP_BODY_TYPE_DYNAMIC){
+		CCLOGWARN(@"Warning: [CCPhysicsBody setSleeping:] has no effect on static bodies.");
+		return;
+	}
+	
+	if(_body.space == nil){
+		CCLOGWARN(@"Warning: [CCPhysicsBody setSleeping:] has no effect on bodies before they are added to a scene.");
+		return;
+	}
+	
+	if(sleep){
+		[_body sleep];
+	} else {
+		[_body activate];
+	}
+}
 
 @end
 
@@ -514,7 +539,7 @@ CCPhysicsBodyUpdatePosition(cpBody *body, cpFloat dt)
 //The following are properties which we track on the parent nodes in order to update the child nodes.
 NSString *  kDependantProperties[2] = { @"position", @"rotation"};
 
-#ifdef DEBUG
+#if DEBUG
 //The following are properties which cannot be animated. Changing their values after onEnter in unhandled.
 NSString *  kRestrictedProperties[3] = { @"scale", @"scaleX", @"scaleY"};
 #endif
@@ -531,7 +556,7 @@ NSString *  kRestrictedProperties[3] = { @"scale", @"scaleX", @"scaleY"};
             [node addObserver:self forKeyPath:kDependantProperties[i] options:NSKeyValueObservingOptionNew context:nil];
         }
         
-#ifdef DEBUG
+#if DEBUG
         for (int i = 0; i < sizeof(kRestrictedProperties)/sizeof(kRestrictedProperties[0]); i++)
         {
             [node addObserver:self forKeyPath:kRestrictedProperties[i] options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
@@ -552,7 +577,7 @@ NSString *  kRestrictedProperties[3] = { @"scale", @"scaleX", @"scaleY"};
         {
             [node removeObserver:self forKeyPath:kDependantProperties[i]];
         }
-#ifdef DEBUG
+#if DEBUG
         for (int i = 0; i < sizeof(kRestrictedProperties)/sizeof(kRestrictedProperties[0]); i++)
         {
             [node removeObserver:self forKeyPath:kRestrictedProperties[i]];
@@ -567,7 +592,7 @@ NSString *  kRestrictedProperties[3] = { @"scale", @"scaleX", @"scaleY"};
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-#ifdef DEBUG
+#if DEBUG
     for (int i = 0; i < sizeof(kRestrictedProperties)/sizeof(kRestrictedProperties[0]); i++)
     {
         if([kRestrictedProperties[i] isEqualToString:keyPath])

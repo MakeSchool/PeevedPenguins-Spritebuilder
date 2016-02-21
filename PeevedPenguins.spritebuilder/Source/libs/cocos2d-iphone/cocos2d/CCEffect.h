@@ -12,83 +12,39 @@
 #import "ccConfig.h"
 #import "ccTypes.h"
 
-#if CC_ENABLE_EXPERIMENTAL_EFFECTS
-extern const NSString *CCShaderUniformPreviousPassTexture;
 
-@interface CCEffectFunction : NSObject
-
-@property (nonatomic, readonly) NSString* body;
-@property (nonatomic, readonly) NSString* name;
-@property (nonatomic, readonly) NSString* returnType;
-@property (nonatomic, readonly) NSString* function;
-@property (nonatomic, readonly) NSString* method;
-
--(id)initWithName:(NSString*)name body:(NSString*)body returnType:(NSString*)returnType;
-+(id)functionWithName:(NSString*)name body:(NSString*)body returnType:(NSString*)returnType;
-
-@end
-
-@interface CCEffectUniform : NSObject
-
-@property (nonatomic, readonly) NSString* name;
-@property (nonatomic, readonly) NSString* type;
-@property (nonatomic, readonly) NSString* declaration;
-@property (nonatomic, readonly) NSValue* value;
-
--(id)initWithType:(NSString*)type name:(NSString*)name value:(NSValue*)value;
-+(id)uniform:(NSString*)type name:(NSString*)name value:(NSValue*)value;
-
-@end
-
-@interface CCEffectVarying : NSObject
-
-@property (nonatomic, readonly) NSString* name;
-@property (nonatomic, readonly) NSString* type;
-@property (nonatomic, readonly) NSString* declaration;
-
--(id)initWithType:(NSString*)type name:(NSString*)name;
-+(id)varying:(NSString*)type name:(NSString*)name;
-
-@end
-
-typedef void (^CCEffectRenderPassBeginBlock)(CCTexture *previousPassTexture);
-typedef void (^CCEffectRenderPassUpdateBlock)();
-typedef void (^CCEffectRenderPassEndBlock)();
-
-// Note to self: I don't like this pattern, refactor it. I think there should be a CCRenderPass that is used by CCEffect instead. NOTE: convert this to a CCRnderPassProtocol
-@interface CCEffectRenderPass : NSObject
-
-@property (nonatomic) NSInteger renderPassId;
-@property (nonatomic) CCRenderer* renderer;
-@property (nonatomic) CCSpriteVertexes verts;
-@property (nonatomic) GLKMatrix4 transform;
-@property (nonatomic) CCBlendMode* blendMode;
-@property (nonatomic) CCShader* shader;
-@property (nonatomic) NSMutableDictionary* shaderUniforms;
-@property (nonatomic) BOOL needsClear;
-@property (nonatomic,copy) CCEffectRenderPassBeginBlock beginBlock;
-@property (nonatomic,copy) CCEffectRenderPassUpdateBlock updateBlock;
-@property (nonatomic,copy) CCEffectRenderPassEndBlock endBlock;
-
--(void)enqueueTriangles;
-
-@end
-
+/**
+ CCEffect is the abstract base class of the Cocos2D effects classes. Subclasses of CCEffect can be used to easily add exciting
+ visual effects such has blur, bloom, reflection, refraction, and other image processing filters to your applications.
+ 
+ ### Subclasses
+ 
+ - CCEffectBloom
+ - CCEffectBlur, CCEffectPixellate
+ - CCEffectBrightness, CCEffectContrast, CCEffectHue, CCEffectSaturation, CCEffectInvert, CCEffectColorChannelOffset
+ - CCEffectDropShadow
+ - CCEffectGlass, CCEffectReflection, CCEffectRefraction
+ - CCEffectLighting
+ - CCEffectStack
+ - Experimental as of v3.4: CCEffectDistanceField, CCEffectDFInnerGlow, CCEffectDFOutline
+ */
 @interface CCEffect : NSObject
 
-@property (nonatomic, readonly) CCShader* shader; // Note: consider adding multiple shaders (one for reach renderpass, this will help break up logic and avoid branching in a potential uber shader).
-@property (nonatomic, readonly) NSMutableDictionary* shaderUniforms;
-@property (nonatomic, readonly) NSInteger renderPassesRequired;
-@property (nonatomic, readonly) BOOL supportsDirectRendering;
+/// -----------------------------------------------------------------------
+/// @name Effect Properties
+/// -----------------------------------------------------------------------
+
+/** An identifier for debugging effects.
+ *  @since v3.2 and later
+*/
 @property (nonatomic, copy) NSString *debugName;
 
-
--(id)initWithUniforms:(NSArray*)fragmentUniforms vertextUniforms:(NSArray*)vertexUniforms varying:(NSArray*)varying;
--(id)initWithFragmentFunction:(NSMutableArray*) fragmentFunctions fragmentUniforms:(NSArray*)fragmentUniforms vertextUniforms:(NSArray*)vertexUniforms varying:(NSArray*)varying;
--(id)initWithFragmentFunction:(NSMutableArray*) fragmentFunctions vertexFunctions:(NSMutableArray*)vertextFunctions fragmentUniforms:(NSArray*)fragmentUniforms vertextUniforms:(NSArray*)vertexUniforms varying:(NSArray*)varying;
-
--(BOOL)prepareForRendering;
--(CCEffectRenderPass *)renderPassAtIndex:(NSInteger)passIndex;
+/** Padding in points that will be applied to affected sprites to avoid clipping the
+  * effect's visuals at the sprite's boundary. For example, if you create a blur effect
+  * whose radius will animate over time but will never exceed 8 points then you should
+  * set the padding to at least 8 to avoid clipping.
+ *  @since v3.2 and later
+  */
+@property (nonatomic, assign) CGSize padding;
 
 @end
-#endif

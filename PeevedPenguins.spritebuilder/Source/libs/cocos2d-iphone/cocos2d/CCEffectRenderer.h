@@ -9,20 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "ccTypes.h"
 
-#if CC_ENABLE_EXPERIMENTAL_EFFECTS
 @class CCEffect;
 @class CCRenderer;
 @class CCSprite;
 @class CCTexture;
 
+// not documented, considered a private class
 @interface CCEffectRenderer : NSObject
 
 @property (nonatomic, assign) CGSize contentSize;
 @property (nonatomic, assign) float contentScale;
-@property (nonatomic, readonly) CCTexture *outputTexture;
 
 -(id)init;
--(void)drawSprite:(CCSprite *)sprite withEffect:(CCEffect *)effect renderer:(CCRenderer *)renderer transform:(const GLKMatrix4 *)transform;
+-(void)drawSprite:(CCSprite *)sprite withEffect:(CCEffect *)effect uniforms:(NSMutableDictionary *)uniforms renderer:(CCRenderer *)renderer transform:(const GLKMatrix4 *)transform;
 
 @end
-#endif

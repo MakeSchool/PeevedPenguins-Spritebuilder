@@ -41,7 +41,7 @@
 #import "CCSprite_Private.h"
 #import "CCTiledMapLayer_Private.h"
 #import "CCTexture_Private.h"
-
+#import "CCMathTypesAndroid.h"
 
 #pragma mark -
 #pragma mark CCTMXLayer
@@ -67,7 +67,7 @@
 
 #pragma mark CCTMXLayer - init & alloc & dealloc
 
-+(id) layerWithTilesetInfo:(CCTiledMapTilesetInfo*)tilesetInfo layerInfo:(CCTiledMapLayerInfo*)layerInfo mapInfo:(CCTiledMapInfo*)mapInfo
++(instancetype) layerWithTilesetInfo:(CCTiledMapTilesetInfo*)tilesetInfo layerInfo:(CCTiledMapLayerInfo*)layerInfo mapInfo:(CCTiledMapInfo*)mapInfo
 {
 	return [[self alloc] initWithTilesetInfo:tilesetInfo layerInfo:layerInfo mapInfo:mapInfo];
 }
@@ -155,7 +155,7 @@
 	//  - easier to render
 	// cons:
 	//  - difficult to scale / rotate / etc.
-	[self.texture setAliasTexParameters];
+	self.texture.antialiased = NO;
 
 	// Parse cocos2d properties
 	[self parseInternalProperties];
@@ -310,7 +310,7 @@ AutomaticVertexZ(int tileX, int tileY, int mapColumns, int mapRows, CCTiledMapOr
 {
 	switch(orientation) {
 		case CCTiledMapOrientationIso: {
-			NSUInteger maxVal = mapColumns + mapRows;
+			int maxVal = mapColumns + mapRows;
 			return -(maxVal - (tileX + tileY));
 		}
 		
@@ -388,7 +388,9 @@ struct IntRect { int xmin, xmax, ymin, ymax; };
 	if(tileCount == 0) return;
 	
 	GLKVector2 zero2 = GLKVector2Make(0, 0);
-	GLKVector4 color = GLKVector4Make(_displayColor.r, _displayColor.g, _displayColor.b, _displayColor.a);
+	
+	float alpha = _displayColor.a;
+	GLKVector4 color = GLKVector4Make(_displayColor.r*alpha, _displayColor.g*alpha, _displayColor.b*alpha, alpha);
 	
 	CCTexture *tex = self.texture;
 	float scale = tex.contentScale;

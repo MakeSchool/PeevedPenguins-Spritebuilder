@@ -38,15 +38,9 @@
 #import "CCShader.h"
 #import "CCPhysics+ObjectiveChipmunk.h"
 #import "CCDirector_Private.h"
-#import "CCRenderer_private.h"
+#import "CCRenderer_Private.h"
 #import "CCTexture_Private.h"
 #import "CCActionManager_Private.h"
-
-
-#ifdef __CC_PLATFORM_IOS
-#import "Platforms/iOS/CCDirectorIOS.h"
-#endif
-
 
 #if CC_NODE_RENDER_SUBPIXEL
 #define RENDER_IN_SUBPIXEL
@@ -143,7 +137,7 @@ static NSUInteger globalOrderOfArrival = 1;
 
 #pragma mark CCNode - Init & cleanup
 
-+(id) node
++(instancetype) node
 {
 	return [[self alloc] init];
 }
@@ -221,12 +215,6 @@ static NSUInteger globalOrderOfArrival = 1;
 - (void) dealloc
 {
 	CCLOGINFO( @"cocos2d: deallocing %@", self);
-
-	// children
-    for (CCNode* child in _children)
-		child.parent = nil;
-
-
 }
 
 #pragma mark Setters
@@ -424,6 +412,9 @@ TransformPointAsVector(CGPoint p, CGAffineTransform t)
     CCSizeUnit widthUnit = type.widthUnit;
     CCSizeUnit heightUnit = type.heightUnit;
     
+    BOOL gotParentSize = NO;
+    CGSize parentsContentSizeInPoints;
+    
     // Width
     if (widthUnit == CCSizeUnitPoints)
     {
@@ -435,15 +426,21 @@ TransformPointAsVector(CGPoint p, CGAffineTransform t)
     }
     else if (widthUnit == CCSizeUnitNormalized)
     {
-        size.width = contentSize.width * _parent.contentSizeInPoints.width;
+        gotParentSize = YES;
+        parentsContentSizeInPoints = _parent.contentSizeInPoints;
+        size.width = contentSize.width * parentsContentSizeInPoints.width;
     }
     else if (widthUnit == CCSizeUnitInsetPoints)
     {
-        size.width = _parent.contentSizeInPoints.width - contentSize.width;
+        gotParentSize = YES;
+        parentsContentSizeInPoints = _parent.contentSizeInPoints;
+        size.width = parentsContentSizeInPoints.width - contentSize.width;
     }
     else if (widthUnit == CCSizeUnitInsetUIPoints)
     {
-        size.width = _parent.contentSizeInPoints.width - contentSize.width * director.UIScaleFactor;
+        gotParentSize = YES;
+        parentsContentSizeInPoints = _parent.contentSizeInPoints;
+        size.width = parentsContentSizeInPoints.width - contentSize.width * director.UIScaleFactor;
     }
     
     // Height
@@ -457,17 +454,16 @@ TransformPointAsVector(CGPoint p, CGAffineTransform t)
     }
     else if (heightUnit == CCSizeUnitNormalized)
     {
-        size.height = contentSize.height * _parent.contentSizeInPoints.height;
+        size.height = contentSize.height * (gotParentSize?parentsContentSizeInPoints.height:_parent.contentSizeInPoints.height);
     }
     else if (heightUnit == CCSizeUnitInsetPoints)
     {
-        size.height = _parent.contentSizeInPoints.height - contentSize.height;
+        size.height = (gotParentSize?parentsContentSizeInPoints.height:_parent.contentSizeInPoints.height) - contentSize.height;
     }
     else if (heightUnit == CCSizeUnitInsetUIPoints)
     {
-        size.height = _parent.contentSizeInPoints.height - contentSize.height * director.UIScaleFactor;
+        size.height = (gotParentSize?parentsContentSizeInPoints.height:_parent.contentSizeInPoints.height) - contentSize.height * director.UIScaleFactor;
     }
-    
     return size;
 }
 
@@ -480,6 +476,9 @@ TransformPointAsVector(CGPoint p, CGAffineTransform t)
     CCSizeUnit widthUnit = type.widthUnit;
     CCSizeUnit heightUnit = type.heightUnit;
     
+    BOOL gotParentSize = NO;
+    CGSize parentsContentSizeInPoints;
+    
     // Width
     if (widthUnit == CCSizeUnitPoints)
     {
@@ -491,8 +490,10 @@ TransformPointAsVector(CGPoint p, CGAffineTransform t)
     }
     else if (widthUnit == CCSizeUnitNormalized)
     {
+        gotParentSize = YES;
+        parentsContentSizeInPoints = _parent.contentSizeInPoints;
         
-        float parentWidthInPoints = _parent.contentSizeInPoints.width;
+        float parentWidthInPoints = parentsContentSizeInPoints.width;
         if (parentWidthInPoints > 0)
         {
             size.width = pointSize.width/parentWidthInPoints;
@@ -504,11 +505,17 @@ TransformPointAsVector(CGPoint p, CGAffineTransform t)
     }
     else if (widthUnit == CCSizeUnitInsetPoints)
     {
-        size.width = _parent.contentSizeInPoints.width - pointSize.width;
+        gotParentSize = YES;
+        parentsContentSizeInPoints = _parent.contentSizeInPoints;
+        
+        size.width = parentsContentSizeInPoints.width - pointSize.width;
     }
     else if (widthUnit == CCSizeUnitInsetUIPoints)
     {
-        size.width = (_parent.contentSizeInPoints.width - pointSize.width) / director.UIScaleFactor;
+        gotParentSize = YES;
+        parentsContentSizeInPoints = _parent.contentSizeInPoints;
+        
+        size.width = (parentsContentSizeInPoints.width - pointSize.width) / director.UIScaleFactor;
     }
     
     // Height
@@ -522,8 +529,7 @@ TransformPointAsVector(CGPoint p, CGAffineTransform t)
     }
     else if (heightUnit == CCSizeUnitNormalized)
     {
-        
-        float parentHeightInPoints = _parent.contentSizeInPoints.height;
+        float parentHeightInPoints = (gotParentSize?parentsContentSizeInPoints.height:_parent.contentSizeInPoints.height);
         if (parentHeightInPoints > 0)
         {
             size.height = pointSize.height/parentHeightInPoints;
@@ -535,13 +541,12 @@ TransformPointAsVector(CGPoint p, CGAffineTransform t)
     }
     else if (heightUnit == CCSizeUnitInsetPoints)
     {
-        size.height = _parent.contentSizeInPoints.height - pointSize.height;
+        size.height = (gotParentSize?parentsContentSizeInPoints.height:_parent.contentSizeInPoints.height) - pointSize.height;
     }
     else if (heightUnit == CCSizeUnitInsetUIPoints)
     {
-        size.height = (_parent.contentSizeInPoints.height - pointSize.height) / director.UIScaleFactor;
+        size.height = ((gotParentSize?parentsContentSizeInPoints.height:_parent.contentSizeInPoints.height) - pointSize.height) / director.UIScaleFactor;
     }
-    
     return size;
 }
 
@@ -909,31 +914,8 @@ RecursivelyIncrementPausedAncestors(CCNode *node, int increment)
 
 -(void)draw:(__unsafe_unretained CCRenderer *)renderer transform:(const GLKMatrix4 *)transform {}
 
--(void) visit:(__unsafe_unretained CCRenderer *)renderer parentTransform:(const GLKMatrix4 *)parentTransform
-{
-	// quick return if not visible. children won't be drawn.
-	if (!_visible)
-		return;
-    
-		[self sortAllChildren];
-
-	GLKMatrix4 transform = NodeTransform(self, *parentTransform);
-	BOOL drawn = NO;
-
-	for(CCNode *child in _children){
-		if(!drawn && child.zOrder >= 0){
-			[self draw:renderer transform:&transform];
-			drawn = YES;
-		}
-
-		[child visit:renderer parentTransform:&transform];
-		}
-
-	if(!drawn) [self draw:renderer transform:&transform];
-
-	// reset for next frame
-	_orderOfArrival = 0;
-}
+// Defined in CCNoARC.m
+// -(void) visit:(__unsafe_unretained CCRenderer *)renderer parentTransform:(const GLKMatrix4 *)parentTransform
 
 -(void)visit
 {
@@ -946,25 +928,8 @@ RecursivelyIncrementPausedAncestors(CCNode *node, int increment)
 
 #pragma mark CCNode - Transformations
 
-static inline GLKMatrix4
-NodeTransform(__unsafe_unretained CCNode *node, GLKMatrix4 parentTransform)
-{
-	CGAffineTransform t = [node nodeToParentTransform];
-	float z = node->_vertexZ;
-	
-	// Convert to 4x4 column major GLK matrix.
-	return GLKMatrix4Multiply(parentTransform, GLKMatrix4Make(
-		 t.a,  t.b, 0.0f, 0.0f,
-		 t.c,  t.d, 0.0f, 0.0f,
-		0.0f, 0.0f, 1.0f, 0.0f,
-		t.tx, t.ty,    z, 1.0f
-	));
-}
-
--(GLKMatrix4)transform:(const GLKMatrix4 *)parentTransform
-{
-	return NodeTransform(self, *parentTransform);
-}
+// Implemented in CCNoARC.m
+//-(GLKMatrix4)transform:(const GLKMatrix4 *)parentTransform
 
 #pragma mark CCPhysics support.
 
@@ -1108,6 +1073,10 @@ CGAffineTransformMakeRigid(CGPoint translate, CGFloat radians)
 		[[CCDirector sharedDirector].actionManager migrateActions:self from:[CCDirector sharedDirector].actionManagerFixed];
 		[self setActionManager:[CCDirector sharedDirector].actionManager];
 	}
+
+    if(_animationManager) {
+        [_animationManager performSelector:@selector(onEnter)];
+    }
 	
 	[self wasRunning:wasRunning];
 }
@@ -1232,6 +1201,32 @@ CGAffineTransformMakeRigid(CGPoint translate, CGFloat radians)
 	return [self schedule:selector interval:interval repeat:CCTimerRepeatForever delay:interval];
 }
 
+-(CCTimer*)reschedule:(SEL)selector interval:(CCTime)interval
+{
+    NSString *selectorName = NSStringFromSelector(selector);
+    
+    CCTimer *currentTimerForSelector = nil;
+    
+    for (CCTimer *timer in [_scheduler timersForTarget:self])
+    {
+        if([selectorName isEqual:timer.userData])
+        {
+            CCLOG(@"%@ was already scheduled on %@. Updating interval from %f to %f",NSStringFromSelector(selector),self,timer.repeatInterval,interval);
+            timer.repeatInterval = interval;
+            currentTimerForSelector = timer;
+            break;
+        }
+    }
+    
+    if (currentTimerForSelector == nil)
+    {
+        CCLOG(@"%@ was never scheduled. Scheduling for the first time.",selectorName);
+        currentTimerForSelector = [self schedule:selector interval:interval];
+    }
+
+    return currentTimerForSelector;
+}
+
 -(BOOL)unschedule_private:(SEL)selector
 {
 	NSString *selectorName = NSStringFromSelector(selector);
@@ -1326,6 +1321,9 @@ CGAffineTransformMakeRigid(CGPoint translate, CGFloat radians)
 {
     CCDirector* director = [CCDirector sharedDirector];
     
+    BOOL gotParentSize = NO;
+    CGSize parentsContentSizeInPoints;
+    
     CGPoint positionInPoints;
     float x = 0;
     float y = 0;
@@ -1334,12 +1332,24 @@ CGAffineTransformMakeRigid(CGPoint translate, CGFloat radians)
     CCPositionUnit xUnit = type.xUnit;
     if (xUnit == CCPositionUnitPoints) x = position.x;
     else if (xUnit == CCPositionUnitUIPoints) x = position.x * director.UIScaleFactor;
-    else if (xUnit == CCPositionUnitNormalized) x = position.x * _parent.contentSizeInPoints.width;
+    else if(xUnit == CCPositionUnitNormalized){
+        parentsContentSizeInPoints = _parent.contentSizeInPoints;
+        gotParentSize = YES;
+        x = position.x * parentsContentSizeInPoints.width;
+    }
     
     CCPositionUnit yUnit = type.yUnit;
     if (yUnit == CCPositionUnitPoints) y = position.y;
     else if (yUnit == CCPositionUnitUIPoints) y = position.y * director.UIScaleFactor;
-    else if (yUnit == CCPositionUnitNormalized) y = position.y * _parent.contentSizeInPoints.height;
+    else if (yUnit == CCPositionUnitNormalized){
+        if(gotParentSize){
+            y = position.y * parentsContentSizeInPoints.height;
+        }else{
+            parentsContentSizeInPoints = _parent.contentSizeInPoints;
+            gotParentSize = YES;
+            y = position.y * parentsContentSizeInPoints.height;
+        }
+    }
     
     // Account for reference corner
     CCPositionReferenceCorner corner = type.corner;
@@ -1350,18 +1360,18 @@ CGAffineTransformMakeRigid(CGPoint translate, CGFloat radians)
     else if (corner == CCPositionReferenceCornerTopLeft)
     {
         // Reverse y-axis
-        y = _parent.contentSizeInPoints.height - y;
+        y = gotParentSize?parentsContentSizeInPoints.height - y:_parent.contentSizeInPoints.height - y;
     }
     else if (corner == CCPositionReferenceCornerTopRight)
     {
         // Reverse x-axis and y-axis
-        x = _parent.contentSizeInPoints.width - x;
-        y = _parent.contentSizeInPoints.height - y;
+        x = gotParentSize?parentsContentSizeInPoints.width - x:_parent.contentSizeInPoints.width - x;
+        y = gotParentSize?parentsContentSizeInPoints.height - y:_parent.contentSizeInPoints.height - y;
     }
     else if (corner == CCPositionReferenceCornerBottomRight)
     {
         // Reverse x-axis
-        x = _parent.contentSizeInPoints.width - x;
+        x = gotParentSize?parentsContentSizeInPoints.width - x:_parent.contentSizeInPoints.width - x;
     }
     
     positionInPoints.x = x;
@@ -1373,6 +1383,9 @@ CGAffineTransformMakeRigid(CGPoint translate, CGFloat radians)
 - (CGPoint) convertPositionFromPoints:(CGPoint)positionInPoints type:(CCPositionType)type
 {
     CCDirector* director = [CCDirector sharedDirector];
+    
+    BOOL gotParentSize = NO;
+    CGSize parentsContentSizeInPoints;
     
     CGPoint position;
     
@@ -1388,18 +1401,24 @@ CGAffineTransformMakeRigid(CGPoint translate, CGFloat radians)
     else if (corner == CCPositionReferenceCornerTopLeft)
     {
         // Reverse y-axis
-        y = _parent.contentSizeInPoints.height - y;
+        parentsContentSizeInPoints = _parent.contentSizeInPoints;
+        gotParentSize = YES;
+        y = parentsContentSizeInPoints.height - y;
     }
     else if (corner == CCPositionReferenceCornerTopRight)
     {
         // Reverse x-axis and y-axis
-        x = _parent.contentSizeInPoints.width - x;
-        y = _parent.contentSizeInPoints.height - y;
+        parentsContentSizeInPoints = _parent.contentSizeInPoints;
+        gotParentSize = YES;
+        x = parentsContentSizeInPoints.width - x;
+        y = parentsContentSizeInPoints.height - y;
     }
     else if (corner == CCPositionReferenceCornerBottomRight)
     {
         // Reverse x-axis
-        x = _parent.contentSizeInPoints.width - x;
+        parentsContentSizeInPoints = _parent.contentSizeInPoints;
+        gotParentSize = YES;
+        x = parentsContentSizeInPoints.width - x;
     }
     
     // Convert position from points
@@ -1408,7 +1427,7 @@ CGAffineTransformMakeRigid(CGPoint translate, CGFloat radians)
     else if (xUnit == CCPositionUnitUIPoints) position.x = x / director.UIScaleFactor;
     else if (xUnit == CCPositionUnitNormalized)
     {
-        float parentWidth = _parent.contentSizeInPoints.width;
+        float parentWidth = gotParentSize?parentsContentSizeInPoints.width:_parent.contentSizeInPoints.width;
         if (parentWidth > 0)
         {
             position.x = x / parentWidth;
@@ -1420,7 +1439,7 @@ CGAffineTransformMakeRigid(CGPoint translate, CGFloat radians)
     else if (yUnit == CCPositionUnitUIPoints) position.y = y / director.UIScaleFactor;
     else if (yUnit == CCPositionUnitNormalized)
     {
-        float parentHeight = _parent.contentSizeInPoints.height;
+        float parentHeight = gotParentSize?parentsContentSizeInPoints.height:_parent.contentSizeInPoints.height;
         if (parentHeight > 0)
         {
             position.y = y / parentHeight;
@@ -1442,7 +1461,8 @@ CGAffineTransformMakeRigid(CGPoint translate, CGFloat radians)
 
 - (CGAffineTransform)nodeToParentTransform
 {
-	CCPhysicsBody *physicsBody = GetBodyIfRunning(self);
+	// The body ivar cannot be changed while this method is running and it's ARC retain/release is 70% of the profile samples for this method.
+	__unsafe_unretained CCPhysicsBody *physicsBody = GetBodyIfRunning(self);
 	if(physicsBody){
         
 		CGAffineTransform rigidTransform;
@@ -1614,7 +1634,7 @@ CGAffineTransformMakeRigid(CGPoint translate, CGFloat radians)
 - (BOOL)hitTestWithWorldPos:(CGPoint)pos
 {
     pos = [self convertToNodeSpace:pos];
-    CGPoint offset = ccp(-_hitAreaExpansion, -_hitAreaExpansion);
+    CGPoint offset = ccp(-self.hitAreaExpansion, -self.hitAreaExpansion);
     CGSize size = CGSizeMake(self.contentSizeInPoints.width - offset.x, self.contentSizeInPoints.height - offset.y);
     if ((pos.y < offset.y) || (pos.y > size.height) || (pos.x < offset.x) || (pos.x > size.width)) return(NO);
     
@@ -1622,7 +1642,6 @@ CGAffineTransformMakeRigid(CGPoint translate, CGFloat radians)
 }
 
 // -----------------------------------------------------------------
-
 
 #pragma mark - CCColor methods
 
@@ -1736,13 +1755,32 @@ CGAffineTransformMakeRigid(CGPoint translate, CGFloat radians)
 
 #pragma mark - RenderState Methods
 
+// The default dictionary is either nil or only contains the main texture.
+static inline BOOL
+CheckDefaultUniforms(NSDictionary *uniforms, CCTexture *texture)
+{
+	if(uniforms == nil){
+		return YES;
+	} else {
+		// Check that the uniforms has only one key for the main texture.
+		return (uniforms.count == 1 && uniforms[CCShaderUniformMainTexture] == texture);
+	}
+}
+
 -(CCRenderState *)renderState
 {
 	if(_renderState == nil){
-		if(_shaderUniforms.count > 1){
-			_renderState = [[CCRenderState alloc] initWithBlendMode:_blendMode shader:_shader shaderUniforms:_shaderUniforms];
+		CCTexture *texture = (_texture ?: [CCTexture none]);
+		
+		if(CheckDefaultUniforms(_shaderUniforms, texture)){
+			// Create a cached render state so we can use the fast path.
+			_renderState = [CCRenderState renderStateWithBlendMode:_blendMode shader:_shader mainTexture:texture];
+			
+			// If the uniform dictionary was set, it was the default. Throw it away.
+			_shaderUniforms = nil;
 		} else {
-			_renderState = [CCRenderState renderStateWithBlendMode:_blendMode shader:_shader mainTexture:(_texture ?: [CCTexture none])];
+			// Since the node has unique uniforms, it cannot be batched or use the fast path.
+			_renderState = [CCRenderState renderStateWithBlendMode:_blendMode shader:_shader shaderUniforms:_shaderUniforms copyUniforms:NO];
 		}
 	}
 	
@@ -1756,6 +1794,7 @@ CGAffineTransformMakeRigid(CGPoint translate, CGFloat radians)
 
 -(void)setShader:(CCShader *)shader
 {
+	NSAssert(shader, @"CCNode.shader cannot be nil.");
 	_shader = shader;
 	_renderState = nil;
 }
@@ -1765,13 +1804,23 @@ CGAffineTransformMakeRigid(CGPoint translate, CGFloat radians)
 	return _blendMode;
 }
 
+-(BOOL)hasDefaultShaderUniforms
+{
+	CCTexture *texture = (_texture ?: [CCTexture none]);
+	if(CheckDefaultUniforms(_shaderUniforms, texture)){
+		// If the uniform dictionary was set, it was the default. Throw it away.
+		_shaderUniforms = nil;
+		
+		return YES;
+	} else {
+		return NO;
+	}
+}
+
 -(NSMutableDictionary *)shaderUniforms
 {
 	if(_shaderUniforms == nil){
-		_shaderUniforms = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-			(_texture ?: [CCTexture none]), CCShaderUniformMainTexture,
-			nil
-		];
+		_shaderUniforms = [NSMutableDictionary dictionaryWithObject:(_texture ?: [CCTexture none]) forKey:CCShaderUniformMainTexture];
 		
 		_renderState = nil;
 	}
@@ -1787,6 +1836,7 @@ CGAffineTransformMakeRigid(CGPoint translate, CGFloat radians)
 
 -(void)setBlendMode:(CCBlendMode *)blendMode
 {
+	NSAssert(blendMode, @"CCNode.blendMode cannot be nil.");
 	if(_blendMode != blendMode){
 		_blendMode = blendMode;
 		_renderState = nil;

@@ -20,18 +20,19 @@
 #import "CCTexture_Private.h"
 #import "CCDirector_Private.h"
 #import "CCNode_Private.h"
-#import "CCRenderer_private.h"
+#import "CCRenderer_Private.h"
 #import "CCRenderTexture_Private.h"
+#import "CCEffect_Private.h"
 
 #if __CC_PLATFORM_MAC
 #import <ApplicationServices/ApplicationServices.h>
 #endif
 
-#if CC_ENABLE_EXPERIMENTAL_EFFECTS
 @interface CCEffectNode()
 {
     CCEffect *_effect;
     CCEffectRenderer *_effectRenderer;
+    CGSize _allocatedSize;
 }
 
 @end
@@ -46,10 +47,38 @@
 
 -(id)initWithWidth:(int)width height:(int)height
 {
-	if((self = [super initWithWidth:width height:height pixelFormat:CCTexturePixelFormat_Default])) {
+    return [self initWithWidth:width height:height pixelFormat:CCTexturePixelFormat_Default];
+}
+
+-(id)initWithWidth:(int)width height:(int)height pixelFormat:(CCTexturePixelFormat)format
+{
+    return [self initWithWidth:width height:height pixelFormat:format depthStencilFormat:0];
+}
+
+-(id)initWithWidth:(int)width height:(int)height pixelFormat:(CCTexturePixelFormat) format depthStencilFormat:(GLuint)depthStencilFormat
+{
+    if((self = [super initWithWidth:width height:height pixelFormat:CCTexturePixelFormat_Default depthStencilFormat:depthStencilFormat]))
+    {
         _effectRenderer = [[CCEffectRenderer alloc] init];
+        _allocatedSize = CGSizeMake(0.0f, 0.0f);
+        self.clearFlags = GL_COLOR_BUFFER_BIT;
 	}
 	return self;
+}
+
++(instancetype)effectNodeWithWidth:(int)w height:(int)h
+{
+    return [[CCEffectNode alloc] initWithWidth:w height:h];
+}
+
++(instancetype)effectNodeWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat)format
+{
+    return [[CCEffectNode alloc] initWithWidth:w height:h pixelFormat:format];
+}
+
++(instancetype)effectNodeWithWidth:(int)w height:(int)h pixelFormat:(CCTexturePixelFormat)format depthStencilFormat:(GLuint)depthStencilFormat
+{
+    return [[CCEffectNode alloc] initWithWidth:w height:h pixelFormat:format depthStencilFormat:depthStencilFormat];
 }
 
 -(CCEffect *)effect
@@ -60,41 +89,32 @@
 -(void)setEffect:(CCEffect *)effect
 {
     _effect = effect;
+    if (effect)
+    {
+        [self updateShaderUniformsFromEffect];
+    }
+    else
+    {
+        _shaderUniforms = nil;
+    }
 }
 
--(void)begin
+-(void)create
 {
-	CGSize pixelSize = self.texture.contentSizeInPixels;
-	GLuint fbo = [self fbo];
-  
-	[_renderer pushGroup];
-	[_renderer enqueueBlock:^{
-		glGetFloatv(GL_VIEWPORT, _oldViewport.v);
-		glViewport(0, 0, pixelSize.width, pixelSize.height );
-		
-		glGetIntegerv(GL_FRAMEBUFFER_BINDING, &_oldFBO);
-		glBindFramebuffer(GL_FRAMEBUFFER, fbo);
-        
-	} globalSortOrder:NSIntegerMin debugLabel:@"CCEffectNode: Bind FBO" threadSafe:NO];
-}
+    _allocatedSize = self.contentSizeInPoints;
+    CGSize pixelSize = CGSizeMake(_allocatedSize.width * _contentScale, _allocatedSize.height * _contentScale);
+    [self createTextureAndFboWithPixelSize:pixelSize];
 
--(void)endWithDebugLabel:(NSString *)debugLabel
-{
-    [_renderer enqueueBlock:^{
-		glBindFramebuffer(GL_FRAMEBUFFER, _oldFBO);
-		glViewport(_oldViewport.v[0], _oldViewport.v[1], _oldViewport.v[2], _oldViewport.v[3]);
-	} globalSortOrder:NSIntegerMax debugLabel:@"CCEffectNode: Restore FBO" threadSafe:NO];
-	
-	[_renderer popGroupWithDebugLabel:debugLabel globalSortOrder:0];
-}
-
--(void)visit
-{
-    [self configureRender];
-	NSAssert(_renderer, @"Cannot call [CCNode visit] without a currently bound renderer.");
+    CGRect rect = CGRectMake(0, 0, _allocatedSize.width, _allocatedSize.height);
+	[_sprite setTextureRect:rect];
     
-	GLKMatrix4 projection; [_renderer.globalShaderUniforms[CCShaderUniformProjection] getValue:&projection];
-	[self visit:_renderer parentTransform:&projection];
+    _projection = GLKMatrix4MakeOrtho(0.0f, _allocatedSize.width, 0.0f, _allocatedSize.height, -1024.0f, 1024.0f);
+}
+
+-(void)destroy
+{
+    [super destroy];
+    _allocatedSize = CGSizeMake(0.0f, 0.0f);
 }
 
 -(void)visit:(CCRenderer *)renderer parentTransform:(const GLKMatrix4 *)parentTransform
@@ -102,6 +122,14 @@
 	// override visit.
 	// Don't call visit on its children
 	if(!_visible) return;
+    
+    CGSize pointSize = self.contentSizeInPoints;
+    if (!CGSizeEqualToSize(pointSize, _allocatedSize))
+    {
+        [self destroy];
+        [self contentSizeChanged];
+        _contentSizeChanged = NO;
+    }
 	
     GLKMatrix4 transform = [self transform:parentTransform];
     
@@ -110,97 +138,59 @@
 	_orderOfArrival = 0;
 }
 
--(void)configureRender
-{
-    // bind renderer
-    _renderer = [CCRenderer currentRenderer];
-	
-	if(_renderer == nil)
-    {
-		_renderer = [[CCRenderer alloc] init];
-		
-		NSMutableDictionary *uniforms = [[CCDirector sharedDirector].globalShaderUniforms mutableCopy];
-		uniforms[CCShaderUniformProjection] = [NSValue valueWithGLKMatrix4:_projection];
-		_renderer.globalShaderUniforms = uniforms;
-		
-		[CCRenderer bindRenderer:_renderer];
-		_privateRenderer = YES;
-    }
-    else if(_privateRenderer == NO)
-    {
-		_oldGlobalUniforms = _renderer.globalShaderUniforms;
-		
-		NSMutableDictionary *uniforms = [_oldGlobalUniforms mutableCopy];
-		uniforms[CCShaderUniformProjection] = [NSValue valueWithGLKMatrix4:_projection];
-		_renderer.globalShaderUniforms = uniforms;
-	}
-}
-
 -(void)draw:(CCRenderer *)renderer transform:(const GLKMatrix4 *)transform
 {
-    [self configureRender];
-
-    NSAssert(_renderer == renderer, @"CCEffectNode error!");
-
     // Render children of this effect node into an FBO for use by the
     // remainder of the effects.
-    [self begin];
+    CCRenderer *rtRenderer = [self begin];
 
-    [_renderer enqueueClear:GL_COLOR_BUFFER_BIT color:_clearColor depth:self.clearDepth stencil:self.clearStencil globalSortOrder:NSIntegerMin];
+    [rtRenderer enqueueClear:self.clearFlags color:_clearColor depth:self.clearDepth stencil:self.clearStencil globalSortOrder:NSIntegerMin];
     
     //! make sure all children are drawn
     [self sortAllChildren];
     
     for(CCNode *child in _children){
-        if( child != _sprite) [child visit:renderer parentTransform:&_projection];
+        if( child != _sprite) [child visit:rtRenderer parentTransform:&_projection];
     }
-    [self endWithDebugLabel:@"CCEffectNode: Pre-render pass"];
+    [self end];
 
     // Done pre-render
     
-    _sprite.texture = self.texture;
-    _effectRenderer.contentSize = self.texture.contentSize;
-    [_effectRenderer drawSprite:_sprite withEffect:_effect renderer:_renderer transform:transform];
-    
-    if (!_effect.supportsDirectRendering || !_effect)
+    if (_effect)
     {
-        // XXX We may want to make this post-render step overridable by the
-        // last effect in the stack. That would look like the code in the
-        // pre-render override comment above.
-        //
-        
-        // Draw accumulated results from the last textureinto the real framebuffer
-        // The texture property always points to the most recently allocated
-        // texture so it will contain any accumulated results for the effect stack.
-        [_renderer pushGroup];
-        
-        if (_effect)
+        _effectRenderer.contentSize = self.contentSizeInPoints;
+
+        CCEffectPrepareResult prepResult = [_effect prepareForRenderingWithSprite:_sprite];
+        NSAssert(prepResult.status == CCEffectPrepareSuccess, @"Effect preparation failed.");
+
+        if (prepResult.changes & CCEffectPrepareUniformsChanged)
         {
-            _sprite.texture = _effectRenderer.outputTexture;
+            // Preparing an effect for rendering can modify its uniforms
+            // dictionary which means we need to reinitialize our copy of the
+            // uniforms.
+            [self updateShaderUniformsFromEffect];
         }
-        else
-        {
-            _sprite.texture = self.texture;
-        }
-        
+        [_effectRenderer drawSprite:_sprite withEffect:_effect uniforms:_shaderUniforms renderer:renderer transform:transform];
+    }
+    else
+    {
         _sprite.anchorPoint = ccp(0.0f, 0.0f);
         _sprite.position = ccp(0.0f, 0.0f);
-        _sprite.shader = [CCShader positionTextureColorShader];
-        [_sprite visit:_renderer parentTransform:transform];
-        
-        [_renderer popGroupWithDebugLabel:@"CCEffectNode: Post-render composite pass" globalSortOrder:0];
-        
-        // Done framebuffer composite
+        [_sprite visit:renderer parentTransform:transform];
     }
-    
-    
-    if(_privateRenderer == NO)
-        _renderer.globalShaderUniforms = _oldGlobalUniforms;
-    else
-        [CCRenderer bindRenderer:nil];
+}
 
-    _renderer = nil;
+- (void)updateShaderUniformsFromEffect
+{
+    // Initialize the shader uniforms dictionary with the node's main texture and an
+    // empty entry for the normal map (because effect node's don't have normal maps
+    // like sprites do).
+    _shaderUniforms = [@{ CCShaderUniformMainTexture : (_texture ?: [CCTexture none]),
+                          CCShaderUniformNormalMapTexture : [CCTexture none]
+                          } mutableCopy];
+    
+    // And then copy the new effect's uniforms into the node's uniforms dictionary.
+    [_shaderUniforms addEntriesFromDictionary:_effect.effectImpl.shaderUniforms];
 }
 
 @end
-#endif

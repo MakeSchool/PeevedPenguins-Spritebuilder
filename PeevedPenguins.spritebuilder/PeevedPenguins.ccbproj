@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>cocos2dUpdateIgnoredVersions</key>
-	<array/>
+	<array>
+		<string>3.1.1</string>
+	</array>
 	<key>defaultOrientation</key>
 	<integer>0</integer>
 	<key>designTarget</key>
@@ -20,16 +22,14 @@
 	<integer>0</integer>
 	<key>engine</key>
 	<integer>0</integer>
+	<key>excludedFromPackageMigration</key>
+	<false/>
 	<key>exporter</key>
 	<string>ccbi</string>
 	<key>fileType</key>
 	<string>CocosBuilderProject</string>
 	<key>fileVersion</key>
 	<integer>1</integer>
-	<key>flattenPaths</key>
-	<false/>
-	<key>needRepublish</key>
-	<false/>
 	<key>onlyPublishCCBs</key>
 	<false/>
 	<key>publishAudioQuality_android</key>
@@ -70,7 +70,7 @@
 	<array>
 		<dict>
 			<key>path</key>
-			<string>SpriteBuilder Resources</string>
+			<string>Packages/SpriteBuilder Resources.sbpack</string>
 		</dict>
 	</array>
 	<key>resourceProperties</key>
@@ -176,8 +176,9 @@
 		</dict>
 	</dict>
 	<key>versionStr</key>
-	<string>Version: 1.1.0-rc
-GitHub: 12746019b4
+	<string>revision : eea568a5c7
+sku : default
+version : 1.4.9
 </string>
 </dict>
 </plist>

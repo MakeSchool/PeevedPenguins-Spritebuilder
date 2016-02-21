@@ -26,10 +26,11 @@
 #import <Foundation/Foundation.h>
 #import "CCRenderer.h"
 #import "CCCache.h"
+#import "CCRenderDispatch.h"
+#import "CCRendererBasicTypes_Private.h"
 
-
-extern id CCBLENDMODE_CACHE;
-extern id CCRENDERSTATE_CACHE;
+/// Options dictionary for the disabled blending mode.
+extern NSDictionary *CCBLEND_DISABLED_OPTIONS;
 
 
 /**
@@ -55,10 +56,72 @@ extern id CCRENDERSTATE_CACHE;
 @end
 
 
-@interface CCRenderer()
+@interface CCBlendMode(){
+	@public
+	NSDictionary *_options;
+}
+
+/// Remove unused blend modes from the internal cache.
++(void)flushCache;
+
+@end
+
+
+typedef NS_ENUM(NSUInteger, CCRenderCommandDrawMode){
+	CCRenderCommandDrawTriangles,
+	CCRenderCommandDrawLines,
+	// TODO more?
+};
+
+
+@interface CCRenderCommandDraw : NSObject<CCRenderCommand> {
+	@public
+	CCRenderCommandDrawMode _mode;
+	CCRenderState *_renderState;
+	NSInteger _globalSortOrder;
+	
+	NSUInteger _firstIndex, _vertexPage;
+	size_t _count;
+}
+
+@property(nonatomic, readonly) NSUInteger first;
+@property(nonatomic, readonly) size_t count;
+
+-(instancetype)initWithMode:(CCRenderCommandDrawMode)mode renderState:(CCRenderState *)renderState firstIndex:(NSUInteger)firstIndex vertexPage:(NSUInteger)vertexPage count:(size_t)count globalSortOrder:(NSInteger)globalSortOrder;
+
+-(void)batch:(NSUInteger)count;
+
+@end
+
+
+@interface CCRenderer(){
+	@public
+	CCGraphicsBufferBindings *_buffers;
+	
+	CCFrameBufferObject *_framebuffer;
+	
+	NSDictionary *_globalShaderUniforms;
+	NSDictionary *_globalShaderUniformBufferOffsets;
+	
+	NSMutableArray *_queue;
+	NSMutableArray *_queueStack;
+	
+	// Handle clearing specially if it's the very first command.
+	GLbitfield _clearMask;
+	GLKVector4 _clearColor;
+	GLclampf _clearDepth;
+	GLint _clearStencil;
+	
+	// Current renderer bindings for fast state checking.
+	// Invalidated at the end of each frame.
+	__unsafe_unretained CCRenderState *_renderState;
+	__unsafe_unretained CCRenderCommandDraw *_lastDrawCommand;
+	BOOL _buffersBound;
+	NSUInteger _vertexPageBound;
+}
 
 /// Current global shader uniform values.
-@property(nonatomic, copy) NSDictionary *globalShaderUniforms;
+@property(nonatomic, readonly) NSDictionary *globalShaderUniforms;
 
 /// Retrieve the current renderer for the current thread.
 +(instancetype)currentRenderer;
@@ -73,3 +136,35 @@ extern id CCRENDERSTATE_CACHE;
 -(void)flush;
 
 @end
+
+
+@interface CCRenderer(NoARCPrivate)
+
+-(void)prepareWithProjection:(const GLKMatrix4 *)projection framebuffer:(CCFrameBufferObject *)framebuffer;
+
+-(void)setRenderState:(CCRenderState *)renderState;
+
+/// Bind the renderer's VAO if it is not currently bound.
+-(void)bindBuffers:(BOOL)bind vertexPage:(NSUInteger)vertexPage;
+
+@end
+
+
+// Cross-graphics API debug helpers.
+// Should these be made public to replace the existing GL ones?
+
+#if DEBUG
+
+void CCRENDERER_DEBUG_PUSH_GROUP_MARKER(NSString *label);
+void CCRENDERER_DEBUG_POP_GROUP_MARKER(void);
+void CCRENDERER_DEBUG_INSERT_EVENT_MARKER(NSString *label);
+void CCRENDERER_DEBUG_CHECK_ERRORS(void);
+
+#else
+
+#define CCRENDERER_DEBUG_PUSH_GROUP_MARKER(__label__);
+#define CCRENDERER_DEBUG_POP_GROUP_MARKER();
+#define CCRENDERER_DEBUG_INSERT_EVENT_MARKER(__label__);
+#define CCRENDERER_DEBUG_CHECK_ERRORS();
+
+#endif

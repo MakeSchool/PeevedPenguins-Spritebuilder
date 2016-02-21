@@ -39,10 +39,27 @@
  cocos2d helper macros
  */
 
-#ifdef __IPHONE_OS_VERSION_MAX_ALLOWED
+#if defined(__IPHONE_OS_VERSION_MAX_ALLOWED) && !defined(COCOS2D_ANDROID)
 #define __CC_PLATFORM_IOS 1
-#elif defined(__MAC_OS_X_VERSION_MAX_ALLOWED)
+#define __CC_PLATFORM_MAC 0
+#define __CC_PLATFORM_ANDROID_FIXME 1
+#elif defined(__MAC_OS_X_VERSION_MAX_ALLOWED) && !defined(COCOS2D_ANDROID)
 #define __CC_PLATFORM_MAC 1
+#define __CC_PLATFORM_IOS 0
+#endif
+
+#ifdef COCOS2D_ANDROID
+#define __CC_PLATFORM_MAC 0
+#define __CC_PLATFORM_IOS 0
+#define __CC_PLATFORM_ANDROID 1
+#define __CC_PLATFORM_ANDROID_FIXME 1
+#endif
+
+// Metal is only supported on iOS devices (currently does not include the simulator) and on iOS 8 and greater.
+#if __CC_PLATFORM_IOS && defined(__IPHONE_8_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_8_0
+#define __CC_METAL_SUPPORTED_AND_ENABLED (CC_ENABLE_METAL_RENDERING && !TARGET_IPHONE_SIMULATOR)
+#else
+#define __CC_METAL_SUPPORTED_AND_ENABLED 0
 #endif
 
 /*
@@ -125,7 +142,7 @@ CCRANDOM_ON_UNIT_CIRCLE()
 	while(TRUE){
 		CGPoint p = ccp(CCRANDOM_MINUS1_1(), CCRANDOM_MINUS1_1());
 		CGFloat lsq = ccpLengthSQ(p);
-		if(0.1 < lsq && lsq < 1.0f) return ccpMult(p, 1.0/sqrt(lsq));
+		if(0.1 < lsq && lsq < 1.0) return ccpMult(p, (CGFloat)(1.0/sqrt(lsq)));
 	}
 }
 

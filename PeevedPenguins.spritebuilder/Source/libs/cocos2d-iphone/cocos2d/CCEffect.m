@@ -8,10 +8,18 @@
 
 #import "CCEffect.h"
 #import "CCEffect_Private.h"
-#import "CCtexture.h"
+#import "CCTexture.h"
 
-#if CC_ENABLE_EXPERIMENTAL_EFFECTS
-const NSString *CCShaderUniformPreviousPassTexture = @"cc_PreviousPassTexture";
+NSString * const CCShaderUniformPreviousPassTexture = @"cc_PreviousPassTexture";
+NSString * const CCShaderUniformTexCoord1Center     = @"cc_FragTexCoord1Center";
+NSString * const CCShaderUniformTexCoord1Extents    = @"cc_FragTexCoord1Extents";
+NSString * const CCShaderUniformTexCoord2Center     = @"cc_FragTexCoord2Center";
+NSString * const CCShaderUniformTexCoord2Extents    = @"cc_FragTexCoord2Extents";
+
+NSString * const CCEffectDefaultInitialInputSnippet = @"cc_FragColor * texture2D(cc_PreviousPassTexture, cc_FragTexCoord1);\nvec2 compare = cc_FragTexCoord1Extents - abs(cc_FragTexCoord1 - cc_FragTexCoord1Center);\ntmp *= step(0.0, min(compare.x, compare.y))";
+NSString * const CCEffectDefaultInputSnippet = @"texture2D(cc_PreviousPassTexture, cc_FragTexCoord1);\nvec2 compare = cc_FragTexCoord1Extents - abs(cc_FragTexCoord1 - cc_FragTexCoord1Center);\ntmp *= step(0.0, min(compare.x, compare.y))";
+
+const CCEffectPrepareResult CCEffectPrepareNoop     = { CCEffectPrepareSuccess, CCEffectPrepareNothingChanged };
 
 static NSString* fragBase =
 @"%@\n\n"   // uniforms
@@ -36,34 +44,87 @@ static NSString* vertBase =
 
 @implementation CCEffectFunction
 
--(id)initWithName:(NSString *)name body:(NSString*)body returnType:(NSString *)returnType
+-(id)initWithName:(NSString *)name body:(NSString*)body inputs:(NSArray*)inputs returnType:(NSString *)returnType
 {
     if((self = [super init]))
     {
+        NSAssert(inputs.count <= 1, @"Effect functions currently only support 0 or 1 inputs.");
+        
         _body = [body copy];
         _name = [name copy];
+        _inputs = [inputs copy];
         _returnType = [returnType copy];
+
+        _inputString = @"void";
+        if (_inputs.count)
+        {
+            NSMutableString *tmpString = [[NSMutableString alloc] init];
+            for (CCEffectFunctionInput *input in _inputs)
+            {
+                [tmpString appendFormat:@"%@ %@", input.type, input.name];
+            }
+            _inputString = tmpString;
+        }
+        
         return self;
     }
     
     return self;
 }
 
-+(id)functionWithName:(NSString*)name body:(NSString*)body returnType:(NSString*)returnType
++(instancetype)functionWithName:(NSString*)name body:(NSString*)body inputs:(NSArray*)inputs returnType:(NSString*)returnType
 {
-    return [[self alloc] initWithName:name body:body returnType:returnType];
+    return [[self alloc] initWithName:name body:body inputs:inputs returnType:returnType];
 }
 
 -(NSString*)function
 {
-    NSString* function = [NSString stringWithFormat:@"%@ %@(void)\n{\n%@\n}", _returnType, _name, _body];
+    NSString* function = [NSString stringWithFormat:@"%@ %@(%@)\n{\n%@\n}", _returnType, _name, _inputString, _body];
     return function;
 }
 
--(NSString*)method
+-(NSString*)callStringWithInputs:(NSArray*)inputs
 {
-    NSString* method = [NSString stringWithFormat:@"%@()", _name];
-    return method;
+    NSMutableString *callString = [[NSMutableString alloc] initWithFormat:@"%@(", _name];
+    for (NSString *input in inputs)
+    {
+        if ([inputs lastObject] != input)
+        {
+            [callString appendFormat:@"%@, ", input];
+        }
+        else
+        {
+            [callString appendFormat:@"%@", input];
+        }
+    }
+    [callString appendString:@")"];
+    
+    return callString;
+}
+
+@end
+
+#pragma mark CCEffectFunctionInput
+
+@implementation CCEffectFunctionInput
+
+-(id)initWithType:(NSString*)type name:(NSString*)name initialSnippet:(NSString*)initialSnippet snippet:(NSString*)snippet
+{
+    if((self = [super init]))
+    {
+        _type = [type copy];
+        _name = [name copy];
+        _initialSnippet = [initialSnippet copy];
+        _snippet = [snippet copy];
+        return self;
+    }
+    
+    return self;
+}
+
++(instancetype)inputWithType:(NSString*)type name:(NSString*)name initialSnippet:(NSString*)initialSnippet snippet:(NSString*)snippet
+{
+    return [[self alloc] initWithType:type name:name initialSnippet:initialSnippet snippet:snippet];
 }
 
 @end
@@ -86,7 +147,7 @@ static NSString* vertBase =
     return self;
 }
 
-+(id)uniform:(NSString*)type name:(NSString*)name value:(NSValue*)value
++(instancetype)uniform:(NSString*)type name:(NSString*)name value:(NSValue*)value
 {
     return [[self alloc] initWithType:type name:name value:value];
 }
@@ -105,10 +166,26 @@ static NSString* vertBase =
 
 -(id)initWithType:(NSString*)type name:(NSString*)name
 {
+    if((self = [self initWithType:type name:name count:0]))
+    {
+        return self;
+    }
+    
+    return self;
+}
+
++(instancetype)varying:(NSString*)type name:(NSString*)name
+{
+    return [[self alloc] initWithType:type name:name];
+}
+
+-(id)initWithType:(NSString*)type name:(NSString*)name count:(NSInteger)count
+{
     if((self = [super init]))
     {
-        _name = [name copy];
-        _type = [type copy];
+        _name = name;
+        _type = type;
+        _count = count;
         
         return self;
     }
@@ -116,18 +193,61 @@ static NSString* vertBase =
     return self;
 }
 
-+(id)varying:(NSString*)type name:(NSString*)name
++(instancetype)varying:(NSString*)type name:(NSString*)name count:(NSInteger)count
 {
-    return [[self alloc] initWithType:type name:name];
+    return [[self alloc] initWithType:type name:name count:count];
 }
+
 
 -(NSString*)declaration
 {
-    NSString* declaration = [NSString stringWithFormat:@"varying %@ %@;", _type, _name];
+    NSString* declaration;
+
+    if(_count == 0)
+        declaration = [NSString stringWithFormat:@"varying %@ %@;", _type, _name];
+    else
+        declaration = [NSString stringWithFormat:@"varying %@ %@[%lu];", _type, _name, (long)_count];
+    
     return declaration;
 }
 
 @end
+
+
+#pragma mark CCEffectRenderPassInputs
+
+@implementation CCEffectRenderPassInputs
+
+-(id)init
+{
+    return [super init];
+}
+
+@end
+
+
+#pragma mark CCEffectRenderPassBeginBlockContext
+
+@implementation CCEffectRenderPassBeginBlockContext
+
+-(id)initWithBlock:(CCEffectRenderPassBeginBlock)block;
+{
+    if (self = [super init])
+    {
+        _block = [block copy];
+    }
+    return self;
+}
+
+-(instancetype)copyWithZone:(NSZone *)zone
+{
+    CCEffectRenderPassBeginBlockContext *newContext = [[CCEffectRenderPassBeginBlockContext allocWithZone:zone] initWithBlock:_block];
+    newContext.uniformTranslationTable = _uniformTranslationTable;
+    return newContext;
+}
+
+@end
+
 
 #pragma mark CCEffectRenderPass
 
@@ -135,21 +255,28 @@ static NSString* vertBase =
 
 -(id)init
 {
+    return [self initWithIndex:0];
+}
+
+-(id)initWithIndex:(NSUInteger)indexInEffect
+{
     if((self = [super init]))
     {
-        __weak CCEffectRenderPass *weakSelf = self;
+        _indexInEffect = indexInEffect;
         
-        _beginBlock = [^(CCTexture *previousPassTexture){} copy];
-        _endBlock = [^{} copy];
+        _texCoord1Mapping = CCEffectTexCoordMapPreviousPassTex;
+        _texCoord2Mapping = CCEffectTexCoordMapCustomTex;
+        
+        _beginBlocks = @[[[CCEffectRenderPassBeginBlockContext alloc] initWithBlock:^(CCEffectRenderPass *pass, CCEffectRenderPassInputs *passInputs){}]];
 
-        CCEffectRenderPassUpdateBlock updateBlock = ^{
-            if (weakSelf.needsClear)
+        CCEffectRenderPassUpdateBlock updateBlock = ^(CCEffectRenderPass *pass, CCEffectRenderPassInputs *passInputs){
+            if (passInputs.needsClear)
             {
-                [weakSelf.renderer enqueueClear:GL_COLOR_BUFFER_BIT color:[CCColor clearColor].glkVector4 depth:0.0f stencil:0 globalSortOrder:NSIntegerMin];
+                [passInputs.renderer enqueueClear:GL_COLOR_BUFFER_BIT color:[CCColor clearColor].glkVector4 depth:0.0f stencil:0 globalSortOrder:NSIntegerMin];
             }
-            [weakSelf enqueueTriangles];
+            [pass enqueueTriangles:passInputs];
         };
-        _updateBlock = [updateBlock copy];
+        _updateBlocks = @[[updateBlock copy]];
         _blendMode = [CCBlendMode premultipliedAlphaMode];
         
         return self;
@@ -158,16 +285,47 @@ static NSString* vertBase =
     return self;
 }
 
-//
--(void)enqueueTriangles
+-(instancetype)copyWithZone:(NSZone *)zone
 {
-    CCRenderState *renderState = [[CCRenderState alloc] initWithBlendMode:_blendMode shader:_shader shaderUniforms:_shaderUniforms];
+	CCEffectRenderPass *newPass = [[CCEffectRenderPass allocWithZone:zone] initWithIndex:_indexInEffect];
+    newPass.texCoord1Mapping = _texCoord1Mapping;
+    newPass.texCoord2Mapping = _texCoord2Mapping;
+    newPass.blendMode = _blendMode;
+    newPass.shader = _shader;
+    newPass.beginBlocks = [_beginBlocks copy];
+    newPass.updateBlocks = [_updateBlocks copy];
+    newPass.debugLabel = _debugLabel;
+    return newPass;
+}
+
+-(void)begin:(CCEffectRenderPassInputs *)passInputs
+{
+    for (CCEffectRenderPassBeginBlockContext *blockContext in _beginBlocks)
+    {
+        passInputs.uniformTranslationTable = blockContext.uniformTranslationTable;
+        blockContext.block(self, passInputs);
+    }
+}
+
+-(void)update:(CCEffectRenderPassInputs *)passInputs
+{
+    for (CCEffectRenderPassUpdateBlock block in _updateBlocks)
+    {
+        block(self, passInputs);
+    }
+}
+
+-(void)enqueueTriangles:(CCEffectRenderPassInputs *)passInputs
+{
+    CCRenderState *renderState = [CCRenderState renderStateWithBlendMode:_blendMode shader:_shader shaderUniforms:passInputs.shaderUniforms copyUniforms:YES];
     
-    CCRenderBuffer buffer = [_renderer enqueueTriangles:2 andVertexes:4 withState:renderState globalSortOrder:0];
-	CCRenderBufferSetVertex(buffer, 0, CCVertexApplyTransform(_verts.bl, &_transform));
-	CCRenderBufferSetVertex(buffer, 1, CCVertexApplyTransform(_verts.br, &_transform));
-	CCRenderBufferSetVertex(buffer, 2, CCVertexApplyTransform(_verts.tr, &_transform));
-	CCRenderBufferSetVertex(buffer, 3, CCVertexApplyTransform(_verts.tl, &_transform));
+    GLKMatrix4 transform = passInputs.transform;
+    CCRenderBuffer buffer = [passInputs.renderer enqueueTriangles:2 andVertexes:4 withState:renderState globalSortOrder:0];
+
+    CCRenderBufferSetVertex(buffer, 0, CCVertexApplyTransform(passInputs.verts.bl, &transform));
+	CCRenderBufferSetVertex(buffer, 1, CCVertexApplyTransform(passInputs.verts.br, &transform));
+	CCRenderBufferSetVertex(buffer, 2, CCVertexApplyTransform(passInputs.verts.tr, &transform));
+	CCRenderBufferSetVertex(buffer, 3, CCVertexApplyTransform(passInputs.verts.tl, &transform));
 	
 	CCRenderBufferSetTriangle(buffer, 0, 0, 1, 2);
 	CCRenderBufferSetTriangle(buffer, 1, 0, 2, 3);
@@ -175,14 +333,18 @@ static NSString* vertBase =
 
 @end
 
-#pragma mark CCEffect
+#pragma mark CCEffectImpl
 
-@implementation CCEffect
+@implementation CCEffectImpl
 
 + (NSArray *)defaultEffectFragmentUniforms
 {
     return @[
-             [CCEffectUniform uniform:@"sampler2D" name:CCShaderUniformPreviousPassTexture value:(NSValue *)[CCTexture none]]
+             [CCEffectUniform uniform:@"sampler2D" name:CCShaderUniformPreviousPassTexture value:(NSValue *)[CCTexture none]],
+             [CCEffectUniform uniform:@"vec2" name:CCShaderUniformTexCoord1Center value:[NSValue valueWithGLKVector2:GLKVector2Make(0.0f, 0.0f)]],
+             [CCEffectUniform uniform:@"vec2" name:CCShaderUniformTexCoord1Extents value:[NSValue valueWithGLKVector2:GLKVector2Make(0.0f, 0.0f)]],
+             [CCEffectUniform uniform:@"vec2" name:CCShaderUniformTexCoord2Center value:[NSValue valueWithGLKVector2:GLKVector2Make(0.0f, 0.0f)]],
+             [CCEffectUniform uniform:@"vec2" name:CCShaderUniformTexCoord2Extents value:[NSValue valueWithGLKVector2:GLKVector2Make(0.0f, 0.0f)]]
             ];
 }
 
@@ -191,200 +353,196 @@ static NSString* vertBase =
     return @[];
 }
 
--(id)init
++ (NSSet *)defaultEffectFragmentUniformNames
+{
+    return [[NSSet alloc] initWithArray:@[
+                                          CCShaderUniformPreviousPassTexture,
+                                          CCShaderUniformTexCoord1Center,
+                                          CCShaderUniformTexCoord1Extents,
+                                          CCShaderUniformTexCoord2Center,
+                                          CCShaderUniformTexCoord2Extents
+                                          ]];
+}
+
++ (NSSet *)defaultEffectVertexUniformNames
+{
+    return [[NSSet alloc] initWithArray:@[]];
+}
+
+-(id)initWithRenderPasses:(NSArray *)renderPasses fragmentFunctions:(NSArray*)fragmentFunctions vertexFunctions:(NSArray*)vertexFunctions fragmentUniforms:(NSArray*)fragmentUniforms vertexUniforms:(NSArray*)vertexUniforms varyings:(NSArray*)varyings firstInStack:(BOOL)firstInStack
 {
     if((self = [super init]))
     {
-        _fragmentUniforms = [[CCEffect defaultEffectFragmentUniforms] copy];
-        _vertexUniforms = [[CCEffect defaultEffectVertexUniforms] copy];
-        _fragmentFunctions = [[NSMutableArray alloc] init];
-        _vertexFunctions = [[NSMutableArray alloc] init];
+        if (fragmentFunctions)
+        {
+            _fragmentFunctions = [fragmentFunctions copy];
+        }
+        else
+        {
+            _fragmentFunctions = @[[[CCEffectFunction alloc] initWithName:@"defaultEffect" body:@"return cc_FragColor;" inputs:nil returnType:@"vec4"]];
+        }
         
-        [self buildFragmentFunctions];
-        [self buildVertexFunctions];
-        [self buildEffectShader];
-        [self buildRenderPasses];
+        if (vertexFunctions)
+        {
+            _vertexFunctions = [vertexFunctions copy];
+        }
+        else
+        {
+            _vertexFunctions = @[[[CCEffectFunction alloc] initWithName:@"defaultEffect" body:@"return cc_Position;" inputs:nil returnType:@"vec4"]];
+        }
         
-        return self;
+        _fragmentUniforms = [[CCEffectImpl defaultEffectFragmentUniforms] arrayByAddingObjectsFromArray:fragmentUniforms];
+        _vertexUniforms = [[CCEffectImpl defaultEffectVertexUniforms] arrayByAddingObjectsFromArray:vertexUniforms];
+        _varyingVars = [varyings copy];
+        
+        _stitchFlags = CCEffectFunctionStitchBoth;
+        _firstInStack = firstInStack;
+        
+        _shaderUniforms = [CCEffectImpl buildShaderUniforms:_fragmentUniforms vertexUniforms:_vertexUniforms];
+        
+        // Create a default UTT.
+        NSDictionary *uniformTranslationTable = [CCEffectImpl buildUniformTranslationTable:_fragmentUniforms vertexUniforms:_vertexUniforms];
+        
+        NSString *fragBody = [CCEffectImpl buildShaderSourceFromBase:fragBase functions:_fragmentFunctions uniforms:_fragmentUniforms varyings:_varyingVars firstInStack:_firstInStack];
+        NSString *vertBody = [CCEffectImpl buildShaderSourceFromBase:vertBase functions:_vertexFunctions uniforms:_vertexUniforms varyings:_varyingVars firstInStack:_firstInStack];
+
+//        NSLog(@"\n------------vertBody:\n%@", vertBody);
+//        NSLog(@"\n------------fragBody:\n%@", fragBody);
+        
+        _shader = [[CCShader alloc] initWithVertexShaderSource:vertBody fragmentShaderSource:fragBody];
+        if (!_shader)
+        {
+            return nil;
+        }
+        
+        _renderPasses = [renderPasses copy];
+        for (CCEffectRenderPass *pass in _renderPasses)
+        {
+            pass.shader = _shader;
+            
+            // If a uniform translation table is not set already, set it to the default.
+            for (CCEffectRenderPassBeginBlockContext *blockContext in pass.beginBlocks)
+            {
+                if (!blockContext.uniformTranslationTable)
+                {
+                    blockContext.uniformTranslationTable = uniformTranslationTable;
+                }
+            }
+        }
     }
-    
     return self;
 }
 
--(id)initWithUniforms:(NSArray*)fragmentUniforms vertextUniforms:(NSArray*)vertexUniforms varying:(NSArray*)varying
+-(id)initWithRenderPasses:(NSArray *)renderPasses fragmentFunctions:(NSArray*)fragmentFunctions vertexFunctions:(NSArray*)vertexFunctions fragmentUniforms:(NSArray*)fragmentUniforms vertexUniforms:(NSArray*)vertexUniforms varyings:(NSArray*)varyings
+{
+    return [self initWithRenderPasses:renderPasses fragmentFunctions:fragmentFunctions vertexFunctions:vertexFunctions fragmentUniforms:fragmentUniforms vertexUniforms:vertexUniforms varyings:varyings firstInStack:YES];
+}
+
+-(id)initWithRenderPasses:(NSArray *)renderPasses shaderUniforms:(NSMutableDictionary *)uniforms
 {
     if((self = [super init]))
     {
-        _fragmentUniforms = [[CCEffect defaultEffectFragmentUniforms] arrayByAddingObjectsFromArray:fragmentUniforms];
-        _vertexUniforms = [[CCEffect defaultEffectVertexUniforms] arrayByAddingObjectsFromArray:vertexUniforms];
-        _varyingVars = [varying copy];
-        _fragmentFunctions = [[NSMutableArray alloc] init];
-        _vertexFunctions = [[NSMutableArray alloc] init];
-        
-        [self buildShaderUniforms:_fragmentUniforms vertexUniforms:_vertexUniforms];
-        [self buildFragmentFunctions];
-        [self buildVertexFunctions];
-        [self buildEffectShader];
-        [self buildRenderPasses];
-        
-        return self;
+        _renderPasses = [renderPasses copy];
+        _shaderUniforms = [uniforms copy];
     }
-    
     return self;
 }
 
--(id)initWithFragmentFunction:(NSMutableArray*) fragmentFunctions fragmentUniforms:(NSArray*)fragmentUniforms vertextUniforms:(NSArray*)vertexUniforms varying:(NSArray*)varying
++ (NSString *)buildShaderSourceFromBase:(NSString *)shaderBase functions:(NSArray *)functions uniforms:(NSArray *)uniforms varyings:(NSArray *)varyings firstInStack:(BOOL)firstInStack
 {
-    if((self = [super init]))
+    // Build the varying string
+    NSMutableString* varyingString = [[NSMutableString alloc] init];
+    for(CCEffectVarying* varying in varyings)
     {
-        _fragmentUniforms = [[CCEffect defaultEffectFragmentUniforms] arrayByAddingObjectsFromArray:fragmentUniforms];
-        _vertexUniforms = [[CCEffect defaultEffectVertexUniforms] arrayByAddingObjectsFromArray:vertexUniforms];
-        _fragmentFunctions = fragmentFunctions;
-        _varyingVars = [varying copy];
-        [self buildShaderUniforms:_fragmentUniforms vertexUniforms:_vertexUniforms];
-        [self buildVertexFunctions];
-        [self buildEffectShader];
-        [self buildRenderPasses];
-        
-        return self;
+        [varyingString appendFormat:@"%@\n", varying.declaration];
     }
     
-    return self;
-}
-
--(id)initWithFragmentFunction:(NSMutableArray*) fragmentFunctions vertexFunctions:(NSMutableArray*)vertextFunctions fragmentUniforms:(NSArray*)fragmentUniforms vertextUniforms:(NSArray*)vertexUniforms varying:(NSArray*)varying
-{
-    if((self = [super init]))
+    // Build the uniform string
+    NSMutableString* uniformString = [[NSMutableString alloc] init];
+    for(CCEffectUniform* uniform in uniforms)
     {
-        _fragmentUniforms = [[CCEffect defaultEffectFragmentUniforms] arrayByAddingObjectsFromArray:fragmentUniforms];
-        _vertexUniforms = [[CCEffect defaultEffectVertexUniforms] arrayByAddingObjectsFromArray:vertexUniforms];
-        _fragmentFunctions = fragmentFunctions;
-        _vertexFunctions = vertextFunctions;
-        _varyingVars = [varying copy];
-        [self buildShaderUniforms:_fragmentUniforms vertexUniforms:_vertexUniforms];
-        [self buildEffectShader];
-        [self buildRenderPasses];
-        
-        return self;
+        [uniformString appendFormat:@"%@\n", uniform.declaration];
     }
     
-    return self;
+    // Build the function body strings
+    NSMutableString* functionString = [[NSMutableString alloc] init];
+    NSMutableString* effectFunctionBody = [[NSMutableString alloc] init];
+    [effectFunctionBody appendString:@"vec4 tmp;\n"];
+    
+    for(CCEffectFunction* curFunction in functions)
+    {
+        [functionString appendFormat:@"%@\n", curFunction.function];
+        
+        if([functions firstObject] == curFunction)
+        {
+            if (firstInStack)
+            {
+                for (CCEffectFunctionInput *input in curFunction.inputs)
+                {
+                    [effectFunctionBody appendFormat:@"tmp = %@;\n", input.initialSnippet];
+                }
+            }
+            else
+            {
+                for (CCEffectFunctionInput *input in curFunction.inputs)
+                {
+                    [effectFunctionBody appendFormat:@"tmp = %@;\n", input.snippet];
+                }
+            }
+        }
+        
+        NSMutableArray *inputs = [[NSMutableArray alloc] init];
+        if (curFunction.inputs.count)
+        {
+            [inputs addObject:@"tmp"];
+        }
+        
+        [effectFunctionBody appendFormat:@"tmp = %@;\n", [curFunction callStringWithInputs:inputs]];
+    }
+    [effectFunctionBody appendString:@"return tmp;\n"];
+    
+    CCEffectFunction* effectFunction = [[CCEffectFunction alloc] initWithName:@"effectFunction" body:effectFunctionBody inputs:nil returnType:@"vec4"];
+    [functionString appendFormat:@"%@\n", effectFunction.function];
+    
+    // Put it all together
+    NSString *shaderSource = [NSString stringWithFormat:shaderBase, uniformString, varyingString, functionString, [effectFunction callStringWithInputs:nil]];
+    return shaderSource;
 }
 
--(void)buildShaderUniforms:(NSArray*)fragmentUniforms vertexUniforms:(NSArray*)vertexUniforms
+
++ (NSMutableDictionary *)buildShaderUniforms:(NSArray*)fragmentUniforms vertexUniforms:(NSArray*)vertexUniforms
 {
-    [_shaderUniforms removeAllObjects];
+    NSMutableDictionary *allUniforms = [[NSMutableDictionary alloc] init];
     
     for(CCEffectUniform* uniform in fragmentUniforms)
     {
-        if(_shaderUniforms == nil)
-            _shaderUniforms = [[NSMutableDictionary alloc] init];
-        
-        [_shaderUniforms setObject:uniform.value forKey:uniform.name];
+        [allUniforms setObject:uniform.value forKey:uniform.name];
     }
     
     for(CCEffectUniform* uniform in vertexUniforms)
     {
-        if(_shaderUniforms == nil)
-            _shaderUniforms = [[NSMutableDictionary alloc] init];
-        
-        [_shaderUniforms setObject:uniform.value forKey:uniform.name];
+        [allUniforms setObject:uniform.value forKey:uniform.name];
     }
+    
+    return allUniforms;
 }
 
--(void)buildEffectShader
++ (NSMutableDictionary *)buildUniformTranslationTable:(NSArray*)fragmentUniforms vertexUniforms:(NSArray*)vertexUniforms
 {
-    if(_shader != nil)
-        return;
-    
-    //Build varying vars
-    NSMutableString* varyingVarsToInsert = [[NSMutableString alloc] init];
-    for(CCEffectUniform* varying in _varyingVars)
+    NSMutableDictionary *translationTable = [[NSMutableDictionary alloc] init];
+    for(CCEffectUniform* uniform in vertexUniforms)
     {
-        [varyingVarsToInsert appendFormat:@"%@\n", varying.declaration];
-    }
-
-    
-    // Build fragment body
-    NSMutableString* fragUniforms = [[NSMutableString alloc] init];
-    for(CCEffectUniform* uniform in _fragmentUniforms)
-    {
-        [fragUniforms appendFormat:@"%@\n", uniform.declaration];
+        translationTable[uniform.name] = uniform.name;
     }
     
-    NSMutableString* fragFunctions = [[NSMutableString alloc] init];
-    NSMutableString* effectFunctionBody = [[NSMutableString alloc] init];
-    [effectFunctionBody appendString:@"return "];
-    
-    for(CCEffectFunction* curFunction in _fragmentFunctions)
+    for(CCEffectUniform* uniform in fragmentUniforms)
     {
-        [fragFunctions appendFormat:@"%@\n", curFunction.function];
-        
-        [effectFunctionBody appendString:curFunction.method];
-        if([_fragmentFunctions lastObject] != curFunction)
-            [effectFunctionBody appendString:@" + "];
-        else
-            [effectFunctionBody appendString:@";"];
+        translationTable[uniform.name] = uniform.name;
     }
-    
-    CCEffectFunction* effectFunction = [[CCEffectFunction alloc] initWithName:@"effectFunction" body:effectFunctionBody returnType:@"vec4"];
-    [fragFunctions appendFormat:@"%@\n", effectFunction.function];
-    
-    NSString* fragBody = [NSString stringWithFormat:fragBase, fragUniforms, varyingVarsToInsert, fragFunctions, effectFunction.method];
-    //NSLog(@"\n------------fragBody:\n%@", fragBody);
-    
-    
-    // Build vertex body
-    NSMutableString* vertexUniforms = [[NSMutableString alloc] init];
-    for(CCEffectUniform* uniform in _vertexUniforms)
-    {
-        [vertexUniforms appendFormat:@"%@\n", uniform.declaration];
-    }
-
-    
-    NSMutableString* vertexFunctions = [[NSMutableString alloc] init];
-    effectFunctionBody = [[NSMutableString alloc] init];
-    [effectFunctionBody appendString:@"return "];
-    
-    for(CCEffectFunction* curFunction in _vertexFunctions)
-    {
-        [vertexFunctions appendFormat:@"%@\n", curFunction.function];
-        
-        [effectFunctionBody appendString:curFunction.method];
-        if([_vertexFunctions lastObject] != curFunction)
-            [effectFunctionBody appendString:@" + "];
-        else
-            [effectFunctionBody appendString:@";"];
-    }
-    
-    effectFunction = [[CCEffectFunction alloc] initWithName:@"effectFunction" body:effectFunctionBody returnType:@"vec4"];
-    [vertexFunctions appendFormat:@"%@\n", effectFunction.function];
-    
-    NSString* vertBody = [NSString stringWithFormat:vertBase, vertexUniforms, varyingVarsToInsert, vertexFunctions, effectFunction.method];
-    //NSLog(@"\n------------vertBody:\n%@", vertBody);
-    
-    _shader = [[CCShader alloc] initWithVertexShaderSource:vertBody fragmentShaderSource:fragBody];
-
+    return translationTable;
 }
 
--(void)buildFragmentFunctions
-{
-    CCEffectFunction* fragmentFunction = [[CCEffectFunction alloc] initWithName:@"defaultEffect" body:@"return cc_FragColor;" returnType:@"vec4"];
-    [_fragmentFunctions addObject:fragmentFunction];
-}
-
--(void)buildVertexFunctions
-{
-    CCEffectFunction* vertexFunction = [[CCEffectFunction alloc] initWithName:@"defaultEffect" body:@"return cc_Position;" returnType:@"vec4"];
-    [_vertexFunctions addObject:vertexFunction];
-}
-
--(void)buildRenderPasses
-{
-    self.renderPasses = @[];
-}
-
--(NSInteger)renderPassesRequired
+-(NSUInteger)renderPassCount
 {
     return _renderPasses.count;
 }
@@ -394,19 +552,59 @@ static NSString* vertBase =
     return YES;
 }
 
-- (BOOL)prepareForRendering
+- (CCEffectPrepareResult)prepareForRenderingWithSprite:(CCSprite *)sprite
 {
-    return YES;
+    return CCEffectPrepareNoop;
 }
 
--(CCEffectRenderPass *)renderPassAtIndex:(NSInteger)passIndex
+-(CCEffectRenderPass *)renderPassAtIndex:(NSUInteger)passIndex
 {
-    NSAssert((passIndex >= 0) && (passIndex < _renderPasses.count), @"Pass index out of range.");
-    return _renderPasses[passIndex];;
+    NSAssert((passIndex < _renderPasses.count), @"Pass index out of range.");
+    return _renderPasses[passIndex];
+}
+
+-(BOOL)stitchSupported:(CCEffectFunctionStitchFlags)stitch
+{
+    NSAssert(stitch && ((stitch & CCEffectFunctionStitchBoth) == stitch), @"Invalid stitch flag specified");
+    return ((stitch & _stitchFlags) == stitch);
+}
+
+
+@end
+
+#pragma mark CCEffect
+
+@implementation CCEffect
+
+- (id)init
+{
+    return [super init];
+}
+
+- (BOOL)supportsDirectRendering
+{
+    NSAssert(_effectImpl, @"The effect has a nil implementation. Something is terribly wrong.");
+    return _effectImpl.supportsDirectRendering;
+}
+
+- (NSUInteger)renderPassCount
+{
+    NSAssert(_effectImpl, @"The effect has a nil implementation. Something is terribly wrong.");
+    return _effectImpl.renderPasses.count;
+}
+
+- (CCEffectPrepareResult)prepareForRenderingWithSprite:(CCSprite *)sprite;
+{
+    NSAssert(_effectImpl, @"The effect has a nil implementation. Something is terribly wrong.");
+    return [_effectImpl prepareForRenderingWithSprite:sprite];
+}
+
+- (CCEffectRenderPass *)renderPassAtIndex:(NSUInteger)passIndex
+{
+    NSAssert(_effectImpl, @"The effect has a nil implementation. Something is terribly wrong.");
+    return [_effectImpl renderPassAtIndex:passIndex];
 }
 
 @end
-#endif
-
 
 

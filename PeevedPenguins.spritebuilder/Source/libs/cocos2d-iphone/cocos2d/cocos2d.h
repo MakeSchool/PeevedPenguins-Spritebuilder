@@ -40,9 +40,9 @@
  */
 
 // 0x00 HI ME LO
-// 00   03 00 00
-#define COCOS2D_VERSION 0x00030100
-#define COCOS2D_BUILD @"rc1"
+// 00   03 01 01
+#define COCOS2D_VERSION 0x00030403
+#define COCOS2D_BUILD @"develop"
 //
 // all cocos2d include files
 //
@@ -62,8 +62,25 @@
 #import "CCConfiguration.h"
 #import "CCDirector.h"
 #import "CCDrawNode.h"
+#import "CCEffect.h"
+#import "CCEffectBloom.h"
+#import "CCEffectBrightness.h"
+#import "CCEffectColorChannelOffset.h"
+#import "CCEffectContrast.h"
+#import "CCEffectBlur.h"
+#import "CCEffectGlass.h"
+#import "CCEffectDropShadow.h"
+#import "CCEffectHue.h"
+#import "CCEffectLighting.h"
+#import "CCEffectNode.h"
+#import "CCEffectPixellate.h"
+#import "CCEffectReflection.h"
+#import "CCEffectRefraction.h"
+#import "CCEffectSaturation.h"
+#import "CCEffectStack.h"
 #import "CCLabelBMFont.h"
 #import "CCLabelTTF.h"
+#import "CCLightNode.h"
 #import "CCMotionStreak.h"
 #import "CCNode+Debug.h"
 #import "CCNode.h"
@@ -86,6 +103,16 @@
 #import "CCTiledMapLayer.h"
 #import "CCTiledMapObjectGroup.h"
 #import "CCTransition.h"
+#import "CCPackageManager.h"
+#import "CCPackage.h"
+
+#if CC_EFFECTS_EXPERIMENTAL
+#import "CCEffectOutline.h"
+#import "CCEffectDFOutline.h"
+#import "CCEffectDistanceField.h"
+#import "CCEffectDFInnerGlow.h"
+#import "CCEffectStereo.h"
+#endif
 
 // Layouts
 #import "CCLayout.h"
@@ -104,7 +131,7 @@
 #import "OALSimpleAudio.h"
 
 // Retiring
-//#import "CCAnimation.h"
+#import "CCAnimation.h" // put this back for v3.4 because it's still in use, and would otherwise be unavailable to Swift
 //#import "CCAnimationCache.h"
 //#import "CCActionManager.h"
 //#import "ccFPSImages.h"
@@ -125,17 +152,25 @@
 #import "Platforms/CCGL.h"
 #import "Platforms/CCNS.h"
 
-#ifdef __CC_PLATFORM_IOS
+#if __CC_PLATFORM_IOS
 #import "CCAppDelegate.h"
 #import "Platforms/iOS/CCGLView.h"
 #import "Platforms/iOS/CCDirectorIOS.h"
-#import "Platforms/iOS/UITouch+CC.h"
+//#import "Platforms/iOS/PlatformTouch+CC.h"
 
-#elif defined(__CC_PLATFORM_MAC)
+#elif __CC_PLATFORM_MAC
 #import "Platforms/Mac/CCGLView.h"
 #import "Platforms/Mac/CCDirectorMac.h"
 #import "Platforms/Mac/CCWindow.h"
 #import "Platforms/Mac/NSEvent+CC.h"
+
+#elif __CC_PLATFORM_ANDROID
+#import "Platforms/Android/CCActivity.h"
+#import "Platforms/Android/CCGLView.h"
+#import "Platforms/Android/CCDirectorAndroid.h"
+
+#import <android/native_window.h>
+#import <bridge/runtime.h>
 #endif
 
 //
@@ -163,7 +198,7 @@ NSString * cocos2dVersion(void);
 #endif
 
 	
-#ifdef __CC_PLATFORM_IOS
+#if __CC_PLATFORM_IOS
 #ifndef __IPHONE_4_0
 #error "If you are targeting iPad, you should set BASE SDK = 4.0 (or 4.1, or 4.2), and set the 'iOS deploy target' = 3.2"
 #endif
